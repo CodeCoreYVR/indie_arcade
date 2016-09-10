@@ -1,6 +1,13 @@
 class GamesController < ApplicationController
   def index
+    @tags = Tag.all
+    if params[:search]
+      @games = User.search(params[:search]).includes(:games).map(&:games).flatten
+    else
+    @games = Game.all
+    end
   end
+
 
   def show
     find_game
@@ -16,5 +23,4 @@ class GamesController < ApplicationController
   def find_game
     @game = Game.find params[:id]
   end
-
 end
