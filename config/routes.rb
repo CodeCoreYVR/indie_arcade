@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :games, only: [:show] do
+  resources :games do
     resources :reviews, only: [:show]
   end
 
