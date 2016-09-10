@@ -1,9 +1,14 @@
-  TAGGINGS_TO_CREATE = 2000
 
+20.times do
+	Game.create({title: Faker::StarWars.specie, cpu: (rand()*100+1), gpu: (rand()*50+1), ram: (4+rand()*17), size: (1+ rand()*4), current_status: "Pending" })
+end
 
-  TAGGINGS_TO_CREATE.times do
-    t = Tagging.create(game_id: rand(60)+1,
-                    tag_id: 1+rand(8))
-  end
+p "done."
 
-  puts "Created #{TAGGINGS_TO_CREATE} taggings"
+TAGGINGS_TO_CREATE = 2000
+TAGGINGS_TO_CREATE.times do
+  t = Tagging.create(game_id: rand(60)+1,
+                  tag_id: 1+rand(8))
+end
+
+puts "Created #{TAGGINGS_TO_CREATE} taggings"
