@@ -30,7 +30,11 @@ $(document).ready(function() {
         console.log(event.which);
     });
 
-    $('#search').click(function() {
+    $('.game-search').click(function() {
         $('#search-wrapper').toggleClass('moved');
+    })
+
+    $('#search-bar').click(function(event){
+      event.stopPropagation();
     })
 })
