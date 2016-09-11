@@ -24,6 +24,7 @@ body {
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
    font-size: 12px;
+   min-height: 500px;
 }
 
 hr {
@@ -115,6 +116,7 @@ a:hover {
   top: 50px !important;
 }
 
+
 // END NAVBAR SYLING
 
 // FOOTER
@@ -130,7 +132,6 @@ a:hover {
   font-family: 'Prompt', sans-serif;
   color: white;
   font-size: 12px;
-  margin-bottom: 0px;
 }
 
 .home-footer-left div {
