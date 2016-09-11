@@ -1,52 +1,62 @@
 <body id="contactbody">
   <div class="container">
     <div id="contactheader">Contact</div>
-    <br>
 
-    <div id="contactemail">
-      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-      Email
-      <br>
-      support@indiearcade.com
-      <br>
-      corporate@indiearcade.com
+    <div class="row row-centered">
+      <div class="col-xs-3 col-centered">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        Email
+        <br>
+        <br>
+        <div class="smallerfont">
+          support@indiearcade.com
+          <br>
+          corporate@indiearcade.com
+        </div>
+      </div>
+
+      <div class="col-xs-3 col-centered">
+        <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+        Phone Support
+        <br>
+        <br>
+        <div class="smallerfont">778-XXX-XXXX</div>
+      </div>
+
+      <div class="col-xs-3 col-centered">
+        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+        Hours of Operation
+        <br>
+        <br>
+          <div class="smallerfont">
+          Monday-Friday: 8:30 AM to 9:00 PM (5:30 PM Vancouver)
+          <br>
+          Closed: Saturday, Sunday and National Holidays
+          </div>
+      </div>
     </div>
-
-    <div id="contactphone">
-      <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-      Phone Support
-      <br>
-      778-XXX-XXXX
-    </div>
-
-    <div id="contacthours">
-      <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
-      Hours of Operation
-      <br>
-      Monday-Friday: 8:30 AM to 9:00 PM (5:30 PM Vancouver)
-      <br>
-      Closed: Saturday, Sunday and National Holidays
-    </div>
-
-  </div>
 
   <hr id= "hrcontact">
-
-  <div class="container">
+  <br>
     <div id="leavemess">Leave a message</div>
-    <div class="form-control1", class="form-group1">
-      <%= @message.errors.full_messages.join(", ") if @message.errors.empty? %>
-      <%= simple_form_for @message, url: message_home_path do |f| %>
-      <%= f.input :emailadd, placeholder:"Email", label: false %>
-      <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, placeholder:"Message", label: false %>
-    </div>
-    <div>
-      <%= f.button :submit %>
-    </div>
-    <% end %>
+    <br>
+    <div id="marginend">
+      <div id="container-medium">
+        <div class="form-control1", class="form-group1">
+          <%= @message.errors.full_messages.join(", ") if @message.errors.empty? %>
+          <%= simple_form_for @message, url: message_home_path do |f| %>
+          <%= f.input :emailadd, placeholder:"Email", label: false %>
+          <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, placeholder:"Message", label: false %>
+        </div>
+
+        <div>
+          <%= f.button :submit%>
+        </div>
+        <% end %>
+      </div>
   </div>
 
-  <div>
+  <!-- <div>
     <% if @messages %>
       <h1>All Messages</h1>
     <% @messages.each do |mess| %>
@@ -57,7 +67,7 @@
     <% else %>
     <h1>No Messages</h1>
   <% end %>
-  </div>
+  </div> -->
 
-
+</div>
 </body>

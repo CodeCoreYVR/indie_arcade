@@ -67,13 +67,11 @@ img.carousel-inner {
 
 // Contact
 #contactheader{
+  margin-top: 60px;
   text-align: center;
-  font-size: 30px;
-}
-
-#hrcontact{
-  height: 3px;
-  background-color: grey;
+  font-size: 36px;
+  margin-bottom: 60px;
+  font-weight: bold;
 }
 
 #contactbody{
@@ -83,28 +81,35 @@ img.carousel-inner {
   color: white;
 }
 
-#contactemail{
-  float: left;
-  text-align: left;
-  margin-left: 40px;
-  width: 30%;
+.smallerfont{
+  font-size: 13px;
 }
-
-#contactphone{
-  float: left;
-  text-align: left;
-  margin-left: 40px;
+.row-centered {
+    text-align:center;
 }
-
-#contacthours{
-  float: left;
-  text-align: left;
-  margin-left: 40px;
-  font-size: 18px;
+.col-centered {
+    vertical-align: top;
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+#container-medium {
+  margin: auto;
+  width: 850px;
 }
 
 #leavemess{
   text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+#marginend{
+  margin-bottom: 60px;
 }
 .form-control1{
   opacity: 0.5;
@@ -123,6 +128,7 @@ img.carousel-inner {
 
 .btn{
   width: 100%;
+}
 
 // Styling for about page
 #about-header-image {
@@ -138,7 +144,6 @@ img.carousel-inner {
   height: 300px;
   display: table;
 }
-
 
 #about-us {
   display: table-cell;
