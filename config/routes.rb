@@ -11,5 +11,9 @@ Rails.application.routes.draw do
 
   get "/contact" => "home#contact"
   post "/contact" => "home#create", as: :message_home
+  resources :home, only: [:index]
+
+  get '/about' => 'home#about', as: :about
+
   root 'home#index'
 end

@@ -11,26 +11,32 @@
  * It is generally better to create a new file per style scope.
  */
 
- //= require bootstrap_and_overrides
+ //= require_tree .
  //= require font_awesome
  //= require chosen-compass
- //= require_tree .
+ //= require bootstrap_and_overrides
  //= require_self
+
 
 body {
    margin-left: 0px;
    margin-right: 0px;
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
+   font-size: 12px;
 }
 
 hr {
   height: 6px;
-  background-color: orange;
+  background-color: #EF7030;
   margin-bottom: 0px;
 }
 
-a, a:visited {
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
+}
+
+.home-footer a, .home-foother a:visited {
   color: white;
 }
 
@@ -39,20 +45,24 @@ a:hover {
 }
 // NAVBAR STYLING
 
-.container-fluid {
+.container-fluid, .dropdown-menu, .navbar-collapse {
   background-color: #003c62;
   font-family: 'Prompt', sans-serif;
   font-size: 18px;
   color: white;
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
+.nav.navbar-nav.navbar-right a:hover {
+    color: white;
     background-color: #4169ac;
 }
 
 .nav.navbar-nav.navbar-right {
   margin-right: 30px;
+}
+
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
 }
 
 .nav.navbar-nav.navbar-right a {
@@ -61,6 +71,7 @@ a:hover {
 .nav.navbar-nav.navbar-right a:hover {
    color: lightgrey;
 }
+
 
 .navbar.navbar-default.navbar-fixed-top {
     border-bottom-width: 0px;
@@ -148,4 +159,36 @@ a:hover {
 .codecore-logo{
   height: 50px;
 }
-// END FOOTER STYLING
+
+
+#search-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  transition: top 0.3s;
+}
+
+#search-bar {
+   background-color: #4169ac;
+   border: none;
+   border-radius: 0px;
+   opacity: 0.95;
+   font-color: white;
+   height: 50px;
+}
+
+
+#search-bar::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-wrapper input[type='text']:focus {
+  color: white;
+}
+
+.moved {
+  top: 50px !important;
+}

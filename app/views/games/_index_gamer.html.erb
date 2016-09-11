@@ -1,0 +1,29 @@
+<h1>All Games</h1>
+<!-- All games are contained in a div -->
+<div>
+<% if @games.present? %>
+  <% @games.each do |g|  %>
+  <!-- Each game is in a div  -->
+    <div>
+      <h2><%= g.title %></h2>
+      <p><%= g.user.company %></p>
+      <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+      <hr>
+    </div>
+  </div>
+  <% end %>
+<% else %>
+  <p>There are no matches for <%= params[:search] %></p>
+<% end %>
+
+<%= form_tag(games_path, :method => 'get', id: 'tags') do %>
+
+  <% @tags.each do |t| %>
+    <p>
+      <%= check_box_tag(t.id) %>
+      <%= label_tag(t.id, "#{t.name}") %>
+    </p>
+  <% end %>
+<% end %>
+
+<%= submit_tag :search %>

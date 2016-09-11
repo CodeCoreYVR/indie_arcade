@@ -19,4 +19,7 @@ class HomeController < ApplicationController
     @messages = Message.order(created_at: :desc)
   end
 
+  def about
+  end
+
 end

@@ -3,10 +3,21 @@ class GamesController < ApplicationController
 
   def index
     @tags = Tag.all
-    if params[:search]
-      @games = User.search(params[:search]).includes(:games).map(&:games).flatten
-    else
-    @games = Game.all
+    @tagsearch = Tag.ids.map{|x| x.to_s}
+
+    searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
+    searched = params[:search] unless params[:search].nil?
+    searched = params[:search_user] unless params[:search_user].nil?
+    if searched.is_a?(Array)
+       @games = Tag.where(id: searched).map{|k| k.games}.flatten
+       @games.uniq
+    elsif searched == params[:search_user]
+      @games = Game.with_company_containing(searched)
+    elsif searched == params[:search]
+      @games = Game.with_company_containing(searched) + Game.search(searched)
+      byebug
+    else (@tagsearch & params.keys).empty?
+      @games = Game.all
     end
   end
 
