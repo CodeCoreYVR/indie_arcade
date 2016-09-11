@@ -1,6 +1,6 @@
 
 
-USERS_TO_CREATE = 10
+USERS_TO_CREATE = 20
 
 USERS_TO_CREATE.times do
 	User.create company:					Faker::Company.name,
