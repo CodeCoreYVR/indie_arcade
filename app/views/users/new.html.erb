@@ -1,5 +1,11 @@
-<h1>New User</h1>
+<body id="register-bg">
+<div class="container create-user">
+<h1 id="register-h1">New User</h1>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
+<p id="register-p">Already have an account? <%= link_to 'Log in', new_session_path %></p>
+
+<%= link_to '<<Back', users_path %>
+</div>
+</body>
