@@ -10,6 +10,12 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false},
                     format:     VALID_EMAIL_REGEX
 
+  validates :company, presence: true,
+                    uniqueness: {case_sensitive: false}
+
+  validates :password, presence: true,
+                    numericality: {greater_than: 5}
+
   def full_name
     "#{first_name} #{last_name}".squeeze(" ").strip.titleize
   end
