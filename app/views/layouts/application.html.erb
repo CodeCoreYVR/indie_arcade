@@ -11,7 +11,7 @@
     <body>
 
         <!-- NAV BAR -->
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-custom navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -43,7 +43,9 @@
                         </li>
                         <!-- PLACEHOLDER - BROWSE FOR GAMES -->
                         <li class="game-search">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <div class="form-group">
@@ -60,24 +62,25 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-<!-- End of NAVBAR -->
+        <!-- End of NAVBAR -->
 
         <%= yield %>
 
-<!-- Footer -->
-    <hr>
-    <div class = "home-footer">
-        <div class = "home-footer-left">
-        <%= image_tag "logo.png" %>
-        <br>
-        ABOUT
-        <br>
-        Contact
-        <br>
-        FAQ
-        </div>
+        <!-- Footer -->
+        <hr>
+        <div class="home-footer">
+            <div class="home-footer-left">
+                <div><%= image_tag "logo.png" %></div>
+                <div>ABOUT</div>
+                <div>CONTACT</div>
+                <div>FAQ</div>
+            </div>
 
-    </div>
+            <div class="home-footer-right">
+                <div>WEBSITE MADE BY:</div>
+                <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
+                <div><%= image_tag "json-squad-logo.png", class: "json-logo" %></div>
+            </div>
 
     </body>
 </html>

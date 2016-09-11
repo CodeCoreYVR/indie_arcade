@@ -37,6 +37,11 @@ hr {
   color: white;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #4169ac;
+}
+
 .nav.navbar-nav.navbar-right {
   margin-right: 30px;
 }
@@ -70,12 +75,31 @@ hr {
   text-align: center;
   font-family: 'Prompt', sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 12px;
 }
 
-.home-footer-left {
-  text-align: left;
-  margin-left: 25px;
+.home-footer-left div {
+  margin-top: 15px;
+}
+.home-footer-right div {
+  margin-top: 15px;
+}
 
+
+.home-footer-left {
+  float: left;
+  text-align: left;
+  margin-left: 40px;
+  width: 30%
+}
+
+.home-footer-right {
+  float: right;
+  text-align: right;
+  margin-right: 40px;
+  width: 30%
+}
+.codecore-logo{
+  height: 50px;
 }
 // END FOOTER STYLING
