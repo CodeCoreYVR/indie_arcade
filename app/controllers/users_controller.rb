@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
   def index
-    redirect_to root_
+    redirect_to root_path
   end
 
   # GET /users/1
