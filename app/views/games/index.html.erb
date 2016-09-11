@@ -1,6 +1,7 @@
 
 <!-- ADMIN VIEW -->
 <%# If current user is an admin show this via authorizations %>
+
 <% if user_signed_in? && current_user.admin %>
   <h2>List of Games to Approve</h2>
   <hr>
@@ -11,8 +12,9 @@
       <div><%= game.user.company %></div>
       <hr>
     </div>
-  <% end %>
+    <% end %>
 <% else %>
+
   <h1>All Games</h1>
   <!-- All games are contained in a div -->
   <div>
@@ -30,23 +32,24 @@
   <% else %>
     <p>There are no matches for <%= params[:search] %></p>
   <% end %>
+<% end %>
 
-  <div>
-  <%# form_tag(games_path, :method => 'get', id: 'search-form') do %>
-    <% @tags.each do |t| %>
-      <p>
-        <%= t.name %>
-      </p>
-    <% end %>
-  </div>
+<%= form_tag(games_path, :method => 'get', id: 'tags') do %>
 
+  <% @tags.each do |t| %>
+     <p>
+       <%= check_box_tag(t.id) %>
+       <%= label_tag(t.id, "#{t.name}") %>
+     </p>
+     <% end %>
+     <%= submit_tag :search %>
+<% end %>
   <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
 
-  <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
+<%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
     <div>
-      <%= label_tag :search %>
-      <%= text_field_tag :search, [:search], placeholder: 'Search' %>
+      <%= label_tag :search_user %>
+      <%= text_field_tag :search_user, [:search_user], placeholder: 'Search' %>
       <%= submit_tag :search %>
     </div>
   <% end %>
-<% end %>

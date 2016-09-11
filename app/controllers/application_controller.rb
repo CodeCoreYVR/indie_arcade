@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def user_signed_in?
-    session[:user_id].present?
+  session[:user_id].present?
   end
   helper_method :user_signed_in?
 
@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find session[:user_id]
     end
   end
+
   helper_method :current_user
 
   def authenticate_user!
@@ -20,5 +21,4 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to root_path, alert: "Access denied" unless can? :manage, @question
   end
-
 end
