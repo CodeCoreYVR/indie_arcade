@@ -1,0 +1,56 @@
+
+<!-- ADMIN VIEW -->
+<%# If current user is an admin show this via authorizations %>
+<% if true %>
+  <h2>List of Games to Approve</h2>
+  <hr>
+
+  <% games_for_review = Status.find_by_name("Under Review").games %>
+  <% games_for_review.each do |game| %>
+    <div>
+      <div><%= link_to game.title, game_path(game)%></div>
+      <div><%= game.user.company %></div>
+      <hr>
+    </div>
+  <% end %>
+  <% else %>
+
+  <h1>All Games</h1>
+  <!-- All games are contained in a div -->
+  <div>
+  <% if @games.present? %>
+    <% @games.each do |g|  %>
+    <!-- Each game is in a div  -->
+      <div>
+        <h2><%= g.title %></h2>
+        <p><%= g.user.company %></p>
+        <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+        <hr>
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+
+    <p>There are no matches for <%= params[:search] %></p>
+  <% end %>
+
+  <div>
+  <%# form_tag(games_path, :method => 'get', id: 'search-form') do %>
+      <% @tags.each do |t| %>
+      <p>
+        <%= t.name %>
+      </p>
+
+    <% end %>
+
+  </div>
+
+  <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
+
+  <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
+    <div>
+      <%= label_tag :search %>
+      <%= text_field_tag :search, [:search], placeholder: 'Search' %>
+      <%= submit_tag :search %>
+    </div>
+  <% end %>

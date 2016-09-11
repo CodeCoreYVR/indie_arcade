@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
+
+ //= require bootstrap_and_overrides
+ //= require font_awesome
+ //= require chosen-compass
+ //= require_tree .
+ //= require_self
+
+// NAVBAR STYLING
+
+.nav.navbar-nav.navbar-right {
+  margin-right: 30px;
+}
+
+.nav.navbar-nav.navbar-right a {
+  color: white;
+}
+.nav.navbar-nav.navbar-right a:hover {
+   color: lightgrey;
+}
+
+hr {
+  height: 50px;
+  background-color: orange;
+  margin-bottom: 0px;
+}
+.navbar.navbar-default.navbar-fixed-top {
+    border-bottom-width: 0px;
+  }
+
+#logo-container a {
+  width: 100%;
+  height: auto;
+}
+
+// END NAVBAR SYLING
+
+#home-slideshow {
+  max-height: 450px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-intro {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("2.jpg");
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+img.carousel-inner  {
+  width: 100%;
+}

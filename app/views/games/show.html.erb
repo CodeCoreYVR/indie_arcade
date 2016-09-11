@@ -1,0 +1,34 @@
+<div>
+  <h2><%= @game.title %></h2>
+  <div>image goes here~~~</div>
+  <div>
+    Made by: <%= @developer %>
+    Date: <%= @date %>
+    Type:
+    <% @game.taggings.map do |tagging| %>
+      <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
+    <% end %>
+    Last in Arcade: <%= @last_played %>
+    Played: <%= @play_times %> times
+    Overall Rating: <%= @rating %>
+  </div>
+
+
+  <% if current_user.admin %>
+    <div>
+      Send email to developer about the game:
+      <%= input type = "text-field" %>
+    </div>
+
+    <div>
+      <button>Download game</button>
+      <button>Approve</button>
+      <button>Reject</button>
+    </div>
+  <% else %>
+    <div>
+      <button>Buy Now</button>
+    </div>
+  <% end %>
+
+</div>

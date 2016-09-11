@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require chosen-jquery
+//= require bootstrap-sprockets
 //= require_tree .
+$(document).ready(function(){
+    $("#home-slideshow").carousel({
+        interval : 2000,
+        pause: false
+    });
+})
