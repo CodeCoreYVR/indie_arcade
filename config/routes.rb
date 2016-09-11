@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       delete :destroy, on: :collection
   end
 
-  resources :home, only: [:index]
+  get "/contact" => "home#contact"
+  post "/contact" => "home#create", as: :message_home
   root 'home#index'
 end
