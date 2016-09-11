@@ -37,7 +37,7 @@ h1 {
 
 .form-inputs {
   &.register-form-control {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 }
 
@@ -55,14 +55,6 @@ input #user_logo {
   }
 }
 
-.btn-default {
-  &.register-btn {
-    width: 100%;
-    background-color: #EF7030;
-    border-color: #EF7030;
-    color: #fff;
-  }
-}
 
 p {
   &#register-p {
@@ -73,9 +65,48 @@ p {
 }
 
 .btn {
-  padding: 6px 0px;
+  &.register-button {
+    background-color: #EF7030;
+    border-color: #EF7030;
+    color: #fff;
+    width: 100%;
+  }
+}
+
+.btn-default:hover {
+  color: #333;
+  background-color: #fff;
+  border-color: #CCC;
 }
 
 .type {
   color: #fff;
+}
+
+input[type="file"].hidden-input {
+  display: none;
+}
+
+label {
+  text-align: center;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+a#upload-btn.btn {
+  background-color: #EF7030;
+  color: #fff;
+}
+
+a#upload-btn.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+input#file-display.input-large.uneditable-input {
+  opacity: 0.6;
+  height: 34px;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 1.3em;
 }
