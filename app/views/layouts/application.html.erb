@@ -33,14 +33,15 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <%= link_to "Games", root_path %>
+                            <%= link_to "Games", games_path %>
                         </li>
                         <% if user_signed_in? %>
+
                         <li>
                             <a>Welcome, <%= current_user.company %></a>
                         </li>
                           <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color: white" aria-expanded="false"><span class="caret"></span>My Profile</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>My Profile</a>
                             <ul class="dropdown-menu">
                               <!-- add stuff later. Need different menues for admin vs dev -->
                               <li><%= link_to "Some Stuff", home_index_path %></li>
@@ -80,7 +81,7 @@
         <div class="home-footer">
             <div class="home-footer-left">
                 <div><%= image_tag "logo.png" %></div>
-                <div><%= link_to "About", root_path %></div>
+                <div><%= link_to "About", about_path %></div>
                 <div><%= link_to "Contact", root_path %></div>
                 <div><%= link_to "FAQ", root_path %></div>
             </div>

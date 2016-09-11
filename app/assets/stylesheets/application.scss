@@ -11,10 +11,10 @@
  * It is generally better to create a new file per style scope.
  */
 
- //= require bootstrap_and_overrides
+ //= require_tree .
  //= require font_awesome
  //= require chosen-compass
- //= require_tree .
+ //= require bootstrap_and_overrides
  //= require_self
 
 
@@ -23,15 +23,20 @@ body {
    margin-right: 0px;
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
+   font-size: 12px;
 }
 
 hr {
   height: 6px;
-  background-color: orange;
+  background-color: #EF7030;
   margin-bottom: 0px;
 }
 
-a, a:visited {
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
+}
+
+.home-footer a, .home-foother a:visited {
   color: white;
 }
 
@@ -40,15 +45,15 @@ a:hover {
 }
 // NAVBAR STYLING
 
-.container-fluid {
+.container-fluid, .dropdown-menu, .navbar-collapse {
   background-color: #003c62;
   font-family: 'Prompt', sans-serif;
   font-size: 18px;
   color: white;
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
+.nav.navbar-nav.navbar-right a:hover {
+    color: white;
     background-color: #4169ac;
 }
 
