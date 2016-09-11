@@ -110,3 +110,57 @@ input#file-display.input-large.uneditable-input {
   margin-right: 5px;
   font-size: 1.3em;
 }
+
+// Styling for show page
+#developer-page-wrapper {
+  padding-top: 60px;
+  background-image: url('profile-dev-bg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #816989;
+}
+
+#dev-logo {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  margin: 25px;
+}
+
+#game-picture {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  display: inline-block;
+}
+
+#dev-info {
+  background-color: white;
+  opacity: 0.7;
+  width: 25%;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+#dev-games-list {
+  width: 65%;
+  float: right;
+  margin-right: 100px;
+  margin-top: 50px;
+}
+
+.individual-game-info {
+  background-color: white;
+  opacity: 0.7;
+  margin: 25px 0;
+  height: 300px;
+  position: relative;
+}
+
+#text-info {
+  text-align: center;
+  display: inline-block;
+  margin-left: 150px;
+  position: absolute;
+  top: 0;
+}
