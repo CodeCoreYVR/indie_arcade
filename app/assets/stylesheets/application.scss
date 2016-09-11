@@ -27,9 +27,8 @@ body {
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
    font-size: 12px;
-   margin-bottom: -200px;
+   min-height: 500px;
 }
-
 
 .home-footer {
   border-top: 4px solid #EF7030;
@@ -118,17 +117,13 @@ a:hover {
   top: 50px !important;
 }
 
+
 // END NAVBAR SYLING
 
 // FOOTER
 
-footer {
-  height: 200px;
-  bottom: 0px;
-}
-
 .home-footer {
-  height: 100%;
+  height: 200px;
   width: 100%;
   overflow: hidden;
   bottom: 0px;
@@ -138,7 +133,6 @@ footer {
   font-family: 'Prompt', sans-serif;
   color: white;
   font-size: 12px;
-  margin-bottom: 0px;
 }
 
 .home-footer-left div {
