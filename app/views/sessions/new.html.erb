@@ -1,12 +1,11 @@
-<h1>Sign In</h1>
-<%= form_tag sessions_path do %>
-  <div>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
-  </div>
-  <div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag "Log In" %>
-<% end %>
+<body id="sign-in-bg">
+<div class="container login-user">
+<h1 id="register-h1">Sign In</h1>
+
+<%= render 'form', user: @user %>
+
+<p id="create-p">Don't have an account? <%= link_to 'Create Account', new_user_path %></p>
+
+<%= link_to '<< Back', users_path %>
+</div>
+</body>
