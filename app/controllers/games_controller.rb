@@ -5,10 +5,8 @@ class GamesController < ApplicationController
     # byebug
     @tags = Tag.all
     @tagsearch = Tag.ids.map{|x| x.to_s}
-    byebug
     if params[:search_user]
       @games = User.search(params[:search_user]).includes(:games).map(&:games).flatten
-      byebug
     elsif (@tagsearch & params.keys).empty?
       @games = Game.all
     else
