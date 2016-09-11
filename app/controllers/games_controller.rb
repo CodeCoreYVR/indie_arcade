@@ -1,17 +1,30 @@
 class GamesController < ApplicationController
   before_action :find_game, only: [:show, :update]
 
+  GAMES_PER_PAGE = 6
+
   def index
-    # byebug
+
     @tags = Tag.all
     @tagsearch = Tag.ids.map{|x| x.to_s}
-    if params[:search_user]
-      @games = User.search(params[:search_user]).includes(:games).map(&:games).flatten
-    elsif (@tagsearch & params.keys).empty?
-      @games = Game.all
-    else
-      @games = Tag.where(id: (@tagsearch & params.keys)).map{|k| k.games}.flatten
-      @games.uniq
+
+    searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
+    searched = params[:search] unless params[:search].nil?
+    searched = params[:search_user] unless params[:search_user].nil?
+
+    if searched.is_a?(Array)
+       @games = Tag.where(id: searched).map{|k| k.games}.flatten
+       @games.uniq
+       @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
+    elsif searched.nil?
+      @games = Game.order(created_at: :desc).
+                          page(params[:page]).
+                          per(GAMES_PER_PAGE)
+    elsif searched == params[:search_user]
+      @games = Game.with_company_containing(searched).page(params[:page]).per(GAMES_PER_PAGE)
+    elsif searched == params[:search]
+      @games = Game.with_company_containing(searched) + Game.search(searched)
+      @games.page(params[:page]).per(GAMES_PER_PAGE)
     end
   end
 
