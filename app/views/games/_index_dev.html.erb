@@ -1,1 +1,26 @@
 <h1>Dev Games Page</h1>
+
+
+<h2>Your games</h2>
+<hr>
+
+<!-- list of user games -->
+<div>
+ <% if @games.present? %>
+   <% @games.each do |g| %>
+     <div>
+       <% if g.user == current_user %>
+         <p><%= display_picture(g) %></p>
+         <p><%= g.title %></p>
+         <p><%= g.current_status %></p>
+         <p><%=  link_to "Feedback", game_path(g) %></p>
+         <p><%= link_to "Update", edit_game_path(g)%></p>
+         <p><%= link_to "Remove", game_path(g),
+                                   method: :delete,
+                                   data: {confirm: 'Are you sure?'} %></p>
+         <hr>
+       <% end %>
+    <% end %>
+     </div>
+  <% end %>
+</div>
