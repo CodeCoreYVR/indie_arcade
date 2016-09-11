@@ -1,0 +1,38 @@
+<h1>Game Title: <%= @game.title %></h1>
+
+
+<div class="container">
+
+  <h3>General Ratings: <%= @reviews.count %> feedbacks</h3>
+
+  <!-- change path to download action in game controller -->
+  <%= link_to 'download pdf', game_review_path %>
+
+  <div style="text-align: center"><h4>Overview</h4></div>
+  <h3>Fun</h3>
+  <div class="progress">
+    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=""
+    aria-valuemin="0" aria-valuemax="100" style="width:<%= @fun * 20 %>%">
+      <%= @fun * 20 %>%
+    </div>
+  </div>
+
+  <h3>Playability</h3>
+  <div class="progress">
+    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow=""
+    aria-valuemin="0" aria-valuemax="100" style="width:<%= @playability * 20 %>%">
+      <%= @playability * 20 %>%
+    </div>
+  </div>
+
+  <h3>Difficulty</h3>
+  <div class="progress">
+    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+    aria-valuemin="0" aria-valuemax="100" style="width:<%= @difficulty * 20 %>%">
+      <%= @difficulty * 20 %>%
+    </div>
+  </div>
+</div>
+
+<!-- Crash logs don't exist so we just have an empty link -->
+<a href="#">Download crash logs</a>
