@@ -35,12 +35,20 @@
                         <li>
                             <a href="#">Games</a>
                         </li>
-                        <li>
-                            <a href="#">Log-in</a>
+                        <% if user_signed_in? %>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color: white" aria-expanded="false"><span class="caret"></span>My Profile</a>
+                          <ul class="dropdown-menu">
+                            <!-- add stuff later. Need different menues for admin vs dev -->
+                            <li><%= link_to "Some Stuff", home_index_path %></li>
+                            <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+                          </ul>
                         </li>
-                        <li>
-                            <a href="#">Register</a>
-                        </li>
+                        <% else %>
+                        <li><%= link_to "Log-in", new_session_path %></li>
+                        <li><%= link_to "Register", new_user_path %></li>
+                        <% end %>
+
                         <!-- PLACEHOLDER - BROWSE FOR GAMES -->
                         <li class="game-search">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></a>
@@ -61,7 +69,9 @@
             <!-- /.container-fluid -->
         </nav>
 <!-- FOOOTER -->
-        <%= yield %>
+        <div style="margin-top: 66px;">
+          <%= yield %>
+        </div>
 
     </body>
 </html>

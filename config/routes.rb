@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:show]
   end
 
+  resources :sessions, only: [:new, :create] do
+      delete :destroy, on: :collection
+  end
+
 end
