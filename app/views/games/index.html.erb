@@ -1,7 +1,6 @@
-
 <!-- ADMIN VIEW -->
 <%# If current user is an admin show this via authorizations %>
-<% if user_signed_in? && current_user.admin %>
+<% if user_is_admin? %>
   <h2>List of Games to Approve</h2>
   <hr>
   <% games_for_review = Status.find_by_name("Under Review").games %>
@@ -12,6 +11,7 @@
       <hr>
     </div>
   <% end %>
+<!-- GAMER VIEW -->
 <% else %>
   <h1>All Games</h1>
   <!-- All games are contained in a div -->
