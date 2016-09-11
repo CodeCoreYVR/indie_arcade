@@ -1,6 +1,6 @@
 <div>
   <h2><%= @game.title %></h2>
-  <div>image goes here~~~</div>
+  <div><%= display_picture @game %></div>
   <div>
     <div>Made by: <%= @developer %></div>
     <div>Date: <%= @date %></div>
@@ -14,7 +14,6 @@
     <div>Played: <%= @play_times %> times</div>
     <div>Overall Rating: <%= @rating %></div>
   </div>
-
 
   <% if user_signed_in? && current_user.admin? %>
     <div>

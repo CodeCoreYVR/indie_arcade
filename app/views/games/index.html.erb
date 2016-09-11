@@ -1,18 +1,11 @@
-
 <!-- ADMIN VIEW -->
 <%# If current user is an admin show this via authorizations %>
-
-<% if user_signed_in? && current_user.admin %>
-  <h2>List of Games to Approve</h2>
-  <hr>
-  <% games_for_review = Status.find_by_name("Under Review").games %>
-  <% games_for_review.each do |game| %>
-    <div>
-      <div><%= link_to game.title, game_path(game)%></div>
-      <div><%= game.user.company %></div>
-      <hr>
-    </div>
-    <% end %>
+<% if user_is_admin? %>
+  <%= render 'index_admin' %>
+<!-- DEV VIEW -->
+<% elsif user_is_dev? %>
+  <%= render 'index_dev' %>
+<!-- GAMER VIEW -->
 <% else %>
 
   <h1>All Games</h1>
@@ -37,13 +30,14 @@
 <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
   <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) %>
   <%= submit_tag :search %>
+  <%= render 'index_gamer' %>
 <% end %>
   <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
 
 <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
-    <div>
-      <%= label_tag :search_user %>
-      <%= text_field_tag :search_user, [:search_user], placeholder: 'Search' %>
-      <%= submit_tag :search %>
-    </div>
-  <% end %>
+  <div>
+    <%= label_tag :search_user %>
+    <%= text_field_tag :search_user, [:search_user], placeholder: 'Search' %>
+    <%= submit_tag :search %>
+  </div>
+<% end %>

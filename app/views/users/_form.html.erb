@@ -1,19 +1,20 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :company %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-    <%= f.input :logo %>
-    <%= f.input :employees %>
-    <%= f.input :genres %>
-    <%= f.input :website %>
-    <%= f.input :twitter %>
+  <div class="form-inputs register-form-control">
+    <%= f.input :company, placeholder:"Company name", label: false%>
+    <%= f.input :email, placeholder:"Email", label: false %>
+    <%= f.input :password, placeholder:"Password", label: false %>
+    <%= f.input :password_confirmation, placeholder:"Confirm password", label: false %>
+    <%= f.input :employees, placeholder:"Number of employees", label: false %>
+    <%= f.input :genres, placeholder:"Genres", label: false %>
+    <%= f.input :website, placeholder:"Website", label: false %>
+    <%= f.input :twitter, placeholder:"Twitter", label: false %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+<div class="form-inline">
+  <%= f.input :logo, :label_html => { :class => 'type' } %>
+</div>
+  <div class="form-actions register-form-group btn register-btn">
+    <%= f.button :submit, class: ".btn-default register-btn" %>
   </div>
 <% end %>

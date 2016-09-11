@@ -16,6 +16,7 @@
 //= require chosen-jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
 $(document).ready(function() {
     $("#home-slideshow").carousel({
         interval: 2500,
@@ -30,7 +31,11 @@ $(document).ready(function() {
         console.log(event.which);
     });
 
-    $('#search').click(function() {
+    $('.game-search').click(function() {
         $('#search-wrapper').toggleClass('moved');
+    })
+
+    $('#search-bar').click(function(event){
+      event.stopPropagation();
     })
 })
