@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: [:index]
+
+  get '/about' => 'home#about', as: :about
+
   root 'home#index'
 end

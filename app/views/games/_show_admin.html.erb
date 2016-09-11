@@ -36,18 +36,3 @@
     </div>
   <% end %>
 </div>
-<h2><%= @game.title %></h2>
-<div><%= display_picture @game %></div>
-<div>
-  <div>Made by: <%= @developer %></div>
-  <div>Date: <%= @date %></div>
-  <div>Type:</div>
-  <div>
-  <% @game.taggings.map do |tagging| %>
-    <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
-  <% end %>
-  </div>
-  <div>Last in Arcade: <%= @last_played %></div>
-  <div>Played: <%= @play_times %> times</div>
-  <div>Overall Rating: <%= @rating %></div>
-</div>
