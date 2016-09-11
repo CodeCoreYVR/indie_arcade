@@ -5,29 +5,20 @@ class ApplicationController < ActionController::Base
   session[:user_id].present?
   end
   helper_method :user_signed_in?
-# adding a helper_method call as in above, allows the view files (all of them
-# in this case) to have access to this method
 
   def current_user
-  # the technique below is called memoization which fetched the user in this
-  # case the first time you call the method and every subsequent time it uses
-  # the one stored in the `@current_user` variable
     if user_signed_in?
       @current_user ||= User.find session[:user_id]
     end
   end
 
-  def user_admin?
-  # the technique below is called memoization which fetched the user in this
-  # case the first time you call the method and every subsequent time it uses
-  # the one stored in the `@current_user` variable
-    user_signed_in? && current_user.admin?
-  end
-
-helper_method :current_user
+  helper_method :current_user
 
   def authenticate_user!
     redirect_to new_session_path unless user_signed_in?
   end
 
+  def authorize
+    redirect_to root_path, alert: "Access denied" unless can? :manage, @question
+  end
 end

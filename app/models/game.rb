@@ -8,4 +8,6 @@ class Game < ApplicationRecord
 
   has_many :reviews, dependent: :nullify
   has_many :load_reviews, through: :loads
+
+  mount_uploader :picture, PictureUploader
 end

@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :games, dependent: :nullify
   has_secure_password
+
+  mount_uploader :logo, LogoUploader
   after_initialize :set_defaults
 
   VALID_EMAIL_REGEX = /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
