@@ -27,6 +27,7 @@ body {
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
    font-size: 12px;
+   margin-bottom: -200px;
 }
 
 hr {
@@ -122,8 +123,13 @@ a:hover {
 
 // FOOTER
 
-.home-footer {
+footer {
   height: 200px;
+  bottom: 0px;
+}
+
+.home-footer {
+  height: 100%;
   width: 100%;
   overflow: hidden;
   bottom: 0px;

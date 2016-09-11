@@ -79,20 +79,22 @@
         <hr style="margin-top:0px;">
 
         <!-- Footer -->
-        <div class="home-footer">
-            <div class="home-footer-left">
-                <div><%= image_tag "logo.png" %></div>
-                <div><%= link_to "About", about_path %></div>
-                <div><%= link_to "Contact", root_path %></div>
-                <div><%= link_to "FAQ", root_path %></div>
-            </div>
+        <footer>
+            <div class="home-footer">
+                <div class="home-footer-left">
+                    <div><%= image_tag "logo.png" %></div>
+                    <div><%= link_to "About", about_path %></div>
+                    <div><%= link_to "Contact", faq_path %></div>
+                    <div><%= link_to "FAQ", faq_path %></div>
+                </div>
 
-            <div class="home-footer-right">
-                <div>WEBSITE MADE BY:</div>
-                <div><%= image_tag "json-squad-logo.png", class: "json-logo" %></div>
-                <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
+                <div class="home-footer-right">
+                    <div>WEBSITE MADE BY:</div>
+                    <div><%= image_tag "json-squad-logo.png", class: "json-logo" %></div>
+                    <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
+                </div>
             </div>
-        </div>
+        </footer>
         <!-- FOOOTER -->
 
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
