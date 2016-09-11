@@ -1,2 +1,38 @@
+.container-fluid {
+  background-color: #003c62;
+  font-family: 'Prompt', sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.nav {
+  margin-bottom: 0;
+}
+.nav > li.dropdown.open {
+  position: static;
+}
+
+.nav > li.dropdown.open .dropdown-menu {
+  display:table;
+  width: 100%;
+  text-align: center;
+  left:0;
+  right:0;
+}
+
+.dropdown-menu>li {
+ display: table-cell;
+}
+
+// .nav { margin-bottom: 0; }
+// .dropdown { position: static; }
+// .dropdown-menu { width: 100%; text-align: center; }
+// .dropdown-menu > li { display: inline-block; }
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";

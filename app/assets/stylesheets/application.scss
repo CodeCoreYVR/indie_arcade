@@ -16,3 +16,57 @@
  //= require chosen-compass
  //= require_tree .
  //= require_self
+ 
+// NAVBAR STYLING
+
+.nav.navbar-nav.navbar-right {
+  margin-right: 30px;
+}
+
+.nav.navbar-nav.navbar-right a {
+  color: white;
+}
+.nav.navbar-nav.navbar-right a:hover {
+   color: lightgrey;
+}
+
+hr {
+  height: 50px;
+  background-color: orange;
+  margin-bottom: 0px;
+}
+.navbar.navbar-default.navbar-fixed-top {
+    border-bottom-width: 0px;
+  }
+
+#logo-container a {
+  width: 100%;
+  height: auto;
+}
+
+// END NAVBAR SYLING
+
+#home-slideshow {
+  max-height: 450px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-intro {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("2.jpg");
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+img.carousel-inner  {
+  width: 100%;
+}
