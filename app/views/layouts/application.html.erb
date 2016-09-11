@@ -9,7 +9,6 @@
     </head>
 
     <body>
-
         <!-- NAV BAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid" id="nav-wrapper">
@@ -72,6 +71,18 @@
         </nav>
         <!-- End of NAVBAR -->
 
+      <!-- NAV BAR FOR GAMER-->
+      <% if user_is_gamer? %>
+        <%= render 'layouts/nav_gamer' %>
+      <% end %>
+      <!-- NAV BAR FOR DEV-->
+      <% if user_is_dev? %>
+        <%= render 'layouts/nav_dev' %>
+      <% end %>
+      <!-- NAV BAR FOR ADMIN-->
+      <% if user_is_admin? %>
+        <%= render 'layouts/nav_admin' %>
+      <% end %>
         <div style="margin-top: 50px;">
           <%= yield %>
         </div>
