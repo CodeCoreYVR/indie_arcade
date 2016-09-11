@@ -1,4 +1,5 @@
-<!-- ADMIN VIEW -->
+<body id="index-bg">
+  <!-- ADMIN VIEW -->
 <%# If current user is an admin show this via authorizations %>
 <% if user_is_admin? %>
   <%= render 'index_admin' %>
@@ -9,7 +10,8 @@
 <% else %>
   <%= render 'index_gamer' %>
 
-  <h1>All Games</h1>
+
+  <h1 id="games-index-h1">All Games</h1>
   <!-- All games are contained in a div -->
   <div style="min-height:500px;">
   <% if @games.present? %>
@@ -47,3 +49,5 @@
     <%= submit_tag :search_user %>
   </div>
 <% end %>
+
+</body>

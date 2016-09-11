@@ -1,26 +1,24 @@
-<h1>Dev Games Page</h1>
-
-
-<h2>Your games</h2>
-<hr>
-
-<!-- list of user games -->
+<h1><% current_user.company %></h1>
+<!-- All games are contained in a div -->
 <div>
- <% if @games.present? %>
-   <% @games.each do |g| %>
-     <div>
-       <% if g.user == current_user %>
-         <p><%= display_picture(g) %></p>
-         <p><%= g.title %></p>
-         <p><%= g.current_status %></p>
-         <p><%=  link_to "Feedback", game_path(g) %></p>
-         <p><%= link_to "Update", edit_game_path(g)%></p>
-         <p><%= link_to "Remove", game_path(g),
-                                   method: :delete,
-                                   data: {confirm: 'Are you sure?'} %></p>
-         <hr>
-       <% end %>
-    <% end %>
-     </div>
+<% if @games.present? %>
+  <% @games.each do |g|  %>
+  <!-- Each game is in a div  -->
+    <div>
+      <div><%= display_picture g %></div>
+        <h2><%= link_to g.title, game_path(g) %></h2>
+        <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+        <p><%= g.status.name %></p>
+        <p><%=  link_to "Feedback", game_path(g) %></p>
+        <p><%= link_to "Update", edit_game_path(g)%></p>
+        <p><%= link_to "Remove", game_path(g),
+                                  method: :delete,
+                                  data: {confirm: 'Are you sure?'} %></p>
+        <hr>
+      </div>
+  </div>
   <% end %>
-</div>
+<% else %>
+  <p>There are no matches for your search</p>
+<% end %>
+<%= paginate @games %>
