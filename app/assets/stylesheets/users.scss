@@ -79,3 +79,22 @@ p {
 .type {
   color: #fff;
 }
+
+
+// Styling for show page
+#developer-page-wrapper {
+  padding-top: 60px;
+}
+
+#dev-logo {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+}
+
+#game-picture {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  display: inline-block;
+}
