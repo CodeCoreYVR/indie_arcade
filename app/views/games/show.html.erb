@@ -2,28 +2,44 @@
   <h2><%= @game.title %></h2>
   <div>image goes here~~~</div>
   <div>
-    Made by: <%= @developer %>
-    Date: <%= @date %>
-    Type:
+    <div>Made by: <%= @developer %></div>
+    <div>Date: <%= @date %></div>
+    <div>Type:</div>
+    <div>
     <% @game.taggings.map do |tagging| %>
       <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
     <% end %>
-    Last in Arcade: <%= @last_played %>
-    Played: <%= @play_times %> times
-    Overall Rating: <%= @rating %>
+    </div>
+    <div>Last in Arcade: <%= @last_played %></div>
+    <div>Played: <%= @play_times %> times</div>
+    <div>Overall Rating: <%= @rating %></div>
   </div>
 
 
   <% if current_user.admin %>
     <div>
       Send email to developer about the game:
-      <%= input type = "text-field" %>
+      <%#= input type = "text-field" %>
     </div>
 
     <div>
-      <button>Download game</button>
-      <button>Approve</button>
-      <button>Reject</button>
+      <%= button_to "Download Game", game_path(@game), method: :get %>
+      <!-- <button>Download game</button> -->
+      <%=  %>
+
+      <%= simple_form_for(@game) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :status_id, as: :radio_buttons, collection: Status.all.collect{ |s| [ s.name, s.id] } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+      <!-- <button>Approve</button>
+      <button>Reject</button> -->
     </div>
   <% else %>
     <div>

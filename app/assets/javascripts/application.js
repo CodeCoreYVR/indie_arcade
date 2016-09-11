@@ -16,11 +16,12 @@
 //= require chosen-jquery
 //= require bootstrap-sprockets
 //= require_tree .
-  $(document).ready(function(){
-      $("#home-slideshow").carousel({
-          interval : 2000,
-          pause: false
-      });
+
+$(document).ready(function() {
+    $("#home-slideshow").carousel({
+        interval: 2500,
+        pause: false
+    });
 
     $(window).keypress(function(event) {
         if (event.which == 13) {
@@ -30,8 +31,7 @@
         console.log(event.which);
     });
 
-    $('#search').click(function(){
-      $('#search-wrapper').toggleClass('moved');
+    $('#search').click(function() {
+        $('#search-wrapper').toggleClass('moved');
     })
-
-  })
+})
