@@ -1,2 +1,13 @@
+.container-fluid, .dropdown-menu, .navbar-collapse {
+  background-color: #003c62;
+  font-family: 'Prompt', sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #4169ac;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";

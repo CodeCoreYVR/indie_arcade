@@ -17,3 +17,26 @@
 //= require bootstrap-sprockets
 //= require faqtext
 //= require_tree .
+
+$(document).ready(function() {
+    $("#home-slideshow").carousel({
+        interval: 2500,
+        pause: false
+    });
+
+    $(window).keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $("form").submit();
+        }
+        console.log(event.which);
+    });
+
+    $('.game-search').click(function() {
+        $('#search-wrapper').toggleClass('moved');
+    })
+
+    $('#search-bar').click(function(event){
+      event.stopPropagation();
+    })
+})

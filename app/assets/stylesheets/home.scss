@@ -1,0 +1,207 @@
+// CAROUSEL CSS
+
+#home-slideshow {
+    max-height: 450px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner > .item > a > img,
+.carousel-inner > .item > img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    width: 100%;
+}
+
+img.carousel-inner {
+    width: 100%;
+}
+// END CAROUSEL CSS
+.home-intro {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("2.jpg");
+    background-size: cover;
+    text-align: center;
+    line-height: 23px;
+    color: white;
+    font-size: 18px;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.home-intro h1 {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Audiowide', cursive;
+}
+
+.home-map-intro {
+    min-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    background-image: url("4.png");
+}
+
+.home-map-intro div {
+    padding-top: 25px;
+    padding-bottom:25px;
+}
+
+.home-map iframe {
+    pointer-events: none;
+}
+
+.home-social-media {
+    margin-top: -5px;
+    height: auto;
+    text-align: center;
+    background-image: url("4.png");
+    background-repeat: repeat;
+    font-size: 25px !important;
+    font-family: 'Audiowide', cursive;
+ }
+
+// Contact
+#contactheader{
+  margin-top: 60px;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 60px;
+  font-weight: bold;
+}
+
+#contactbody{
+  background-image: url("contact-bg.jpg");
+  background-size: cover;
+  font-size: 18px;
+  color: white;
+}
+
+.smallerfont{
+  font-size: 13px;
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    vertical-align: top;
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+#container-medium {
+  margin: auto;
+  width: 850px;
+}
+
+#leavemess{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+#marginend{
+  margin-bottom: 60px;
+}
+.form-control1{
+  opacity: 0.5;
+}
+
+.form-group1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: #EF7030;
+  border-color: #EF7030;
+}
+
+.btn{
+  width: 100%;
+}
+
+// Styling for about page
+#about-header-image {
+  height: 400px;
+  width: 100%;
+  background-image: url('about-header.jpg');
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+
+#about-text-wrapper {
+  width: 100%;
+  height: 300px;
+  display: table;
+}
+
+#about-us {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#about-text {
+  width: 80%;
+  margin: auto;
+  line-height: 40px;
+  text-align: center;
+}
+
+#team-background {
+  padding-bottom: 40px;
+  width: 100%;
+  background-image: url('noise_pattern.png');
+  text-align: center;
+}
+
+#team-text {
+  color: #003C62;
+  padding: 50px 0;
+  font-family: Audiowide;
+}
+
+
+.rod-photo {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+
+#rod1 {
+  background-image: url('rod1-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+#rod2 {
+  background-image: url('rod2-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+#rod3 {
+  background-image: url('rod3-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+#rod4 {
+  background-image: url('rod4-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+.fa-stack a {
+    color: #333;
+}

@@ -11,8 +11,186 @@
  * It is generally better to create a new file per style scope.
  */
 
- //= require bootstrap_and_overrides
+ //= require_tree .
  //= require font_awesome
  //= require chosen-compass
- //= require_tree .
+ //= require bootstrap_and_overrides
  //= require_self
+
+html, body {
+  height: 100%;
+}
+
+body {
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   font-family: 'Prompt', sans-serif;
+   font-size: 12px;
+   min-height: 500px;
+}
+
+.home-footer {
+  border-top: 4px solid #EF7030;
+}
+
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
+}
+
+.home-footer a, .home-foother a:visited {
+  color: white;
+}
+
+a:hover {
+  color: lightgrey;
+}
+// NAVBAR STYLING
+
+.container-fluid, .dropdown-menu, .navbar-collapse {
+  background-color: #003c62;
+  font-family: 'Prompt', sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.nav.navbar-nav.navbar-right a:hover {
+    color: white;
+    background-color: #4169ac;
+}
+
+.nav.navbar-nav.navbar-right {
+  margin-right: 30px;
+}
+
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
+}
+
+.nav.navbar-nav.navbar-right a {
+  color: white;
+}
+.nav.navbar-nav.navbar-right a:hover {
+   color: lightgrey;
+}
+
+
+.navbar.navbar-default.navbar-fixed-top {
+    border-bottom-width: 0px;
+  }
+
+#logo-container a {
+  width: 100%;
+  height: auto;
+  line-height: 45px;
+}
+
+#search-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  transition: top 0.3s;
+}
+
+#search-bar {
+   background-color: #4169ac;
+   border: none;
+   border-radius: 0px;
+   opacity: 0.95;
+   font-color: white;
+   height: 50px;
+}
+
+
+#search-bar::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-wrapper input[type='text']:focus {
+  color: white;
+}
+
+.moved {
+  top: 50px !important;
+}
+
+
+// END NAVBAR SYLING
+
+// FOOTER
+
+.home-footer {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  bottom: 0px;
+  left: 0px;
+  background-color: #003c62;
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+.home-footer-left div {
+  margin-top: 15px;
+}
+.home-footer-right div {
+  margin-top: 15px;
+}
+
+
+.home-footer-left {
+  float: left;
+  text-align: left;
+  margin-left: 40px;
+  width: 30%;
+}
+
+.home-footer-right {
+  float: right;
+  text-align: right;
+  margin-right: 40px;
+  width: 30%;
+  font-size: 18px;
+  text-decoration: underline;
+}
+.codecore-logo{
+  height: 50px;
+}
+
+
+#search-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  transition: top 0.3s;
+}
+
+#search-bar {
+   background-color: #4169ac;
+   border: none;
+   border-radius: 0px;
+   opacity: 0.95;
+   font-color: white;
+   height: 50px;
+}
+
+
+#search-bar::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-wrapper input[type='text']:focus {
+  color: white;
+}
+
+.moved {
+  top: 50px !important;
+}
