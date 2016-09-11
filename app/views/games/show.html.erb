@@ -1,6 +1,6 @@
 <div>
   <h2><%= @game.title %></h2>
-  <div>image goes here~~~</div>
+  <div><%= display_picture @game %></div>
   <div>
     <div>Made by: <%= @developer %></div>
     <div>Date: <%= @date %></div>
@@ -15,8 +15,7 @@
     <div>Overall Rating: <%= @rating %></div>
   </div>
 
-
-  <% if current_user.admin %>
+  <% if user_is_admin? %>
     <div>
       Send email to developer about the game:
       <%#= input type = "text-field" %>
