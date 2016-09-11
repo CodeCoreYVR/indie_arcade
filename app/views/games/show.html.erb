@@ -1,49 +1,9 @@
 <div>
-  <h2><%= @game.title %></h2>
-  <div><%= display_picture @game %></div>
-  <div>
-    <div>Made by: <%= @developer %></div>
-    <div>Date: <%= @date %></div>
-    <div>Type:</div>
-    <div>
-    <% @game.taggings.map do |tagging| %>
-      <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
-    <% end %>
-    </div>
-    <div>Last in Arcade: <%= @last_played %></div>
-    <div>Played: <%= @play_times %> times</div>
-    <div>Overall Rating: <%= @rating %></div>
-  </div>
-
   <% if user_is_admin? %>
-    <div>
-      Send email to developer about the game:
-      <%#= input type = "text-field" %>
-    </div>
-
-    <div>
-      <%= button_to "Download Game", game_path(@game), method: :get %>
-      <!-- <button>Download game</button> -->
-      <%=  %>
-
-      <%= simple_form_for(@game) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :status_id, as: :radio_buttons, collection: Status.all.collect{ |s| [ s.name, s.id] } %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit %>
-        </div>
-      <% end %>
-      <!-- <button>Approve</button>
-      <button>Reject</button> -->
-    </div>
+    <%= render "show_admin" %>
+  <% elsif user_is_dev? %>
+    <%= render "show_dev" %>
   <% else %>
-    <div>
-      <button>Buy Now</button>
-    </div>
+    <%= render "show_gamer" %>
   <% end %>
-
 </div>
