@@ -10,4 +10,11 @@ class Game < ApplicationRecord
   has_many :load_reviews, through: :loads
 
   mount_uploader :picture, PictureUploader
+
+
+  scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
+
+  def self.search(search)
+    Game.where("title ILIKE ?", "%#{search}%")
+  end
 end

@@ -16,7 +16,7 @@
   </div>
 
 
-  <% if current_user.admin %>
+  <% if user_signed_in? && current_user.admin? %>
     <div>
       Send email to developer about the game:
       <%#= input type = "text-field" %>
