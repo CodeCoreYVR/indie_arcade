@@ -1,7 +1,7 @@
 
 <!-- ADMIN VIEW -->
 <%# If current user is an admin show this via authorizations %>
-<% if true %>
+<% if false %>
   <h2>List of Games to Approve</h2>
   <hr>
 
@@ -13,7 +13,7 @@
       <hr>
     </div>
   <% end %>
-  <% else %>
+<% else %>
 
   <h1>All Games</h1>
   <!-- All games are contained in a div -->
@@ -30,19 +30,16 @@
     </div>
     <% end %>
   <% else %>
-
     <p>There are no matches for <%= params[:search] %></p>
   <% end %>
 
   <div>
   <%# form_tag(games_path, :method => 'get', id: 'search-form') do %>
-      <% @tags.each do |t| %>
+    <% @tags.each do |t| %>
       <p>
         <%= t.name %>
       </p>
-
     <% end %>
-
   </div>
 
   <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
@@ -54,3 +51,4 @@
       <%= submit_tag :search %>
     </div>
   <% end %>
+<% end %>
