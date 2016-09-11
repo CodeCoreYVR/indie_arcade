@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require chosen-jquery
 //= require bootstrap-sprockets
+//= require faqtext
 //= require_tree .
