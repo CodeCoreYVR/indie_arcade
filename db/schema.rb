@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910184426) do
+ActiveRecord::Schema.define(version: 20160910210457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160910184426) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "status_id"
+    t.index ["status_id"], name: "index_games_on_status_id", using: :btree
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
 
@@ -62,7 +64,15 @@ ActiveRecord::Schema.define(version: 20160910184426) do
     t.integer  "load_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "game_id"
+    t.index ["game_id"], name: "index_reviews_on_game_id", using: :btree
     t.index ["load_id"], name: "index_reviews_on_load_id", using: :btree
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -98,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160910184426) do
   add_foreign_key "loads", "games"
   add_foreign_key "loads", "machines"
   add_foreign_key "machines", "locations"
+  add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "loads"
   add_foreign_key "taggings", "games"
   add_foreign_key "taggings", "tags"
