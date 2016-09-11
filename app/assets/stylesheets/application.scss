@@ -17,6 +17,9 @@
  //= require bootstrap_and_overrides
  //= require_self
 
+html, body {
+  height: 100%;
+}
 
 body {
    margin-left: 0px;
@@ -24,12 +27,12 @@ body {
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
    font-size: 12px;
+   margin-bottom: -200px;
 }
 
-hr {
-  height: 6px;
-  background-color: #EF7030;
-  margin-bottom: 0px;
+
+.home-footer {
+  border-top: 4px solid #EF7030;
 }
 
 #nav-wrapper {
@@ -119,8 +122,13 @@ a:hover {
 
 // FOOTER
 
-.home-footer {
+footer {
   height: 200px;
+  bottom: 0px;
+}
+
+.home-footer {
+  height: 100%;
   width: 100%;
   overflow: hidden;
   bottom: 0px;

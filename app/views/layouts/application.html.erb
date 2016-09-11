@@ -84,15 +84,16 @@
                 <div><%= image_tag "logo.png" %></div>
                 <div><%= link_to "About", root_path %></div>
                 <div><%= link_to "Contact", contact_path %></div>
-                <div><%= link_to "FAQ", root_path %></div>
+                <div><%= link_to "FAQ", faq_path %></div>
             </div>
 
-            <div class="home-footer-right">
-                <div>WEBSITE MADE BY:</div>
-                <div><%= image_tag "json-squad-logo.png", class: "json-logo" %></div>
-                <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
+                <div class="home-footer-right">
+                    <div>WEBSITE MADE BY:</div>
+                    <div><%= image_tag "json-squad-logo.png", class: "json-logo" %></div>
+                    <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
+                </div>
             </div>
-        </div>
+        </footer>
         <!-- FOOOTER -->
 
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
