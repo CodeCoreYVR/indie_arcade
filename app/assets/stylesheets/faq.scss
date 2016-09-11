@@ -20,11 +20,14 @@ a
 /* Style the buttons that are used to open and close the accordion panel */
 /* Style the buttons that are used to open and close the accordion panel */
 button.accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #0073e6;
+    color: #ffffff;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 80%;
+    padding: 10px;
+    margin: right;
+    
     text-align: left;
     border: none;
     outline: none;
@@ -49,7 +52,7 @@ button.accordion.active:after {
 /* Style the accordion panel. Note: hidden by default */
 div.panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: #99bbff;
     max-height: 0;
     overflow: hidden;
     transition: 0.6s ease-in-out;
