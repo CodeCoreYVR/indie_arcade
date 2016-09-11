@@ -1,3 +1,35 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// CAROUSEL CSS
+#home-slideshow {
+  max-height: 450px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+display: block;
+height: auto;
+max-width: 100%;
+line-height: 1;
+width: 100%;
+}
+
+.home-intro {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("2.jpg");
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+img.carousel-inner  {
+  width: 100%;
+}
+
+// END CAROUSEL CSS

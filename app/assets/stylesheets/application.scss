@@ -16,8 +16,26 @@
  //= require chosen-compass
  //= require_tree .
  //= require_self
- 
+
+body {
+   margin-left: 0px;
+   margin-right: 0px;
+}
+
+hr {
+  height: 6px;
+  background-color: orange;
+  margin-bottom: 0px;
+}
+
 // NAVBAR STYLING
+
+.container-fluid {
+  background-color: #003c62;
+  font-family: 'Prompt', sans-serif;
+  font-size: 18px;
+  color: white;
+}
 
 .nav.navbar-nav.navbar-right {
   margin-right: 30px;
@@ -30,11 +48,6 @@
    color: lightgrey;
 }
 
-hr {
-  height: 50px;
-  background-color: orange;
-  margin-bottom: 0px;
-}
 .navbar.navbar-default.navbar-fixed-top {
     border-bottom-width: 0px;
   }
@@ -42,31 +55,27 @@ hr {
 #logo-container a {
   width: 100%;
   height: auto;
+  line-height: 45px;
 }
 
 // END NAVBAR SYLING
 
-#home-slideshow {
-  max-height: 450px;
-  width: 100%;
-  overflow: hidden;
-}
+// FOOTER
 
-.home-intro {
-  height: 400px;
+.home-footer {
+  height: 200px;
   width: 100%;
   overflow: hidden;
-  background-image: url("2.jpg");
+  background-color: #003c62;
   text-align: center;
   font-family: 'Prompt', sans-serif;
   color: white;
   font-size: 20px;
 }
 
-.navbar {
-  margin-bottom: 0px;
-}
+.home-footer-left {
+  text-align: left;
+  margin-left: 25px;
 
-img.carousel-inner  {
-  width: 100%;
 }
+// END FOOTER STYLING
