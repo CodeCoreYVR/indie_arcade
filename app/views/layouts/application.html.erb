@@ -37,10 +37,6 @@
                         </li>
                         <% if user_signed_in? %>
                         <li>
-                            <%= link_to "Log-in", root_path %>
-                        </li>
-                        <li>
-                            <%= link_to "Register", root_path %>
                             <a>Welcome, <%= current_user.company %></a>
                         </li>
                           <li class="dropdown">
@@ -62,7 +58,7 @@
                                 <span class="glyphicon glyphicon-search" id="search"></span>
                             </a>
                             <form id="search-wrapper">
-                                <input type="text" class="form-control" placeholder="Search for a game or a studio" id="search-bar">
+                                <input type="text" class="form-control" name="search" placeholder="Search for a game or a studio" id="search-bar">
                                 <button type="submit" class="btn btn-default" style="display: none">Submit</button>
                             </form>
                         </li>

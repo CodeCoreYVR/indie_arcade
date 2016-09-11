@@ -56,3 +56,74 @@ img.carousel-inner  {
  background-image: url("4.png");
  background-repeat: repeat;
  }
+
+
+// Styling for about page
+#about-header-image {
+  height: 400px;
+  width: 100%;
+  background-image: url('about-header.jpg');
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+
+#about-text-wrapper {
+  width: 100%;
+  height: 300px;
+  display: table;
+}
+
+
+#about-us {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#about-text {
+  width: 80%;
+  margin: auto;
+}
+
+#team-background {
+  height: 500px;
+  width: 100%;
+  background-image: url('noise_pattern.png');
+  text-align: center;
+}
+
+#team-text {
+  color: #003C62;
+  padding: 50px 0;
+}
+
+
+.rod-photo {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+
+#rod1 {
+  background-image: url('rod1-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+#rod2 {
+  background-image: url('rod2-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+#rod3 {
+  background-image: url('rod3-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
+
+#rod4 {
+  background-image: url('rod4-cropped');
+  background-size: cover;
+  border-radius: 100px;
+}
