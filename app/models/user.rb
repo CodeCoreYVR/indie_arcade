@@ -14,7 +14,7 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false}
 
   validates :password, presence: true,
-                    numericality: {greater_than: 5}
+                    length: {minimum: 6}
 
   def full_name
     "#{first_name} #{last_name}".squeeze(" ").strip.titleize
