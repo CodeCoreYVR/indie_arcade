@@ -74,9 +74,7 @@
         </nav>
         <!-- End of NAVBAR -->
 
-        <%= yield %>
-<!-- FOOOTER -->
-        <div style="margin-top: 66px;">
+        <div style="margin-top: 50px;">
           <%= yield %>
         </div>
 
@@ -97,7 +95,8 @@
                 <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
             </div>
         </div>
+        <!-- FOOOTER -->
 
-        </body>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        </body>
     </html>
