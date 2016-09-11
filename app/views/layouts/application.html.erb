@@ -59,7 +59,7 @@
                                 <span class="glyphicon glyphicon-search" id="search"></span>
                             </a>
                             <form id="search-wrapper">
-                                <input type="text" class="form-control" placeholder="Search for a game or a studio" id="search-bar">
+                                <input type="text" class="form-control" name="search" placeholder="Search for a game or a studio" id="search-bar">
                                 <button type="submit" class="btn btn-default" style="display: none">Submit</button>
                             </form>
                         </li>
@@ -81,7 +81,7 @@
         <div class="home-footer">
             <div class="home-footer-left">
                 <div><%= image_tag "logo.png" %></div>
-                <div><%= link_to "About", root_path %></div>
+                <div><%= link_to "About", about_path %></div>
                 <div><%= link_to "Contact", root_path %></div>
                 <div><%= link_to "FAQ", root_path %></div>
             </div>

@@ -17,6 +17,7 @@
  //= require bootstrap_and_overrides
  //= require_self
 
+
 body {
    margin-left: 0px;
    margin-right: 0px;
@@ -60,12 +61,17 @@ a:hover {
   margin-right: 30px;
 }
 
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
+}
+
 .nav.navbar-nav.navbar-right a {
   color: white;
 }
 .nav.navbar-nav.navbar-right a:hover {
    color: lightgrey;
 }
+
 
 .navbar.navbar-default.navbar-fixed-top {
     border-bottom-width: 0px;
@@ -153,4 +159,36 @@ a:hover {
 .codecore-logo{
   height: 50px;
 }
-// END FOOTER STYLING
+
+
+#search-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  transition: top 0.3s;
+}
+
+#search-bar {
+   background-color: #4169ac;
+   border: none;
+   border-radius: 0px;
+   opacity: 0.95;
+   font-color: white;
+   height: 50px;
+}
+
+
+#search-bar::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-wrapper input[type='text']:focus {
+  color: white;
+}
+
+.moved {
+  top: 50px !important;
+}
