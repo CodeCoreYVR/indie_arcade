@@ -11,11 +11,13 @@ USERS_TO_CREATE.times do
 
 end
 
+business = ["Running", "Closed", "Updating"]
 5.times do
 	Location.create	name:					Faker::Company.name,
 									address:			Faker::Address.street_address,
 									city:					Faker::Address.city,
-									postal_code:	Faker::Address.zip_code
+									postal_code:	Faker::Address.zip_code,
+									run_status: 	business[rand(3)]
 end
 
 20.times do
