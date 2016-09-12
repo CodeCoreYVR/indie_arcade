@@ -4,39 +4,40 @@ class GamesController < ApplicationController
   GAMES_PER_PAGE = 6
 
   def index
-
     @tags = Tag.all
     @tagsearch = Tag.ids.map{|x| x.to_s}
-
     searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
     searched = params[:search] unless params[:search].nil?
     searched = params[:search_user] unless params[:search_user].nil?
+    searched = params.require(:search_status)[:status].to_i unless params[:search_status].nil?
+    searched = params[:search_main] unless params[:search_main].nil?
 
     if searched.is_a?(Array)
-       @games = Tag.where(id: searched).map{|k| k.games}.flatten
+        searched.each do |t|
+            @games.nil? ? @games = Tag.find(t).games : @games + Tag.find(t).games
+          end
        @games.uniq
+
     elsif searched.nil?
       @games = Game.all
+    elsif searched.is_a?(Integer)
+      @games = Game.where(status_id: searched)
     elsif searched == params[:search_user]
       @games = Game.with_company_containing(searched)
-    elsif searched == params[:search]
-      @games = Game.with_company_containing(searched) + Game.search(searched)
+    elsif searched == params[:search_main]
+      @games = Game.search(searched)
     end
 
 
     if user_is_dev?
       @games = @games.where(user_id: current_user.id)
     elsif user_is_admin?
+      @statuses = Status.all
       @games
     else
-    @games = @games.where(status_id: 1)
+      @games = @games.where(status_id: [1,2])
     end
-
-    if searched.is_a?(Array)
-      @games = Kaminari.paginate_array(@games)
-    else
       @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
-    end
     respond_to do |format|
       format.html {render}
       format.json {render json: fill_machine_order(Game.all)}

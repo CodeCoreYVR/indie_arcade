@@ -3,7 +3,7 @@
     <head>
         <title>IndieArcade</title>
         <%= csrf_meta_tags %>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'application', media: 'all'%>
         <link href="https://fonts.googleapis.com/css?family=Prompt:400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
         <!-- this makes everything responsive -->
@@ -11,6 +11,7 @@
     </head>
 
     <body>
+
         <div style="margin-top: 50px; min-height: 500px;">
       <!-- NAV BAR FOR GAMER-->
       <% if user_is_gamer? %>
@@ -46,7 +47,7 @@
             </div>
         </footer>
         <!-- FOOOTER -->
+        <%= javascript_include_tag 'application' %>
 
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         </body>
     </html>
