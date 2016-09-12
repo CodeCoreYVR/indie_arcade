@@ -1,27 +1,22 @@
-<h2>Master list of games</h2>
-
-<%= form_tag(games_path, :method => 'get', id: 'statuses') do %>
-<P> Filter results by status </p>
-<%= collection_select(:search_status,:status, @statuses, :id, :name, include_hidden: false) %>
-<%= submit_tag :search %>
-<% end %>
-<hr>
-
-<div>
-<% if @games.present? %>
-  <% @games.each do |g|  %>
-  <!-- Each game is in a div  -->
-    <div class = "container box">
-      <div class="pull-left"><%= display_picture g %></div>
-        <h2 style = "margin-left:60px;"><%= link_to g.title, game_path(g), :style=>"color:#003c62; text-decoration: none;" %></h2>
-        <p style="margin-left:60px;"><%= link_to g.user.company, user_path(g.user) %></p>
-        <p style="margin-left:60px;"><%= g.tags.map {|t| t.name}.join(", ") %></p>
-        <p><%= g.status.name %></p>
-        <hr>
-      </div>
-  </div>
-  <% end %>
-<% else %>
-  <p>There are no matches for your search</p>
-<% end %>
-<%= paginate @games %>
+<h1 class="games-index-h1">All Games</h1>
+ <!-- All games are contained in a div -->
+ <% if @games.present? %>
+   <% @games.each do |g|  %>
+   <!-- Each game is in a div  -->
+     <div class="wrap">
+       <div class="game-picture"><%= display_picture g %></div>
+       <div class="game-details">
+         <h2 style="float:left;"><%= link_to g.title, game_path(g), class: "game-title" %></h2>
+         <div>
+         <p>made by: <%= link_to g.user.company, user_path(g.user) %></p>
+         <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+         <p><%= g.status.name %></p>
+         </div>
+       </div>
+       </div>
+     <!-- </div> -->
+     <% end %>
+ <% else %>
+   <p>There are no matches for your search</p>
+ <% end %>
+ <%= paginate @games %>
