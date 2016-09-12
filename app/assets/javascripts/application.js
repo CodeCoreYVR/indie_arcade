@@ -27,9 +27,8 @@ $(document).ready(function() {
     $(window).keypress(function(event) {
         if (event.which == 13) {
             event.preventDefault();
-            $("form").submit();
+            $("form#search-wrapper").submit();
         }
-        console.log(event.which);
     });
 
     $('.game-search').click(function() {
