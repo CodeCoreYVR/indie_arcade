@@ -36,6 +36,12 @@ class GamesController < ApplicationController
     # review_collection = @game.reviews.order(created_at: :desc)
     @last_played = @game.reviews.last ? @game.reviews.last.created_at : "Never"
     @rating = review_score_for @game
+    # find game reviews
+    @reviews = @game.reviews
+    # get review statistics
+    @fun = @reviews.average(:fun).round(3)
+    @playability = @reviews.average(:playability).round(3)
+    @difficulty = @reviews.average(:difficulty).round(3)
   end
 
   def update
