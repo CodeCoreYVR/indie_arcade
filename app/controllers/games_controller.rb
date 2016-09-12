@@ -121,6 +121,7 @@ class GamesController < ApplicationController
   end
 
   def fill_machine_order(games)
-    games.order(:id).take(5)
+    # games.order(:id).take(5)
+    games.limit(5).order("RANDOM()")
   end
 end
