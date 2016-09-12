@@ -1,18 +1,19 @@
-  <h1>All Games</h1>
+  <h1 class="games-index-h1">All Games</h1>
   <!-- All games are contained in a div -->
-  <div>
   <% if @games.present? %>
     <% @games.each do |g|  %>
     <!-- Each game is in a div  -->
       <div>
         <div><%= display_picture g %></div>
+        <div>
           <h2><%= link_to g.title, game_path(g) %></h2>
           <p><%= link_to g.user.company, user_path(g.user) %></p>
           <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
           <p><%= g.status.name %></p>
           <hr>
+        </div>
       </div>
-  </div>
+
     <% end %>
   <% else %>
     <p>There are no matches for your search</p>
