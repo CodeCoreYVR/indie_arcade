@@ -22,7 +22,8 @@ class GamesController < ApplicationController
     elsif searched == params[:search]
       @games = Game.with_company_containing(searched) + Game.search(searched)
     end
-    byebug
+
+
     if user_is_dev?
       @games = @games.where(user_id: current_user.id)
     elsif user_is_admin?
@@ -30,8 +31,6 @@ class GamesController < ApplicationController
     else
     @games = @games.where(status_id: 1)
     end
-
-    byebug
 
     if searched.is_a?(Array)
       @games = Kaminari.paginate_array(@games)
