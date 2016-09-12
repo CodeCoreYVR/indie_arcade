@@ -1,10 +1,12 @@
 USERS_TO_CREATE = 20
 USERS_TO_CREATE.times do
-	User.create company:      Faker::Company.name,
-              email:				Faker::Internet.email,
-              password:     Faker::Internet.password,
-              employees:   	rand(8),
-              website:      Faker::Internet.url
+
+	User.create company:					Faker::Company.name,
+							email:						Faker::Internet.email,
+							password:	        Faker::Internet.password,
+							employees:				rand(8),
+							website:					Faker::Internet.url
+
 end
 # works
 
@@ -23,7 +25,7 @@ end
 end
 
 ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].each do |s|
-    Status.create name: s
+	Status.create name: s
 end
 
 100.times do
@@ -36,6 +38,7 @@ end
                         size: 1+ rand(4),
                         status_id: 1 + rand(5) })
 end
+
 ["Adventure", "Action", "Strategy", "Multi-player", "Co-op", "Single-player", "Sport", "Racing"].each do |t|
     Tag.create name: t
 end
@@ -55,8 +58,10 @@ end
 
 REVIEW_TO_CREATE = 500
 REVIEW_TO_CREATE.times do
-    Review.create   load_id:            1+rand(100),
-                                    fun:                    1+rand(5),
-                                    difficulty:     1+rand(5),
-                                    playability:    1+rand(5)
+
+	Review.create 	load_id:			1+rand(100),
+									fun:					1+rand(5),
+									difficulty:		1+rand(5),
+									playability:	1+rand(5)
+
 end

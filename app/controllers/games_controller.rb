@@ -15,18 +15,29 @@ class GamesController < ApplicationController
     if searched.is_a?(Array)
        @games = Tag.where(id: searched).map{|k| k.games}.flatten
        @games.uniq
-       @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
     elsif searched.nil?
-      @games = Game.order(created_at: :desc).
-                          page(params[:page]).
-                          per(GAMES_PER_PAGE)
+      @games = Game.all
     elsif searched == params[:search_user]
-      @games = Game.with_company_containing(searched).page(params[:page]).per(GAMES_PER_PAGE)
+      @games = Game.with_company_containing(searched)
     elsif searched == params[:search]
       @games = Game.with_company_containing(searched) + Game.search(searched)
-      @games.page(params[:page]).per(GAMES_PER_PAGE)
+    end
+    byebug
+    if user_is_dev?
+      @games = @games.where(user_id: current_user.id)
+    elsif user_is_admin?
+      @games
+    else
+    @games = @games.where(status_id: 1)
     end
 
+    byebug
+
+    if searched.is_a?(Array)
+      @games = Kaminari.paginate_array(@games)
+    else
+      @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
+    end
     respond_to do |format|
       format.html {render}
       format.json {render json: fill_machine_order(Game.all)}
@@ -34,19 +45,19 @@ class GamesController < ApplicationController
   end
 
   def show
-    # find_game
+    find_game
     @developer = @game.user.company
     @date = @game.created_at
     @play_times = @game.reviews.count
     # review_collection = @game.reviews.order(created_at: :desc)
     @last_played = @game.reviews.last ? @game.reviews.last.created_at : "Never"
     @rating = review_score_for @game
-    # find game reviews
+
     @reviews = @game.reviews
     # get review statistics
-    @fun = @reviews.average(:fun).round(3)
-    @playability = @reviews.average(:playability).round(3)
-    @difficulty = @reviews.average(:difficulty).round(3)
+    @fun = @reviews.average(:fun)
+    @playability = @reviews.average(:playability)
+    @difficulty = @reviews.average(:difficulty)
   end
 
   def update
