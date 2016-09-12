@@ -76,6 +76,17 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+    @game = Game.new
+  end
+
+  def destroy
+    g=Game.find params[:id]
+    g.destroy
+    redirect_to games_path
+  end
+
+
   private
   def find_game
     @game = Game.find params[:id]
