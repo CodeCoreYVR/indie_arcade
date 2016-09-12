@@ -3,24 +3,25 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="container-index-games">
-              <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
 
+              <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
+              <h4 id="narrow-by-tags">Narrow by tags</h4>
               <% @tags.each do |t| %>
-              <p>
+              <div class="checkbox checkbox-primary">
                   <%= check_box_tag(t.id) %>
                   <%= label_tag(t.id, "#{t.name}") %>
-              </p>
+              </div>
               <% end %>
-              <%= submit_tag :search %>
+              <%= submit_tag "Submit", class: "search-tags-btn" %>
               <% end %>
 
               <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
 
               <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
               <div>
-                  <%= label_tag :search_by_user %>
+                  <%= label_tag "Search by studio" %>
                   <%= text_field_tag :search_user, [:search_user] %>
-                  <%= submit_tag :search_user %>
+                  <%= submit_tag "Submit", id: "search-for-s" %>
               </div>
               <% end %>
           </div>
@@ -37,7 +38,7 @@
         <!-- GAMER VIEW -->
           <%= render 'index_gamer' %>
 
-          <h1 id="games-index-h1">All Games</h1>
+          <h1 class="games-index-h1">All Games</h1>
         <!-- All games are contained in a div -->
         <div style="min-height:500px;">
             <% if @games.present? %>
