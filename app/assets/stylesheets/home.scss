@@ -65,6 +65,70 @@ img.carousel-inner {
     font-family: 'Audiowide', cursive;
  }
 
+// Contact
+#contactheader{
+  margin-top: 60px;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 60px;
+  font-weight: bold;
+}
+
+#contactbody{
+  background-image: url("contact-bg.jpg");
+  background-size: cover;
+  font-size: 18px;
+  color: white;
+}
+
+.smallerfont{
+  font-size: 13px;
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    vertical-align: top;
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+#container-medium {
+  margin: auto;
+  width: 850px;
+}
+
+#leavemess{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+#marginend{
+  margin-bottom: 60px;
+}
+.form-control1{
+  opacity: 0.5;
+}
+
+.form-group1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: #EF7030;
+  border-color: #EF7030;
+}
+
+.btn{
+  width: 100%;
+}
 
 // Styling for about page
 #about-header-image {
@@ -81,7 +145,6 @@ img.carousel-inner {
   display: table;
 }
 
-
 #about-us {
   display: table-cell;
   vertical-align: middle;
@@ -90,10 +153,12 @@ img.carousel-inner {
 #about-text {
   width: 80%;
   margin: auto;
+  line-height: 40px;
+  text-align: center;
 }
 
 #team-background {
-  height: 500px;
+  padding-bottom: 40px;
   width: 100%;
   background-image: url('noise_pattern.png');
   text-align: center;
@@ -102,6 +167,7 @@ img.carousel-inner {
 #team-text {
   color: #003C62;
   padding: 50px 0;
+  font-family: Audiowide;
 }
 
 
