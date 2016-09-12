@@ -1,29 +1,24 @@
-<h1>All Games</h1>
-<!-- All games are contained in a div -->
-<div>
-<% if @games.present? %>
-  <% @games.each do |g|  %>
-  <!-- Each game is in a div  -->
-    <div>
-      <h2><%= g.title %></h2>
-      <p><%= g.user.company %></p>
-      <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
-      <hr>
+
+  <h1>All Games</h1>
+  <!-- All games are contained in a div -->
+  <div>
+  <% if @games.present? %>
+    <% @games.each do |g|  %>
+    <!-- Each game is in a div  -->
+      <div>
+          <h2><%= link_to g.title, game_path(g) %></h2>
+          <p><%= link_to g.user.company, game_path(g) %></p>
+          <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+          <hr>
+        </div>
     </div>
-  </div>
+    <% end %>
+  <% else %>
+    <p>There are no matches for your search</p>
   <% end %>
-<% else %>
-  <p>There are no matches for <%= params[:search] %></p>
-<% end %>
+  <%= paginate @games %>
 
 <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
-
-  <% @tags.each do |t| %>
-    <p>
-      <%= check_box_tag(t.id) %>
-      <%= label_tag(t.id, "#{t.name}") %>
-    </p>
-  <% end %>
+  <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) %>
+  <%= submit_tag :search %>
 <% end %>
-
-<%= submit_tag :search %>
