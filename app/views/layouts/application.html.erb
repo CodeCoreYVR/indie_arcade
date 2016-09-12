@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
+    <body style="background-color:powderblue;">
         <!-- NAV BAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid" id="nav-wrapper">
@@ -86,7 +86,7 @@
       <% if user_is_admin? %>
         <%= render 'layouts/nav_admin' %>
       <% end %>
-      
+
         <div style="margin-top: 50px;">
           <%= yield %>
         </div>

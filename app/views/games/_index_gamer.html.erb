@@ -9,9 +9,10 @@
           <h2><%= link_to g.title, game_path(g) %></h2>
           <p><%= link_to g.user.company, game_path(g) %></p>
           <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+          <p><%= g.status.name %></p>
           <hr>
-        </div>
-    </div>
+      </div>
+  </div>
     <% end %>
   <% else %>
     <p>There are no matches for your search</p>
