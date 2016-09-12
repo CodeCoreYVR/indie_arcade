@@ -1,3 +1,22 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#index-bg {
+  background-image: url("games-bg.jpg");
+  background-color: #317484;
+  background-position: top;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-size: 100%;
+}
+
+#games-index-h1 {
+  font-size: 3em;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
