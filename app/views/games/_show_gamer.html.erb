@@ -1,19 +1,18 @@
-<h2><%= @game.title %></h2>
-<div><%= display_picture @game %></div>
+<h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
+
 <div>
-  <div>Made by: <%= link_to @developer, user_path(User.find_by(company: @developer)) %></div>
-  <div>Date: <%= @date %></div>
-  <div>Type:</div>
-  <div>
+  <p>Made by: <%= link_to @developer, user_path(User.find_by(company: @developer)), class:"show-a-tag" %></p>
+  <p>Date: <%= @date %></p>
+  <p>Type:
   <% @game.taggings.map do |tagging| %>
     <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
   <% end %>
-  </div>
-  <div>Last in Arcade: <%= @last_played %></div>
-  <div>Played: <%= @play_times %> times</div>
-  <div>Overall Rating: <%= @rating %></div>
-</div>
+  </p>
+  <p>Last in Arcade: <%= @last_played %></p>
+  <p>Played: <%= @play_times %> times</p>
+  <p>Overall Rating: <%= @rating %></p>
+</p>
 
 <div>
-  <%= button_to "buy", @game.link %>
+  <%= button_to "Buy", @game.link %>
 </div>
