@@ -36,4 +36,8 @@ class Game < ApplicationRecord
     Game.where("title ILIKE ?", "%#{search}%")
   end
 
+  def self.approved
+    Game.where("status_id = ? OR status_id = ?", "1", "2" )
+  end
+
 end
