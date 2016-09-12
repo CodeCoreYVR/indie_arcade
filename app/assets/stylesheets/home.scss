@@ -209,8 +209,10 @@ img.carousel-inner {
 
 // Styling for FAQ page
 #boxy{
-  background: url( asset-path('background.png') );
+  background: url( asset-path('faq-bg.jpg') );
   background-size: cover;
+  background-color: #B79E56;
+  background-attachment: fixed;
 }
 
 #question{

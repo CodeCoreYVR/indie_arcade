@@ -42,14 +42,17 @@ end
 
 TAGGINGS_TO_CREATE = 500
 TAGGINGS_TO_CREATE.times do
-  t = Tagging.create(game_id: rand(60)+1,
-                    tag_id: 1+rand(8))
+
+   Tagging.create(game_id: rand(60)+1,
+                  tag_id: 1+rand(8))
 end
+
 LOADS_TO_CREATE = 100
 LOADS_TO_CREATE.times do
     Load.create machine_id: 1+rand(20),
                 game_id:    1+rand(100)
 end
+
 REVIEW_TO_CREATE = 500
 REVIEW_TO_CREATE.times do
     Review.create   load_id:            1+rand(100),
