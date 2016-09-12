@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#index-bg, div.container.upload, .game-show {
+div.container.upload, .game-show {
+  background-color: #fff;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  min-height: 500px;
+}
+
+#index-bg {
   background-image: url("games-bg.jpg");
   background-color: #317484;
   background-position: top;
@@ -24,8 +33,7 @@
 }
 
 .container-index-games {
-  background-color: #fff;
-  opacity: 0.7;
+  background: rgba(192,192,192,0.8);
   margin-top: 50px;
   padding-bottom: 20px;
 }
@@ -34,6 +42,11 @@
   color: #333;
   text-align: left;
   margin-left: 10px;
+  display: none;
+}
+
+label {
+  display: none;
 }
 
 .checkbox input[type="checkbox"] {
@@ -71,7 +84,7 @@ input.search-tags-btn:hover {
 input#search_user {
   margin-left: 20px;
   border-radius: 4px;
-  width: 110px;
+  width: 160px;
 }
 
 #search-form div label {
@@ -105,8 +118,30 @@ input#search_user {
   width: 360px;
 }
 
-.game-details {
+.gamer-details {
+  width: 505px;
   float: left;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+.gamer-details a {
+  color: #EF7030;
+  text-decoration: none;
+}
+
+.gamer-details a:hover {
+  color: #F98653;
+}
+
+.gamer-details p {
+  font-size: 1.2em;
+}
+
+.pagination {
+  margin-bottom: 40px;
 }
 
 .pagination a, .pagination span.current, .pagination span.gap {
@@ -158,7 +193,7 @@ p.control-group {
 
 form#tags label {
     text-align: left;
-    color: black;
+    color: #333;
     font-size: 1.3em;
 }
 
@@ -175,8 +210,7 @@ form#tags label {
 }
 
 .wrap {
-  background-color: white;
-  opacity: 0.7;
+  background:rgba(255,255,255, 0.6);
   margin: 25px 0;
   height: 300px;
   position: relative;
@@ -199,4 +233,97 @@ form#tags label {
 
 .game-details a {
   color: #EF7030
+}
+
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+ }
+.checkbox_container input {
+  display: inline;
+ }
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
+
+div.container.sentences {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.container.sentences input {
+  margin-top: 20px;
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px 40px;
+}
+
+.container.sentences input:hover {
+  background-color: #F9804B;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+a.container.sentences {
+  color: #F9804B;
+}
+
+.show-a-tag {
+  color: #EF7030;
+}
+
+.show-a-tag:hover {
+  color: #F98D5D;
+}
+
+a.btn.btn-primary {
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+a.btn.btn-primary:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #333;
+}
+
+label.control-label.radio_buttons.required {
+  color: #333;
+  text-align: left;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.radio label {
+  color: #333;
+  line-height: 30px;
+}
+
+input.radio_buttons.required {
+  vertical-align: top;
+}
+
+div.btn {
+  padding: 0px;
+  border: 0;
+}
+
+.orange {
+  color: #EF7030;
+}
+
+.black {
+  color: #333;
+}
+
+p.control-group {
+  color: #333;
+  font-size: 1.2em;
+  text-align: left;
 }

@@ -5,14 +5,13 @@
     <% if @games.present? %>
     <% @games.each do |g|  %>
     <!-- Each game is in a div  -->
-    <div class="container box">
-        <div class="pull-left"><%= display_picture g %></div>
-        <h2 style="margin-left:60px;"><%= link_to g.title, game_path(g), :style=>"color:#003c62; text-decoration: none;" %></h2>
-        <p style="margin-left:60px;"><%= g.tags.map {|t| t.name}.join(", ") %>
-            <br>
-            Status:
-            <%= g.status.name %></p>
-        <p class="pull-right" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
+    <div class="wrap">
+    <div class="game-picture"><%= display_picture g %></div>
+      <div class="gamer-details">
+        <h2 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), :style=>"text-decoration: none;" %></h2>
+        <p>Tags: <%= g.tags.map {|t| t.name}.join(", ") %></p>
+        <p style="color: #45A056; font-weight: bold; margin-bottom: 15px;">Status: <%= g.status.name %></p>
+        <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
             <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
             <%= link_to "Remove", game_path(g),
                                  method: :delete,
@@ -20,6 +19,7 @@
         <br>
         <br>
     </div>
+  </div>
     <% end %>
 </div>
 <% else %>

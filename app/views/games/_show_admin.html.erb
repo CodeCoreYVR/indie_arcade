@@ -1,22 +1,20 @@
-<h2><%= @game.title %></h2>
- <div class="char1"> <%= display_picture @game %> &nbsp; Made by: <%= @developer %></div>
+<h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
+ <p class="char1">Made by: <%= @developer %></p>
 
  <div>
-   <div>Date: <%= @date %></div>
-   <div>Type:</div>
-   <div>
+   <p>Date: <%= @date %></p>
+   <p>Type:
    <% @game.taggings.map do |tagging| %>
      <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
    <% end %>
-   </div>
-   <div>Last in Arcade: <%= @last_played %></div>
-   <div>Played: <%= @play_times %> times</div>
-   <div>Overall Rating: <%= @rating %></div>
-     <div>
+  </p>
+   <p>Last in Arcade: <%= @last_played %></p>
+   <p>Played: <%= @play_times %> times</p>
+   <p>Overall Rating: <%= @rating %></p>
+     <p>
        Send email to developer about the game:
        <%#= input type = "text-field" %>
-     </div>
-<br>
+     </p>
  <div class="btn">
    <%= button_to "Download Game", game_path(@game), method: :get %>
  </div>
