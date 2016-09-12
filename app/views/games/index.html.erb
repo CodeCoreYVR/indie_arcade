@@ -28,36 +28,17 @@
             <div class="col-sm-9">
                 <!-- ADMIN VIEW -->
                 <%# If current user is an admin show this via authorizations %>
-                <% if user_is_admin? %>
+            <% if user_is_admin? %>
                 <%= render 'index_admin' %>
-                <% elsif user_is_dev? %>
+            <% elsif user_is_dev? %>
                 <!-- DEV VIEW -->
                 <%= render 'index_dev' %>
             <% else %>
                 <!-- GAMER VIEW -->
                 <%= render 'index_gamer' %>
-
-                <h1 class="games-index-h1">All Games</h1>
                 <!-- All games are contained in a div -->
-                <div style="min-height:500px;">
-                    <% if @games.present? %>
-                    <% @games.each do |g|  %>
-                    <!-- Each game is in a div  -->
-                    <div>
-                        <h2><%= g.title %></h2>
-                        <p><%= g.user.company %></p>
-                        <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
-                        <hr>
-                    </div>
-                </div>
-                <% end %>
-            <% else %>
-                <p>There are no matches for
-                    <%= params[:search] %></p>
-                <% end %>
-                <% end %>
-
-            </div>
+                <!-- <div style="min-height:500px;"></div>
+            </div> -->
         </div>
-    </div>
-</body>
+        <% end %>
+    </body>

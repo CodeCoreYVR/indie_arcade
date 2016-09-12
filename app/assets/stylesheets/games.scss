@@ -2,17 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.home-footer {
-    margin-top: 100px;
-}
-
-#index-bg {
+#index-bg, div.container.upload {
   background-image: url("games-bg.jpg");
   background-color: #317484;
   background-position: top;
   background-repeat: no-repeat;
-  // background-attachment: fixed;
   background-size: 100%;
+  width: 100%;
+  min-height: 500px;
 }
 
 .games-index-h1 {
