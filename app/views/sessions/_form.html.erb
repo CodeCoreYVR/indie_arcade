@@ -1,29 +1,28 @@
 <%= form_tag sessions_path do %>
 <div class="container">
-  <div class="form-horizontal">
-    <div class="form-inputs register-form-control">
-      <div class="form-group">
-        <div class="col-sm-4 col-sm-offset-4">
-          <%= email_field_tag :email, nil, placeholder: "Email", class: "form-control" %>
+    <div class="form-horizontal">
+        <div class="form-inputs register-form-control">
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <%= email_field_tag :email, nil, placeholder: "Email", class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <%= password_field_tag :password, nil, placeholder: "Password", class: "form-control" %>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-4 col-sm-offset-4">
-          <%= password_field_tag :password, nil, placeholder: "Password", class: "form-control" %>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <div class="form-actions register-form-group btn register-btn">
-  <div class="form-group">
-    <%= submit_tag "Log In", class: "btn-default register-btn", style: "width: 150px; border-radius:5px; text-align:center;" %>
-  </div>
+    <div class="form-group">
+        <%= submit_tag "Log In", class: "btn-default register-btn", style: "width: 150px; border-radius:5px; text-align:center;" %>
+    </div>
 </div>
 <% end %>
-</div>
-<p id="create-p">Don't have an account? <%= link_to 'Create Account', new_user_path %></p>
-<p id ="create-p"><%= link_to '<< Back', users_path %></p>
 
-</div>
+<p id="create-p">Don't have an account?
+    <%= link_to 'Create Account', new_user_path %></p>
+<p id="create-p"><%= link_to '<< Back', users_path %></p>

@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#index-bg {
+#index-bg, div.container.upload, .game-show {
   background-image: url("games-bg.jpg");
   background-color: #317484;
   background-position: top;
   background-repeat: no-repeat;
-  // background-attachment: fixed;
   background-size: 100%;
+  width: 100%;
+  min-height: 500px;
 }
 
 .games-index-h1 {
@@ -92,6 +93,13 @@ input#search_user {
   color: #fff;
 }
 
+.box {
+  background: rgba(192,192,192,0.7);
+  width: 100%;
+  margin-bottom: -10px;
+  margin-top: -10px;
+}
+
 .game-picture {
   float: left;
   width: 360px;
@@ -120,42 +128,75 @@ input#search_user {
   text-decoration: none;
 }
 
-// .pagination span.current {
-//   border-right-width: 1px;
-// }
-
 .pagination span.current:last-child {
   border-right-width: 1px;
 }
 
 .pagination {
-
-    // .first{
-    //     // padding : 0;
-    //     // float: none;
-    //
-    // }
-    // .prev {
-    //     padding : 0;
-    //     float: none;
-    //     border: none;
-    // }
-    // .page{
-    //     padding : 0;
-    //     float: none;
-    //     border: none;
-    // }
-    // .next{
-    //     padding : 0;
-    //     float: none;
-    //     border: none;
-    // }
     .last {
       a {
-        // padding : 0;
-        // float: none;
-        // border: none;
         border-right-width: 1px;
       }
     }
+}
+
+.radio label, .checkbox label {
+    text-align: left;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+#submit-show {
+  padding-bottom: 50px;
+}
+
+p.control-group {
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+}
+
+form#tags label {
+    text-align: left;
+    color: black;
+    font-size: 1.3em;
+}
+
+.game-picture {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  display: inline-block;
+}
+
+.game-picture img{
+  height: 300px;
+  width: 300px;
+}
+
+.wrap {
+  background-color: white;
+  opacity: 0.7;
+  margin: 25px 0;
+  height: 300px;
+  position: relative;
+}
+
+.game-details {
+  text-align: center;
+  display: inline-block;
+  margin-left: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.game-title {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #003C62;
+  text-align: left;
+}
+
+.game-details a {
+  color: #EF7030
 }

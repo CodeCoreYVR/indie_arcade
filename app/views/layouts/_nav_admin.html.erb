@@ -1,4 +1,4 @@
-<nav class="navbar navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -30,6 +30,7 @@
                     <ul class="dropdown-menu">
                       <!-- add stuff later. Need different menues for admin vs dev -->
                       <li><%= link_to "Review Games", games_path %></li>
+                      <li><%= link_to "Messages", messages_path %></li>
                       <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
                     </ul>
                   </li>
