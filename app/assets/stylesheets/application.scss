@@ -48,6 +48,11 @@ a:hover {
 }
 // NAVBAR STYLING
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: white;
+    background-color: transparent;
+}
+
 .container-fluid, .dropdown-menu, .navbar-collapse {
   background-color: #003c62;
   font-family: 'Prompt', sans-serif;
@@ -119,7 +124,7 @@ a:hover {
 }
 
 
-// END NAVBAR SYLING
+// END NAVBAR STYLING
 
 // FOOTER
 
@@ -163,7 +168,7 @@ a:hover {
   height: 50px;
 }
 
-
+// Search
 #search-wrapper {
   position: fixed;
   width: 100%;

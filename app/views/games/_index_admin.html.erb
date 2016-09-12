@@ -4,11 +4,11 @@
 <% if @games.present? %>
   <% @games.each do |g|  %>
   <!-- Each game is in a div  -->
-    <div>
-      <div><%= display_picture g %></div>
-        <h2><%= link_to g.title, game_path(g) %></h2>
-        <p><%= link_to g.user.company, game_path(g) %></p>
-        <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+    <div class = "container box">
+      <div class="pull-left"><%= display_picture g %></div>
+        <h2 style = "margin-left:60px;"><%= link_to g.title, game_path(g), :style=>"color:#003c62; text-decoration: none;" %></h2>
+        <p style="margin-left:60px;"><%= link_to g.user.company, game_path(g) %></p>
+        <p style="margin-left:60px;"><%= g.tags.map {|t| t.name}.join(", ") %></p>
         <p><%= g.status.name %></p>
         <hr>
       </div>

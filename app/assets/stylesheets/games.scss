@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.home-footer {
+    margin-top: 100px;
+}
+
 #index-bg {
   background-image: url("games-bg.jpg");
   background-color: #317484;
@@ -11,7 +15,7 @@
   background-size: 100%;
 }
 
-#games-index-h1 {
+.games-index-h1 {
   font-size: 3em;
   font-family: 'Prompt', sans-serif;
   font-weight: bold;
@@ -19,9 +23,81 @@
   text-align: center;
   margin-top: 40px;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .container-index-games {
   background-color: #fff;
-  opacity: 0.6;
+  opacity: 0.7;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+
+.checkbox label {
+  color: #333;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+form#tags {
+  padding: 10px;
+}
+
+#narrow-by-tags {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+input {
+  &.search-tags-btn {
+    margin-left: 10px;
+  }
+}
+
+input.search-tags-btn {
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+  border-radius: 4px;
+}
+
+input.search-tags-btn:hover {
+  background-color: #F9804B;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+input#search_user {
+  margin-left: 20px;
+  border-radius: 4px;
+  width: 110px;
+}
+
+#search-form div label {
+  color: #333;
+  text-align: left;
+  margin-left: 20px;
+}
+
+#search-for-studio {
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+  border-radius: 4px;
+}
+
+#search-for-studio:hover {
+  background-color: #F9804B;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+.box {
+  background: rgba(192,192,192,0.7);
+  margin-bottom: -10px;
+  margin-top: -10px;
 }

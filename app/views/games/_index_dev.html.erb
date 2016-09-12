@@ -1,24 +1,29 @@
 <h1><% current_user.company %></h1>
 <!-- All games are contained in a div -->
 <div>
-<% if @games.present? %>
-  <% @games.each do |g|  %>
-  <!-- Each game is in a div  -->
-    <div>
-      <div><%= display_picture g %></div>
-        <h2><%= link_to g.title, game_path(g) %></h2>
-        <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
-        <p><%= g.status.name %></p>
-        <p><%=  link_to "Feedback", game_path(g) %></p>
-        <p><%= link_to "Update", edit_game_path(g)%></p>
-        <p><%= link_to "Remove", game_path(g),
-                                  method: :delete,
-                                  data: {confirm: 'Are you sure?'} %></p>
-        <hr>
-      </div>
-  <% end %>
+    <% if @games.present? %>
+    <% @games.each do |g|  %>
+    <!-- Each game is in a div  -->
+    <div class="container box">
+        <div class="pull-left"><%= display_picture g %></div>
+        <h2 style="margin-left:60px;"><%= link_to g.title, game_path(g), :style=>"color:#003c62; text-decoration: none;" %></h2>
+        <p style="margin-left:60px;"><%= g.tags.map {|t| t.name}.join(", ") %>
+            <br>
+            Status:
+            <%= g.status.name %></p>
+        <p class="pull-right" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
+            <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
+            <%= link_to "Remove", game_path(g),
+                                 method: :delete,
+                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
+        <br>
+        <br>
+    </div>
+    <% end %>
 </div>
 <% else %>
-  <p>There are no matches for your search</p>
+<div class = "box">
+    <p>There are no matches for your search</p>
+</div>
 <% end %>
 <%= paginate @games %>

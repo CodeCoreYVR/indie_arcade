@@ -1,0 +1,164 @@
+body{
+  margin: 0;
+}
+
+a {
+  color: white !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   font-family: 'Prompt', sans-serif;
+   font-size: 12px;
+   min-height: 500px;
+}
+
+/*NAVBAR STYLING*/
+
+.container-fluid, .dropdown-menu, .navbar-collapse {
+  background-color: #003c62;
+  font-family: 'Prompt', sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.nav.navbar-nav.navbar-right a:hover {
+    color: white;
+    background-color: #4169ac;
+}
+
+.nav.navbar-nav.navbar-right {
+  margin-right: 30px;
+}
+
+#nav-wrapper {
+  border-bottom: 4px solid #EF7030;
+}
+
+.nav.navbar-nav.navbar-right a {
+  color: white;
+}
+.nav.navbar-nav.navbar-right a:hover {
+   color: lightgrey;
+}
+
+
+.navbar.navbar-default.navbar-fixed-top {
+    border-bottom-width: 0px;
+  }
+
+#logo-container a {
+  width: 100%;
+  height: auto;
+  line-height: 45px;
+}
+/*END NAVBAR STYLING*/
+
+/*HOME-INTRO*/
+.home-intro {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("../public/2.jpg");
+    background-size: cover;
+    text-align: center;
+    line-height: 23px;
+    color: white;
+    font-size: 18px;
+    text-shadow: 3px 3px 0 #000;
+}
+
+#intro-header{
+  margin-top: 50px;
+}
+
+.home-intro h1 {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Audiowide', cursive;
+}
+
+/*HOME INTRO END*/
+
+/*HOME CENTERPIECE*/
+.home-centerpiece{
+  height: 1000px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("../public/terraria.jpg");
+  background-size: cover;
+  text-align: center;
+  line-height: 23px;
+  color: white;
+  font-size: 18px;
+  text-shadow: 3px 3px 0 #000;
+}
+/*HOME CENTERPIECE*/
+
+#five{
+  font-size: 35px;
+  text-shadow: 3px 3px 0 #000;
+  font-weight: bold;
+  font-family: 'Audiowide', cursive;
+  color: white;
+}
+
+.home-footer {
+  border-top: 4px solid #EF7030;
+}
+
+#btn-play {
+  height: 50px; 
+  width: 500px;
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+  margin: 500px;
+}
+
+/*FOOTER STYLING*/
+#home-footer {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  bottom: 0px;
+  left: 0px;
+  background-color: #003c62;
+  text-align: center;
+  font-family: 'Prompt', sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+.home-footer-left div {
+  margin-top: 15px;
+}
+.home-footer-right div {
+  margin-top: 15px;
+}
+
+
+.home-footer-left {
+  float: left;
+  text-align: left;
+  margin-left: 40px;
+  width: 30%;
+}
+
+.home-footer-right {
+  float: right;
+  text-align: right;
+  margin-right: 40px;
+  width: 30%;
+  font-size: 18px;
+  text-decoration: underline;
+}
+.codecore-logo{
+  height: 50px;
+}
