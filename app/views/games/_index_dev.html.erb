@@ -9,7 +9,7 @@
  <% if @games.present? %>
    <% @games.each do |g| %>
      <div>
-       <% if g.user == current_user %>
+       <% if g.user = current_user %>
          <p><%= display_picture(g) %></p>
          <p><%= g.title %></p>
          <p><%= g.current_status %></p>
