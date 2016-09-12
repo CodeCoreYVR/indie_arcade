@@ -26,6 +26,11 @@ class GamesController < ApplicationController
       @games = Game.with_company_containing(searched) + Game.search(searched)
       @games.page(params[:page]).per(GAMES_PER_PAGE)
     end
+
+    respond_to do |format|
+      format.html {render}
+      format.json {render json: fill_machine_order(Game.all)}
+    end
   end
 
   def show
@@ -94,5 +99,9 @@ class GamesController < ApplicationController
   def review_score_for( game )
     game.reviews.count
     # (review_collection.average(:fun) + review_collection.average(:playability) + review_collection.average(:difficulty))/3
+  end
+
+  def fill_machine_order(games)
+    games.order(:id).take(5)
   end
 end

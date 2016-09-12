@@ -3,7 +3,7 @@ module ApplicationHelper
     unless game.picture.nil?
       image_tag(game.picture)
     else
-      image_tag("app/assets/images/fallback/defaultdfa.png")
+      image_tag("app/assets/images/fallback/default.png")
      end
   end
 end
