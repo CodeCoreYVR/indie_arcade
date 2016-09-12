@@ -6,7 +6,6 @@ class GamesController < ApplicationController
   def index
     @tags = Tag.all
     @tagsearch = Tag.ids.map{|x| x.to_s}
-
     searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
     searched = params[:search] unless params[:search].nil?
     searched = params[:search_user] unless params[:search_user].nil?
