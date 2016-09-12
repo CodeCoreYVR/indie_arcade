@@ -4,7 +4,6 @@ class GamesController < ApplicationController
   GAMES_PER_PAGE = 6
 
   def index
-    byebug
     @tags = Tag.all
     @tagsearch = Tag.ids.map{|x| x.to_s}
 
@@ -29,13 +28,17 @@ class GamesController < ApplicationController
   end
 
   def show
-    # find_game
+    find_game
     @developer = @game.user.company
     @date = @game.created_at
     @play_times = @game.reviews.count
+    @reviews = @game.reviews
     # review_collection = @game.reviews.order(created_at: :desc)
     @last_played = @game.reviews.last ? @game.reviews.last.created_at : "Never"
     @rating = review_score_for @game
+    @fun = @game.reviews.average(:fun)
+    @playability = @game.reviews.average(:playability)
+    @difficulty = @game.reviews.average(:difficulty)
   end
 
   def update

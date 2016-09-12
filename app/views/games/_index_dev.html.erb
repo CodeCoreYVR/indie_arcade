@@ -1,1 +1,25 @@
-<h1>Dev Games Page</h1>
+<h1><% current_user.company %></h1>
+<!-- All games are contained in a div -->
+<div>
+<% @games = @games.where(user_id: current_user.id) %>
+<% if @games.present? %>
+  <% @games.each do |g|  %>
+  <!-- Each game is in a div  -->
+    <div>
+      <div><%= display_picture g %></div>
+        <h2><%= link_to g.title, game_path(g) %></h2>
+        <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+        <p><%= g.status.name %></p>
+        <hr>
+      </div>
+  </div>
+  <% end %>
+<% else %>
+  <p>There are no matches for your search</p>
+<% end %>
+<%= paginate @games %>
+
+<%= form_tag(games_path, :method => 'get', id: 'tags') do %>
+<%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) %>
+<%= submit_tag :search %>
+<% end %>
