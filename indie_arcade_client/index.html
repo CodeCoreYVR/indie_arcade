@@ -34,7 +34,7 @@
             <div class="navbar-header">
                 <div id="logo-container">
                     <a class="navbar-left" href="#">
-                        <img src="../public/logo.png" %>
+                        <img src="../public/logo.png" >
                     </a>
                 </div>
             </div>
@@ -42,10 +42,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://localhost:3000/games">Games</a></li>
-                <li><a href="http://localhost:3000/logIn">Log-in</a></li>
-                <li><a href="http://localhost:3000/register">Register</a></li>
-                <li><a><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li>
+                <li><a id="get-new-games">Get New Games</a></li>
+                <!-- <li><a><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li> -->
               </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -54,18 +52,6 @@
     </nav>
     <!-- End of NAVBAR -->
 
-
-    <!-- HOME-INTRO -->
-    <div class = "home-intro">
-      <div id="intro-header">
-        <br>
-        <h1>Welcome to Indie Arcade</h1>
-        <br>
-        <div class="col-lg-8 col-lg-offset-2">
-          We provide a unique and free gaming experience for arcades around Vancouver. This project showcases Indie games made locally in British Columbia to the general public. Our app will enable Game Developers to receieve diagnostics and reviews from the public after they play the game!
-        </div>
-      </div>
-    </div>
     <!-- Centerpiece -->
     <div class = "home-centerpiece">
       <div id="intro-header">
@@ -74,7 +60,10 @@
         <div id="five">
           These are the 5 games available this week
         </div>
-        <div class="btn register-btn">
+        <div id="games-list">
+
+        </div>
+        <div id="select-game" class="btn register-btn">
           <button type="button" id="btn-play">PLAY</button>
         </div>
       </div>

@@ -10,6 +10,19 @@ USERS_TO_CREATE.times do
 end
 # works
 
+User.create company:					"Admin Man",
+						email:						"admin@admin.com",
+						password:	        "123456",
+						employees:				rand(8),
+						website:					Faker::Internet.url,
+						admin:						true
+
+User.create company:					"Dev Man",
+						email:						"dev@dev.com",
+						password:	        "123456",
+						employees:				rand(8),
+						website:					Faker::Internet.url,
+						admin:						false
 
 business = ["Running", "Closed", "Updating"]
 5.times do
@@ -29,8 +42,8 @@ end
 end
 
 100.times do
-    Game.create({title: Faker::Name.name ,
-                  description: "dis game right here motha fukka",
+    Game.create({title: Faker::Name.name,
+                  description: Faker::Hipster.paragraph,
                         user_id: 1+rand(10),
                         cpu: rand(100)+1,
                         gpu: rand(50)+1,

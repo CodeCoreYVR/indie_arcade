@@ -99,6 +99,10 @@ body {
   font-size: 18px;
   text-shadow: 3px 3px 0 #000;
 }
+
+.translucent{
+  background-color: rgba(0, 0, 0, 0.5);
+}
 /*HOME CENTERPIECE*/
 
 #five{
@@ -114,12 +118,12 @@ body {
 }
 
 #btn-play {
-  height: 50px; 
+  height: 50px;
   width: 500px;
   background-color: #EF7030;
   border-color: #EF7030;
   color: #fff;
-  margin: 500px;
+  /*margin: px;*/
 }
 
 /*FOOTER STYLING*/
