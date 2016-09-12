@@ -1,10 +1,38 @@
 <h2>List of Games to Approve</h2>
 <hr>
-<% games_for_review = Status.find_by_name("Under Review").games %>
+<% games_for_review = Status.find_by_name("Game under review").games %>
 <% games_for_review.each do |game| %>
   <div>
     <div><%= link_to game.title, game_path(game)%></div>
     <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
+    <hr>
+  </div>
+<% end %>
+<% games_not_released = Status.find_by_name("Not released").games %>
+<% games_not_released.each do |game| %>
+  <div>
+    <div><%= link_to game.title, game_path(game)%></div>
+    <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
+    <hr>
+  </div>
+<% end %>
+<% games_released = Status.find_by_name("Released to arcade").games %>
+<% games_released.each do |game| %>
+  <div>
+    <div><%= link_to game.title, game_path(game)%></div>
+    <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
+    <hr>
+  </div>
+<% end %>
+<% games_rejected = Status.find_by_name("Rejected").games %>
+<% games_rejected.each do |game| %>
+  <div>
+    <div><%= link_to game.title, game_path(game)%></div>
+    <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
     <hr>
   </div>
 <% end %>
