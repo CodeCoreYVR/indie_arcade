@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#index-bg, div.container.upload {
+#index-bg, div.container.upload, .game-show {
   background-image: url("games-bg.jpg");
   background-color: #317484;
   background-position: top;
@@ -98,4 +98,78 @@ input#search_user {
   width: 100%;
   margin-bottom: -10px;
   margin-top: -10px;
+}
+
+.game-picture {
+  float: left;
+  width: 360px;
+}
+
+.game-details {
+  float: left;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-right-width: 0px;
+    color: #003C62;
+}
+
+.pagination a:hover {
+  background-color: #F9804B;
+  border-top: 1px solid #F9804B;
+  border-bottom: 1px solid #F9804B;
+  color: white;
+  text-decoration: none;
+}
+
+.pagination span.current:last-child {
+  border-right-width: 1px;
+}
+
+.pagination {
+
+    // .first{
+    //     // padding : 0;
+    //     // float: none;
+    //
+    // }
+    // .prev {
+    //     padding : 0;
+    //     float: none;
+    //     border: none;
+    // }
+    // .page{
+    //     padding : 0;
+    //     float: none;
+    //     border: none;
+    // }
+    // .next{
+    //     padding : 0;
+    //     float: none;
+    //     border: none;
+    // }
+    .last {
+      a {
+        // padding : 0;
+        // float: none;
+        // border: none;
+        border-right-width: 1px;
+      }
+    }
+}
+
+.radio label, .checkbox label {
+    text-align: left;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+#submit-show {
+  padding-bottom: 50px;
 }

@@ -1,9 +1,9 @@
   <h1 class="games-index-h1">All Games</h1>
   <!-- All games are contained in a div -->
-  <div>
   <% if @games.present? %>
     <% @games.each do |g|  %>
     <!-- Each game is in a div  -->
+<<<<<<< HEAD
 
       <div class="container box">
 
@@ -13,8 +13,9 @@
           <p style ="margin-left:60px;"><%= g.tags.map {|t| t.name}.join(", ") %></p>
           <p style ="margin-left:60px;"><%= g.status.name %></p>
           <hr>
+        </div>
       </div>
-  </div>
+
     <% end %>
   <% else %>
   <div class = "box">

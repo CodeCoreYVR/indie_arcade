@@ -19,7 +19,7 @@
                     <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
                     <div>
                         <%= label_tag "Search by studio" %>
-                        <%= text_field_tag :search_user, [:search_user] %>
+                        <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
                         <%= submit_tag "Submit", id: "search-for-studio" %>
                     </div>
                     <% end %>
