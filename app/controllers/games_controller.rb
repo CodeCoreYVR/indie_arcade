@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :find_game, only: [:show, :update]
+  before_action :find_game, only: [:show, :update, :edit]
 
   GAMES_PER_PAGE = 6
 
@@ -81,6 +81,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.user = current_user
 
     respond_to do |format|
       if @game.save
@@ -94,7 +95,7 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game = Game.new
+
   end
 
   def destroy
@@ -105,12 +106,13 @@ class GamesController < ApplicationController
 
 
   private
+
   def find_game
     @game = Game.find params[:id]
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link)
+    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link, {tag_ids: [] } )
   end
 
   def review_score_for( game )

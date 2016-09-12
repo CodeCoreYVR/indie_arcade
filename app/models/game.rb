@@ -14,6 +14,8 @@ class Game < ApplicationRecord
   MAXIMUM_RAM = 4000
   MAXIMUM_HD_SPACE = 6000
 
+  after_initialize :set_defaults
+
   validates :title, presence: true,
                     uniqueness: {case_sensitive: false}
   # validates :cpu, presence: true,
@@ -31,6 +33,9 @@ class Game < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
+  def set_defaults
+    self.status_id ||= 3
+  end
 
   def self.search(search)
     Game.where("title ILIKE ?", "%#{search}%")
