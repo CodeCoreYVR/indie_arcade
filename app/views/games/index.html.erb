@@ -11,14 +11,8 @@
 <% end %>
 
 <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
-
-  <% @tags.each do |t| %>
-     <p>
-       <%= check_box_tag(t.id) %>
-       <%= label_tag(t.id, "#{t.name}") %>
-     </p>
-     <% end %>
-     <%= submit_tag :search %>
+<%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) %>
+<%= submit_tag :search %>
 <% end %>
   <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
 
