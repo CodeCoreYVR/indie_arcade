@@ -1,5 +1,4 @@
 
-
 USERS_TO_CREATE = 20
 
 USERS_TO_CREATE.times do
@@ -11,11 +10,13 @@ USERS_TO_CREATE.times do
 
 end
 
+business = ["Running", "Closed", "Updating"]
 5.times do
 	Location.create	name:					Faker::Company.name,
 									address:			Faker::Address.street_address,
 									city:					Faker::Address.city,
-									postal_code:	Faker::Address.zip_code
+									postal_code:	Faker::Address.zip_code,
+									run_status: 	business[rand(3)]
 end
 
 20.times do
@@ -44,6 +45,7 @@ end
 
 TAGGINGS_TO_CREATE = 2000
 TAGGINGS_TO_CREATE.times do
+
   t = Tagging.create(game_id: rand(60)+1,
                   	tag_id: 1+rand(8))
 end

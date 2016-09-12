@@ -1,4 +1,4 @@
-<h2>Master lis of games</h2>
+<h2>Master list of games</h2>
 
 <div>
 <% if @games.present? %>
@@ -23,3 +23,40 @@
 <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) %>
 <%= submit_tag :search %>
 <% end %>
+<% games_not_released = Status.find_by_name("Not released").games %>
+<% games_not_released.each do |game| %>
+  <div>
+    <div><%= link_to game.title, game_path(game)%></div>
+    <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
+    <hr>
+  </div>
+<% end %>
+<% games_released = Status.find_by_name("Released to arcade").games %>
+<% games_released.each do |game| %>
+  <div>
+    <div><%= link_to game.title, game_path(game)%></div>
+    <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
+    <hr>
+  </div>
+<% end %>
+<% games_rejected = Status.find_by_name("Rejected").games %>
+<% games_rejected.each do |game| %>
+  <div>
+    <div><%= link_to game.title, game_path(game)%></div>
+    <div><%= game.user.company %></div>
+    <div><%= game.status.name %></div>
+    <hr>
+  </div>
+<% end %>
+<hr>
+<div>
+  Status of Arcades
+  <hr>
+  <div>
+    <% Location.find_each do |location| %>
+      <%= location.name %>: <strong><%= location.run_status %></strong> <br>
+    <% end %>
+  </div>
+</div>

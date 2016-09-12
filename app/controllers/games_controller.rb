@@ -4,26 +4,43 @@ class GamesController < ApplicationController
   GAMES_PER_PAGE = 6
 
   def index
+
     @tags = Tag.all
     @tagsearch = Tag.ids.map{|x| x.to_s}
 
     searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
     searched = params[:search] unless params[:search].nil?
     searched = params[:search_user] unless params[:search_user].nil?
-    # byebug
+
     if searched.is_a?(Array)
        @games = Tag.where(id: searched).map{|k| k.games}.flatten
        @games.uniq
-       @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
     elsif searched.nil?
-      @games = Game.order(created_at: :desc).
-                          page(params[:page]).
-                          per(GAMES_PER_PAGE)
+      @games = Game.all
     elsif searched == params[:search_user]
-      @games = Game.with_company_containing(searched).page(params[:page]).per(GAMES_PER_PAGE)
+      @games = Game.with_company_containing(searched)
     elsif searched == params[:search]
       @games = Game.with_company_containing(searched) + Game.search(searched)
-      @games.page(params[:page]).per(GAMES_PER_PAGE)
+    end
+    byebug
+    if user_is_dev?
+      @games = @games.where(user_id: current_user.id)
+    elsif user_is_admin?
+      @games
+    else
+    @games = @games.where(status_id: 1)
+    end
+
+    byebug
+
+    if searched.is_a?(Array)
+      @games = Kaminari.paginate_array(@games)
+    else
+      @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
+    end
+    respond_to do |format|
+      format.html {render}
+      format.json {render json: fill_machine_order(Game.all)}
     end
   end
 
@@ -32,13 +49,15 @@ class GamesController < ApplicationController
     @developer = @game.user.company
     @date = @game.created_at
     @play_times = @game.reviews.count
-    @reviews = @game.reviews
     # review_collection = @game.reviews.order(created_at: :desc)
     @last_played = @game.reviews.last ? @game.reviews.last.created_at : "Never"
     @rating = review_score_for @game
-    @fun = @game.reviews.average(:fun)
-    @playability = @game.reviews.average(:playability)
-    @difficulty = @game.reviews.average(:difficulty)
+
+    @reviews = @game.reviews
+    # get review statistics
+    @fun = @reviews.average(:fun)
+    @playability = @reviews.average(:playability)
+    @difficulty = @reviews.average(:difficulty)
   end
 
   def update
@@ -74,6 +93,17 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+    @game = Game.new
+  end
+
+  def destroy
+    g=Game.find params[:id]
+    g.destroy
+    redirect_to games_path
+  end
+
+
   private
   def find_game
     @game = Game.find params[:id]
@@ -86,5 +116,9 @@ class GamesController < ApplicationController
   def review_score_for( game )
     game.reviews.count
     # (review_collection.average(:fun) + review_collection.average(:playability) + review_collection.average(:difficulty))/3
+  end
+
+  def fill_machine_order(games)
+    games.order(:id).take(5)
   end
 end

@@ -17,6 +17,9 @@
  //= require bootstrap_and_overrides
  //= require_self
 
+html, body {
+  height: 100%;
+}
 
 body {
    margin-left: 0px;
@@ -24,12 +27,11 @@ body {
    margin-bottom: 0px;
    font-family: 'Prompt', sans-serif;
    font-size: 12px;
+   min-height: 500px;
 }
 
-hr {
-  height: 6px;
-  background-color: #EF7030;
-  margin-bottom: 0px;
+.home-footer {
+  border-top: 4px solid #EF7030;
 }
 
 #nav-wrapper {
@@ -115,6 +117,7 @@ a:hover {
   top: 50px !important;
 }
 
+
 // END NAVBAR SYLING
 
 // FOOTER
@@ -130,7 +133,6 @@ a:hover {
   font-family: 'Prompt', sans-serif;
   color: white;
   font-size: 12px;
-  margin-bottom: 0px;
 }
 
 .home-footer-left div {
