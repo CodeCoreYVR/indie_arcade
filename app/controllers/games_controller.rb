@@ -10,6 +10,7 @@ class GamesController < ApplicationController
     searched = params[:search] unless params[:search].nil?
     searched = params[:search_user] unless params[:search_user].nil?
     searched = params.require(:search_status)[:status].to_i unless params[:search_status].nil?
+    searched = params[:search_main] unless params[:search_main].nil?
 
     if searched.is_a?(Array)
         searched.each do |t|
@@ -23,8 +24,8 @@ class GamesController < ApplicationController
       @games = Game.where(status_id: searched)
     elsif searched == params[:search_user]
       @games = Game.with_company_containing(searched)
-    elsif searched == params[:search]
-      @games = Game.with_company_containing(searched) + Game.search(searched)
+    elsif searched == params[:search_main]
+      @games = Game.search(searched)
     end
 
 
