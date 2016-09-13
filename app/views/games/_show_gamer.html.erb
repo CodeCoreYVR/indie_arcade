@@ -14,5 +14,5 @@
 </p>
 
 <div>
-  <%= button_to "Buy", @game.link %>
-</div>
+  <!-- <%#= button_to "Buy", @game.link %> -->
+  <%= button_to "Buy", root_path, :class => "button", :method => :get %>
