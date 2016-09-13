@@ -3,12 +3,15 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="container-index-games">
-                    <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
-                                 <h4 id="narrow-by-tags">Narrow by tags</h4>
-                                 <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false, class: "checkbox checkbox-primary") %>
-                                 <%= submit_tag :search, class: "search-tags-btn"  %>
+                                 <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
+                                   <h4 id="narrow-by-tags">Narrow by tags</h4>
+                                   <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) do |t| %>
+                                     <%= t.label class: "checkbox checkbox-primary" do %>
+                                       <%= t.check_box %><span style="margin-left: 35px;"><%= t.text %></span>
+                                     <% end %>
+                                   <% end %>
+                                   <%= submit_tag :search, class: "search-tags-btn"  %>
                                  <% end %>
-
                     <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
 
                     <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
