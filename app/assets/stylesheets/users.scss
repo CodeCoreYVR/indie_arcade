@@ -23,8 +23,12 @@ h1 {
   &.register-btn-default {
     color: #fff;
     background-color: #EF7030;
-    border-color: #EF7030;
+    border: 0;
   }
+}
+
+input.btn-default {
+  border: 0;
 }
 
 .container {
@@ -70,6 +74,7 @@ p {
     border-color: #EF7030;
     color: #fff;
     width: 100%;
+    border: 0;
   }
 }
 

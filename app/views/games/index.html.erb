@@ -1,14 +1,18 @@
-<body id="index-bg">
+<div id="index-bg">
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
                 <div class="container-index-games">
                     <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
-                                 <h4 id="narrow-by-tags">Narrow by tags</h4>
-                                 <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false, class: "checkbox checkbox-primary") %>
-                                 <%= submit_tag :search, class: "search-tags-btn"  %>
-                                 <% end %>
-
+                    <h4 id="narrow-by-tags">Narrow by tags</h4>
+                    <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) do |t| %>
+                    <%= t.label class: "checkbox checkbox-primary" do %>
+                    <%= t.check_box %>
+                    <span style="margin-left: 35px;"><%= t.text %></span>
+                    <% end %>
+                    <% end %>
+                    <%= submit_tag :search, class: "search-tags-btn"  %>
+                    <% end %>
                     <!-- Bar used bay users to search for gams by developer. All developers that include the entered string will be returned. -->
 
                     <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
@@ -21,19 +25,14 @@
                 </div>
             </div>
             <div class="col-sm-9">
-                <!-- ADMIN VIEW -->
-                <%# If current user is an admin show this via authorizations %>
-            <% if user_is_admin? %>
-                <%= render 'index_admin' %>
-            <% elsif user_is_dev? %>
-                <!-- DEV VIEW -->
-                <%= render 'index_dev' %>
-            <% else %>
-                <!-- GAMER VIEW -->
-                <%= render 'index_gamer' %>
-                <!-- All games are contained in a div -->
-                <!-- <div style="min-height:500px;"></div>
-            </div> -->
+                <% if user_is_admin? %>
+                    <%= render 'index_admin' %>
+                <% elsif user_is_dev? %>
+                    <%= render 'index_dev' %>
+                <% else %>
+                    <%= render 'index_gamer' %>
+                <% end %>
+            </div>
         </div>
-        <% end %>
-    </body>
+    </div>
+</div>

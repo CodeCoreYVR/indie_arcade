@@ -24,12 +24,14 @@ $(document).ready(function() {
     });
 
     $(window).keypress(function(event) {
+      if ($("#search-bar").val().length > 1) {
         if (event.which == 13) {
-            event.preventDefault();
-            $("form#search-wrapper").submit();
+          event.preventDefault();
+          $("form#search-wrapper").submit();
         }
+      }
     });
-
+    
     $('.game-search').click(function() {
         $('#search-wrapper').toggleClass('moved');
     })
