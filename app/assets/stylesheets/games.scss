@@ -38,6 +38,25 @@ div.container.upload, .game-show {
   padding-bottom: 20px;
 }
 
+.back-btn-update a {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #333;
+  text-decoration: none;
+}
+
+.back-btn-update a:hover {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #333;
+  text-decoration: underline;
+}
+
+.back-btn-update {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 .checkbox label {
   color: #333;
   text-align: left;
@@ -297,6 +316,52 @@ label.control-label.radio_buttons.required {
   text-align: left;
   margin-top: 40px;
   font-size: 20px;
+  margin-bottom: 15px;
+}
+
+label.control-label.file.optional {
+  margin-top: 20px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label.control-label.string.optional {
+  margin-top: 30px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label.control-label.string.required {
+  margin-top: 30px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label.control-label.text.required {
+  margin-top: 30px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+input.btn.btn-default {
+  margin-top: 20px;
+}
+
+.label-for-tags {
+  margin-top: 20px;
+  color: #333;
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+select#game_tag_ids.chosen-select {
+  width: 500px;
 }
 
 .radio label {
@@ -337,4 +402,5 @@ p.control-group {
 
 p.tag-boxes {
   margin-bottom: 5px;
+  font-size: 12px;
 }
