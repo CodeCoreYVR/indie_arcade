@@ -2,15 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.container.upload, .game-show {
-  background-color: #fff;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-  min-height: 500px;
-}
-
 #index-bg, .upload {
   background-image: url("games-bg.jpg");
   background-color: #317484;
@@ -19,6 +10,7 @@ div.container.upload, .game-show {
   background-size: 100%;
   width: 100%;
   min-height: 500px;
+  padding-bottom: 20px;
 }
 
 .games-index-h1 {
@@ -36,6 +28,25 @@ div.container.upload, .game-show {
   background: rgba(192,192,192,0.8);
   margin-top: 45px;
   padding-bottom: 20px;
+}
+
+.back-btn-update a {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #333;
+  text-decoration: none;
+}
+
+.back-btn-update a:hover {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #333;
+  text-decoration: underline;
+}
+
+.back-btn-update {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .checkbox label {
@@ -297,6 +308,53 @@ label.control-label.radio_buttons.required {
   text-align: left;
   margin-top: 40px;
   font-size: 20px;
+  margin-bottom: 15px;
+}
+
+label.control-label.file.optional {
+  margin-top: 20px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label.control-label.string.optional {
+  margin-top: 30px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label.control-label.string.required {
+  margin-top: 30px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+label.control-label.text.required {
+  margin-top: 30px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+input.btn.btn-default {
+  margin-top: 20px;
+}
+
+.label-for-tags {
+  margin-top: 20px;
+  color: #fff;
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+select#game_tag_ids.chosen-select {
+  width: 500px;
+  color: #333;
 }
 
 .radio label {
@@ -337,4 +395,34 @@ p.control-group {
 
 p.tag-boxes {
   margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.upload-form-control, .control-label {
+  color: #fff;
+}
+
+.form-inputs input, .form-inputs textarea, .form-inputs select{
+}
+
+p.control-group{
+  text-align: center;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+.upload h1 {
+  font-size: 3em;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+input#game_picture.file.optional {
+  background-color: #317484;
+  opacity: 0.6;
+  color: #fff;
 }

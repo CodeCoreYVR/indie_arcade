@@ -8,10 +8,12 @@
         <div class="game-picture"><%= display_picture g %></div>
         <div class="gamer-details">
             <h2 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), :style=>"text-decoration: none;" %></h2>
-            <p>Tags:
-                <%= g.tags.map {|t| t.name}.join(", ") %></p>
-            <p class="game-status" style="color: #45A056; font-weight: bold; margin-bottom: 15px;">Status:
-                <%= g.status.name %></p>
+            <% g.tags.each do |t| %>
+             <p class="tag-boxes">
+               <%= t.name %>
+             </p>
+            <% end %>
+        <p class = "game-status" style="color: #45A056; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Status: <%= g.status.name %></p>
             <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
                 <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
                 <%= link_to "Remove", game_path(g),
