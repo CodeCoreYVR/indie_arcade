@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#index-bg, .upload {
+#index-bg {
   background-image: url("games-bg.jpg");
   background-color: #317484;
   background-position: top;
@@ -25,7 +25,7 @@
 }
 
 .container-index-games {
-  background: rgba(192,192,192,0.8);
+  background: rgba(255,255,255,0.7);
   margin-top: 45px;
   padding-bottom: 20px;
 }
@@ -120,7 +120,7 @@ input#search_user {
 }
 
 .box {
-  background: rgba(192,192,192,0.7);
+  background: rgba(255,255,255,0.7);
   width: 100%;
   margin-bottom: -10px;
   margin-top: -10px;
@@ -129,15 +129,6 @@ input#search_user {
 .game-picture {
   float: left;
   width: 360px;
-}
-
-.gamer-details {
-  width: 505px;
-  float: left;
-  text-align: left;
-  margin-left: 20px;
-  margin-right: 20px;
-
 }
 
 .gamer-details a {
@@ -207,31 +198,47 @@ form#tags label {
     font-weight: normal;
 }
 
-.game-picture {
-  height: 300px;
-  width: 300px;
-  background-size: cover;
-  display: inline-block;
-}
-
-.game-picture img{
-  height: 300px;
-  width: 300px;
-}
-
-.wrap {
-  background:rgba(255,255,255, 0.6);
-  margin: 25px 0;
-  height: 300px;
-  position: relative;
-}
-
 .game-details {
   text-align: center;
-  display: inline-block;
+  display: inline;
   margin-left: 20px;
   position: absolute;
   top: 0;
+}
+
+.wrapper {
+  overflow:hidden;
+  background: rgba(255,255,255,0.7);
+  margin-bottom: 25px;
+}
+
+.wrapper div {
+   min-height: 200px;
+}
+
+.one img{
+  width: 290px;
+}
+
+.one {
+  float:left;
+  width: 290px;
+  background-size: cover;
+}
+.two {
+  padding: 0px 20px;
+  overflow:hidden;
+  min-height:200px;
+
+}
+
+@media screen and (max-width: 400px) {
+   #one {
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+  }
 }
 
 .game-title {
@@ -241,8 +248,12 @@ form#tags label {
   text-align: left;
 }
 
+.game-title a:hover {
+  color: #fff;
+}
+
 .game-details a {
-  color: #EF7030;
+  color: #428bca;
 }
 
 .checkbox_container {
@@ -311,30 +322,30 @@ label.control-label.radio_buttons.required {
   margin-bottom: 15px;
 }
 
-label.control-label.file.optional {
+.upload label.control-label.file.optional {
   margin-top: 20px;
-  color: #fff;
+  color: #333;
   text-align: left;
   margin-bottom: 15px;
 }
 
-label.control-label.string.optional {
+.upload label.control-label.string.optional {
   margin-top: 30px;
-  color: #fff;
+  color: #333;
   text-align: left;
   margin-bottom: 15px;
 }
 
-label.control-label.string.required {
+.upload label.control-label.string.required {
   margin-top: 30px;
-  color: #fff;
+  color: #333;
   text-align: left;
   margin-bottom: 15px;
 }
 
-label.control-label.text.required {
+.upload label.control-label.text.required {
   margin-top: 30px;
-  color: #fff;
+  color: #333;
   text-align: left;
   margin-bottom: 15px;
 }
@@ -399,7 +410,7 @@ p.tag-boxes {
 }
 
 .upload-form-control, .control-label {
-  color: #fff;
+  color: #333;
 }
 
 .form-inputs input, .form-inputs textarea, .form-inputs select{
@@ -422,7 +433,5 @@ p.control-group{
 }
 
 input#game_picture.file.optional {
-  background-color: #317484;
-  opacity: 0.6;
-  color: #fff;
+  color: #333;
 }

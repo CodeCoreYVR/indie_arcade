@@ -1,16 +1,11 @@
-<!-- IMAGE CAROUSEL -->
 <div class ="game-show">
    <div>
  <div id="home-slideshow" class="carousel slide" data-ride="carousel">
-   <!-- Indicators -->
    <ol class="carousel-indicators">
      <li data-target="#home-slideshow" data-slide-to="0" class="active"></li>
      <li data-target="#home-slideshow" data-slide-to="1"></li>
      <li data-target="#home-slideshow" data-slide-to="2"></li>
    </ol>
-
-
-   <!-- Wrapper for slides -->
    <div class="carousel-inner" role="listbox">
      <div class="item active">
        <%= image_tag "http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/04/HLD-Header.jpg", class: "carousel-image" %>
@@ -24,8 +19,6 @@
    </div>
  </div>
 </div>
-
-
 <div class="container sentences">
  <% if user_is_admin? %>
    <%= render "show_admin" %>

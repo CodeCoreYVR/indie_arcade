@@ -1,6 +1,5 @@
 <h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
  <p class="char1">Made by: <%= @developer %></p>
-
  <div>
    <p>Date: <%= @date %></p>
    <p>Type:
@@ -13,19 +12,16 @@
    <p>Overall Rating: <%= @rating %></p>
      <p>
        Send email to developer about the game:
-       <%#= input type = "text-field" %>
      </p>
  <div class="btn">
    <%= button_to "Download Game", game_path(@game), method: :get %>
  </div>
  <div class="radiolist">
- <!-- <button>Download game</button> -->
    <%= simple_form_for(@game) do |f| %>
      <%= f.error_notification %>
      <div>
        <%= f.input :status_id, as: :radio_buttons, collection: Status.all.collect{ |s| [ s.name, s.id] } %>
      </div>
-
      <div id = "submit-show">
        <%= f.button :submit %>
      </div>
