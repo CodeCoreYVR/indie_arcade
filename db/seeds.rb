@@ -41,10 +41,14 @@ end
 	Status.create name: s
 end
 
+["Adventure", "Action", "Strategy", "Multi-player", "Co-op", "Single-player", "Sport", "Racing"].each do |t|
+    Tag.create name: t
+end
+
 100.times do
-    Game.create({title: Faker::Name.name,
+    Game.create({title: Faker::Hipster.word,
                   description: Faker::Hipster.paragraph,
-                        user_id: 1+rand(10),
+                        user_id: 1+rand(22),
                         cpu: rand(100)+1,
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
@@ -52,29 +56,58 @@ end
                         status_id: 1 + rand(5) })
 end
 
-["Adventure", "Action", "Strategy", "Multi-player", "Co-op", "Single-player", "Sport", "Racing"].each do |t|
-    Tag.create name: t
+50.times do
+    Game.create({title: Faker::Lorem.words(2).join(" "),
+                  description: Faker::Hipster.paragraph,
+                        user_id: 1+rand(22),
+                        cpu: rand(100)+1,
+                        gpu: rand(50)+1,
+                        ram: 4+rand(17),
+                        size: 1+ rand(4),
+                        status_id: 1 + rand(5) })
 end
 
-TAGGINGS_TO_CREATE = 500
+50.times do
+    Game.create({title: Faker::App.name,
+                  description: Faker::Hipster.paragraph,
+                        user_id: 1+rand(22),
+                        cpu: rand(100)+1,
+                        gpu: rand(50)+1,
+                        ram: 4+rand(17),
+                        size: 1+ rand(4),
+                        status_id: 1 + rand(5) })
+end
+
+50.times do
+    Game.create({title: Faker::Book.title,
+                  description: Faker::Hipster.paragraph,
+                        user_id: 1+rand(22),
+                        cpu: rand(100)+1,
+                        gpu: rand(50)+1,
+                        ram: 4+rand(17),
+                        size: 1+ rand(4),
+                        status_id: 1 + rand(5) })
+end
+
+TAGGINGS_TO_CREATE = 400
 TAGGINGS_TO_CREATE.times do
 
-   Tagging.create(game_id: rand(60)+1,
+   Tagging.create(game_id: rand(200)+1,
                   tag_id: 1+rand(8))
 end
 
-LOADS_TO_CREATE = 100
+LOADS_TO_CREATE = 1000
 LOADS_TO_CREATE.times do
     Load.create machine_id: 1+rand(20),
-                game_id:    1+rand(100)
+                game_id:    1+rand(200)
 end
 
-REVIEW_TO_CREATE = 500
+REVIEW_TO_CREATE = 5000
 REVIEW_TO_CREATE.times do
-
-	Review.create 	load_id:			1+rand(100),
-									fun:					1+rand(5),
-									difficulty:		1+rand(5),
-									playability:	1+rand(5)
-
+	l = 1+ rand(1000)
+	r = Review.create	load_id:			l,
+										fun:					1+rand(5),
+										difficulty:		1+rand(5),
+										playability:	1+rand(5),
+										game_id:    	Load.find(l).game.id
 end

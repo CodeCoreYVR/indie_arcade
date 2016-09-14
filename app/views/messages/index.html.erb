@@ -1,18 +1,19 @@
 <div id="allmess">
-  <div class="container">
-    <% if @messages %>
-      <p>All Messages</p>
-    <% @messages.each do |mess| %>
-    <div id="mess">
-      <div class="white"><%= mess.emailadd %></h3></div>
-      <br>
-      <div><%= mess.content %></div>
+    <div class="container">
+        <% if @messages %>
+        <p>All Messages</p>
+        <% @messages.each do |mess| %>
+        <div id="mess">
+            <div class="white"><%= mess.emailadd %></h3>
+        </div>
+        <br>
+        <div><%= mess.content %></div>
     </div>
 
     <hr>
     <% end %>
-    <% else %>
+<% else %>
     <h1>No Messages</h1>
-  <% end %>
-  </div>
+    <% end %>
+</div>
 </div>

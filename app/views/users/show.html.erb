@@ -1,73 +1,74 @@
 <div id="developer-page-wrapper">
-<div class="container">
-    <div class="row">
-    <div class="col-sm-3">
-    <div id="dev-info">
-      <div style="text-align: center">
-        <div id="dev-logo" style="background-image: url('<%= @user.logo %>')"></div>
-      </div>
-    <div style="padding: 10px">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="dev-info">
+                    <div style="text-align: center">
+                        <div id="dev-logo" style="background-image: url('<%= @user.logo %>')"></div>
+                    </div>
+                    <div style="padding: 10px">
 
-      <h4>
-        <strong>Company:</strong>
-        <%= @user.company %>
-      </h4>
+                        <h4>
+                            <strong>Company:</strong>
+                            <%= @user.company %>
+                        </h4>
 
-      <h4>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </h4>
+                        <h4>
+                            <strong>Email:</strong>
+                            <%= @user.email %>
+                        </h4>
 
-      <h4>
-        <strong>Employees:</strong>
-        <%= @user.employees %>
-      </h4>
+                        <h4>
+                            <strong>Employees:</strong>
+                            <%= @user.employees %>
+                        </h4>
 
-      <h4>
-        <strong>Genres:</strong>
-        <%= @user.genres %>
-      </h4>
+                        <h4>
+                            <strong>Genres:</strong>
+                            <%= @user.genres %>
+                        </h4>
 
-      <h4>
-        <strong>Website:</strong>
-        <%= @user.website %>
-      </h4>
+                        <h4>
+                            <strong>Website:</strong>
+                            <%= @user.website %>
+                        </h4>
 
-      <h4>
-        <strong>Twitter:</strong>1
-        <%= @user.twitter %>
-      </h4>
+                        <h4>
+                            <strong>Twitter:</strong>1
+                            <%= @user.twitter %>
+                        </h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-9">
+                <div id="dev-games-list">
+                    <h1 id="dev-info">My Games</h1>
+                    <% @games.each do |game| %>
+                    <div class="individual-game-info">
+                        <div id="game-picture" style="background-image: url('<%= game.picture %>'); display: inline-block"></div>
+                        <div class="gamer-details">
+                            <h3><%= link_to game.title, game_path(game), class: "game-title" %></h3>
+                            <div>
+                                <p class="gamer-details-author">made by:
+                                    <%= link_to game.user.company, user_path(game.user) %></p>
+                                <hr style="border-color: #333;">
+
+                                <% game.tags.each do |t| %>
+                                <p class="tag-boxes">
+                                    <%= t.name %>
+                                </p>
+                                <% end %>
+
+                                <p class="game-status" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= game.status.name %></p>
+
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
-
-  </div>
-
-  <div class="col-sm-9">
-  <div id="dev-games-list">
-    <h1 id="dev-info">My Games</h1>
-    <% @games.each do |game| %>
-    <div class="individual-game-info">
-        <div id="game-picture" style="background-image: url('<%= game.picture %>'); display: inline-block"></div>
-        <div class="gamer-details">
-          <h3><%= link_to game.title, game_path(game), class: "game-title" %></h3>
-          <div>
-          <p class="gamer-details-author">made by: <%= link_to game.user.company, user_path(game.user) %></p>
-          <hr style="border-color: #333;">
-
-          <% game.tags.each do |t| %>
-           <p class="tag-boxes">
-             <%= t.name %>
-           </p>
-          <% end %>
-
-          <p class = "game-status" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= game.status.name %></p>
-
-          </div>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-  </div>
-</div>
-</div>

@@ -6,32 +6,26 @@
         <%= stylesheet_link_tag    'application', media: 'all'%>
         <link href="https://fonts.googleapis.com/css?family=Prompt:300,400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-        <!-- this makes everything responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
         <div style="margin-top: 50px; min-height: 500px;">
-      <!-- NAV BAR FOR GAMER-->
       <% if user_is_gamer? %>
         <%= render 'layouts/nav_gamer' %>
       <% end %>
-      <!-- NAV BAR FOR DEV-->
       <% if user_is_dev? %>
         <%= render 'layouts/nav_dev' %>
       <% end %>
-      <!-- NAV BAR FOR ADMIN-->
       <% if user_is_admin? %>
         <%= render 'layouts/nav_admin' %>
       <% end %>
-
         <div style="margin-top: 50px; min-height: 500px;">
           <%= yield %>
         </div>
 
         <%= javascript_include_tag 'application' %>
 
-        <!-- Footer -->
         <footer>
             <div class="home-footer footer navbar-bottom">
                 <div class="home-footer-left">
@@ -47,6 +41,5 @@
                 </div>
             </div>
         </footer>
-        <!-- FOOOTER -->
         </body>
     </html>

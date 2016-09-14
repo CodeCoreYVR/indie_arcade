@@ -1,31 +1,27 @@
 <h1 class="games-index-h1"><%= current_user.company %></h1>
-
-<!-- All games are contained in a div -->
-
-    <% if @games.present? %>
-    <% @games.each do |g|  %>
-    <!-- Each game is in a div  -->
-    <div class="wrapper">
-        <div class="one"><%= display_picture g %></div>
-        <div class="two">
-            <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
-            <% g.tags.each do |t| %>
-             <p class="tag-boxes">
-               <%= t.name %>
-             </p>
-            <% end %>
-        <p class = "game-status" style="color: #45A056; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Status: <%= g.status.name %></p>
-            <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
-                <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
-                <%= link_to "Remove", game_path(g),
+<% if @games.present? %>
+<% @games.each do |g|  %>
+<div class="wrapper">
+    <div class="one"><%= display_picture g %></div>
+    <div class="two">
+        <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
+        <% g.tags.each do |t| %>
+        <p class="tag-boxes">
+            <%= t.name %>
+        </p>
+        <% end %>
+        <p class="game-status" style="color: #45A056; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Status:
+            <%= g.status.name %></p>
+        <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
+            <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
+            <%= link_to "Remove", game_path(g),
                                  method: :delete,
                                  data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
-            <br>
-            <br>
-        </div>
+        <br>
+        <br>
     </div>
-    <% end %>
-
+</div>
+<% end %>
 <% else %>
 <div class="box">
     <p>There are no matches for your search</p>
