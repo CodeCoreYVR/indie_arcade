@@ -10,7 +10,7 @@
   <%= @game.errors.full_messages.join(", ") %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
+    <%= f.input :title,  %>
     <%= f.input :description %>
     <%= f.input :picture %>
     <%= f.collection_select(:tag_ids, Tag.all, :id, :name,

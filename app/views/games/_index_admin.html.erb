@@ -11,7 +11,7 @@
          <p>made by: <%= link_to g.user.company, user_path(g.user) %></p>
          <hr style="border-color: #333;">
          <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
-         <p style="color: #45A056; font-weight: bold;"><%= g.status.name %></p>
+         <p class = "game-status" style="color: #45A056; font-weight: bold;"><%= g.status.name %></p>
          </div>
        </div>
        </div>
