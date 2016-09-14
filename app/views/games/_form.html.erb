@@ -1,5 +1,6 @@
 <!-- DEVS GAME UPLOAD PAGE -->
-<div class ="upload">
+<div class ="upload container">
+  <h1>Upload a New Game</h1>
   <p class ="control-group">
     Note: Game must meet the following minimum hardware specs. Every
     game will be tested. If it cannot be run, it will be rejected.
@@ -13,6 +14,7 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :picture %>
+    <div class="label-for-tags">Tags</div>
     <%= f.collection_select(:tag_ids, Tag.all, :id, :name,
     {},
     { multiple: true, class: 'chosen-select' }) %>
