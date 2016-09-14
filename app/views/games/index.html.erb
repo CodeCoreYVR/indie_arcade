@@ -26,11 +26,13 @@
             </div>
             <div class="col-sm-9">
                 <% if user_is_admin? %>
-                <%= render 'index_admin' %>
+                    <%= render 'index_admin' %>
                 <% elsif user_is_dev? %>
-                <%= render 'index_dev' %>
-            <% else %>
-                <%= render 'index_gamer' %>
+                    <%= render 'index_dev' %>
+                <% else %>
+                    <%= render 'index_gamer' %>
                 <% end %>
             </div>
         </div>
+    </div>
+</div>
