@@ -1,5 +1,6 @@
 <!-- DEVS GAME UPLOAD PAGE -->
 <div class ="upload container">
+  <h1>Upload a New Game</h1>
   <p class ="control-group">
     Note: Game must meet the following minimum hardware specs. Every
     game will be tested. If it cannot be run, it will be rejected.
@@ -9,7 +10,7 @@
   <%= f.error_notification %>
   <%= @game.errors.full_messages.join(", ") %>
 
-  <div class="form-inputs">
+  <div class="form-inputs upload-form-control">
     <%= f.input :title%>
     <%= f.input :description %>
     <%= f.input :picture %>
