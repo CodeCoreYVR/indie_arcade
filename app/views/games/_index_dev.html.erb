@@ -1,29 +1,31 @@
 <h1 class="games-index-h1"><%= current_user.company %></h1>
 
 <!-- All games are contained in a div -->
-<div>
     <% if @games.present? %>
     <% @games.each do |g|  %>
     <!-- Each game is in a div  -->
     <div class="wrap">
-    <div class="game-picture"><%= display_picture g %></div>
-      <div class="gamer-details">
-        <h2 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), :style=>"text-decoration: none;" %></h2>
-        <p>Tags: <%= g.tags.map {|t| t.name}.join(", ") %></p>
-        <p style="color: #45A056; font-weight: bold; margin-bottom: 15px;">Status: <%= g.status.name %></p>
-        <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
-            <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
-            <%= link_to "Remove", game_path(g),
+        <div class="game-picture"><%= display_picture g %></div>
+        <div class="gamer-details">
+            <h2 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), :style=>"text-decoration: none;" %></h2>
+            <% g.tags.each do |t| %>
+             <p class="tag-boxes">
+               <%= t.name %>
+             </p>
+            <% end %>
+        <p class = "game-status" style="color: #45A056; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Status: <%= g.status.name %></p>
+            <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
+                <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
+                <%= link_to "Remove", game_path(g),
                                  method: :delete,
                                  data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
-        <br>
-        <br>
+            <br>
+            <br>
+        </div>
     </div>
-  </div>
     <% end %>
-</div>
 <% else %>
-<div class = "box">
+<div class="box">
     <p>There are no matches for your search</p>
 </div>
 <% end %>

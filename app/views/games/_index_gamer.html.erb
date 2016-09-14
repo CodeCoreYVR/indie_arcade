@@ -6,12 +6,19 @@
      <div class="wrap">
        <div class="game-picture"><%= display_picture g %></div>
        <div class="gamer-details">
-         <h2><%= link_to g.title, game_path(g), class: "game-title" %></h2>
+         <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
          <div>
-         <p>made by: <%= link_to g.user.company, user_path(g.user) %></p>
+         <p class="gamer-details-author">made by: <%= link_to g.user.company, user_path(g.user) %></p>
          <hr style="border-color: #333;">
-         <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
-         <p style="color: #45A056; font-weight: bold;"><%= g.status.name %></p>
+
+         <% g.tags.each do |t| %>
+          <p class="tag-boxes">
+            <%= t.name %>
+          </p>
+         <% end %>
+
+         <p class = "game-status" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.status.name %></p>
+
          </div>
        </div>
        </div>
