@@ -11,8 +11,9 @@
   <p>Last in Arcade: <%= @last_played %></p>
   <p>Played: <%= @play_times %> times</p>
   <p>Overall Rating: <%= @rating %></p>
-</p>
+</div>
+
 
 <div>
-  <!-- <%#= button_to "Buy", @game.link %> -->
-  <%= button_to "Buy", root_path, :class => "button", :method => :get %>
+  <%= button_to "Buy", @game.link, class:"button" %>
+</div>
