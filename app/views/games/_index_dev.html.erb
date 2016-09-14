@@ -1,14 +1,14 @@
 <h1 class="games-index-h1"><%= current_user.company %></h1>
 
 <!-- All games are contained in a div -->
-<div>
+
     <% if @games.present? %>
     <% @games.each do |g|  %>
     <!-- Each game is in a div  -->
-    <div class="wrap">
-        <div class="game-picture"><%= display_picture g %></div>
-        <div class="gamer-details">
-            <h2 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), :style=>"text-decoration: none;" %></h2>
+    <div class="wrapper">
+        <div class="one"><%= display_picture g %></div>
+        <div class="two">
+            <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
             <% g.tags.each do |t| %>
              <p class="tag-boxes">
                <%= t.name %>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <% end %>
-</div>
+
 <% else %>
 <div class="box">
     <p>There are no matches for your search</p>

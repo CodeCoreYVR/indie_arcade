@@ -3,12 +3,12 @@
  <% if @games.present? %>
    <% @games.where("status_id = ?", "3").each do |g|  %>
    <!-- Each game is in a div  -->
-     <div class="wrap">
-       <div class="game-picture"><%= display_picture g %></div>
-       <div class="gamer-details">
-         <h2><%= link_to g.title, game_path(g), class: "game-title" %></h2>
+     <div class="wrapper">
+       <div class="one"><%= display_picture g %></div>
+       <div class="two">
+         <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
          <div>
-         <p>made by: <%= link_to g.user.company, user_path(g.user) %></p>
+         <p class="gamer-details-author">made by: <%= link_to g.user.company, user_path(g.user) %></p>
          <hr style="border-color: #333;">
 
          <% g.tags.each do |t| %>

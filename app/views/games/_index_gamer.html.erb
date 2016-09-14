@@ -3,9 +3,9 @@
  <% if @games.present? %>
    <% @games.each do |g|  %>
    <!-- Each game is in a div  -->
-     <div class="wrap">
-       <div class="game-picture"><%= display_picture g %></div>
-       <div class="gamer-details">
+     <div class="wrapper">
+       <div class="one"><%= display_picture g %></div>
+       <div class="two">
          <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
          <div>
          <p class="gamer-details-author">made by: <%= link_to g.user.company, user_path(g.user) %></p>
@@ -21,8 +21,8 @@
 
          </div>
        </div>
-       </div>
-     <!-- </div> -->
+       <!-- </div> -->
+     </div>
      <% end %>
  <% else %>
    <p>There are no matches for your search</p>
