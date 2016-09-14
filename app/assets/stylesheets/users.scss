@@ -19,6 +19,13 @@ h1 {
   background-size: cover;
 }
 
+label {
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .btn-default {
   &.register-btn-default {
     color: #fff;
@@ -59,6 +66,9 @@ input #user_logo {
   }
 }
 
+input#file-display.input-large.uneditable-input {
+  border: 0;
+}
 
 p {
   &#register-p {
@@ -129,7 +139,7 @@ input#file-display.input-large.uneditable-input {
   width: 200px;
   height: 200px;
   background-size: cover;
-  margin: 25px;
+  margin: 20px auto;
 }
 
 #game-picture {
@@ -142,14 +152,18 @@ input#file-display.input-large.uneditable-input {
 #dev-info {
   background-color: white;
   opacity: 0.7;
-  width: 25%;
+  width: 100%;
   display: inline-block;
-  margin-left: 50px;
+}
+
+h1#dev-user-h1 {
+  font-size: 3em;
+  color: #fff;
+  font-weight: bold;
 }
 
 #dev-games-list {
-  width: 65%;
-  float: right;
+  width: 100%;
   margin-right: 100px;
   margin-top: 50px;
 }
@@ -168,4 +182,9 @@ input#file-display.input-large.uneditable-input {
   margin-left: 150px;
   position: absolute;
   top: 0;
+}
+
+.container-dev-games {
+  background: rgba(255,255,255,0.7);
+  margin-top: 45px;
 }

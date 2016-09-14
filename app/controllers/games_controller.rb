@@ -72,7 +72,6 @@ class GamesController < ApplicationController
   end
 
   def update
-    # render json: params
     game = Game.find params[:id]
 
     respond_to do |format|
@@ -128,11 +127,9 @@ class GamesController < ApplicationController
 
   def review_score_for( game )
     game.reviews.count
-    # (review_collection.average(:fun) + review_collection.average(:playability) + review_collection.average(:difficulty))/3
   end
 
   def fill_machine_order(games)
-    # games.order(:id).take(5)
     games.limit(5).order("RANDOM()")
   end
 end
