@@ -31,13 +31,24 @@ class GamesController < ApplicationController
 
     if user_is_dev?
       @games = @games.where(user_id: current_user.id)
+      games_release = @games.where(user_id: current_user.id).where("status_id = ?", "1")
+      games_not_release = @games.where(user_id: current_user.id).where("status_id = ?", "2")
+      games_under_review = @games.where(user_id: current_user.id).where("status_id = ?", "3")
+      games_incompatible = @games.where(user_id: current_user.id).where("status_id = ?", "4")
+      games_rejected = @games.where(user_id: current_user.id).where("status_id = ?", "5")
+      @games = (games_under_review + games_not_release + games_release + games_incompatible + games_rejected)
     elsif user_is_admin?
       @statuses = Status.all
-      @games
+      games_release = @games.where("status_id = ?", "1")
+      games_not_release = @games.where("status_id = ?", "2")
+      games_under_review = @games.where("status_id = ?", "3")
+      games_incompatible = @games.where("status_id = ?", "4")
+      games_rejected = @games.where("status_id = ?", "5")
+      @games = (games_under_review + games_not_release + games_release + games_incompatible + games_rejected)
     else
-      @games = @games.where(status_id: [1,2])
+      @games = @games.where(status_id: [1,2]).order("created_at ASC")
     end
-      @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
+      @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
     respond_to do |format|
       format.html {render}
       format.json {render json: fill_machine_order(Game.all)}

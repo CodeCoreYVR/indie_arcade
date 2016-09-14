@@ -1,23 +1,25 @@
 <h1 class="games-index-h1">Games Requiring Review</h1>
  <!-- All games are contained in a div -->
  <% if @games.present? %>
-   <% @games.where("status_id = ?", "3").each do |g|  %>
-   <!-- Each game is in a div  -->
-     <div class="wrap">
-       <div class="game-picture"><%= display_picture g %></div>
-       <div class="gamer-details">
-         <h2><%= link_to g.title, game_path(g), class: "game-title" %></h2>
-         <div>
-         <p>made by: <%= link_to g.user.company, user_path(g.user) %></p>
-         <hr style="border-color: #333;">
-         <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
-         <p class = "game-status" style="color: #45A056; font-weight: bold;"><%= g.status.name %></p>
+   <div class="needs review">
+     <% @games.each do |g|  %>
+     <!-- Each game is in a div  -->
+       <div class="wrap">
+         <div class="game-picture"><%= display_picture g %></div>
+           <div class="gamer-details">
+             <h2><%= link_to g.title, game_path(g), class: "game-title" %></h2>
+             <div>
+             <p>made by: <%= link_to g.user.company, user_path(g.user) %></p>
+             <hr style="border-color: #333;">
+             <p><%= g.tags.map {|t| t.name}.join(", ") %></p>
+             <p class = "game-status" style="color: #45A056; font-weight: bold;"><%= g.status.name %></p>
+             </div>
+           </div>
          </div>
-       </div>
-       </div>
-     <!-- </div> -->
-     <% end %>
+       <!-- </div> -->
+       <% end %>
+    </div>
  <% else %>
    <p>There are no matches for your search</p>
  <% end %>
- <%= paginate @games.where("status_id = ?", "3") %>
+  <%= paginate @games %>

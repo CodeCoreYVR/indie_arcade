@@ -1,7 +1,6 @@
 <h1 class="games-index-h1"><%= current_user.company %></h1>
 
 <!-- All games are contained in a div -->
-<div>
     <% if @games.present? %>
     <% @games.each do |g|  %>
     <!-- Each game is in a div  -->
@@ -23,7 +22,6 @@
         </div>
     </div>
     <% end %>
-</div>
 <% else %>
 <div class="box">
     <p>There are no matches for your search</p>
