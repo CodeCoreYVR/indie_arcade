@@ -6,8 +6,9 @@
   <%= simple_form_for(@game) do |f| %>
   <%= f.error_notification %>
   <%= @game.errors.full_messages.join(", ") %>
-  <div class="form-inputs upload-form-control">
-    <%= f.input :title%>
+
+  <div class="form-inputs input-for-game">
+    <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :picture %>
     <div class="label-for-tags">Tags</div>
