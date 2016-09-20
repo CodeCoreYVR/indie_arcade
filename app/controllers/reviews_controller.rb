@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
     @fun = review_collection.average(:fun).round(3)
     @playability = review_collection.average(:playability).round(3)
     @difficulty = review_collection.average(:difficulty).round(3)
-
   end
 
 end

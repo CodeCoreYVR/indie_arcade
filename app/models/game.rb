@@ -25,6 +25,7 @@ class Game < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
+
   def set_defaults
     self.status_id ||= 3
   end

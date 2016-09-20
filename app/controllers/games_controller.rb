@@ -68,7 +68,7 @@ class GamesController < ApplicationController
     # get review statistics
     @fun = @reviews.average(:fun)
     @playability = @reviews.average(:playability)
-    @difficulty = @reviews.average(:difficulty)
+    @difficulty  = @reviews.average(:difficulty)
   end
 
   def update
