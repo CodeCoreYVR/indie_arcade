@@ -1,0 +1,446 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#index-bg {
+  background-image: url("games-bg.jpg");
+  background-color: #317484;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  min-height: 500px;
+  padding-bottom: 20px;
+}
+
+.games-index-h1 {
+  font-size: 3em;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.container-index-games {
+  background: rgba(255,255,255,0.7);
+  margin-top: 45px;
+  padding-bottom: 20px;
+}
+
+.back-btn-update a {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #333;
+  text-decoration: none;
+}
+
+.back-btn-update a:hover {
+  margin-top: 30px;
+  font-size: 1em;
+  color: #333;
+  text-decoration: underline;
+}
+
+.back-btn-update {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.checkbox label {
+  color: #333;
+  text-align: left;
+  margin-left: 10px;
+  display: none;
+}
+
+label {
+  display: none;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+form#tags {
+  padding: 10px;
+}
+
+#narrow-by-tags {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+input {
+  &.search-tags-btn {
+    margin-left: 10px;
+  }
+}
+
+input.search-tags-btn {
+  background-color: #EF7030;
+  border: 0;
+  color: #fff;
+  border-radius: 4px;
+}
+
+input.search-tags-btn:hover {
+  background-color: #F9804B;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+input#search_user {
+  margin-left: 20px;
+  border-radius: 4px;
+  width: 160px;
+  border: 0;
+  padding-left: 5px;
+}
+
+#search-form div label {
+  color: #333;
+  text-align: left;
+  margin-left: 20px;
+}
+
+#search-for-studio {
+  background-color: #EF7030;
+  border: 0;
+  color: #fff;
+  border-radius: 4px;
+}
+
+#search-for-studio:hover {
+  background-color: #F9804B;
+  color: #fff;
+}
+
+.box {
+  background: rgba(255,255,255,0.7);
+  width: 100%;
+  margin-bottom: -10px;
+  margin-top: -10px;
+}
+
+.game-picture {
+  float: left;
+  width: 360px;
+}
+
+.gamer-details a {
+  color: #003C62;
+  text-decoration: none;
+}
+
+.gamer-details a:hover {
+  color: #075982;
+}
+
+.gamer-details-author a {
+  color: #333;
+  text-decoration: none;
+}
+
+.gamer-details-author a:hover {
+  color: #666;
+  text-decoration: underline;
+}
+
+.gamer-details p {
+  font-size: 1.2em;
+}
+
+.pagination {
+  margin-bottom: 40px;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: #003C62;
+    color: #fff;
+}
+
+.pagination a:hover {
+  background-color: #378DB7;
+  color: white;
+  text-decoration: none;
+}
+
+.radio label, .checkbox label {
+    text-align: left;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+#submit-show {
+  padding-bottom: 50px;
+}
+
+p.control-group {
+  text-align: center;
+  color: white;
+  margin-top: 15px;
+}
+
+form#tags label {
+    text-align: left;
+    color: #333;
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+.game-details {
+  text-align: center;
+  display: inline;
+  margin-left: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.wrapper {
+  overflow:hidden;
+  background: rgba(255,255,255,0.7);
+  margin-bottom: 25px;
+}
+
+.wrapper div {
+   min-height: 200px;
+}
+
+.one img{
+  width: 290px;
+}
+
+.one {
+  float:left;
+  width: 290px;
+  background-size: cover;
+}
+.two {
+  padding: 0px 20px;
+  overflow:hidden;
+  min-height:200px;
+
+}
+
+@media screen and (max-width: 400px) {
+   #one {
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+  }
+}
+
+.game-title {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: #003C62;
+  text-align: left;
+}
+
+.game-title a:hover {
+  color: #fff;
+}
+
+.game-details a {
+  color: #428bca;
+}
+
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+ }
+.checkbox_container input {
+  display: inline;
+ }
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+ }
+
+div.container.sentences {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.container.sentences input {
+  margin-top: 20px;
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px 40px;
+}
+
+.container.sentences input:hover {
+  background-color: #F9804B;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+a.container.sentences {
+  color: #F9804B;
+}
+
+.show-a-tag {
+  color: #EF7030;
+}
+
+.show-a-tag:hover {
+  color: #F98D5D;
+}
+
+a.btn.btn-primary {
+  background-color: #EF7030;
+  border-color: #EF7030;
+  color: #fff;
+}
+
+a.btn.btn-primary:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #333;
+}
+
+label.control-label.radio_buttons.required {
+  color: #333;
+  text-align: left;
+  margin-top: 40px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.upload label.control-label.file.optional {
+  margin-top: 20px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.upload label.control-label.string.optional {
+  margin-top: 30px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.upload label.control-label.string.required {
+  margin-top: 30px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.upload label.control-label.text.required {
+  margin-top: 30px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+input.btn.btn-default {
+  margin-top: 20px;
+}
+
+.label-for-tags {
+  margin-top: 20px;
+  color: #fff;
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+select#game_tag_ids.chosen-select {
+  width: 500px;
+  color: #333;
+}
+
+.radio label {
+  color: #333;
+  line-height: 30px;
+}
+
+input.radio_buttons.required {
+  vertical-align: top;
+}
+
+div.btn {
+  padding: 0px;
+  border: 0;
+}
+
+.orange {
+  color: #EF7030;
+}
+
+.black {
+  color: #333;
+}
+
+p.control-group {
+  color: #333;
+  font-size: 1.2em;
+  text-align: left;
+}
+
+// <<<<<<< HEAD
+
+// Styling game upload/edit form
+.input-for-game div label {
+  color: black;
+  text-align: left;
+  margin: 10px;
+}
+// =======
+.tag-boxes {
+  background-color: #EF7030;
+  padding: 5px;
+  color: #fff;
+  font-weight: lighter;
+  display: inline-block;
+}
+
+p.tag-boxes {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.upload-form-control, .control-label {
+  color: #333;
+}
+
+.form-inputs input, .form-inputs textarea, .form-inputs select{
+}
+
+p.control-group{
+  text-align: center;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+.upload h1 {
+  font-size: 3em;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+input#game_picture.file.optional {
+  color: #333;
+}

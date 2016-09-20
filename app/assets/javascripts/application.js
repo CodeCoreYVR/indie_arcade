@@ -12,5 +12,54 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require chosen-jquery
+//= require bootstrap-sprockets
+//= require faqtext
 //= require_tree .
+
+$(document).ready(function() {
+    $("#home-slideshow").carousel({
+        interval: 4000,
+        pause: false
+    });
+
+    $(window).keypress(function(event) {
+      if ($("#search-bar").val().length > 1) {
+        if (event.which == 13) {
+          event.preventDefault();
+          $("form#search-wrapper").submit();
+        }
+      }
+    });
+    
+    $('.game-search').click(function() {
+        $('#search-wrapper').toggleClass('moved');
+    })
+
+    $('#search-bar').click(function(event){
+      event.stopPropagation();
+    })
+})
+
+
+// $(document).on('ready page:load',function() {
+//   $("#home-slideshow").carousel({
+//     interval: 2500,
+//     pause: false
+//   });
+//
+//   $(window).keypress(function(event) {
+//     if (event.which == 13) {
+//       event.preventDefault();
+//       $("form#search-wrapper").submit();
+//     }
+//   });
+//
+//   $('.game-search').click(function() {
+//     $('#search-wrapper').toggleClass('moved');
+//   })
+//
+//   $('#search-bar').click(function(event){
+//     event.stopPropagation();
+//   })
+// })

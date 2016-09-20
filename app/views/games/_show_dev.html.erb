@@ -1,0 +1,30 @@
+<div class="container">
+<h1 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;">Game Title: <%= @game.title %></h1>
+  <h3>General Ratings: <%= @reviews.count %> feedbacks</h3>
+  <%= link_to 'download pdf', game_review_path(@game.id), class: "orange"%>
+  <div style="text-align: center"><h3>Overview</h3></div>
+  <h4>Fun</h4>
+  <div class="progress">
+    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=""
+    aria-valuemin="0" aria-valuemax="100" style="width:<%= @fun.nil? ? 0 : (@fun * 20).round(2) %>%">
+      <%= @fun.nil? ? "N/A" : (@fun * 20).round(2) %>%
+    </div>
+  </div>
+  <h4>Playability</h4>
+  <div class="progress">
+    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow=""
+    aria-valuemin="0" aria-valuemax="100" style="width:<%= @playability.nil? ? 0 :  (@playability* 20).round(2) %>%">
+      <%= @playability.nil? ? "N/A" :  (@playability* 20).round(2) %>%
+    </div>
+  </div>
+  <h4>Difficulty</h4>
+  <div class="progress">
+    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+    aria-valuemin="0" aria-valuemax="100" style="width:<%= @difficulty.nil? ? 0 : (@difficulty * 20).round(2) %>%">
+      <%= @difficulty.nil? ? "N/A" : (@difficulty * 20).round(2) %>%
+    </div>
+  </div>
+  <a class="orange" href="#">Download crash logs</a>
+  <div class="back-btn-update"><%= link_to '<<Back', games_path %></div>
+  </div>
+</div>

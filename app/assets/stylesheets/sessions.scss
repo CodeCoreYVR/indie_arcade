@@ -1,0 +1,74 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  // min-width:
+}
+h1 {
+  &#register-h1 {
+    font-size: 3em;
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+#sign-in-bg {
+  background-image: url("5.jpg");
+  background-size: cover;
+}
+
+.btn-default {
+  &.register-btn-default {
+    color: #fff;
+    background-color: #EF7030;
+    border-color: #EF7030;
+  }
+}
+
+.container {
+  &.create-user {
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 50px;
+  }
+}
+
+.form-inputs {
+
+  &.register-form-control {
+    opacity: 0.5;
+  }
+}
+
+.form-actions {
+  &.register-form-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+.btn-default {
+  &.register-btn {
+    width: 100%;
+    background-color: #EF7030;
+    border-color: #EF7030;
+    color: #fff;
+  }
+}
+
+p {
+  &#create-p {
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.type {
+  color: #fff;
+}

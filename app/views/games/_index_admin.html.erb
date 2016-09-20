@@ -1,0 +1,27 @@
+<h1 class="games-index-h1">Games Requiring Review</h1>
+<% if @games.present? %>
+    <% @games.each do |g|  %>
+    <div class="wrapper">
+        <div class="one"><%= display_picture g %></div>
+        <div class="two">
+            <h2><%= link_to g.title, game_path(g), class: "game-title" %></h2>
+            <div>
+                <p class ="gamer-details-author">made by:
+                    <%= link_to g.user.company, user_path(g.user) %></p>
+                <hr style="border-color: #333;">
+                <% g.tags.each do |t| %>
+                <p class="tag-boxes">
+                    <%= t.name %>
+                </p>
+                <% end %>
+                <p class="game-status" style="color: #45A056; font-weight: bold margin-top: 15px;"><%= g.status.name %></p>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <% end %>
+</div>
+<% else %>
+<p>There are no matches for your search</p>
+<% end %>
+<%= paginate @games %>

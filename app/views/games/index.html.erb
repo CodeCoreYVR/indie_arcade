@@ -1,0 +1,39 @@
+<div id="index-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="container-index-games">
+                    <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
+                        <h4 id="narrow-by-tags">Narrow by tags</h4>
+                        <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) do |t| %>
+                            <%= t.label class: "checkbox checkbox-primary" do %>
+                                <%= t.check_box %>
+                                <span style="margin-left: 35px;"><%= t.text %></span>
+                            <% end %>
+                        <% end %>
+                        <%= submit_tag :search, class: "search-tags-btn"  %>
+                    <% end %>
+
+                    <% if user_is_admin? || user_is_gamer? %>
+                        <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
+                            <div>
+                                <%= label_tag "Search by studio" %>
+                                <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
+                                <%= submit_tag "Submit", id: "search-for-studio" %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <% if user_is_admin? %>
+                <%= render 'index_admin' %>
+                <% elsif user_is_dev? %>
+                <%= render 'index_dev' %>
+            <% else %>
+                <%= render 'index_gamer' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
