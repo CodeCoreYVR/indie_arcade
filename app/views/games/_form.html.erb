@@ -1,0 +1,28 @@
+<div class ="container upload">
+  <p class ="control-group" style="text-align: left; color: #333;">
+    Note: Game must meet the following minimum hardware specs. Every
+    game will be tested. If it cannot be run, it will be rejected.
+  </p>
+  <%= simple_form_for(@game) do |f| %>
+  <%= f.error_notification %>
+  <%= @game.errors.full_messages.join(", ") %>
+
+  <div class="form-inputs input-for-game">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :picture %>
+    <div class="label-for-tags">Tags</div>
+    <%= f.collection_select(:tag_ids, Tag.all, :id, :name,
+    {},
+    { multiple: true, class: 'chosen-select' }) %>
+    <%= f.input :link %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  <% end %>
+</div>
+
+<script>
+$('.chosen-select').chosen({});
+</script>

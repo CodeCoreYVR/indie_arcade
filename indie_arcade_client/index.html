@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script src="mustache.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Prompt:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div>
+      <a id="play-game">Play</a> |
+      <a>Get New Games</a> |
+    </div>
+    <div id="games"></div>
+
+  <script id="game-listing-tmpl" type="x-tmpl-mustache">
+    <div class="game-listing">
+      <h2>{{title}}</h2>
+      <p>{{description}}</p>
+      <hr>
+    </div>
+  </script>
+
+
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" id="nav-wrapper">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <div id="logo-container">
+                    <a class="navbar-left" href="#">
+                        <img src="../public/logo.png" >
+                    </a>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a id="get-new-games">Get New Games</a></li>
+                <!-- <li><a><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></li> -->
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- End of NAVBAR -->
+
+    <!-- Centerpiece -->
+    <div class = "home-centerpiece">
+      <div id="intro-header">
+        <br>
+        <br>
+        <div id="five">
+          These are the 5 games available this week
+        </div>
+        <div id="games-list">
+
+        </div>
+        <div id="select-game" class="btn register-btn">
+          <button type="button" id="btn-play">PLAY</button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div id="home-footer">
+            <div class="home-footer-left">
+                <div><img src="../public/logo.png"></div>
+                <div><a href="http://localhost:3000/about">About</a></div>
+                <div><a href="http://localhost:3000/contact">Contact</a></div>
+                <div><a href="http://localhost:3000/faq">FAQ</a></div>
+            </div>
+            <div class="home-footer-right">
+                <div>WEBSITE MADE BY:</div>
+                <div><img src="../public/json-squad-logo.png", class="json-logo"</div>
+                <div><img src="../public/codecore-logo.png", class="codecore-logo" ></div>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+</html>
