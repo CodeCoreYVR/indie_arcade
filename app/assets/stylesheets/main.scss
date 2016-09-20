@@ -1,0 +1,356 @@
+
+$navbar-default-bg: #23649d;
+$body-bg: #23649d;
+$text-color: #e0dddf;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+$navbar-inverse-link-active-bg: rgba(255, 255, 255, 0.02);
+
+$btn-default-color:#92c9e1;
+$radius: 8px;
+
+@import "bootstrap";
+
+.resp{
+width: 100%;
+}
+
+
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper-main {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
+}
+
+
+
+.footer, .push {
+    height: 70px; /* .push must be the same height as .footer */
+}
+
+.btn{
+  transition: all .5s;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.border-radius {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.logo-nav{
+  margin-right: 35px;
+
+}
+.navbar-inverse{
+  border-color: #090909;
+  background: none;
+  border: none;
+}
+
+.btn-default{
+  background: #92c9e1;
+  border-color: white;
+  color: white;
+   text-shadow: 1px 1px rgba(103, 103, 103, 0.26);
+}
+
+
+.logo-sign{
+  width: 142px;
+}
+
+.border-left{
+  border-left:solid 1px hsla(0, 0%, 100%, 0.31);
+}
+
+.btn-primary{
+  background: #f64b77;
+  border-color: white;
+  &:hover{
+    background: #da325d;
+    border-color: white;
+  }
+
+  &:active {
+   background: #da325d;
+   border-color: white;
+ }
+
+}
+
+.navbar-inverse .navbar-text{
+  color: white;
+}
+
+a {
+  color: white;
+  padding: 3px;
+
+  &:hover{
+    background: rgba(#ffffff, 0.53);
+
+  }
+}
+
+.jumbotron{
+  background: none;
+  background:  url("gradiente.png") top center no-repeat ;
+  background-size: 100% auto;
+}
+
+.line{
+  display: block;
+  font-size: 0;
+  height: 2px;
+  background: #f64b77;
+}
+
+.btn-primary{
+  box-shadow: 0px 15px 10px -10px rgba(0,0,0,0.3);
+   transition: all 200ms cubic-bezier(0.25, 0.39, 0.39, 2.01);
+
+   &:hover{
+     transform: scale(1.05);
+     box-shadow: 0px 25px 15px -15px rgba(0,0,0,0.3)
+
+   }
+}
+
+.linkA{
+  margin-top: 20px;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.panel-default {
+
+    color: #847f7f;
+}
+
+.img_border{
+  background: rgba(#ffffff, 0.31);
+  padding: 12px;
+  -webkit-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+  -moz-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+  box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+
+}
+
+.search-panel{
+  padding: 18px 18px 1px 18px;
+  // margin-top: 20px;
+  background: #4b97c3;
+  border: solid 1px rgba(#dbfaff, 0.57);
+  border-bottom: solid 4px rgba(#dbfaff, 0.57);
+  transition: all .5s ;
+  -webkit-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+  -moz-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+  box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+
+
+  .title{
+    padding: 2px 5px;
+    // background: rgba(#282828, 0.17);
+
+    h5{
+      min-height: 28px;
+      font-size: 13px;
+    }
+  }
+
+
+
+  .image-wrapper{
+    position: relative;
+    width: 112px;
+    height: 145px;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+    -moz-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+    box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
+
+    img{
+      position: absolute;
+       left: 50%;
+       top: 50%;
+       height: 100%;
+       width: auto;
+       -webkit-transform: translate(-50%,-50%);
+           -ms-transform: translate(-50%,-50%);
+               transform: translate(-50%,-50%);
+
+    }
+
+  }
+
+
+  &:hover{
+    background: rgba(#eff4f5, 0.34);
+    border: solid 1px rgba(#dbfaff, 0.77);
+    border-bottom: solid 4px #f64b77;
+    img {
+
+    }
+  }
+
+}
+
+.navbar-brand > img{
+  width: 100px;
+}
+
+.image-resp{
+  width: 100%;
+  max-width: 410px;
+}
+
+.panel-body{
+  background: #f9ffff;
+  color: #103c44;
+}
+
+h1{
+  color: #ffeba4;
+}
+
+.game-grid{
+  padding: 30px 0 10px 0 ;
+  margin-top: 10px;
+  background:  url("gradiente.png") top center no-repeat ;
+  background-size: 100% auto;
+}
+.navbar-inverse{
+
+  .glyphicon{
+    padding-top: 18px;
+    float: left;
+    margin-right: -5px;
+
+  }
+
+  .navbar-nav {
+    li{
+       a{
+        color: white;
+        transition: all 0.5s ;
+         &:hover{
+           background: rgba(#ffffff, 0.25);
+         }
+       }
+    }
+
+    .dropdown-menu{
+      a{
+        color: black;
+        transition: all 0.5s ;
+        &:hover{
+          background: rgba(#529ec8, 0.26);
+        }
+      }
+    }
+
+    .active {
+      background: rgba(255, 255, 255, 0.1);
+
+    }
+  }
+
+}
+
+.header{
+  padding: 30px 0;
+
+  h1{
+    font-size: 44px;
+    padding-top: 13px;
+  }
+}
+
+.logo{
+
+    background: image_url("bg.jpg");
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-size: auto 100%;
+}
+
+.search-container{
+  background: rgba(255, 255, 255, 0.4);
+  padding: 19px 19px 10px 19px;
+  overflow: hidden;
+  margin-top: 50px;
+
+}
+
+
+body{
+  background: #23649d url("bg.jpg") top no-repeat;
+  background-size: 100% auto;
+
+}
+.navbar-inverse{
+
+  .navbar-toggle{
+    background: #f64b77;
+  }
+  li {
+    a.small{
+      padding: 4px 10px;
+      margin-top: 10px;
+
+      &:hover{
+        color: #92c9e1;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+    }
+  }
+}
+
+.pink{
+  color: #f64b77;
+}
+
+.wrapper{
+  min-height: 600px;
+}
+
+.footer{
+  background: #070305;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.list-group-item {
+    color: #757070;
+
+    .glyphicon {
+      color: #d8d7ce;
+      vertical-align: middle;
+      padding-right:8px;
+    }
+}
+
+.map{
+  padding: 15px;
+  background: hsla(0, 0%, 100%, 0.37);
+  box-shadow: 0px 15px 10px -10px rgba(0,0,0,0.3);
+
+  &.index{
+    margin: 0 64px;
+  }
+}
