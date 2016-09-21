@@ -1,7 +1,8 @@
 <div class="container">
 <h1 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;">Game Title: <%= @game.title %></h1>
   <h3>General Ratings: <%= @reviews.count %> feedbacks</h3>
-  <%= link_to 'download pdf', game_review_path(@game.id), class: "orange"%>
+  <%= link_to 'download pdf', game_review_path(@game.id), class: "orange"%> |
+   <%= link_to 'download game', @game.attachment_url, class: "orange"%>
   <div style="text-align: center"><h3>Overview</h3></div>
   <h4>Fun</h4>
   <div class="progress">

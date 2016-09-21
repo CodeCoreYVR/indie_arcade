@@ -23,6 +23,7 @@ class Game < ApplicationRecord
   validates :description, presence: true
 
   mount_uploader :picture, PictureUploader
+  mount_uploader :attachment, AttachmentUploader
 
   scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
 
