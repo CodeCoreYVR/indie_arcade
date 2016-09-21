@@ -38,4 +38,11 @@ class Game < ApplicationRecord
     Game.where("status_id = ? OR status_id = ?", "1", "2" )
   end
 
+  # Usage example: @game.average_score_for :fun
+  def average_score_for( attribute )
+    reviews.average( attribute ).round(2) * 20
+  end
+
+
+
 end
