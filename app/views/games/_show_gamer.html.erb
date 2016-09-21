@@ -3,7 +3,7 @@
   <p>Made by: <%= link_to @game.user.company, user_path(User.find_by(company: @game.user.company)), class:"show-a-tag" %></p>
   <p>Date: <%= @game.created_at %></p>
   <p>Type:
-  <% @game.fasdfaf.taggings.map do |tagging| %>
+  <% @game.taggings.map do |tagging| %>
     <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
   <% end %>
   </p>
