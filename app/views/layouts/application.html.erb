@@ -4,29 +4,29 @@
         <title>IndieArcade</title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all'%>
-        <link href="https://fonts.googleapis.com/css?family=Prompt:300,400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+      
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-        <div style="margin-top: 50px; min-height: 500px;">
-        <% if user_is_gamer? %>
-          <%= render 'layouts/nav_gamer' %>
-        <% end %>
-        <% if user_is_dev? %>
-          <%= render 'layouts/nav_dev' %>
-        <% end %>
-        <% if user_is_admin? %>
-          <%= render 'layouts/nav_admin' %>
-        <% end %>
-          <div style="margin-top: 50px; min-height: 500px;">
+        <div class="line"> </div>
+        <!-- <div style="margin-top: 50px; min-height: 500px;"> -->
+          <% if user_is_gamer? %>
+            <%= render 'layouts/nav_gamer' %>
+          <% end %>
+          <% if user_is_dev? %>
+            <%= render 'layouts/nav_dev' %>
+          <% end %>
+          <% if user_is_admin? %>
+            <%= render 'layouts/nav_admin' %>
+          <% end %>
+          <main class="container">
             <%= yield %>
-          </div>
+          </main>
 
           <%= render "layouts/footer" %>
 
-        <%= javascript_include_tag 'application' %>
+          <%= javascript_include_tag 'application' %>
 
 
         </body>
