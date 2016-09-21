@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :find_game, only: [:show, :update, :edit]
+  before_action :authenticate_user!, except: [:index, :show]
 
   GAMES_PER_PAGE = 6
 
@@ -62,12 +63,18 @@ class GamesController < ApplicationController
   end
 
   def edit
-
+    game = Game.find params[:id]
+    if cannot? :manage, game
+      redirect_to root_path
+    end
   end
 
   def destroy
-    g=Game.find params[:id]
-    g.destroy
+    game = Game.find params[:id]
+    if cannot? :manage, game
+      redirect_to root_path
+    end
+    game.destroy
     redirect_to games_path
   end
 
