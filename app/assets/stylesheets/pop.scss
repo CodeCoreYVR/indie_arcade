@@ -1,7 +1,4 @@
-
-
-
- /* POP UP Outer */
+/* POP UP Outer */
  .popup-1 {
      width:100%;
      height:100%;
@@ -40,7 +37,6 @@
     transform: translate(-50%, -50%);
     box-shadow: 0px 2px 6px rgba(0,0,0,1);
     border-radius: 3px;
-    /* background: rgba(0,0,0,0.2); */
     background: #3a8ebc;
     border: 2px solid white;
  }
@@ -56,7 +52,6 @@
    transform: translate(-50%, -50%);
    box-shadow: 0px 2px 6px rgba(0,0,0,1);
    border-radius: 3px;
-   /* background: rgba(0,0,0,0.2); */
    background: #3a8ebc;
    border: 2px solid white;
  }
@@ -72,36 +67,35 @@
    transform: translate(-50%, -50%);
    box-shadow: 0px 2px 6px rgba(0,0,0,1);
    border-radius: 3px;
-   /* background: rgba(0,0,0,0.2); */
    background: #3a8ebc;
    border: 2px solid white;
  }
  /* POP UP Close Button */
  .popup-close {
-     width:30px;
-     height:30px;
-     padding-top:4px;
-     display:inline-block;
-     position:absolute;
-     top:0px;
-     right:0px;
-     transition:ease 0.25s all;
-     -webkit-transform:translate(50%, -50%);
-     transform:translate(50%, -50%);
-     border-radius:1000px;
-     background:rgba(0,0,0,0.8);
-     font-family:Arial, Sans-Serif;
-     font-size:20px;
-     text-align:center;
-     line-height:100%;
-     color:#fff;
+   width:30px;
+   height:30px;
+   padding-top:4px;
+   display:inline-block;
+   position:absolute;
+   top:0px;
+   right:0px;
+   transition:ease 0.25s all;
+   -webkit-transform:translate(50%, -50%);
+   transform:translate(50%, -50%);
+   border-radius:1000px;
+   background:rgba(0,0,0,0.8);
+   font-family:Arial, Sans-Serif;
+   font-size:20px;
+   text-align:center;
+   line-height:100%;
+   color:#fff;
  }
 
  .popup-close:hover {
-     -webkit-transform:translate(50%, -50%) rotate(180deg);
-     transform:translate(50%, -50%) rotate(180deg);
-     background:rgba(0,0,0,1);
-     text-decoration:none;
+   -webkit-transform:translate(50%, -50%) rotate(180deg);
+   transform:translate(50%, -50%) rotate(180deg);
+   background:rgba(0,0,0,1);
+   text-decoration:none;
  }
 
 .align-right {
@@ -129,11 +123,4 @@
 
 main{
   margin-bottom: 100px;
-}
-
-.footer {
-  /*position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 70px;*/
 }

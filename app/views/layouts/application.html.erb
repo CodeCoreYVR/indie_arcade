@@ -4,13 +4,12 @@
         <title>IndieArcade</title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all'%>
-      
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
         <div class="line"> </div>
-        <!-- <div style="margin-top: 50px; min-height: 500px;"> -->
           <% if user_is_gamer? %>
             <%= render 'layouts/nav_gamer' %>
           <% end %>
@@ -23,11 +22,7 @@
           <main class="container">
             <%= yield %>
           </main>
-
           <%= render "layouts/footer" %>
-
           <%= javascript_include_tag 'application' %>
-
-
         </body>
     </html>

@@ -362,38 +362,10 @@ body{
   margin-right: 5px;
 }
 
-// #search-wrapper {
-//   // position: fixed;
-//   width: 100%;
-//   top: 0px;
-//   left: 0px;
-//   z-index: -1;
-//   transition: top 0.3s;
-// }
-//
-// #search-bar {
-//    background-color: #4169ac;
-//    border: none;
-//    border-radius: 0px;
-//    opacity: 0.95;
-//    font-color: white;
-//    height: 50px;
-// }
-//
-//
-// #search-bar::-webkit-input-placeholder {
-//   color: white;
-//   opacity: 0.5;
-// }
-//
-// #search-wrapper input[type='text']:focus {
-//   color: white;
-// }
-
 .game-search{
   .glyphicon{
     float: right;
-  }
+    }
   #search-wrapper{
     float: left;
     margin-top: 11px;
@@ -405,8 +377,6 @@ body{
     }
   }
 }
-
-
 
 // END NAVBAR STYLING
 
@@ -451,7 +421,6 @@ body{
 .codecore-logo{
   height: 50px;
 }
-
 
 .moved {
   top: 50px !important;

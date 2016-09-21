@@ -1,69 +1,7 @@
-// CAROUSEL CSS
-
-// #home-slideshow {
-//     max-height: 450px;
-//     width: 100%;
-//     overflow: hidden;
-// }
-//
-// .carousel-inner > .item > a > img,
-// .carousel-inner > .item > img {
-//     display: block;
-//     height: auto;
-//     max-width: 100%;
-//     line-height: 1;
-//     width: 100%;
-// }
-//
-// img.carousel-inner {
-//     width: 100%;
-// }
-// END CAROUSEL CSS
-// .home-intro {
-//     height: 300px;
-//     width: 100%;
-//     overflow: hidden;
-//     background-image: url("2.jpg");
-//     background-size: cover;
-//     text-align: center;
-//     line-height: 23px;
-//     color: white;
-//     font-size: 18px;
-//     text-shadow: 3px 3px 0 #000;
-// }
-//
-// .home-intro h1 {
-//     font-size: 36px;
-//     font-weight: bold;
-//     font-family: 'Audiowide', cursive;
-// }
-//
-// .home-map-intro {
-//     min-height: 50px;
-//     text-align: center;
-//     font-size: 20px;
-//     font-style: italic;
-//     background-image: url("4.png");
-// }
-//
-// .home-map-intro div {
-//     padding-top: 25px;
-//     padding-bottom:25px;
-// }
 
 .home-map iframe {
     pointer-events: none;
 }
-
-// .home-social-media {
-//     margin-top: -5px;
-//     height: auto;
-//     text-align: center;
-//     background-image: url("4.png");
-//     background-repeat: repeat;
-//     font-size: 25px !important;
-//     font-family: 'Audiowide', cursive;
-//  }
 
 // Contact
 #contactheader{
@@ -91,9 +29,7 @@
     vertical-align: top;
     display:inline-block;
     float:none;
-    /* reset the text-align */
     text-align:left;
-    /* inline-block space fix */
     margin-right:-4px;
 }
 #container-medium {
@@ -107,25 +43,6 @@
   font-weight: bold;
   margin-bottom: 25px;
 }
-
-// #marginend{
-//   margin-bottom: 60px;
-// }
-// .form-control1{
-//   opacity: 0.5;
-// }
-//
-// .form-group1{
-//   margin-top: 20px;
-//   margin-bottom: 20px;
-// }
-//
-// .btn-default {
-//   color: #fff;
-//   background-color: #EF7030;
-//   border-color: #EF7030;
-// }
-
 // Styling for about page
 #about-header-image {
   height: 400px;
@@ -218,12 +135,6 @@
   font-weight: bold;
 }
 
-// a
-// {
-//     color: #ffffff;
-// }
-/* Style the buttons that are used to open and close the accordion panel */
-/* Style the buttons that are used to open and close the accordion panel */
 button.accordion {
     background-color: #0073e6;
     color: #ffffff;
@@ -255,27 +166,6 @@ button.accordion:after {
 button.accordion.active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
-/* Style the accordion panel. Note: hidden by default */
-// div.panel {
-//     // padding: 0 18px;
-//     background-color: #99bbff;
-//     max-height: 0;
-//     overflow: hidden;
-//     transition: 0.6s ease-in-out;
-//     opacity: 0;
-//
-//     padding: 10px;
-//     width: 100%;
-//     padding: 10px;
-//
-//     margin-top: 0px;
-//     margin-bottom: 0px;
-// }
-//
-// div.panel.show {
-//     opacity: 1;
-//     max-height: 500px; /* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
-// }
 
 // version 2 team 7
 
@@ -284,7 +174,6 @@ button.accordion.active:after {
 }
 
 #got-game {
-  // font-family: 'Impact';
   font-weight: bold;
   font-size: 45px;
 }
@@ -299,39 +188,6 @@ button.accordion.active:after {
 
 .footer {
   padding-top: 5px;
-  // position: absolute;
-  width: 100%;
-}
-
-
-.copyright {
-  font-size: 20px;
-}
-
-
-// version team 7
-
-.panel-heading {
-  color: darkgrey;
-}
-
-#got-game {
-  // font-family: 'Impact';
-  font-weight: bold;
-  font-size: 45px;
-}
-
-#indie-game-heading {
-  color: lightblue;
-}
-
-.glyphicon {
-  font-size: 20px;
-}
-
-.footer {
-  padding-top: 5px;
-  // position: absolute;
   width: 100%;
 }
 

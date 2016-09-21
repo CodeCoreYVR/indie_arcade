@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand"" href="<%= root_path %>">
-                <%= image_tag "logo-2.png", :class => "logo-nav" %>
+                <%= image_tag "logo-2.png", class: "logo-nav" %>
             </a>
 
         </div>
@@ -27,8 +27,8 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="game-search">
                   <span class="glyphicon glyphicon-search text-right" id="search"></span>
-
-                  <form id="search-wrapper" action="/games" method="get">
+                  <%= form_tag('/games', method: 'get', role: 'search', class: 'form-group', id: 'search-wrapper') %>
+                  
                       <input type="text" name="search_main" class="form-control" name="search" placeholder="Search for a game or a studio" id="search-bar">
                       <button type="submit" class="btn btn-default" style="display: none">Submit</button>
                   </form>

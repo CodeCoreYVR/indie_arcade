@@ -3,11 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #index-bg {
-  // background-image: url("games-bg.jpg");
-  // background-color: #317484;
-  // background-position: top;
-  // background-repeat: no-repeat;
-  // background-size: 100%;
   width: 100%;
   min-height: 500px;
   padding-bottom: 20px;
@@ -469,7 +464,6 @@ input#game_picture.file.optional {
 .game-grid {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
   flex-flow: row wrap;
 }
 
@@ -479,7 +473,6 @@ input#game_picture.file.optional {
   border-radius: 10px;
   background: rgba(200, 200, 200, 0.5);
   background-blend-mode: lighten;
-  // border: 1px solid white;
   margin: 1rem 1rem 1rem 1rem;
   flex-grow: 1;
 }
@@ -510,13 +503,6 @@ input#game_picture.file.optional {
 .linkA {
   display: block;
 }
-
-
-
-
-
-
-
 
 .image-front {
   width: 100%;
