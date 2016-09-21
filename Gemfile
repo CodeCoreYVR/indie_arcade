@@ -37,11 +37,7 @@ gem 'delayed_job_active_record'
 gem 'sinatra', '2.0.0.beta2'
 gem "delayed_job_web"
 
-
-
 # Bootstrap
-
-
 
 gem 'bootstrap-sass'
 gem 'bootstrap-glyphicons'

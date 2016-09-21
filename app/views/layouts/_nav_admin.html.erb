@@ -30,12 +30,8 @@
                     </ul>
                   </li>
                   <li class="game-search">
-                      <span class="glyphicon glyphicon-search text-right" id="search"></span>
-
-                      <form id="search-wrapper" action="/games" method="get">
-                          <input type="text" name="search_main" class="form-control" name="search" placeholder="Search for a game or a studio" id="search-bar">
-                          <button type="submit" class="btn btn-default" style="display: none">Submit</button>
-                      </form>
+                    <span class="glyphicon glyphicon-search text-right" id="search"></span>
+                    <%= render 'layouts/form_search' %>
                   </li>
             </ul>
         </div>
