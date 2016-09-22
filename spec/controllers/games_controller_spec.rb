@@ -13,7 +13,7 @@ RSpec.describe GamesController, type: :controller do
 
   describe "#show" do
     it "redirects to show view" do
-      get :show
+      get :show, {id: game.id}
       expect(response).to render_template :show
     end
     it "defines an instance variable for game based on passed id" do
@@ -26,39 +26,71 @@ RSpec.describe GamesController, type: :controller do
     context "with gamer" do
       it "redirect_to session new" do
         get :edit, {id: game.id}
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to new_session_path
       end
     end
-    before {request.session[:user_id] = user.id}
     context "with dev" do
-      it "redirects to edit view" do
-        get :edit, {id: game.id} {}
-        expect(response).to render_template :edit
+      context "owns game" do
+        it "redirects to edit view" do
+          get :edit, params: {id: game.id}, session: { user_id: game.user_id }
+          expect(response).to render_template :edit
+        end
       end
+      context "doesn't own game"
     end
     context "with admin" do
       it "redirects to edit view" do
         user.admin = true
-        get :edit, {id: game.id}
+        user.save
+        get :edit, params: {id: game.id}, session: { user_id: user.id }
         expect(response).to render_template :edit
       end
     end
   end
 
   describe "#new" do
-
+    context "with gamer" do
+      it "redirect_to user login" do
+        get :new
+        expect(response).to redirect_to new_session_path
+      end
+    end
+    context "with dev or admin" do
+      before {request.session[:user_id] = user.id}
+      it "renders the new page" do
+        get :new
+        expect(response).to render_template :new
+      end
+    end
   end
 
   describe "#create" do
-
+    it "redirects to game_path" do
+      post :create, params: { game: FactoryGirl.attributes_for(:game) }, session: { user_id: user.id }
+      expect(response).to redirect_to games_path
+    end
   end
 
   describe "#update" do
-
+    it "redirect_to game's show " do
+      patch :update, params: { id: game.id, game: FactoryGirl.attributes_for(:game) }, session: { user_id: game.user_id }
+      expect(response).to redirect_to game_path(game.id)
+    end
   end
 
   describe "#destroy" do
-
+    context "admin or dev with ownership" do
+      it "redirect_to games index" do
+        delete :destroy, params: { id: game.id }, session: { user_id: game.user_id }
+        expect(response).to redirect_to games_path
+      end
+    end
+    context "dev without ownership" do
+      it "redirect_to root path" do
+        delete :destroy, params: { id: game.id }, session: { user_id: user.id }
+        expect(response).to redirect_to root_path
+      end
+    end
   end
 
 end
