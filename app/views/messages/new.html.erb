@@ -45,7 +45,7 @@
         <div class="form-control1", class="form-group1">
           <%= @message.errors.full_messages.join(", ") if @message.errors.empty? %>
           <%= simple_form_for @message, url: message_home_path do |f| %>
-          <%= f.input :emailadd, placeholder:"Email", label: false %>
+          <%= f.input :email, placeholder:"Email", label: false %>
           <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, placeholder:"Message", label: false %>
         </div>
 

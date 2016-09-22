@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path unless user_signed_in?
   end
 
+  def authenticate_admin!
+    redirect_to new_session_path unless user_is_admin?
+  end
+
   def authorize
     redirect_to root_path, alert: "Access denied" unless can? :manage, @question
   end
