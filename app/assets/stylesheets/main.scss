@@ -65,7 +65,7 @@ html, body {
 }
 
 .btn-primary{
-  background: #f64b77;
+  background: $pink;
   border-color: white;
   &:hover{
     background: #da325d;
@@ -265,6 +265,7 @@ h1{
   h1{
     font-size: 44px;
     padding-top: 13px;
+
   }
 }
 
@@ -426,7 +427,7 @@ body{
 .panel-result{
   background: #92c9e1;
   border: 1px solid white;
-  border-bottom: solid 4px black;
+  border-bottom: solid 4px $pink;
   min-height: 480px;
   margin-bottom: 20px;
   position: relative;

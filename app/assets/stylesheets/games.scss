@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "variables";
+@import "mixins";
+
 #index-bg {
   width: 100%;
   min-height: 500px;
@@ -19,10 +22,56 @@
   text-align: left;
 }
 
+.madeby{
+  background: #919da2;
+  color: #dcd7c4;
+  font-size: 10px;
+  padding: 2px 0px 2px 4px;
+  position: relative;
+  margin-right: 8px;
+
+  &:after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: -9px;
+    top: 0px;
+    border-style: solid;
+    border-width: 8px 0 8px 9px;
+    border-color: transparent transparent transparent #919da2;
+  }
+}
+
 .container-index-games {
-  background: rgba(255,255,255,0.7);
-  margin-top: 45px;
+  background: rgb(0, 60, 97);
+  margin-top: 80px;
+  padding: 20px;
   padding-bottom: 20px;
+  color:#9ca3b5;
+
+  form{
+    margin-bottom: 20px;
+  }
+
+  form#tags label{
+    color:#9ca3b5;
+    border-bottom: solid 1px rgba(125, 125, 125, 0.31);
+    padding: 5px 0;
+    margin: 0;
+    transition: all .5s;
+    font-size: 12px;
+
+    &:hover{
+      background: rgb(6, 69, 107);
+      cursor: pointer;
+    }
+  }
+
+  h4{
+    color: #6c8aa5;
+    padding-bottom: 10px;
+  }
 }
 
 .back-btn-update a {
@@ -59,9 +108,6 @@ label {
   margin-left: 10px;
 }
 
-form#tags {
-  padding: 10px;
-}
 
 #narrow-by-tags {
   margin-left: 10px;
@@ -89,7 +135,7 @@ input.search-tags-btn:hover {
 }
 
 input#search_user {
-  margin-left: 20px;
+
   border-radius: 4px;
   width: 160px;
   border: 0;
@@ -107,6 +153,7 @@ input#search_user {
   border: 0;
   color: #fff;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 #search-for-studio:hover {
@@ -234,9 +281,10 @@ form#tags label {
 
 .game-title {
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: #003C62;
   text-align: left;
+  text-transform: capitalize;
 }
 
 .game-title a:hover {
@@ -385,12 +433,16 @@ p.control-group {
   margin: 10px;
 }
 // =======
+
+.tag-wrapper{
+  padding: 15px 10px;
+  background: rgba(187, 213, 224, 0.65);
+}
 .tag-boxes {
-  background-color: #EF7030;
-  padding: 5px;
-  color: #fff;
-  font-weight: lighter;
+  background-color: rgb(151, 184, 199);
+  padding: 4px 8px;
   display: inline-block;
+  @include rounded(15px);
 }
 
 p.tag-boxes {

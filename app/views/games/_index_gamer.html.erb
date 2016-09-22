@@ -10,21 +10,23 @@
               <%= display_picture g %>
             </div>
           </div>
-          <div class="col-md-12 text-center">
+          <div class="col-md-12">
               <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
               <div>
-                  <p class="gamer-details-author">made by:
+                  <p class="gamer-details-author"> <span class="madeby"> made by:</span>
                       <%= link_to g.user.company, user_path(g.user) %></p>
                   <hr style="border-color: #333;">
-                  <% g.tags.each do |t| %>
-                  <p class="tag-boxes">
-                      <%= t.name %>
-                  </p>
-                  <% end %>
+                  <div class="tag-wrapper text-center">
+                    <% g.tags.each do |t| %>
+                    <p class="tag-boxes">
+                        <%= t.name %>
+                    </p>
+                    <% end %>
+                  </div>
 
               </div>
           </div>
-          <p class="game-status status text-center" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.status.name %></p>
+        
         </div>
       </div>
 
