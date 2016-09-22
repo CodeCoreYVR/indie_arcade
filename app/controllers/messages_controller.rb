@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   before_action :authenticate_admin!, only: [:index]
-  # before_action :authenticate_user!, only: [:show]
 
   def show
   end
