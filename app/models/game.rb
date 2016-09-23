@@ -1,4 +1,34 @@
 class Game < ApplicationRecord
+  include PgSearch
+  pg_search_scope(
+    :search_by, lambda do |type, query|
+      if type == 'main'
+        {
+        :against =>{ title: 'A', description: 'B'},
+        using: {
+          tsearch:{dictionary: "english",
+                   prefix: true,
+                   any_word: true}
+        },
+        :query => query
+      }
+      elsif type == 'user'
+        {
+        :associated_against => {:user => :company},
+        using: {
+          tsearch: {prefix: true,
+                    any_word: true}
+        },
+        :query => query
+      }
+      else {
+        associated_against: {:tags => :id},
+        :query => query
+        }
+      end
+    end
+  )
+
   belongs_to :user
   belongs_to :status
 
@@ -24,7 +54,7 @@ class Game < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
+  scope :user_data_subset, -> (admin,dev,dev_id) {admin ? all : dev ? where(user_id: dev_id) : where(aasm_state: ["Released to arcade","Not released"])}
 
   def set_defaults
     self.aasm_state ||= "Game under review"
