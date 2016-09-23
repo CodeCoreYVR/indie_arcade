@@ -24,19 +24,24 @@ RSpec.describe GamesController, type: :controller do
 
   describe "#edit" do
     context "with gamer" do
-      it "redirect_to session new" do
+      it "redirects to session new" do
         get :edit, {id: game.id}
         expect(response).to redirect_to new_session_path
       end
     end
-    context "with dev" do
+    context "with dev or admin" do
       context "owns game" do
         it "redirects to edit view" do
           get :edit, params: {id: game.id}, session: { user_id: game.user_id }
           expect(response).to render_template :edit
         end
       end
-      context "doesn't own game"
+      context "doesn't own game" do
+        it "redirects to root path" do
+          get :edit, params: {id: game.id}, session: { user_id: user.id }
+          expect(response).to redirect_to root_path
+        end
+      end
     end
     context "with admin" do
       it "redirects to edit view" do
@@ -55,9 +60,18 @@ RSpec.describe GamesController, type: :controller do
         expect(response).to redirect_to new_session_path
       end
     end
-    context "with dev or admin" do
+    context "with dev" do
       before {request.session[:user_id] = user.id}
       it "renders the new page" do
+        get :new
+        expect(response).to render_template :new
+      end
+    end
+    context "with admin" do
+      before {request.session[:user_id] = user.id}
+      it "renders the new page" do
+        user.admin = true
+        user.save
         get :new
         expect(response).to render_template :new
       end
@@ -79,7 +93,7 @@ RSpec.describe GamesController, type: :controller do
   end
 
   describe "#destroy" do
-    context "admin or dev with ownership" do
+    context "dev with ownership" do
       it "redirect_to games index" do
         delete :destroy, params: { id: game.id }, session: { user_id: game.user_id }
         expect(response).to redirect_to games_path
@@ -89,6 +103,14 @@ RSpec.describe GamesController, type: :controller do
       it "redirect_to root path" do
         delete :destroy, params: { id: game.id }, session: { user_id: user.id }
         expect(response).to redirect_to root_path
+      end
+    end
+    context "admin" do
+      it "redirect_to games index" do
+        user.admin = true
+        user.save
+        delete :destroy, params: { id: game.id }, session: { user_id: game.user_id }
+        expect(response).to redirect_to games_path
       end
     end
   end
