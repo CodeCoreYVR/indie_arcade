@@ -1,6 +1,6 @@
 <div id="allmess" style="overflow: scroll;">
   <div class="container">
-    <% if @messages %>
+    <% if @messages.present? %>
       <p>All Messages</p>
         <% @messages.each do |m| %>
           <div id="mess">
@@ -14,8 +14,10 @@
           <hr>
         <% end %>
    <% else %>
-    <h1>No Messages</h1>
-  <% end %>
+      <div class="text-center">
+        <h1>No Messages</h1>
+      </div>
+    <% end %>
   </div>
   <%= paginate @messages %>
 </div>

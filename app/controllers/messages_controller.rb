@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_admin!, only: [:index]
 
-  MESSAGES_PER_PAGE = 6
-
+  MESSAGES_PER_PAGE = 4
   def show
   end
 
@@ -21,7 +20,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = Message.page(1).per(4)
+    @messages = Message.page(1).per(MESSAGES_PER_PAGE)
   end
 
   def destroy
