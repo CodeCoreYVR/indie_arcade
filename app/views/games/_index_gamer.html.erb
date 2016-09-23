@@ -1,25 +1,38 @@
-<h1 class="games-index-h1">All Games</h1>
+<h1 class="text">All Games</h1>
 <% if @games.present? %>
-<% @games.each do |g|  %>
-<div class="wrapper">
-    <div class="one"><%= display_picture g %></div>
-    <div class="two">
-        <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
-        <div>
-            <p class="gamer-details-author">made by:
-                <%= link_to g.user.company, user_path(g.user) %></p>
-            <hr style="border-color: #333;">
-            <% g.tags.each do |t| %>
-            <p class="tag-boxes">
-                <%= t.name %>
-            </p>
-            <% end %>
-            <p class="game-status" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.status.name %></p>
+  <div class="row">
+    <% @games.each do |g|  %>
+    <div class="col-md-4">
+
+        <div class="panel-result col-md-12">
+          <div class="col-md-12">
+            <div class="img">
+              <%= display_picture g %>
+            </div>
+          </div>
+          <div class="col-md-12">
+              <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
+              <div>
+                  <p class="gamer-details-author"> <span class="madeby"> made by:</span>
+                      <%= link_to g.user.company, user_path(g.user) %></p>
+                  <hr style="border-color: #333;">
+                  <div class="tag-wrapper text-center">
+                    <% g.tags.each do |t| %>
+                    <p class="tag-boxes">
+                        <%= t.name %>
+                    </p>
+                    <% end %>
+                  </div>
+
+              </div>
+          </div>
+        
         </div>
-    </div>
-</div>
-<% end %> 
+      </div>
+
+    <% end %>
+  </div>
 <% else %>
-<p>There are no matches for your search</p>
+  <h1>There are no matches for your search</h1>
 <% end %>
 <%= paginate @games %>
