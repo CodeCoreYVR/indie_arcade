@@ -42,7 +42,4 @@ class Game < ApplicationRecord
   def average_score_for( attribute )
     reviews.average( attribute ).round(2) * 20
   end
-
-
-
 end
