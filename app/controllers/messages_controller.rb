@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   before_action :authenticate_admin!, only: [:index]
 
+  MESSAGES_PER_PAGE = 6
+
   def show
   end
 
@@ -19,7 +21,13 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = Message.all
+    @messages = Message.page(1).per(4)
+  end
+
+  def destroy
+    m=Message.find params[:id]
+    m.destroy
+    redirect_to messages_path
   end
 
 end

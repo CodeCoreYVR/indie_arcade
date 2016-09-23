@@ -43,10 +43,11 @@
     <div id="marginend">
       <div id="container-medium">
         <div class="form-control1", class="form-group1">
-          <%= @message.errors.full_messages.join(", ") if @message.errors.empty? %>
           <%= simple_form_for @message, url: message_home_path do |f| %>
-          <%= f.input :email, placeholder:"Email", label: false %>
-          <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, placeholder:"Message", label: false %>
+            <%= f.full_error :email %>
+            <%= f.full_error :content %>
+            <%= f.input :email, placeholder:"Email", label: false, :error => false %>
+            <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, placeholder:"Message", label: false, :error => false %>
         </div>
 
         <div>

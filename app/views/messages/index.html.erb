@@ -7,6 +7,9 @@
             <div class="white"><h3><%= m.email %></h3></div>
           <br>
             <div><%= m.content %></div>
+            <%= link_to "Remove", message_path(m),
+                                 method: :delete,
+                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
           </div>
           <hr>
         <% end %>
@@ -14,4 +17,5 @@
     <h1>No Messages</h1>
   <% end %>
   </div>
+  <%= paginate @messages %>
 </div>
