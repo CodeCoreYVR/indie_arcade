@@ -37,10 +37,6 @@ end
     Machine.create location_id:     1+rand(5)
 end
 
-["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].each do |s|
-	Status.create name: s
-end
-
 ["Adventure", "Action", "Strategy", "Multi-player", "Co-op", "Single-player", "Sport", "Racing"].each do |t|
     Tag.create name: t
 end
@@ -53,7 +49,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        status_id: 1 + rand(5) })
+                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
 end
 
 50.times do
@@ -64,7 +60,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        status_id: 1 + rand(5) })
+                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
 end
 
 50.times do
@@ -75,7 +71,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        status_id: 1 + rand(5) })
+                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
 end
 
 50.times do
@@ -86,7 +82,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        status_id: 1 + rand(5) })
+                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
 end
 
 TAGGINGS_TO_CREATE = 400

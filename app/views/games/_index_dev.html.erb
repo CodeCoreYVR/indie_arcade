@@ -10,8 +10,7 @@
             <%= t.name %>
         </p>
         <% end %>
-        <p class="game-status" style="color: #45A056; font-weight: bold; margin-top: 15px; margin-bottom: 15px;">Status:
-            <%= g.status.name %></p>
+            <p class="game-aasm_state" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.aasm_state %></p>
         <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
             <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
             <%= link_to "Remove", game_path(g),
