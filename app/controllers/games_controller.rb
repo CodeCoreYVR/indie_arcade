@@ -7,13 +7,20 @@ class GamesController < ApplicationController
     @tags = Tag.all
 
     if params[:search_user]
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,current_user.nil? ? nil : current_user.id).search_by('user',params[:search_user]).order(desired_order)
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).search_by('user',
+      params[:search_user]).order(desired_order)
     elsif params[:search_main]
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,current_user.nil? ? nil : current_user.id).search_by('main',params[:search_main]).order(desired_order)
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).search_by('main',
+      params[:search_main]).order(desired_order)
     elsif params[:tag]
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,current_user.nil? ? nil : current_user.id).search_by('tags',params.require(:tag)[:tag_ids]).order(desired_order)
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).search_by('tags',
+      params.require(:tag)[:tag_ids]).order(desired_order)
     else
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,current_user.nil? ? nil : current_user.id).order(desired_order)
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).order(desired_order)
     end
       @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
@@ -72,7 +79,9 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link, {tag_ids: [] } )
+    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size,
+    :approval_date, :status_id, :stats, :description, :picture,
+    :link, {tag_ids: [] } )
   end
 
   # Used to fulfill client requests for 5 new games
@@ -82,7 +91,9 @@ class GamesController < ApplicationController
 
   def desired_order
     if user_signed_in?
-    "aasm_state='Rejected',aasm_state='Game not uploaded, it is not compatible with the system',aasm_state='Released to arcade',aasm_state='Not released', aasm_state= 'Game under review'"
+    "aasm_state='Rejected',aasm_state='Game not uploaded,
+    it is not compatible with the system',aasm_state='Released to arcade',
+    aasm_state='Not released', aasm_state= 'Game under review'"
     else
     "aasm_state='Not released',aasm_state='Released to arcade'"
     end

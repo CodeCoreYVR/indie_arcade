@@ -54,7 +54,9 @@ class Game < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  scope :user_data_subset, -> (admin,dev,dev_id) {admin ? all : dev ? where(user_id: dev_id) : where(aasm_state: ["Released to arcade","Not released"])}
+  scope :user_data_subset, -> (admin,dev,dev_id){
+  admin ? all : dev ? where(user_id: dev_id) :
+  where(aasm_state: ["Released to arcade","Not released"])}
 
   def set_defaults
     self.aasm_state ||= "Game under review"
