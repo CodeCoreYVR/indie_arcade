@@ -16,15 +16,17 @@ class Game < ApplicationRecord
 
   after_initialize :set_defaults
 
-  validates :title, presence: true,
-                    uniqueness: {case_sensitive: false}
-  validates :user_id, presence: true
-  validates :status_id, presence: true
-  validates :description, presence: true
+  # validates :title, presence: true,
+  #                   uniqueness: {case_sensitive: false}
+  # validates :user_id, presence: true
+  # validates :status_id, presence: true
+  # validates :description, presence: true
 
   mount_uploader :picture, PictureUploader
 
-  scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
+  scope :with_company_containing, -> (user_name) {
+    where(user_id: User.search(user_name)&.map(&:id) || [])
+  }
 
   def set_defaults
     self.status_id ||= 3
