@@ -56,19 +56,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    find_game
-    @developer = @game.user.company
-    @date = @game.created_at
-    @play_times = @game.reviews.count
-    # review_collection = @game.reviews.order(created_at: :desc)
-    @last_played = @game.reviews.last ? @game.reviews.last.created_at : "Never"
-    @rating = review_score_for @game
-
-    @reviews = @game.reviews
-    # get review statistics
-    @fun = @reviews.average(:fun)
-    @playability = @reviews.average(:playability)
-    @difficulty  = @reviews.average(:difficulty)
   end
 
   def update
@@ -125,10 +112,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link, {tag_ids: [] } )
   end
 
-  def review_score_for( game )
-    game.reviews.count
-  end
-
+  # Used to fulfill client requests for 5 new games
   def fill_machine_order(games)
     games.limit(5).order("RANDOM()")
   end
