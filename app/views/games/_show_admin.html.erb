@@ -1,15 +1,15 @@
 <h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
- <p class="char1">Made by: <%= @developer %></p>
+ <p class="char1">Made by: <%= @game.user.company %></p>
  <div>
-   <p>Date: <%= @date %></p>
+   <p>Date: <%= @game.created_at %></p>
    <p>Type:
    <% @game.taggings.map do |tagging| %>
      <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
    <% end %>
   </p>
-   <p>Last in Arcade: <%= @last_played %></p>
-   <p>Played: <%= @play_times %> times</p>
-   <p>Overall Rating: <%= @rating %></p>
+   <p>Last in Arcade: <%= @game.reviews.last ? @game.reviews.last.created_at : "Never" %></p>
+   <p>Played: <%= @game.reviews.count %> times</p>
+   <p>Overall Rating: <%= @game.reviews.count %></p>
      <p>
        Send email to developer about the game:
      </p>
@@ -27,3 +27,4 @@
      </div>
    <% end %>
  </div>
+@game.reviews.count
