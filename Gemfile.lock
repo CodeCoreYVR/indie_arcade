@@ -155,6 +155,10 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     pg (0.18.4)
+    pg_search (1.0.6)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     pkg-config (1.1.7)
     puma (3.6.0)
     rack (2.0.1)
@@ -272,6 +276,7 @@ DEPENDENCIES
   mini_magick
   nested_form
   pg (~> 0.18)
+  pg_search
   puma (~> 3.0)
   rack-cors
   rails (~> 5.0.0)
