@@ -7,14 +7,14 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence:   true,
-                    uniqueness: {case_sensitive: false},
+                    uniqueness: { case_sensitive: false },
                     format:     VALID_EMAIL_REGEX
 
   validates :company, presence: true,
-                    uniqueness: {case_sensitive: false}
+                      uniqueness: { case_sensitive: false }
 
   validates :password, presence: true,
-                    length: {minimum: 6}
+                       length: { minimum: 6 }
 
   def full_name
     "#{first_name} #{last_name}".squeeze(" ").strip.titleize

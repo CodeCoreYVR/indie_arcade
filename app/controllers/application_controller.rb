@@ -7,11 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def current_user
-    if user_signed_in?
-      @current_user ||= User.find session[:user_id] if user_signed_in?
-    end
+    @current_user ||= User.find session[:user_id] if user_signed_in?
   end
-
   helper_method :current_user
 
   def user_is_admin?
@@ -20,12 +17,12 @@ class ApplicationController < ActionController::Base
   helper_method :user_is_admin?
 
   def user_is_dev?
-    user_signed_in? && (current_user.admin == false)
+    user_signed_in? && !current_user.admin
   end
   helper_method :user_is_dev?
 
   def user_is_gamer?
-    user_signed_in? == false
+    !user_signed_in?
   end
   helper_method :user_is_gamer?
 
