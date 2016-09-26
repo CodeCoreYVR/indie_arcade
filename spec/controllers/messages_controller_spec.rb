@@ -34,7 +34,8 @@ RSpec.describe MessagesController, type: :controller do
 
       it "redirects to the message show page" do
         request.session[:user_id] = user.id
-        post :create, params: { message: { email: message.email, content: message.content } }
+        attrs = FactoryGirl.attributes_for(:message)
+        post :create, params: { message: attrs }
         expect(response).to redirect_to(message_path(Message.last))
       end
     end
