@@ -9,17 +9,15 @@ width: 100%;
     margin: 0;
 }
 html, body {
-    height: 100%;
+  height: 100%;
 }
 .wrapper-main {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    overflow: hidden;
-    margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
 }
-
-
 
 .footer, .push {
     height: 70px; /* .push must be the same height as .footer */
@@ -52,7 +50,7 @@ html, body {
   background: #92c9e1;
   border-color: white;
   color: white;
-   text-shadow: 1px 1px rgba(103, 103, 103, 0.26);
+  text-shadow: 1px 1px rgba(103, 103, 103, 0.26);
 }
 
 
@@ -160,8 +158,6 @@ a {
     }
   }
 
-
-
   .image-wrapper{
     position: relative;
     width: 112px;
@@ -180,21 +176,14 @@ a {
        -webkit-transform: translate(-50%,-50%);
            -ms-transform: translate(-50%,-50%);
                transform: translate(-50%,-50%);
-
     }
-
   }
-
 
   &:hover{
     background: rgba(#eff4f5, 0.34);
     border: solid 1px rgba(#dbfaff, 0.77);
     border-bottom: solid 4px #f64b77;
-    img {
-
-    }
   }
-
 }
 
 .navbar-brand > img{
@@ -222,12 +211,10 @@ h1{
   background-size: 100% auto;
 }
 .navbar-inverse{
-
   .glyphicon{
     padding-top: 18px;
     float: left;
     margin-right: -5px;
-
   }
 
   .navbar-nav {
@@ -256,7 +243,6 @@ h1{
 
     }
   }
-
 }
 
 .header{
@@ -270,7 +256,6 @@ h1{
 }
 
 .logo{
-
     background: image_url("bg.jpg");
     display: block;
     width: 200px;
@@ -290,7 +275,6 @@ h1{
 body{
   background: #23649d url("bg.jpg") top no-repeat;
   background-size: 100% auto;
-
 }
 .navbar-inverse{
 
@@ -334,13 +318,13 @@ body{
 }
 
 .list-group-item {
-    color: #757070;
+  color: #757070;
 
-    .glyphicon {
-      color: #d8d7ce;
-      vertical-align: middle;
-      padding-right:8px;
-    }
+  .glyphicon {
+    color: #d8d7ce;
+    vertical-align: middle;
+    padding-right:8px;
+  }
 }
 
 .map{
@@ -352,7 +336,6 @@ body{
     margin: 0 64px;
   }
 }
-
 
 // search from main
 
