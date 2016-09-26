@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160923172829) do
     t.string   "link"
     t.string   "attachment"
     t.json     "key_map"
+    t.string   "aasm_state"
     t.index ["status_id"], name: "index_games_on_status_id", using: :btree
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
@@ -68,6 +69,15 @@ ActiveRecord::Schema.define(version: 20160923172829) do
     t.datetime "updated_at", null: false
     t.string   "email"
     t.string   "content"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.string   "searchable_type"
+    t.integer  "searchable_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -14,11 +14,11 @@
                 <%= t.name %>
             </p>
             <% end %>
-            <p class="game-status" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.status.name %></p>
+            <p class="game-aasm_state" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.aasm_state %></p>
         </div>
     </div>
 </div>
-<% end %> 
+<% end %>
 <% else %>
 <p>There are no matches for your search</p>
 <% end %>
