@@ -1,15 +1,15 @@
 <h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
 <div>
-  <p>Made by: <%= link_to @developer, user_path(User.find_by(company: @developer)), class:"show-a-tag" %></p>
-  <p>Date: <%= @date %></p>
+  <p>Made by: <%= link_to @game.user.company, user_path(User.find_by(company: @game.user.company)), class:"show-a-tag" %></p>
+  <p>Date: <%= @game.created_at %></p>
   <p>Type:
   <% @game.taggings.map do |tagging| %>
     <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
   <% end %>
   </p>
-  <p>Last in Arcade: <%= @last_played %></p>
-  <p>Played: <%= @play_times %> times</p>
-  <p>Overall Rating: <%= @rating %></p>
+  <p>Last in Arcade: <%= @game.reviews.last ? @game.reviews.last.created_at : "Never" %></p>
+  <p>Played: <%= @game.reviews.count %> times</p>
+  <p>Overall Rating: <%= @game.reviews.count %></p>
 </div>
 <div>
   <%= button_to "Buy", @game.link, class:"button" %>

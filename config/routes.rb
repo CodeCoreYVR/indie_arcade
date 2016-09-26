@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :show]
   resources :games do
     resources :reviews, only: [:show]
+    resources :keys, only: [:new, :create]
   end
 
   resources :sessions, only: [:new, :create] do
