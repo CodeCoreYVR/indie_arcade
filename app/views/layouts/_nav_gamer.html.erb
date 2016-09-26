@@ -35,7 +35,17 @@
                     </ul>
                   </li>
                 <% else %>
-                  <li><%= link_to "Log-in", new_session_path %></li>
+                  <!-- <li><%# link_to "Log-in", new_session_path %></li> -->
+                  <li><%= link_to 'Login', '#', class: "", data: { popup_open: "popup-1" }  %></li>
+                  <div class="popup-1" data-popup="popup-1" id="popup">
+                                <div class="popup-inner">
+                                    <%= render 'sessions/form' %>
+                                    <p>
+                                        <a data-popup-close="popup-1" href="#"></a>
+                                    </p>
+                                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                                </div>
+                            </div>
                   <li><%= link_to "Register", new_user_path, class: "btn btn-primary small" %></li>
                 <% end %>
 
