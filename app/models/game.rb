@@ -1,4 +1,21 @@
 class Game < ApplicationRecord
+  include AASM
+
+  aasm do
+    state :under_review, initial: true
+    state :rejected
+    state :incompatible
+    state :unreleased
+    state :released
+
+    event :approve do
+      transitions from: :under_review, to: :unreleased
+    end
+    event :reject do
+      transitions from: :under_review, to: :rejected
+    end
+  end
+
   include PgSearch
   pg_search_scope(
     :search_by, lambda do |type, query|
