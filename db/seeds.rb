@@ -1,38 +1,41 @@
 USERS_TO_CREATE = 20
-number = 1++
 RANDOM_NUMBER = rand(1..1000)
 USERS_TO_CREATE.times do
 	number = 1++
-	User.create company:					Faker::Company.name + (number * RANDOM_NUMBER),
-							email:						(number * RANDOM_NUMBER) + Faker::Internet.email,
-							password:	        Faker::Internet.password,
-							employees:				rand(8),
-							website:					Faker::Internet.url + (number * RANDOM_NUMBER)
+	User.create({	company:					Faker::Company.name + "#{number * RANDOM_NUMBER}",
+								email:						"#{number * RANDOM_NUMBER}" + Faker::Internet.email,
+								password:	        Faker::Internet.password,
+								employees:				rand(8),
+								website:					Faker::Internet.url + "#{number * RANDOM_NUMBER}"
+							})
 end
 # works
 
-User.create company:					"Admin Man",
-						email:						"admin@admin.com",
-						password:	        "123456",
-						employees:				rand(8),
-						website:					Faker::Internet.url,
-						admin:						true
+User.create({ 	company:					"Admin Man",
+								email:						"admin@admin.com",
+								password:	        "123456",
+								employees:				rand(8),
+								website:					Faker::Internet.url,
+								admin:						true
+							})
 
-User.create company:					"Dev Man",
-						email:						"dev@dev.com",
-						password:	        "123456",
-						employees:				rand(8),
-						website:					Faker::Internet.url,
-						admin:						false
+User.create ({	company:					"Dev Man",
+								email:						"dev@dev.com",
+								password:	        "123456",
+								employees:				rand(8),
+								website:					Faker::Internet.url,
+								admin:						false
+							})
 
 business = ["Running", "Closed", "Updating"]
 5.times do
 	number = 1++
-    Location.create name:           Faker::Company.name + (number * RANDOM_NUMBER),
-                  	address:        Faker::Address.street_address + (number * RANDOM_NUMBER),
-                    city:           Faker::Address.city + (number * RANDOM_NUMBER),
-                    postal_code:    Faker::Address.zip_code + (number * RANDOM_NUMBER),
-                    run_status:     business.sample
+    Location.create({	name:           Faker::Company.name + "#{number * RANDOM_NUMBER}",
+	                  	address:        Faker::Address.street_address + "#{number * RANDOM_NUMBER}",
+	                    city:           Faker::Address.city + "#{number * RANDOM_NUMBER}",
+	                    postal_code:    Faker::Address.zip_code + "#{number * RANDOM_NUMBER}",
+	                    run_status:     business.sample
+										})
 end
 
 20.times do
@@ -45,8 +48,8 @@ end
 
 100.times do
 	number = 1++
-    Game.create({				title: Faker::Hipster.word + (number * RANDOM_NUMBER),
-                  			description: Faker::Hipster.paragraph + (number * RANDOM_NUMBER),
+    Game.create({				title: Faker::Hipster.word + "#{number * RANDOM_NUMBER}",
+                  			description: Faker::Hipster.paragraph + "#{number * RANDOM_NUMBER}",
                         user_id: 1+rand(22),
                         cpu: rand(100)+1,
                         gpu: rand(50)+1,
@@ -57,8 +60,8 @@ end
 
 50.times do
 	number = 1++
-    Game.create({				title: Faker::Lorem.words(2).join(" ") + (number * RANDOM_NUMBER),
-			                  description: Faker::Hipster.paragraph + (number * RANDOM_NUMBER),
+    Game.create({				title: Faker::Lorem.words(2).join(" ") + "#{number * RANDOM_NUMBER}",
+			                  description: Faker::Hipster.paragraph + "#{number * RANDOM_NUMBER}",
                         user_id: 1+rand(22),
                         cpu: rand(100)+1,
                         gpu: rand(50)+1,
@@ -68,8 +71,8 @@ end
 end
 
 50.times do
-    Game.create({				title: Faker::App.name + (number * RANDOM_NUMBER),
-			                  description: Faker::Hipster.paragraph + (number * RANDOM_NUMBER),
+    Game.create({				title: Faker::App.name + "#{number * RANDOM_NUMBER}",
+			                  description: Faker::Hipster.paragraph + "#{number * RANDOM_NUMBER}",
                         user_id: 1+rand(22),
                         cpu: rand(100)+1,
                         gpu: rand(50)+1,
@@ -79,8 +82,8 @@ end
 end
 
 50.times do
-    Game.create({				title: Faker::Book.title + (number * RANDOM_NUMBER),
-				                description: Faker::Hipster.paragraph + (number * RANDOM_NUMBER),
+    Game.create({				title: Faker::Book.title + "#{number * RANDOM_NUMBER}",
+				                description: Faker::Hipster.paragraph + "#{number * RANDOM_NUMBER}",
                         user_id: 1+rand(22),
                         cpu: rand(100)+1,
                         gpu: rand(50)+1,
