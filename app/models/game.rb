@@ -32,7 +32,7 @@ class Game < ApplicationRecord
     self.status_id ||= 3
   end
 
-  def self.search(search)
+  def self.search(title)
     Game.where("title ILIKE ?", "%#{search}%")
   end
 
