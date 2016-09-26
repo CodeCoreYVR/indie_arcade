@@ -23,7 +23,7 @@ class Game < ApplicationRecord
     :search_by, lambda do |type, query|
       if type == 'main'
         {
-          against: { title: 'A', description: 'B' },
+          against: { title: 'A' },
           using: {
             tsearch: { dictionary: 'english',
                        prefix: true,
