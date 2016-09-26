@@ -67,3 +67,9 @@ p {
 .type {
   color: #fff;
 }
+
+@media screen and (max-width: 400px) {
+  .border-left{
+    border: none;
+  }
+}
