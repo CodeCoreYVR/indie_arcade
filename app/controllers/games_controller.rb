@@ -5,54 +5,24 @@ class GamesController < ApplicationController
 
   def index
     @tags = Tag.all
-    @tagsearch = Tag.ids.map{|x| x.to_s}
-    searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
-    searched = params[:search] unless params[:search].nil?
-    searched = params[:search_user] unless params[:search_user].nil?
-    searched = params.require(:search_status)[:status].to_i unless params[:search_status].nil?
-    searched = params[:search_main] unless params[:search_main].nil?
 
-    if searched.is_a?(Array)
-        searched.each do |t|
-            @games.nil? ? @games = Tag.find(t).games : @games + Tag.find(t).games
-          end
-       @games.uniq
-
-    elsif searched.nil?
-      @games = Game.all
-    elsif searched.is_a?(Integer)
-      @games = Game.where(status_id: searched)
-    elsif searched == params[:search_user]
-      @games = Game.with_company_containing(searched)
-    elsif searched == params[:search_main]
-      @games = Game.search(searched)
-    end
-
-
-    if user_is_dev?
-      @games = @games.where(user_id: current_user.id)
-      games_release = @games.where(user_id: current_user.id).where("status_id = ?", "1")
-      games_not_release = @games.where(user_id: current_user.id).where("status_id = ?", "2")
-      games_under_review = @games.where(user_id: current_user.id).where("status_id = ?", "3")
-      games_incompatible = @games.where(user_id: current_user.id).where("status_id = ?", "4")
-      games_rejected = @games.where(user_id: current_user.id).where("status_id = ?", "5")
-      @games = (games_under_review + games_not_release + games_release + games_incompatible + games_rejected)
-    elsif user_is_admin?
-      @statuses = Status.all
-      games_release = @games.where("status_id = ?", "1")
-      games_not_release = @games.where("status_id = ?", "2")
-      games_under_review = @games.where("status_id = ?", "3")
-      games_incompatible = @games.where("status_id = ?", "4")
-      games_rejected = @games.where("status_id = ?", "5")
-      @games = (games_under_review + games_not_release + games_release + games_incompatible + games_rejected)
+    if params[:search_user]
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).search_by('user',
+      params[:search_user]).order(desired_order)
+    elsif params[:search_main]
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).search_by('main',
+      params[:search_main]).order(desired_order)
+    elsif params[:tag]
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).search_by('tags',
+      params.require(:tag)[:tag_ids]).order(desired_order)
     else
-      @games = @games.where(status_id: [1,2]).order("created_at ASC")
+      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
+      current_user.nil? ? nil : current_user.id).order(desired_order)
     end
-      @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
-    respond_to do |format|
-      format.html {render}
-      format.json {render json: fill_machine_order(Game.all)}
-    end
+      @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
 
   def show
@@ -117,5 +87,15 @@ class GamesController < ApplicationController
   # Used to fulfill client requests for 5 new games
   def fill_machine_order(games)
     games.limit(5).order("RANDOM()")
+  end
+
+  def desired_order
+    if user_signed_in?
+      "aasm_state='Rejected',aasm_state='Game not uploaded,
+      it is not compatible with the system',aasm_state='Released to arcade',
+      aasm_state='Not released', aasm_state= 'Game under review'"
+    else
+      "aasm_state='Not released',aasm_state='Released to arcade'"
+    end
   end
 end
