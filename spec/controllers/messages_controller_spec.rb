@@ -22,8 +22,9 @@ RSpec.describe MessagesController, type: :controller do
     before { request.session[:user_id] = user.id }
     context "with valid parameters" do
       def valid_message_request
-        post :create, params: { message: { email: "test1234@test.com", content: "aaaaaaaaabbbbbbbbbccccccccccdddddddddddeeeeeeeeeefffffffffff"} }
+        post :create, params: { FactoryGirl.create :message }
       end
+
       it "saves a message to the message table" do
         count_before = Message.count
         valid_message_request
@@ -67,8 +68,8 @@ RSpec.describe MessagesController, type: :controller do
       end
 
       it "instantiates messages to be all messages" do
-        message1 = Message.create({email: "aaa@aaa.com", content: "aaaaaaaaabbbbbbbbbccccccccccdddddddddddeeeeeeeeeeffffffffff"})
-        message2 = Message.create({email: "bbb@bbb.com", content: "aaaaaaaaabbbbbbbbbccccccccccdddddddddddeeeeeeeeeeffffffffff"})
+        message1 =  FactoryGirl.create :message
+        message2 = FactoryGirl.create :message
         request.session[:user_id] = admin.id
         get :index
         expect(assigns(:messages)).to eq([message1, message2])
@@ -90,12 +91,5 @@ RSpec.describe MessagesController, type: :controller do
     end
     end
   end
-
-
-
-
-
-
-
 
 end

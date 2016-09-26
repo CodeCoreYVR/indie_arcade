@@ -2,12 +2,12 @@
   <div class="container">
     <% if @messages.present? %>
       <p>All Messages</p>
-        <% @messages.each do |m| %>
+        <% @messages.each do |message| %>
           <div id="mess">
-            <div class="white"><h3><%= m.email %></h3></div>
+            <div class="white"><h3><%= message.email %></h3></div>
           <br>
-            <div><%= m.content %></div>
-            <%= link_to "Remove", message_path(m),
+            <div><%= message.content %></div>
+            <%= link_to "Remove", message_path(message),
                                  method: :delete,
                                  data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
           </div>
