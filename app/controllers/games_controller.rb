@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   def index
     @tags = Tag.all
-    @tagsearch = Tag.ids.map{|x| x.to_s}
+    @tagsearch = Tag.ids.map(&:to_s)
     searched = params.require(:tag)[:tag_ids] unless params[:tag].nil?
     searched = params[:search] unless params[:search].nil?
     searched = params[:search_user] unless params[:search_user].nil?
@@ -13,10 +13,10 @@ class GamesController < ApplicationController
     searched = params[:search_main] unless params[:search_main].nil?
 
     if searched.is_a?(Array)
-        searched.each do |t|
-            @games.nil? ? @games = Tag.find(t).games : @games + Tag.find(t).games
-          end
-       @games.uniq
+      searched.each do |t|
+        @games.nil? ? @games = Tag.find(t).games : @games + Tag.find(t).games
+      end
+      @games.uniq
 
     elsif searched.nil?
       @games = Game.all
@@ -28,30 +28,29 @@ class GamesController < ApplicationController
       @games = Game.search(searched)
     end
 
-
     if user_is_dev?
       @games = @games.where(user_id: current_user.id)
-      games_release = @games.where(user_id: current_user.id).where("status_id = ?", "1")
-      games_not_release = @games.where(user_id: current_user.id).where("status_id = ?", "2")
-      games_under_review = @games.where(user_id: current_user.id).where("status_id = ?", "3")
-      games_incompatible = @games.where(user_id: current_user.id).where("status_id = ?", "4")
-      games_rejected = @games.where(user_id: current_user.id).where("status_id = ?", "5")
+      games_release = @games.where(user_id: current_user.id).where('status_id = ?', '1')
+      games_not_release = @games.where(user_id: current_user.id).where('status_id = ?', '2')
+      games_under_review = @games.where(user_id: current_user.id).where('status_id = ?', '3')
+      games_incompatible = @games.where(user_id: current_user.id).where('status_id = ?', '4')
+      games_rejected = @games.where(user_id: current_user.id).where('status_id = ?', '5')
       @games = (games_under_review + games_not_release + games_release + games_incompatible + games_rejected)
     elsif user_is_admin?
       @statuses = Status.all
-      games_release = @games.where("status_id = ?", "1")
-      games_not_release = @games.where("status_id = ?", "2")
-      games_under_review = @games.where("status_id = ?", "3")
-      games_incompatible = @games.where("status_id = ?", "4")
-      games_rejected = @games.where("status_id = ?", "5")
+      games_release = @games.where('status_id = ?', '1')
+      games_not_release = @games.where('status_id = ?', '2')
+      games_under_review = @games.where('status_id = ?', '3')
+      games_incompatible = @games.where('status_id = ?', '4')
+      games_rejected = @games.where('status_id = ?', '5')
       @games = (games_under_review + games_not_release + games_release + games_incompatible + games_rejected)
     else
-      @games = @games.where(status_id: [1,2]).order("created_at ASC")
+      @games = @games.where(status_id: [1, 2]).order('created_at ASC')
     end
-      @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
+    @games = Kaminari.paginate_array(@games).page(params[:page]).per(GAMES_PER_PAGE)
     respond_to do |format|
-      format.html {render}
-      format.json {render json: fill_machine_order(Game.all)}
+      format.html { render }
+      format.json { render json: fill_machine_order(Game.all) }
     end
   end
 
@@ -92,15 +91,13 @@ class GamesController < ApplicationController
   end
 
   def edit
-
   end
 
   def destroy
-    g=Game.find params[:id]
+    g = Game.find params[:id]
     g.destroy
     redirect_to games_path
   end
-
 
   private
 
@@ -109,11 +106,11 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link, {tag_ids: [] } )
+    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link, tag_ids: [])
   end
 
   # Used to fulfill client requests for 5 new games
   def fill_machine_order(games)
-    games.limit(5).order("RANDOM()")
+    games.limit(5).order('RANDOM()')
   end
 end
