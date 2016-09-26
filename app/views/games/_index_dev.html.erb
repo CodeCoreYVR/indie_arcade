@@ -14,6 +14,7 @@
             <%= g.status.name %></p>
         <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
             <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
+            <%= link_to "Controller Keys", new_game_key_path(g), :class=>"btn btn-primary" %>
             <%= link_to "Remove", game_path(g),
                                  method: :delete,
                                  data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>

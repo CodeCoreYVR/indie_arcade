@@ -109,7 +109,9 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date, :status_id, :stats, :description, :picture, :link, {tag_ids: [] } )
+    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date,
+                                  :status_id, :stats, :description, :picture,
+                                  :attachment, :link, {tag_ids: [] } )
   end
 
   # Used to fulfill client requests for 5 new games
