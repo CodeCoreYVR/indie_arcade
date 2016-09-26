@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    company { "Company1"}
+    sequence(:company) { |n| "McDonalds #{n}" }
     sequence(:email) { |n| Faker::Internet.email.gsub("@", "-#{n}@")}
     password  { Faker::Internet.password}
     admin false
@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :admin, class: User do
-    company { "Company2Admin"}
+    sequence(:company) { |n| "McDonalds #{n}" }
     sequence(:email) { |n| Faker::Internet.email.gsub("@", "-#{n}@")}
     password  { Faker::Internet.password}
     admin true

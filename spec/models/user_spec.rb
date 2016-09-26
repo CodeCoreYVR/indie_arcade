@@ -33,29 +33,29 @@ RSpec.describe User, type: :model do
     end
 
     context "on an existing user" do
-      let(:user) do
-        u = User.create company: 'mcdonald', email: 'mcdonald@gmail.com', password: 'password', password_confirmation: 'password'
-        User.find u.id
-      end
-
-      it "should be valid with no changes" do
-        expect(user).to be_valid
+      let(:user) {FactoryGirl.create(:user)}
+      it "should be a valid user" do
+        User.find user.id
       end
 
       it "should not be valid with same company" do
-        b = User.create company: 'mcdonald', email: 'mcdonald@gmail.com', password: 'password', password_confirmation: 'password'
-        b = User.create company: 'mcdonald', email: 'mcdonaldfastfood@gmail.com', password: 'password1', password_confirmation: 'password1'
-        expect(b).not_to be_valid
+        b = FactoryGirl.create(:user)
+        c = FactoryGirl.create(:user)
+        c.company = b.company
+        expect(c).not_to be_valid
       end
 
       it "should not be valid with same email" do
-        b = User.create company: 'mcdonald', email: 'mcdonald@gmail.com', password: 'password', password_confirmation: 'password'
-        b = User.create company: 'mcdonaldfastfood', email: 'mcdonald@gmail.com', password: 'password1', password_confirmation: 'password1'
-        expect(b).not_to be_valid
+        b = FactoryGirl.create(:user)
+        c = FactoryGirl.create(:user)
+        c.email = b.email
+        expect(c).not_to be_valid
       end
 
       it "should be valid with new matching password" do
-        b = User.create company: 'mcdonaldfastfood', email: 'mcdonald@gmail.com', password: 'september', password_confirmation: 'september'
+        b = FactoryGirl.create(:user)
+        b.password = "december"
+        b.password_confirmation = "december"
         expect(b).to be_valid
       end
     end
