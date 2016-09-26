@@ -4,33 +4,33 @@ class Game < ApplicationRecord
     :search_by, lambda do |type, query|
       if type == 'main'
         {
-        :against =>{ title: 'A', description: 'B'},
+        against: { title: 'A', description: 'B'},
         using: {
           tsearch:{dictionary: "english",
-                   prefix: true,
-                   any_word: true}
-        },
-        :query => query
-      }
+                  prefix: true,
+                  any_word: true}
+                },
+        query: query
+        }
       elsif type == 'user'
         {
-        :associated_against => {:user => :company},
+        associated_against: {user: :company},
         using: {
           tsearch: {prefix: true,
                     any_word: true}
-        },
-        :query => query
-      }
-      else {
-        associated_against: {:tags => :id},
-        :query => query
+                },
+        query: query
+        }
+      else
+        {
+        associated_against: {tags: :id},
+        query: query
         }
       end
     end
   )
 
   belongs_to :user
-  belongs_to :status
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
