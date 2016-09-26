@@ -53,6 +53,7 @@ class Game < ApplicationRecord
   validates :description, presence: true
 
   mount_uploader :picture, PictureUploader
+  mount_uploader :attachment, AttachmentUploader
 
   scope :user_data_subset, -> (admin,dev,dev_id){
   admin ? all : dev ? where(user_id: dev_id) :

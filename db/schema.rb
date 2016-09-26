@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922174236) do
+ActiveRecord::Schema.define(version: 20160923172829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,9 @@ ActiveRecord::Schema.define(version: 20160922174236) do
     t.text     "description"
     t.string   "picture"
     t.string   "link"
+    t.string   "attachment"
     t.string   "aasm_state"
+    t.json     "key_map"
     t.index ["status_id"], name: "index_games_on_status_id", using: :btree
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
