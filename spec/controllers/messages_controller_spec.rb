@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MessagesController, type: :controller do
 
   let(:user) { FactoryGirl.create :user }
-  let(:admin) { FactoryGirl.create :admin }
+  let(:message) { FactoryGirl.create :message }
 
   describe "#new" do
     before { request.session[:user_id] = user.id }
@@ -22,7 +22,7 @@ RSpec.describe MessagesController, type: :controller do
     before { request.session[:user_id] = user.id }
     context "with valid parameters" do
       def valid_message_request
-        post :create, params: { FactoryGirl.create :message }
+        FactoryGirl.create :message
       end
 
       it "saves a message to the message table" do
@@ -34,7 +34,7 @@ RSpec.describe MessagesController, type: :controller do
 
       it "redirects to the message show page" do
         request.session[:user_id] = user.id
-        valid_message_request
+        post :create, params: { message: { email: message.email, content: message.content } }
         expect(response).to redirect_to(message_path(Message.last))
       end
     end
@@ -42,7 +42,7 @@ RSpec.describe MessagesController, type: :controller do
     context "with invalid parameters" do
       before { request.session[:user_id] = user.id }
       def invalid_message_request
-        post :create, params: { message: { email: ""} }
+        post :create, params: { message: { email: "", content: nil } }
       end
 
       it "renders the new message template" do
@@ -61,16 +61,21 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "#index" do
     context "user has admin status" do
-      before { request.session[:user_id] = admin.id }
+      def set_admin
+        session[:user_id] = user.id
+        user.admin = true
+        user.save
+      end
       it "renders index page" do
+        set_admin
         get :index
         expect(response).to render_template(:index)
       end
 
       it "instantiates messages to be all messages" do
+        set_admin
         message1 =  FactoryGirl.create :message
         message2 = FactoryGirl.create :message
-        request.session[:user_id] = admin.id
         get :index
         expect(assigns(:messages)).to eq([message1, message2])
       end
@@ -89,7 +94,7 @@ RSpec.describe MessagesController, type: :controller do
         expect(response).to redirect_to(new_session_path)
       end
     end
-    end
   end
 
+  end
 end

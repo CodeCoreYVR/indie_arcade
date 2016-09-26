@@ -9,13 +9,13 @@ RSpec.describe Message, type: :model do
     end
 
     it "requires a description presence" do
-      message = Message.new({email: "asdf@asdf.com", content: ""})
+      message = FactoryGirl.create :invalidmessage
       message.valid?
       expect(message.errors).to(have_key(:content))
     end
 
     it "requires a description to be longer than 50 characters" do
-      message = Message.new({email: "asdf@asdf.com", content: "aaaaaaaaaabbbbbbbbbbccccccccccddddddddddeeeeeeeeee"})
+      message = FactoryGirl.create :validmessage
       message.valid?
       expect(message.errors).to(have_key(:content))
     end
