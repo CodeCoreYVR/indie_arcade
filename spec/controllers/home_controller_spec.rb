@@ -23,11 +23,5 @@ RSpec.describe HomeController, type: :controller do
     end
   end
 
-  describe "#contact" do
-    it "renders the contact us page" do
-      get :contact
-      expect(response).to render_template(:contact)
-    end
-  end
 
 end

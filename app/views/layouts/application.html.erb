@@ -4,42 +4,25 @@
         <title>IndieArcade</title>
         <%= csrf_meta_tags %>
         <%= stylesheet_link_tag    'application', media: 'all'%>
-        <link href="https://fonts.googleapis.com/css?family=Prompt:300,400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-        <div style="margin-top: 50px; min-height: 500px;">
-      <% if user_is_gamer? %>
-        <%= render 'layouts/nav_gamer' %>
-      <% end %>
-      <% if user_is_dev? %>
-        <%= render 'layouts/nav_dev' %>
-      <% end %>
-      <% if user_is_admin? %>
-        <%= render 'layouts/nav_admin' %>
-      <% end %>
-        <div style="margin-top: 50px; min-height: 500px;">
-          <%= yield %>
-        </div>
-
-        <%= javascript_include_tag 'application' %>
-
-        <footer>
-            <div class="home-footer footer navbar-bottom">
-                <div class="home-footer-left">
-                    <div><%= image_tag "logo.png" %></div>
-                    <div><%= link_to "About", about_path %></div>
-                    <div><%= link_to "Contact", contact_path %></div>
-                    <div><%= link_to "FAQ", faq_path %></div>
-                </div>
-                <div class="home-footer-right">
-                    <div>WEBSITE MADE BY:</div>
-                    <div><%= image_tag "json-squad-logo.png", class: "json-logo" %></div>
-                    <div><%= image_tag "codecore-logo.png", class: "codecore-logo" %></div>
-                </div>
-            </div>
-        </footer>
+        <div class="line"> </div>
+          <% if user_is_gamer? %>
+            <%= render 'layouts/nav_gamer' %>
+          <% end %>
+          <% if user_is_dev? %>
+            <%= render 'layouts/nav_dev' %>
+          <% end %>
+          <% if user_is_admin? %>
+            <%= render 'layouts/nav_admin' %>
+          <% end %>
+          <main class="container">
+            <%= yield %>
+          </main>
+          <%= render "layouts/footer" %>
+          <%= javascript_include_tag 'application' %>
         </body>
     </html>

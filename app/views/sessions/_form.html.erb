@@ -1,28 +1,63 @@
+<div class='form-header-spacing'>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 ">
+            <div class='row'>
+                <div class='col-xs-12 col-sm-12'>
+                    <h1></h1>
+                </div>
+            </div>
+
+            <div class='form-spacing'></div>
+
 <%= form_tag sessions_path do %>
-<div class="container">
-    <div class="form-horizontal">
-        <div class="form-inputs register-form-control">
-            <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <%= email_field_tag :email, nil, placeholder: "Email", class: "form-control" %>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <%= password_field_tag :password, nil, placeholder: "Password", class: "form-control" %>
-                </div>
-            </div>
+
+<div class='form-group'>
+    <div class='row'>
+        <div class=' col-sm-3 col-xs-3 '>
+            <%= label_tag :email%>
+        </div>
+        <div class=' col-sm-9 col-xs-9'>
+            <%= email_field_tag :email, '', class: 'form-control' %>
         </div>
     </div>
 </div>
 
-<div class="form-actions register-form-group btn register-btn">
-    <div class="form-group">
-        <%= submit_tag "Log In", class: "btn-default register-btn", style: "width: 150px; border-radius:5px; text-align:center;" %>
+<div class='form-group'>
+    <div class='row'>
+        <div class='col-sm-3 col-xs-3'>
+            <%= label_tag :password, nil, class:'form-label'%>
+        </div>
+        <div class='col-sm-9 col-xs-9'>
+          <%= password_field_tag :password, '', class: 'form-control' %>
+        </div>
     </div>
 </div>
-<% end %>
 
-<p id="create-p">Don't have an account?
-    <%= link_to 'Create Account', new_user_path %></p>
-<p id="create-p"><%= link_to '<< Back', users_path %></p>
+<div class='form-spacing'></div>
+
+<div class='form-group'>
+    <div class='row'>
+        <div class=' col-sm-offset-4 col-sm-7 col-xs-offset-3 col-xs-6 '></br>
+        <%= submit_tag "Login", class:'btn btn-primary btn-block'%>
+    </div>
+</div>
+</div>
+
+<% end %>
+</div>
+
+<div class="col-md-4 col-md-offset-1 border-left">
+    <div class='row'>
+        <div class='col-xs-6 col-sm-11'>
+            <img class="logo-sign" src="/images/logo-2.png" alt="Arcade"/>
+        </div>
+        <div class="col-xs-3">
+            <h3>
+                Don't have an account?
+            </h3>
+            <%= link_to 'Create Account', new_user_path, class:"light-orange"%>
+        </div>
+    </div>
+</div>
+</div>
+</div>

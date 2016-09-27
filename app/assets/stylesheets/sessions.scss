@@ -16,11 +16,6 @@ h1 {
   }
 }
 
-#sign-in-bg {
-  background-image: url("5.jpg");
-  background-size: cover;
-}
-
 .btn-default {
   &.register-btn-default {
     color: #fff;
@@ -71,4 +66,10 @@ p {
 
 .type {
   color: #fff;
+}
+
+@media screen and (max-width: 400px) {
+  .border-left{
+    border: none;
+  }
 }

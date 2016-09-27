@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,10 +41,12 @@ gem 'sinatra', '2.0.0.beta2'
 gem "delayed_job_web"
 
 # Bootstrap
-gem 'bootstrap-sass', '~>3.2.0'
+
+gem 'bootstrap-sass'
 gem 'bootstrap-glyphicons'
+
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass', '~>4.2.0'
+gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'nested_form'
@@ -57,8 +60,10 @@ gem "mini_magick"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'faker', github: "stympy/faker"
 end
 
 group :development do
@@ -71,7 +76,6 @@ group :development do
   gem 'awesome_print'
   gem 'interactive_editor'
   gem 'hirb'
-  gem 'faker', github: "stympy/faker"
   gem 'rails-erd'
   gem "letter_opener", :group => :development
 end
