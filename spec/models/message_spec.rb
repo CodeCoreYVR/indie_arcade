@@ -12,16 +12,14 @@ RSpec.describe Message, type: :model do
     end
 
     it "requires a description presence" do
-      attrs = FactoryGirl.attributes_for(:message, content: nil)
-      message = Message.create attrs
-      message.valid?
+      message = FactoryGirl.build :invalid_no_message
+      message.save
       expect(message.errors).to(have_key(:content))
     end
 
     it "requires a description to be longer than 50 characters" do
-      attrs = FactoryGirl.attributes_for(:message, content: "1255")
-      message = Message.create attrs
-      message.valid?
+      message = FactoryGirl.build :invalid_short_message
+      message.save
       expect(message.errors).to(have_key(:content))
     end
   end
