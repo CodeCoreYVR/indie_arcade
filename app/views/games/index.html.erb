@@ -11,16 +11,17 @@
                                 <span style="margin-left: 35px;"><%= t.text %></span>
                             <% end %>
                         <% end %>
-                        <%= submit_tag :search, class: "search-tags-btn"  %>
+                        </br>
+                        <%= submit_tag :search, class: "btn btn-primary form-control"%>
                     <% end %>
 
                     <% if user_is_admin? || user_is_gamer? %>
                         <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
-                            <div>
-                                <%= label_tag "Search by studio" %>
+
+                                <h4> Search by studio </h4>
                                 <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
                                 <%= submit_tag "Submit", id: "search-for-studio" %>
-                            </div>
+
                         <% end %>
                     <% end %>
                 </div>

@@ -17,6 +17,7 @@
 //= require faqtext
 //= require_tree .
 
+
 $(document).ready(function() {
     $("#home-slideshow").carousel({
         interval: 4000,
@@ -31,9 +32,9 @@ $(document).ready(function() {
         }
       }
     });
-    
-    $('.game-search').click(function() {
-        $('#search-wrapper').toggleClass('moved');
+
+    $('.game-search').hover(function() {
+        $('#search-wrapper').toggleClass('moved').addClass('fade-in');
     })
 
     $('#search-bar').click(function(event){

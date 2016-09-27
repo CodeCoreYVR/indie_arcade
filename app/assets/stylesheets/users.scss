@@ -2,69 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
-  &#register-h1 {
-    font-size: 3em;
-    font-family: 'Prompt', sans-serif;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
-}
 
-#register-bg {
-  background-image: url("register-bg.jpg");
-  background-size: cover;
-}
-
-label {
-  margin-top: 20px;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.btn-default {
-  &.register-btn-default {
-    color: #fff;
-    background-color: #EF7030;
-    border: 0;
-  }
-}
-
-input.btn-default {
-  border: 0;
-}
-
-.container {
-  &.create-user {
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-bottom: 50px;
-  }
-}
-
-.form-inputs {
-  &.register-form-control {
-    opacity: 0.6;
-  }
-}
-
-input #user_logo {
-  .file.optional {
-    background-color: #EF7030;
-  }
-}
-
-.form-actions {
-  &.register-form-group {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-}
 
 input#file-display.input-large.uneditable-input {
   border: 0;
@@ -88,11 +26,6 @@ p {
   }
 }
 
-.btn-default:hover {
-  color: #333;
-  background-color: #fff;
-  border-color: #CCC;
-}
 
 .type {
   color: #fff;
@@ -102,11 +35,6 @@ input[type="file"].hidden-input {
   display: none;
 }
 
-label {
-  text-align: center;
-  color: #fff;
-  font-size: 1.3em;
-}
 
 a#upload-btn.btn {
   background-color: #EF7030;

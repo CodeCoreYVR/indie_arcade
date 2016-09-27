@@ -6,7 +6,7 @@
     <div class="two">
         <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
         <% g.tags.each do |t| %>
-        <p class="tag-boxes">
+        <p class="tag-boxes text-center">
             <%= t.name %>
         </p>
         <% end %>
