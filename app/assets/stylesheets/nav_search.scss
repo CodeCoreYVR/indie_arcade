@@ -1,0 +1,13 @@
+.nav {
+  .game-search{
+    .glyphicon{
+      &:hover{
+        cursor: pointer;
+        color: white;
+        -webkit-animation-delay: 1.2s;
+        -moz-animation-delay:1.2s;
+        animation-delay: 1.2s;
+      }
+    }
+  }
+}

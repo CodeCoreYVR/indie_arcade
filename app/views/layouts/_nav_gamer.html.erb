@@ -1,26 +1,31 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid" id="nav-wrapper">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </button>
-            <div id="logo-container">
-                <a class="navbar-left" href="<%= root_path %>">
-                    <%= image_tag "logo.png" %>
-                </a>
-            </div>
+            <a class="navbar-brand"" href="<%= root_path %>">
+              <%= image_tag "logo-2.png", class: "logo-nav" %>
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li>
+                <%= link_to "Games", games_path %>
+              </li>
+              </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <%= link_to "Games", games_path %>
-                </li>
+              <li class="game-search">
+                <span class="glyphicon glyphicon-search text-right fade-in" id="search"></span>
+                <%= render 'layouts/form_search' %>
+              </li>
                 <% if user_signed_in? %>
                 <li>
-                    <a>Welcome, <%= current_user.company %></a>
+                  <a>Welcome, <%= current_user.company %></a>
                 </li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>My Profile</a>
@@ -30,19 +35,21 @@
                     </ul>
                   </li>
                 <% else %>
-                  <li><%= link_to "Log-in", new_session_path %></li>
-                  <li><%= link_to "Register", new_user_path %></li>
+
+                  <li><%= link_to 'Login', '#', class: "", data: { popup_open: "popup-1" }  %></li>
+                  <div class="popup-1" data-popup="popup-1" id="popup">
+                    <div class="popup-inner">
+                      <%= render 'sessions/form' %>
+                      <p>
+                        <a data-popup-close="popup-1" href="#"></a>
+                      </p>
+                      <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                    </div>
+                  </div>
+                  <li><%= link_to "Register", new_user_path, class: "btn btn-primary small" %></li>
                 <% end %>
-                <li class="game-search">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-search" id="search"></span>
-                    </a>
-                    <form id="search-wrapper" action="/games" method="get">
-                        <input type="text" name="search_main" class="form-control" name="search" placeholder="Search for a game or a studio" id="search-bar">
-                        <button type="submit" class="btn btn-default" style="display: none">Submit</button>
-                    </form>
-                </li>
             </ul>
         </div>
     </div>
-</nav>
+  </nav>
+</div>

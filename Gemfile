@@ -38,10 +38,12 @@ gem 'sinatra', '2.0.0.beta2'
 gem "delayed_job_web"
 
 # Bootstrap
-gem 'bootstrap-sass', '~>3.2.0'
+
+gem 'bootstrap-sass'
 gem 'bootstrap-glyphicons'
+
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass', '~>4.2.0'
+gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'nested_form'
