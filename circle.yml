@@ -1,0 +1,10 @@
+## Customize the test machine
+machine:
+  ruby:
+    version:
+      '2.3'
+
+## Customize test commands
+test:
+  post:
+    - bundle exec rspec
