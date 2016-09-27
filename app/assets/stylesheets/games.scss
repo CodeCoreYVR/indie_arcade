@@ -277,6 +277,10 @@ form#tags label {
     width:auto;
     border:0;
   }
+
+  .footer li {
+    display: block;
+  }
   .dsdsd{
     border: none;
   }
@@ -381,10 +385,6 @@ label.control-label.radio_buttons.required {
   margin-bottom: 15px;
 }
 
-// input.btn.btn-default {
-//   margin-top: 20px;
-// }
-
 .label-for-tags {
   margin-top: 20px;
   color: #fff;
@@ -427,15 +427,12 @@ p.control-group {
   text-align: left;
 }
 
-// <<<<<<< HEAD
-
 // Styling game upload/edit form
 .input-for-game div label {
   color: black;
   text-align: left;
   margin: 10px;
 }
-// =======
 
 .tag-wrapper{
   padding: 15px 10px;
@@ -480,10 +477,6 @@ input#game_picture.file.optional {
   color: #333;
 }
 
-
-
-
-//
 // version 2 team 7
 
 .round {

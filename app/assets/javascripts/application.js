@@ -33,8 +33,8 @@ $(document).ready(function() {
       }
     });
 
-    $('.game-search').click(function() {
-        $('#search-wrapper').toggleClass('moved');
+    $('.game-search').hover(function() {
+        $('#search-wrapper').toggleClass('moved').addClass('fade-in');
     })
 
     $('#search-bar').click(function(event){

@@ -15,12 +15,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li>
-                  <%= link_to "Games", games_path %>
+                <%= link_to "Games", games_path %>
               </li>
               </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="game-search">
-                <span class="glyphicon glyphicon-search text-right" id="search"></span>
+                <span class="glyphicon glyphicon-search text-right fade-in" id="search"></span>
                 <%= render 'layouts/form_search' %>
               </li>
                 <% if user_signed_in? %>
@@ -35,20 +35,19 @@
                     </ul>
                   </li>
                 <% else %>
-                  <!-- <li><%# link_to "Log-in", new_session_path %></li> -->
+
                   <li><%= link_to 'Login', '#', class: "", data: { popup_open: "popup-1" }  %></li>
                   <div class="popup-1" data-popup="popup-1" id="popup">
-                                <div class="popup-inner">
-                                    <%= render 'sessions/form' %>
-                                    <p>
-                                        <a data-popup-close="popup-1" href="#"></a>
-                                    </p>
-                                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
-                                </div>
-                            </div>
+                    <div class="popup-inner">
+                      <%= render 'sessions/form' %>
+                      <p>
+                        <a data-popup-close="popup-1" href="#"></a>
+                      </p>
+                      <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                    </div>
+                  </div>
                   <li><%= link_to "Register", new_user_path, class: "btn btn-primary small" %></li>
                 <% end %>
-
             </ul>
         </div>
     </div>
