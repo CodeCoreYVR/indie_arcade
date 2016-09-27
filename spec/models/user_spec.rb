@@ -35,7 +35,8 @@ RSpec.describe User, type: :model do
     context "on an existing user" do
       let(:user) {FactoryGirl.create(:user)}
       it "should be a valid user" do
-        User.find user.id
+        u = User.find user.id
+        expect(u).to be_valid
       end
 
       it "should not be valid with same company" do
