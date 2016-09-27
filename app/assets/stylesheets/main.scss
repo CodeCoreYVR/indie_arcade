@@ -344,6 +344,7 @@ body{
     margin-right: 13px;
     display: none;
     transition: all 1s;
+    margin-bottom: 0;
     &.moved {
       display: block;
     }
