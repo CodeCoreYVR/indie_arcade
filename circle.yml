@@ -1,0 +1,14 @@
+## Customize the test machine
+machine:
+  ruby:
+    version:
+      '2.3'
+
+dependencies:
+  pre:
+    - gem install bundler --pre
+
+## Customize test commands
+test:
+  post:
+    - bundle exec rspec
