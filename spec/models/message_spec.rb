@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Message, type: :model do
-  describe "validations" do
-    let(:message){FactoryGirl.create(:message)}
 
+  let(:message) { FactoryGirl.create :message }
+
+  describe "validations" do
     it "requires a valid email address" do
       message.email = ""
       message.save
@@ -11,14 +12,14 @@ RSpec.describe Message, type: :model do
     end
 
     it "requires a description presence" do
-      message.content = ""
-      message.valid?
+      message = FactoryGirl.build :invalid_no_message
+      message.save
       expect(message.errors).to(have_key(:content))
     end
 
     it "requires a description to be longer than 50 characters" do
-      message.content = "aaaaaaaaaabbbbbbbbbbccccccccccddddddddddeeeeeeeee"
-      message.valid?
+      message = FactoryGirl.build :invalid_short_message
+      message.save
       expect(message.errors).to(have_key(:content))
     end
   end

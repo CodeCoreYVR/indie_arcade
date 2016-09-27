@@ -9,7 +9,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20160926174421) do
 
   # These are extensions that must be enabled in order to support this database
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 20160926174421) do
     t.string   "picture"
     t.string   "link"
     t.string   "attachment"
-    t.string   "aasm_state"
     t.json     "key_map"
+    t.string   "aasm_state"
     t.index ["status_id"], name: "index_games_on_status_id", using: :btree
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
