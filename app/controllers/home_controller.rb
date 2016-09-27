@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def contact
     @message = Message.new
     @messages = Message.all
@@ -14,5 +13,4 @@ class HomeController < ApplicationController
 
   def faq
   end
-
 end
