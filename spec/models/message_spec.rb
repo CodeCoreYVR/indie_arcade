@@ -6,8 +6,8 @@ RSpec.describe Message, type: :model do
 
   describe "validations" do
     it "requires a valid email address" do
-      message = Message.new
-      message.valid?
+      message.email = ""
+      message.save
       expect(message.errors).to(have_key(:email))
     end
 
