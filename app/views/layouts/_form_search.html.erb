@@ -1,0 +1,3 @@
+<%= form_tag('/games', method: 'get', role: 'search', class: 'form-group', id: 'search-wrapper') %>
+  <%=text_field_tag 'search_main', nil, placeholder: 'Search for a game or a studio', class:'form-control', id: 'search-bar' %>
+  <%= submit_tag 'Search', class:'btn btn-default pop ', name: nil, style: "display:none" %>
