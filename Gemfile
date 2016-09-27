@@ -58,8 +58,10 @@ gem "mini_magick"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'faker', github: "stympy/faker"
 end
 
 group :development do
@@ -72,7 +74,6 @@ group :development do
   gem 'awesome_print'
   gem 'interactive_editor'
   gem 'hirb'
-  gem 'faker', github: "stympy/faker"
   gem 'rails-erd'
   gem "letter_opener", :group => :development
 end
