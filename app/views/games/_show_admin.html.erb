@@ -13,7 +13,9 @@
    <%= simple_form_for(@game) do |f| %>
      <%= f.error_notification %>
      <div>
-       <%= f.input :status_id, as: :radio_buttons, collection: Status.all.collect{ |s| [ s.name, s.id] } %>
+       <% if @game.under_review? %>
+       <%= f.button 'Approve' 
+        <% end %>
      </div>
      <div id = "submit-show">
        <%= f.button :submit %>

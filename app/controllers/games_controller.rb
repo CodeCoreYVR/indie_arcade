@@ -11,6 +11,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    find_game
   end
 
   def update
