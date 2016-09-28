@@ -42,6 +42,10 @@ end
     Machine.create location_id:     1+rand(5)
 end
 
+["under_review", "rejected", "unreleased", "released", "incompatible"].each do |s|
+	Status.create name: s
+end
+
 ["Adventure", "Action", "Strategy", "Multi-player", "Co-op", "Single-player", "Sport", "Racing"].each do |t|
     Tag.create name: t
 end
