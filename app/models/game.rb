@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   include AASM
 
-  aasm do
+  aasm :whine_transitions => false do
     state :under_review, initial: true
     state :rejected
     state :unreleased

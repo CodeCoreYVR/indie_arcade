@@ -14,8 +14,15 @@
      <%= f.error_notification %>
      <div>
        <% if @game.under_review? %>
-       <%= f.button 'Approve' 
-        <% end %>
+       <div id="approve-reject" class="btn-group" data-toggle="buttons-radio">
+         <%= f.input :aasm_state, as: :hidden %>
+         <a class="btn" data-value="unreleased">Approve</a>
+         <a class="btn" data-value="rejected">Reject</a>
+         <%= f.submit 'Submit' %>
+       </div>
+       <% elsif @game.unreleased? || @game.incompatible? %>
+       <!-- <%=# f.submit 'Approve' %> -->
+       <% end %>
      </div>
      <div id = "submit-show">
        <%= f.button :submit %>
