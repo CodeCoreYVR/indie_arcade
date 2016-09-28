@@ -99,15 +99,6 @@ class GamesController < ApplicationController
     games.limit(5).order('RANDOM()')
   end
 
-  def desired_order
-    if user_signed_in?
-      "aasm_state='rejected',aasm_state='incompatible',aasm_state='released',
-      aasm_state='unreleased', aasm_state= 'under_review'"
-    else
-      "aasm_state='unreleased',aasm_state='released'"
-    end
-  end
-
   def alter_aasm(game)
     if params[:commit] == 'Approve'
       game.approve
