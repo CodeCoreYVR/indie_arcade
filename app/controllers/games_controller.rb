@@ -6,24 +6,7 @@ class GamesController < ApplicationController
 
   def index
     @tags = Tag.all
-
-    if params[:search_user]
-      @games = Game.user_data_subset(
-        user_is_admin?, user_is_dev?, current_user&.id
-      ).search_by('user', params[:search_user]).order(desired_order)
-    elsif params[:search_main]
-      @games = Game.user_data_subset(
-        user_is_admin?, user_is_dev?, current_user&.id
-      ).search_by('main', params[:search_main]).order(desired_order)
-    elsif params[:tag]
-      @games = Game.user_data_subset(
-        user_is_admin?, user_is_dev?, current_user&.id
-      ).search_by('tags', params.require(:tag)[:tag_ids]).order(desired_order)
-    else
-      @games = Game.user_data_subset(
-        user_is_admin?, user_is_dev?, current_user&.id
-      ).order(desired_order)
-    end
+    @games = search(game_subset).order(desired_order)
     @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
 
@@ -49,17 +32,10 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.user = current_user
 
-    respond_to do |format|
-      if @game.save
-        format.html do
-          redirect_to games_path,
-                      notice: 'Game was successfully uploaded.'
-        end
-        format.json { render :index, status: :created, location: @game }
-      else
-        format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    if @game.save
+      redirect_to games_path, notice: 'Game was successfully uploaded.'
+    else
+      render :new
     end
   end
 
@@ -79,6 +55,22 @@ class GamesController < ApplicationController
   end
 
   private
+
+  def game_subset
+    Game.user_data_subset(user_is_admin?, user_is_dev?, current_user&.id)
+  end
+
+  def search(subset)
+    if params[:search_user]
+      subset.search_by('user', params[:search_user])
+    elsif params[:search_main]
+      subset.search_by('main', params[:search_main])
+    elsif params[:tag]
+      subset.search_by('tags', params.require(:tag)[:tag_ids])
+    else
+      subset.order(desired_order)
+    end
+  end
 
   def find_game
     @game = Game.find params[:id]
