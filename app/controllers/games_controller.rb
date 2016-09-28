@@ -90,11 +90,10 @@ class GamesController < ApplicationController
 
   def desired_order
     if user_signed_in?
-      "aasm_state='Rejected',aasm_state='Game not uploaded,
-      it is not compatible with the system',aasm_state='Released to arcade',
-      aasm_state='Not released', aasm_state= 'Game under review'"
+      "aasm_state='rejected',aasm_state='incompatible',aasm_state='released',
+      aasm_state='unreleased', aasm_state= 'under_review'"
     else
-      "aasm_state='Not released',aasm_state='Released to arcade'"
+      "aasm_state='unreleased',aasm_state='released'"
     end
   end
 end

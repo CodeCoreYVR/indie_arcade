@@ -13,19 +13,12 @@
    <%= simple_form_for(@game) do |f| %>
      <%= f.error_notification %>
      <div>
-       <% if @game.under_review? %>
-       <div id="approve-reject" class="btn-group" data-toggle="buttons-radio">
-         <%= f.input :aasm_state, as: :hidden %>
-         <a class="btn" data-value="unreleased">Approve</a>
-         <a class="btn" data-value="rejected">Reject</a>
-         <%= f.submit 'Submit' %>
-       </div>
-       <% elsif @game.unreleased? || @game.incompatible? %>
-       <!-- <%=# f.submit 'Approve' %> -->
+       <% if @game.may_approve?  %>
+       <%= f.button :submit, 'Approve' %>
        <% end %>
-     </div>
-     <div id = "submit-show">
-       <%= f.button :submit %>
+       <% if @game.may_reject? %>
+       <%= f.button :submit, 'Reject' %>
+       <% end %>
      </div>
    <% end %>
  </div>
