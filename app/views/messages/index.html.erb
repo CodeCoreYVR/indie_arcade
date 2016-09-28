@@ -1,19 +1,23 @@
-<div id="allmess">
-    <div class="container">
-        <% if @messages %>
-        <p>All Messages</p>
-        <% @messages.each do |mess| %>
-        <div id="mess">
-            <div class="white"><%= mess.emailadd %></h3>
-        </div>
-        <br>
-        <div><%= mess.content %></div>
-    </div>
-
-    <hr>
+<div id="allmess" style="overflow: scroll;">
+  <div class="container">
+    <% if @messages.present? %>
+      <p>All Messages</p>
+        <% @messages.each do |message| %>
+          <div id="mess">
+            <div class="white"><h3><%= message.email %></h3></div>
+          <br>
+            <div><%= message.content %></div>
+            <%= link_to "Remove", message_path(message),
+                                 method: :delete,
+                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
+          </div>
+          <hr>
+        <% end %>
+   <% else %>
+      <div class="text-center">
+        <h1>No Messages</h1>
+      </div>
     <% end %>
-<% else %>
-    <h1>No Messages</h1>
-    <% end %>
-</div>
+  </div>
+  <%= paginate @messages %>
 </div>
