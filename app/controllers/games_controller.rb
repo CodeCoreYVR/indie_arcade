@@ -34,25 +34,10 @@ class GamesController < ApplicationController
     game = Game.find params[:id]
     if cannot? :manage, game
       redirect_to root_path
+    elsif game.update(game_params)
+      redirect_to @game, notice: 'Game status was successfully updated.'
     else
-      respond_to do |format|
-        if game.update(game_params)
-          format.html do
-            redirect_to @game,
-                        notice: 'Game status was successfully updated.'
-          end
-          format.json do
-            render :show,
-                   status: :ok, location: @game
-          end
-        else
-          format.html { render :edit }
-          format.json do
-            render json: @game.errors,
-                   status: :unprocessable_entity
-          end
-        end
-      end
+      render :edit
     end
   end
 
