@@ -40,6 +40,11 @@ class Game < ApplicationRecord
           },
           query: query
         }
+      elsif type == 'state'
+        {
+          against: { aasm_state: 'A' },
+          query: query
+        }
       else
         {
           associated_against: { tags: :id },
