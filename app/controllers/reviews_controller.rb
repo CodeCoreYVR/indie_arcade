@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def show
     @game = Game.find params[:game_id]
     @reviews = @game.reviews
@@ -9,5 +8,4 @@ class ReviewsController < ApplicationController
     @playability = review_collection.average(:playability).round(3)
     @difficulty = review_collection.average(:difficulty).round(3)
   end
-
 end

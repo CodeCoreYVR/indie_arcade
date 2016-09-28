@@ -8,7 +8,6 @@
   height: 1000px;
   width: 100%;
   color: white;
-  background-size: cover;
 }
 
 #allmess p {
@@ -19,8 +18,16 @@
   font-weight: bold;
 }
 #mess{
-  padding: 30px;
+  padding: 15px;
   border-color: orange;
   font-size: 18px;
   background-color: hsla(0, 0%, 0%, 0.6);
+}
+
+.help-block {
+  color: red;
+}
+
+.btn {
+  margin: 10px;
 }

@@ -1,6 +1,36 @@
 class Game < ApplicationRecord
+  include PgSearch
+  pg_search_scope(
+    :search_by, lambda do |type, query|
+      if type == 'main'
+        {
+        against: { title: 'A', description: 'B'},
+        using: {
+          tsearch:{dictionary: "english",
+                  prefix: true,
+                  any_word: true}
+                },
+        query: query
+        }
+      elsif type == 'user'
+        {
+        associated_against: {user: :company},
+        using: {
+          tsearch: {prefix: true,
+                    any_word: true}
+                },
+        query: query
+        }
+      else
+        {
+        associated_against: {tags: :id},
+        query: query
+        }
+      end
+    end
+  )
+
   belongs_to :user
-  belongs_to :status
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
@@ -19,15 +49,18 @@ class Game < ApplicationRecord
   validates :title, presence: true,
                     uniqueness: {case_sensitive: false}
   validates :user_id, presence: true
-  validates :status_id, presence: true
+  validates :aasm_state, presence: true
   validates :description, presence: true
 
   mount_uploader :picture, PictureUploader
+  mount_uploader :attachment, AttachmentUploader
 
-  scope :with_company_containing, -> (user_name) {where(user_id: User.search(user_name))}
+  scope :user_data_subset, -> (admin,dev,dev_id){
+  admin ? all : dev ? where(user_id: dev_id) :
+  where(aasm_state: ["Released to arcade","Not released"])}
 
   def set_defaults
-    self.status_id ||= 3
+    self.aasm_state ||= "Game under review"
   end
 
   def self.search(search)
@@ -38,4 +71,8 @@ class Game < ApplicationRecord
     Game.where("status_id = ? OR status_id = ?", "1", "2" )
   end
 
+  # Usage example: @game.average_score_for :fun
+  def average_score_for( attribute )
+    reviews.average( attribute ).round(2) * 20
+  end
 end
