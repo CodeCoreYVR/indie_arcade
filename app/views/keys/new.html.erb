@@ -1,0 +1,39 @@
+<%= form_tag game_keys_path do%>
+<div class="row">
+  <div class='form-spacing'>
+    <div class="form-group">
+      <div class="col-xs-3">
+        <% for i in 1..9 do %>
+        <div class='row'>
+          <div class='col-xs-6'>
+            <%= label_tag "key[#{i}]".to_sym , nil, class: "form-label align-right" %>
+          </div>
+          <div class="key_form_spacing"></div>
+          <div class='col-xs-6 col-sm-6'>
+            <%= text_field_tag "key[#{i}]".to_sym, nil, value: "#{@keys["#{i}"]}", class: "form-control align-right" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-xs-6">
+        <%= image_tag "game-controller.png", :class => "img-responsive" %>
+      </div>
+      <div class="col-xs-3">
+        <% for i in 10..18 do %>
+        <div class='row'>
+          <div class='col-xs-6 col-sm-6'>
+            <%= text_field_tag "key[#{i}]".to_sym, nil, value: "#{@keys["#{i}"]}", class: "form-control align-left" %>
+          </div>
+          <div class="key_form_spacing_right">&nbsp;</div>
+          <div class='col-xs-6'>
+            <%= label_tag "key[#{i}]".to_sym , nil, class: "form-label align-left" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= submit_tag 'Save', class: "btn btn-primary"%>
+<%= link_to 'back', games_path, class: "btn btn-primary"%>
+<% end %>

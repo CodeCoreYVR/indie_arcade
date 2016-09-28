@@ -11,6 +11,8 @@
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :picture %>
+    <%= f.input :attachment %>
+
     <div class="label-for-tags">Tags</div>
     <%= f.collection_select(:tag_ids, Tag.all, :id, :name,
     {},

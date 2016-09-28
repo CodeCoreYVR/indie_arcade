@@ -71,7 +71,6 @@ html, body {
    background: #da325d;
    border-color: white;
  }
-
 }
 
 .navbar-inverse .navbar-text{
@@ -84,7 +83,6 @@ a {
 
   &:hover{
     background: rgba(#ffffff, 0.53);
-
   }
 }
 
@@ -130,12 +128,10 @@ a {
   -webkit-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
   -moz-box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
   box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.27);
-
 }
 
 .search-panel{
   padding: 18px 18px 1px 18px;
-  // margin-top: 20px;
   background: #4b97c3;
   border: solid 1px rgba(#dbfaff, 0.57);
   border-bottom: solid 4px rgba(#dbfaff, 0.57);
@@ -146,7 +142,6 @@ a {
 
   .title{
     padding: 2px 5px;
-    // background: rgba(#282828, 0.17);
 
     h5{
       min-height: 28px;
@@ -165,13 +160,13 @@ a {
 
     img{
       position: absolute;
-       left: 50%;
-       top: 50%;
-       height: 100%;
-       width: auto;
-       -webkit-transform: translate(-50%,-50%);
-           -ms-transform: translate(-50%,-50%);
-               transform: translate(-50%,-50%);
+      left: 50%;
+      top: 50%;
+      height: 100%;
+      width: auto;
+      -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
     }
   }
 
@@ -237,7 +232,6 @@ h1{
 
     .active {
       background: rgba(255, 255, 255, 0.1);
-
     }
   }
 }
@@ -273,7 +267,6 @@ body{
 }
 
 .navbar-inverse{
-
   .navbar-toggle{
     background: #f64b77;
   }
@@ -342,6 +335,7 @@ body{
     margin-right: 13px;
     display: none;
     transition: all 1s;
+    margin-bottom: 0;
     &.moved {
       display: block;
     }
@@ -371,7 +365,6 @@ body{
   display: block;
   margin: auto;
   padding-top: 20px;
-}
 
 .footer-social{
   padding-top: 20px;
