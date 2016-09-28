@@ -9,6 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+
 ActiveRecord::Schema.define(version: 20160926174421) do
 
   # These are extensions that must be enabled in order to support this database
@@ -31,8 +32,8 @@ ActiveRecord::Schema.define(version: 20160926174421) do
     t.string   "picture"
     t.string   "link"
     t.string   "attachment"
-    t.json     "key_map"
     t.string   "aasm_state"
+    t.json     "key_map"
     t.index ["status_id"], name: "index_games_on_status_id", using: :btree
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
@@ -66,8 +67,8 @@ ActiveRecord::Schema.define(version: 20160926174421) do
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "email"
     t.string   "content"
+    t.string   "email"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
