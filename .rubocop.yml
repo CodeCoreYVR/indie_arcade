@@ -18,3 +18,6 @@ Documentation: # Disabling documentation cop
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
