@@ -118,7 +118,6 @@ a {
 }
 
 .panel-default {
-
     color: #847f7f;
 }
 
@@ -365,6 +364,7 @@ body{
   display: block;
   margin: auto;
   padding-top: 20px;
+}
 
 .footer-social{
   padding-top: 20px;
@@ -456,8 +456,8 @@ body{
 }
 
 .panel-result.is-visible{
-    filter: alpha(opacity=100);
-    opacity: 1;
-    border-bottom:solid 4px white;
-    animation: Items 200ms ease-in
+  filter: alpha(opacity=100);
+  opacity: 1;
+  border-bottom: solid 4px white;
+  animation: Items 200ms ease-in;
 }
