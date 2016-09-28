@@ -1,7 +1,9 @@
 AllCops:
   TargetRubyVersion: 2.3
+
   Exclude:
     # You could specify set of files or dirs while you want to be ignored by rubocop
+
     - 'vendor/**/*'
     - 'spec/**/*'
     - 'config/**/*'
@@ -12,4 +14,7 @@ AllCops:
     - 'Gemfile.lock'
     - 'Rakefile'
 Documentation: # Disabling documentation cop
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
