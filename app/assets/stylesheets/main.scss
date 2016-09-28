@@ -318,15 +318,6 @@ body{
   }
 }
 
-.map{
-  padding: 15px;
-  background: hsla(0, 0%, 100%, 0.37);
-  box-shadow: 0px 15px 10px -10px rgba(0,0,0,0.3);
-
-  &.index{
-    margin: 0 64px;
-  }
-}
 
 // search from main
 
@@ -342,6 +333,7 @@ body{
     float: left;
     margin-top: 11px;
     margin-right: 13px;
+    margin-bottom: 0;
     display: none;
     transition: all 1s;
     &.moved {
