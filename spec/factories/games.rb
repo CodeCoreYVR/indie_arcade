@@ -7,6 +7,6 @@ FactoryGirl.define do
     ram 5000
     size 5000
     description "Valid game description"
-    aasm_state "Released to arcade"
+    aasm_state "released"
   end
 end
