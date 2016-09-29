@@ -10,7 +10,7 @@ USERS_TO_CREATE.times do
               website: Faker::Internet.url + NUMBER.to_s)
 end
 
-CREATE_ONE_ADMIN = 1
+CREATE_TEST_ADMIN = 1
 CREATE_ONE_ADMIN.times do
   User.create(company: 'Admin Man',
               email: 'admin@admin.com',
@@ -20,7 +20,7 @@ CREATE_ONE_ADMIN.times do
               admin: true)
 end
 
-CREATE_ONE_DEV = 1
+CREATE_TEST_DEV = 1
 CREATE_ONE_DEV.times do
   User.create(company: 'Dev Man',
               email: 'dev@dev.com',
@@ -44,14 +44,11 @@ end
   Machine.create location_id:     1 + rand(5)
 end
 
-LIST_OF_STATUSES = %w(under_review
-                      rejected
-                      unreleased
-                      released
-                      incompatible).freeze
-LIST_OF_STATUSES.each do |s|
-  Status.create name: s
-end
+AASM_STATE = %w(under_review
+                rejected
+                unreleased
+                released
+                incompatible).freeze
 
 LIST_OF_TAGS = %w(Adventure
                   Action
@@ -74,7 +71,7 @@ end
               gpu: rand(50) + 1,
               ram: 4 + rand(17),
               size: 1 + rand(4),
-              status_id: 1 + rand(5))
+              aasm_state: AASM_STATE.sample)
 end
 
 50.times do
@@ -86,7 +83,7 @@ end
               gpu: rand(50) + 1,
               ram: 4 + rand(17),
               size: 1 + rand(4),
-              status_id: 1 + rand(5))
+              aasm_state: AASM_STATE.sample)
 end
 
 50.times do
@@ -98,7 +95,7 @@ end
               gpu: rand(50) + 1,
               ram: 4 + rand(17),
               size: 1 + rand(4),
-              status_id: 1 + rand(5))
+              aasm_state: AASM_STATE.sample)
 end
 
 50.times do
@@ -110,7 +107,7 @@ end
               gpu: rand(50) + 1,
               ram: 4 + rand(17),
               size: 1 + rand(4),
-              status_id: 1 + rand(5))
+              aasm_state: AASM_STATE.sample)
 end
 
 GAME_ID_FOR_TAG = 1
