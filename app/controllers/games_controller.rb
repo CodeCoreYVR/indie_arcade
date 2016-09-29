@@ -22,6 +22,8 @@ class GamesController < ApplicationController
       toggle_state(game)
     elsif game.update(game_params)
       redirect_to @game, notice: 'Game status was successfully updated.'
+    elsif params[:commit]
+      toggle_state(game)
     else
       render :edit
     end
@@ -97,16 +99,6 @@ class GamesController < ApplicationController
   # Used to fulfill client requests for 5 new games
   def fill_machine_order(games)
     games.limit(5).order('RANDOM()')
-  end
-
-  def alter_aasm(game)
-    if params[:commit] == 'Approve'
-      game.approve
-    elsif params[:commit] == 'Reject'
-      game.reject
-    end
-    game.save
-    redirect_to @game, notice: 'Game state was successfully updated.'
   end
 
   def alter_aasm(game)
