@@ -9,5 +9,9 @@ class Ability
     else
       can :read, :all
     end
+
+    can :manage, Game do |game|
+      game.user == user
+    end
   end
 end
