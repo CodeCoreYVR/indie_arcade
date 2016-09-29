@@ -20,6 +20,8 @@ class GamesController < ApplicationController
       redirect_to root_path
     elsif game.update(game_params)
       redirect_to @game, notice: 'Game status was successfully updated.'
+    elsif params[:commit]
+      toggle_state(game)
     else
       render :edit
     end
@@ -55,6 +57,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def toggle_state(game)
+    params[:commit] == 'Approve' ? game.approve : game.reject
+    game.save
+    redirect_to game
+  end
+
   private
 
   def game_subset
@@ -78,9 +86,10 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date,
-                                  :status_id, :stats, :description, :picture,
-                                  :attachment, :link, {tag_ids: [] }, :aasm_state )
+    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size,
+                                 :approval_date, :status_id, :stats,
+                                 :description, :picture, :attachment,
+                                 :link, :aasm_state, tag_ids: [])
   end
 
   # Used to fulfill client requests for 5 new games
