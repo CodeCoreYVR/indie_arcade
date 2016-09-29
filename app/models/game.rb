@@ -65,6 +65,8 @@ class Game < ApplicationRecord
     end
   end)
 
+  delegate :company, to: :user, prefix: true
+
   def set_defaults
     self.aasm_state ||= 'Game under review'
   end

@@ -73,7 +73,7 @@ class GamesController < ApplicationController
   end
 
   def find_game
-    @game = Game.find params[:id]
+    @game = Game.find(params[:id]).decorate
   end
 
   def game_params

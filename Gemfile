@@ -1,4 +1,3 @@
-
 source 'https://rubygems.org'
 
 gem 'rubocop', require: false
@@ -32,7 +31,8 @@ gem 'chosen-rails'
 gem 'compass-rails'
 gem 'delayed_job_active_record'
 gem 'sinatra', '2.0.0.beta2'
-gem "delayed_job_web"
+gem 'delayed_job_web'
+gem 'draper', '3.0.0.pre1'
 
 # Bootstrap
 

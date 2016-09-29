@@ -23,6 +23,7 @@ module IndieArcade
     # -- all .rb files in that directory are automatically loaded.
 
     config.autoload_paths << Rails.root.join("app", "uploaders")
+    config.autoload_paths << Rails.root.join("app", "decorators")
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
