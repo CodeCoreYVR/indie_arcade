@@ -1,28 +1,13 @@
 class GamesController < ApplicationController
   before_action :find_game, only: [:show, :update, :edit]
+  before_action :authenticate_user!, except: [:index, :show]
 
   GAMES_PER_PAGE = 6
 
   def index
     @tags = Tag.all
-
-    if params[:search_user]
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
-      current_user.nil? ? nil : current_user.id).search_by('user',
-      params[:search_user]).order(desired_order)
-    elsif params[:search_main]
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
-      current_user.nil? ? nil : current_user.id).search_by('main',
-      params[:search_main]).order(desired_order)
-    elsif params[:tag]
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
-      current_user.nil? ? nil : current_user.id).search_by('tags',
-      params.require(:tag)[:tag_ids]).order(desired_order)
-    else
-      @games = Game.user_data_subset(user_is_admin?,user_is_dev?,
-      current_user.nil? ? nil : current_user.id).order(desired_order)
-    end
-      @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
+    @games = search(game_subset).order(desired_order)
+    @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
 
   def show
@@ -30,15 +15,12 @@ class GamesController < ApplicationController
 
   def update
     game = Game.find params[:id]
-
-    respond_to do |format|
-      if game.update(game_params)
-        format.html { redirect_to @game, notice: 'Game status was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
-      else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    if cannot? :manage, game
+      redirect_to root_path
+    elsif game.update(game_params)
+      redirect_to @game, notice: 'Game status was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -50,43 +32,60 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.user = current_user
 
-    respond_to do |format|
-      if @game.save
-        format.html { redirect_to games_path, notice: 'Game was successfully uploaded.' }
-        format.json { render :index, status: :created, location: @game }
-      else
-        format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    if @game.save
+      redirect_to games_path, notice: 'Game was successfully uploaded.'
+    else
+      render :new
     end
   end
 
   def edit
-
+    game = Game.find params[:id]
+    redirect_to root_path if cannot? :manage, game
   end
 
   def destroy
-    g=Game.find params[:id]
-    g.destroy
-    redirect_to games_path
+    game = Game.find params[:id]
+    if cannot? :manage, game
+      redirect_to root_path
+    else
+      game.destroy
+      redirect_to games_path
+    end
   end
 
-
   private
+
+  def game_subset
+    Game.user_data_subset(user_is_admin?, user_is_dev?, current_user&.id)
+  end
+
+  def search(subset)
+    if params[:search_user]
+      subset.search_by('user', params[:search_user])
+    elsif params[:tag]
+      subset.search_by('tags', params.require(:tag)[:tag_ids])
+    elsif params[:search_main]
+      subset.search_by('main', params[:search_main])
+    else
+      subset.order(desired_order)
+    end
+  end
 
   def find_game
     @game = Game.find params[:id]
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size, :approval_date,
-                                  :status_id, :stats, :description, :picture,
-                                  :attachment, :link, {tag_ids: [] } )
+    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size,
+                                 :approval_date, :status_id, :stats,
+                                 :description, :picture, :attachment,
+                                 :link, tag_ids: [])
   end
 
   # Used to fulfill client requests for 5 new games
   def fill_machine_order(games)
-    games.limit(5).order("RANDOM()")
+    games.limit(5).order('RANDOM()')
   end
 
   def desired_order
