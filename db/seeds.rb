@@ -11,7 +11,7 @@ USERS_TO_CREATE.times do
 end
 
 CREATE_TEST_ADMIN = 1
-CREATE_ONE_ADMIN.times do
+CREATE_TEST_ADMIN.times do
   User.create(company: 'Admin Man',
               email: 'admin@admin.com',
               password: '123456',
@@ -21,7 +21,7 @@ CREATE_ONE_ADMIN.times do
 end
 
 CREATE_TEST_DEV = 1
-CREATE_ONE_DEV.times do
+CREATE_TEST_DEV.times do
   User.create(company: 'Dev Man',
               email: 'dev@dev.com',
               password: '123456',
