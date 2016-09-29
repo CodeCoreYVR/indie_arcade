@@ -1,6 +1,9 @@
 AllCops:
+  TargetRubyVersion: 2.3
+
   Exclude:
     # You could specify set of files or dirs while you want to be ignored by rubocop
+
     - 'vendor/**/*'
     - 'spec/**/*'
     - 'config/**/*'
@@ -12,3 +15,9 @@ AllCops:
     - 'Rakefile'
 Documentation: # Disabling documentation cop
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25
