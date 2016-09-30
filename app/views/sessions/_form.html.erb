@@ -9,7 +9,7 @@
 
             <div class='form-spacing'></div>
 
-<%= form_tag sessions_path do %>
+<%= form_tag '/login' do %>
 
 <div class='form-group'>
     <div class='row'>
@@ -32,6 +32,13 @@
         </div>
     </div>
 </div>
+
+<div class='row'>
+          <div class='col-sm-9 col-sm-offset-3 col-sm-12'>
+            <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+            &nbsp;&nbsp;<%= label_tag :remember_me %>
+          </div>
+        </div>
 
 <div class='form-spacing'></div>
 

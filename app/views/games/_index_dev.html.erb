@@ -6,9 +6,9 @@
     <div class="two">
         <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
         <% g.tags.each do |t| %>
-        <p class="tag-boxes text-center">
+        <span class="tag-boxes text-center">
             <%= t.name %>
-        </p>
+        </span>
         <% end %>
             <p class="game-aasm_state" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.aasm_state %></p>
         <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
