@@ -63,10 +63,10 @@ class GamesController < ApplicationController
   def search(subset)
     if params[:search_user]
       subset.search_by('user', params[:search_user])
-    elsif params[:search_main]
-      subset.search_by('main', params[:search_main])
     elsif params[:tag]
       subset.search_by('tags', params.require(:tag)[:tag_ids])
+    elsif params[:search_main]
+      subset.search_by('main', params[:search_main])
     else
       subset.order(desired_order)
     end
