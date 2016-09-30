@@ -1,0 +1,17 @@
+.map{
+  padding: 15px;
+  background: hsla(0, 0%, 100%, 0.37);
+  box-shadow: 0px 15px 10px -10px rgba(0,0,0,0.3);
+
+  &.index{
+    margin: 0 64px;
+  }
+}
+
+@media (max-width: 670px) {
+  .map{
+    &.index{
+      margin: 0px;
+    }
+  }
+}
