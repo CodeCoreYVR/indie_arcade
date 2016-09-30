@@ -10,6 +10,10 @@
   <p>Last in Arcade: <%= @game.reviews.last ? @game.reviews.last.created_at : "Never" %></p>
   <p>Played: <%= @game.reviews.count %> times</p>
   <p>Overall Rating: <%= @game.reviews.count %></p>
+
+  <!-- Graph -->
+  <%= render 'graph' %>
+
 </div>
 <div>
   <%= button_to "Buy", @game.link, class:"button" %>

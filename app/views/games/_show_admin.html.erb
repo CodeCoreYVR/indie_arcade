@@ -10,9 +10,13 @@
    <p>Last in Arcade: <%= @game.reviews.last ? @game.reviews.last.created_at : "Never" %></p>
    <p>Played: <%= @game.reviews.count %> times</p>
    <p>Overall Rating: <%= @game.reviews.count %></p>
-     <p>
-       Send email to developer about the game:
-     </p>
+   <p>
+     Send email to developer about the game:
+   </p>
+
+    <!-- Graph -->
+    <%= render 'graph' %>
+
  <div class="btn">
    <%= button_to "Download Game", game_path(@game), method: :get %>
  </div>
@@ -27,4 +31,3 @@
      </div>
    <% end %>
  </div>
-@game.reviews.count
