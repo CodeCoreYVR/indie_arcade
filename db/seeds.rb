@@ -1,16 +1,41 @@
-USERS_TO_CREATE = 20
-NUMBER = 0
+USERS_TO_CREATE = [*1..20]
+CREATE_TEST_ADMIN = 1
+CREATE_TEST_DEV = 1
+BUSINESS_STATUSES = %w(Running Closed Updating).freeze
+AASM_STATE = %w(under_review
+rejected
+unreleased
+released
+incompatible).freeze
+LIST_OF_TAGS = %w(Adventure
+Action
+Strategy
+Multi-player
+Co-op
+Single-player
+Sport
+Racing).freeze
+GAME_ID_FOR_TAG = 1
+TAGGINGS_TO_CREATE = [*1..250]
+LOADS_TO_CREATE = 1000
+REVIEW_COUNT = 10
+REVIEW_FOR_GAMES = 1000
+CREATE_50_GAMES = [*1..50]
+CREATE_100_GAMES = [*1..100]
+CREATE_5_LOCATIONS = [*1..5]
+CREATE_20_MACHINES = 20
+TAGS_PER_GAME = 1 + rand(8)
 
-USERS_TO_CREATE.times do
-  NUMBER += 1
-  User.create(company: Faker::Company.name + NUMBER.to_s,
-              email: NUMBER.to_s + Faker::Internet.email,
+puts 'creating users'
+USERS_TO_CREATE.each do |x|
+  User.create(company: Faker::Company.name + x.to_s,
+              email: x.to_s + Faker::Internet.email,
               password: Faker::Internet.password,
               employees: rand(8),
-              website: Faker::Internet.url + NUMBER.to_s)
+              website: Faker::Internet.url + x.to_s)
 end
 
-CREATE_TEST_ADMIN = 1
+puts 'creating test admin'
 CREATE_TEST_ADMIN.times do
   User.create(company: 'Admin Man',
               email: 'admin@admin.com',
@@ -20,7 +45,7 @@ CREATE_TEST_ADMIN.times do
               admin: true)
 end
 
-CREATE_TEST_DEV = 1
+puts 'creating test dev'
 CREATE_TEST_DEV.times do
   User.create(company: 'Dev Man',
               email: 'dev@dev.com',
@@ -30,42 +55,29 @@ CREATE_TEST_DEV.times do
               admin: false)
 end
 
-BUSINESS_STATUSES = %w(Running Closed Updating).freeze
-5.times do
-  NUMBER += 1
-  Location.create(name:           Faker::Company.name + NUMBER.to_s,
-                  address:        Faker::Address.street_address + NUMBER.to_s,
-                  city:           Faker::Address.city + NUMBER.to_s,
-                  postal_code:    Faker::Address.zip_code + NUMBER.to_s,
+puts 'creating locations'
+CREATE_5_LOCATIONS.each do |number|
+  Location.create(name:           Faker::Company.name + number.to_s,
+                  address:        Faker::Address.street_address + number.to_s,
+                  city:           Faker::Address.city + number.to_s,
+                  postal_code:    Faker::Address.zip_code + number.to_s,
                   run_status:     BUSINESS_STATUSES.sample)
 end
 
-20.times do
+puts 'creating machines'
+CREATE_20_MACHINES.times do
   Machine.create location_id:     1 + rand(5)
 end
 
-AASM_STATE = %w(under_review
-                rejected
-                unreleased
-                released
-                incompatible).freeze
-
-LIST_OF_TAGS = %w(Adventure
-                  Action
-                  Strategy
-                  Multi-player
-                  Co-op
-                  Single-player
-                  Sport
-                  Racing).freeze
+puts 'creating tags'
 LIST_OF_TAGS.each do |t|
   Tag.create name: t
 end
 
-100.times do
-  NUMBER += 1
-  Game.create(title: Faker::Hipster.word + NUMBER.to_s,
-              description: Faker::Hipster.paragraph + NUMBER.to_s,
+puts 'creating games, batch 1'
+CREATE_100_GAMES.each do |number|
+  Game.create(title: Faker::Hipster.word + number.to_s,
+              description: Faker::Hipster.paragraph + number.to_s,
               user_id: 1 + rand(22),
               cpu: rand(100) + 1,
               gpu: rand(50) + 1,
@@ -74,10 +86,10 @@ end
               aasm_state: AASM_STATE.sample)
 end
 
-50.times do
-  NUMBER += 1
-  Game.create(title: Faker::Lorem.words(2).join(' ') + NUMBER.to_s,
-              description: Faker::Hipster.paragraph + NUMBER.to_s,
+puts 'creating games, batch 2'
+CREATE_50_GAMES.each do |number|
+  Game.create(title: Faker::Lorem.words(2).join(' ') + number.to_s,
+              description: Faker::Hipster.paragraph + number.to_s,
               user_id: 1 + rand(22),
               cpu: rand(100) + 1,
               gpu: rand(50) + 1,
@@ -86,10 +98,10 @@ end
               aasm_state: AASM_STATE.sample)
 end
 
-50.times do
-  NUMBER += 1
-  Game.create(title: Faker::App.name + NUMBER.to_s,
-              description: Faker::Hipster.paragraph + NUMBER.to_s,
+puts 'creating games, batch 3'
+CREATE_50_GAMES.each do |number|
+  Game.create(title: Faker::App.name + number.to_s,
+              description: Faker::Hipster.paragraph + number.to_s,
               user_id: 1 + rand(22),
               cpu: rand(100) + 1,
               gpu: rand(50) + 1,
@@ -98,10 +110,10 @@ end
               aasm_state: AASM_STATE.sample)
 end
 
-50.times do
-  NUMBER += 1
-  Game.create(title: Faker::Book.title + NUMBER.to_s,
-              description: Faker::Hipster.paragraph + NUMBER.to_s,
+puts 'creating games, batch 4'
+CREATE_50_GAMES.each do |number|
+  Game.create(title: Faker::Book.title + number.to_s,
+              description: Faker::Hipster.paragraph + number.to_s,
               user_id: 1 + rand(22),
               cpu: rand(100) + 1,
               gpu: rand(50) + 1,
@@ -110,25 +122,21 @@ end
               aasm_state: AASM_STATE.sample)
 end
 
-GAME_ID_FOR_TAG = 1
-TAGGINGS_TO_CREATE = 250
-TAGGINGS_TO_CREATE.times do
-  TAGS_PER_GAME = 1 + rand(8)
+puts 'creating taggings'
+TAGGINGS_TO_CREATE.each do |game_id|
   TAGS_PER_GAME.times do
-    Tagging.create(game_id: GAME_ID_FOR_TAG,
+    Tagging.create(game_id: game_id,
                    tag_id: 1 + rand(8))
   end
-  GAME_ID_FOR_TAG += 1
 end
 
-LOADS_TO_CREATE = 1000
+puts 'creating loads'
 LOADS_TO_CREATE.times do
   Load.create machine_id: 1 + rand(20),
               game_id:    1 + rand(200)
 end
 
-REVIEW_COUNT = 10
-REVIEW_FOR_GAMES = 1000
+puts 'creating reviews'
 REVIEW_FOR_GAMES.times do |game|
   REVIEW_COUNT.times do
     load_id = 1 + game
