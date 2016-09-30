@@ -59,6 +59,7 @@ group :development, :test do
   gem 'faker', github: "stympy/faker"
   gem 'pry'
   gem 'pry-rails'
+  gem 'capybara'
 end
 
 group :development do
