@@ -8,19 +8,17 @@ width: 100%;
 * {
     margin: 0;
 }
+
 html, body {
   height: 100%;
 }
+
 .wrapper-main {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   overflow: hidden;
   margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
-}
-
-.footer, .push {
-    height: 70px; /* .push must be the same height as .footer */
 }
 
 .btn{
@@ -38,8 +36,8 @@ html, body {
 
 .logo-nav{
   margin-right: 35px;
-
 }
+
 .navbar-inverse{
   border-color: #090909;
   background: none !important;
@@ -120,7 +118,6 @@ a {
 }
 
 .panel-default {
-
     color: #847f7f;
 }
 
@@ -203,6 +200,7 @@ h1{
   background:  url("gradiente.png") top center no-repeat ;
   background-size: 100% auto;
 }
+
 .navbar-inverse{
   .glyphicon{
     padding-top: 18px;
@@ -259,14 +257,13 @@ h1{
   padding: 19px 19px 10px 19px;
   overflow: hidden;
   margin-top: 50px;
-
 }
-
 
 body{
   background: #23649d url("bg.jpg") top no-repeat;
   background-size: 100% auto;
 }
+
 .navbar-inverse{
   .navbar-toggle{
     background: #f64b77;
@@ -301,12 +298,6 @@ body{
   min-height: 600px;
 }
 
-.footer{
-  background: #070305;
-  padding: 20px;
-  margin-top: 30px;
-}
-
 .list-group-item {
   color: #757070;
 
@@ -318,7 +309,6 @@ body{
 }
 
 // search from main
-
 .caret{
   margin-right: 5px;
 }
@@ -344,50 +334,71 @@ body{
 // END NAVBAR STYLING
 
 // FOOTER
-
-.home-footer {
-  height: 200px;
-  width: 100%;
-  overflow: hidden;
-  bottom: 0px;
-  left: 0px;
-  background-color: #003c62;
-  text-align: center;
-  font-family: 'Prompt', sans-serif;
-  color: white;
-  font-size: 12px;
+.footer{
+  background: #070305;
+  padding: 20px;
+  margin-top: 30px;
 }
 
-.home-footer-left div {
-  margin-top: 15px;
-}
-.home-footer-right div {
-  margin-top: 15px;
+.footer a{
+  padding: 10px;
 }
 
-.home-footer-left {
-  float: left;
-  text-align: left;
-  margin-left: 40px;
-  width: 30%;
-}
-
-.home-footer-right {
-  float: right;
-  text-align: right;
-  margin-right: 40px;
-  width: 30%;
-  font-size: 12px;
+.footer a:hover{
   text-decoration: none;
-}
-.codecore-logo{
-  height: 50px;
-}
-
-.moved {
-  top: 50px !important;
+  color: whitesmoke;
+  background: rgba(255, 255, 255, 0.21);
 }
 
+.footer-list {
+  display: block;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.footer-social{
+  padding-top: 20px;
+  display: block;
+  margin: auto;
+  padding-top: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+  .logo-footer{
+    display: block;
+    margin: auto;
+  }
+
+  .footer a{
+    float: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logo-footer{
+  display: block;
+  margin: auto;
+  }
+
+  .footer a{
+    padding: 10px;
+    float: none;
+  }
+  .footer-list {
+    display: block;
+    margin: auto;
+  }
+  .footer-social{
+    padding-top: 20px;
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+// END FOOTER
 .panel-result{
   background: #92c9e1;
   border: 1px solid white;
