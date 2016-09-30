@@ -19,5 +19,8 @@ Documentation: # Disabling documentation cop
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/MethodLength:
+  Max: 20
+
 Metrics/AbcSize:
   Max: 25
