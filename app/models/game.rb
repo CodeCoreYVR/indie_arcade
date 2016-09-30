@@ -55,7 +55,7 @@ class Game < ApplicationRecord
   mount_uploader :picture, PictureUploader
   mount_uploader :attachment, AttachmentUploader
 
-  scope :user_data_subset, lambda do |admin, dev, dev_id|
+  scope(:user_data_subset, lambda do |admin, dev, dev_id|
     if admin == true
       all
     elsif dev == true
@@ -63,7 +63,7 @@ class Game < ApplicationRecord
     else
       where(aasm_state: ['Released to arcade', 'Not released'])
     end
-  end
+  end)
 
   def set_defaults
     self.aasm_state ||= 'Game under review'
