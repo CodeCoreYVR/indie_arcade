@@ -14,10 +14,10 @@
      <%= f.error_notification %>
      <div>
        <% if @game.may_approve?  %>
-       <%= f.button :submit, 'Approve' %>
+        <%= f.button :submit, 'Approve' %>
        <% end %>
        <% if @game.may_reject? %>
-       <%= f.button :submit, 'Reject' %>
+        <%= f.button :submit, 'Reject' %>
        <% end %>
      </div>
    <% end %>
