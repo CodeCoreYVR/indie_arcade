@@ -362,6 +362,7 @@ body{
   margin: auto;
   padding-top: 10px;
   font-size: 25px;
+  text-align: center;
 }
 
 @media screen and (max-width: 750px) {
@@ -392,7 +393,7 @@ body{
   .footer-social{
     padding-top: 20px;
     display: block;
-    align-items: center;
+    text-align: center;
     margin: auto;
   }
 }
