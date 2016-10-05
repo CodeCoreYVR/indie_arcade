@@ -69,8 +69,8 @@ class Game < ApplicationRecord
     self.aasm_state ||= 'Game under review'
   end
 
-  def self.search(search)
-    Game.where('title ILIKE ?', "%#{search}%")
+  def self.search(title)
+    Game.where('title ILIKE ?', "%#{title}%")
   end
 
   def self.approved
