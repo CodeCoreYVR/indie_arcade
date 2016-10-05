@@ -70,7 +70,7 @@ class Game < ApplicationRecord
   end
 
   def self.search(title)
-    Game.where("title ILIKE ?", "%#{title}%")
+    Game.where('title ILIKE ?', "%#{title}%")
   end
 
   def self.approved
