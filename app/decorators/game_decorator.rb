@@ -10,7 +10,11 @@ class GameDecorator < Draper::Decorator
   end
 
   def last_in_arcade
-    object.reviews.last ? formatted_date(object.reviews.last.created_at) : "Never"
+    if object.reviews.last
+      formatted_date(object.reviews.last.created_at)
+    else
+      'Never'
+    end
   end
 
   def formatted_created_at
@@ -18,18 +22,18 @@ class GameDecorator < Draper::Decorator
   end
 
   def type_display
-    object.tags.map(&:name).join("&nbsp;|&nbsp;").html_safe
+    object.tags.map(&:name).join('&nbsp;|&nbsp;').html_safe
   end
 
   def download_button
-    h.content_tag :div, class: "btn" do
-      h.button_to "Download Game", h.game_path(object), method: :get
+    h.content_tag :div, class: 'btn' do
+      h.button_to 'Download Game', h.game_path(object), method: :get
     end
   end
 
   private
 
   def formatted_date(date)
-    date.strftime("%Y-%b-%d %H:%m")
+    date.strftime('%Y-%b-%d %H:%m')
   end
 end
