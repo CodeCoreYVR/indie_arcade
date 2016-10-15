@@ -13,10 +13,12 @@
    <%= simple_form_for(@game) do |f| %>
      <%= f.error_notification %>
      <div>
-       <%= f.input :status_id, as: :radio_buttons, collection: Status.all.collect{ |s| [ s.name, s.id] } %>
-     </div>
-     <div id = "submit-show">
-       <%= f.button :submit %>
+       <% if @game.may_approve?  %>
+        <%= f.button :submit, 'Approve' %>
+       <% end %>
+       <% if @game.may_reject? %>
+        <%= f.button :submit, 'Reject' %>
+       <% end %>
      </div>
    <% end %>
  </div>

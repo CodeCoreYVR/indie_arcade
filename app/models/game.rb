@@ -1,17 +1,32 @@
 class Game < ApplicationRecord
+  include AASM
+
+  aasm whine_transitions: false do
+    state :under_review, initial: true
+    state :rejected
+    state :unreleased
+    state :released
+    state :incompatible
+
+    event :approve do
+      transitions from: [:under_review, :rejected, :incompatible],
+                  to: :unreleased
+    end
+    event :reject do
+      transitions from: [:under_review, :unreleased, :released, :incompatible],
+                  to: :rejected
+    end
+  end
+
   include PgSearch
   pg_search_scope(
     :search_by, lambda do |type, query|
       if type == 'main'
-        {
-          against: { title: 'A', description: 'B' },
-          using: {
-            tsearch: { dictionary: 'english',
-                       prefix: true,
-                       any_word: true }
-          },
-          query: query
-        }
+        { against: { title: 'A' },
+          using: { tsearch: { dictionary: 'english',
+                              prefix: true,
+                              any_word: true } },
+          query: query }
       elsif type == 'user'
         {
           associated_against: { user: :company },
@@ -44,8 +59,6 @@ class Game < ApplicationRecord
   MAXIMUM_RAM = 4000
   MAXIMUM_HD_SPACE = 6000
 
-  after_initialize :set_defaults
-
   validates :title, presence: true,
                     uniqueness: { case_sensitive: false }
   validates :user_id, presence: true
@@ -61,15 +74,11 @@ class Game < ApplicationRecord
     elsif dev == true
       where user_id: dev_id
     else
-      where(aasm_state: ['Released to arcade', 'Not released'])
+      where(aasm_state: %w(released unreleased))
     end
   end)
 
   delegate :company, to: :user, prefix: true
-
-  def set_defaults
-    self.aasm_state ||= 'Game under review'
-  end
 
   def self.search(title)
     Game.where('title ILIKE ?', "%#{title}%")

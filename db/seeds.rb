@@ -1,6 +1,7 @@
 USERS_TO_CREATE = 20
-USERS_TO_CREATE.times do
+STATES = ["under_review", "rejected", "unreleased", "released", "incompatible"]
 
+USERS_TO_CREATE.times do
 	User.create company:					Faker::Company.name,
 							email:						Faker::Internet.email,
 							password:	        Faker::Internet.password,
@@ -49,7 +50,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
+                        aasm_state: STATES.sample })
 end
 
 50.times do
@@ -60,7 +61,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
+                        aasm_state: STATES.sample })
 end
 
 50.times do
@@ -71,7 +72,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
+                        aasm_state: STATES.sample })
 end
 
 50.times do
@@ -82,7 +83,7 @@ end
                         gpu: rand(50)+1,
                         ram: 4+rand(17),
                         size: 1+ rand(4),
-                        aasm_state: ["Released to arcade", "Not released", "Game under review", "Game not uploaded, it is not compatible with the system", "Rejected"].sample })
+                        aasm_state: STATES.sample })
 end
 
 TAGGINGS_TO_CREATE = 400

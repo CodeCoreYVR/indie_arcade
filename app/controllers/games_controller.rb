@@ -11,12 +11,15 @@ class GamesController < ApplicationController
   end
 
   def show
+    find_game
   end
 
   def update
     game = Game.find params[:id]
     if cannot? :manage, game
       redirect_to root_path
+    elsif params[:commit]
+      toggle_state(game)
     elsif game.update(game_params)
       redirect_to @game, notice: 'Game status was successfully updated.'
     else
@@ -54,6 +57,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def toggle_state(game)
+    params[:commit] == 'Approve' ? game.approve : game.reject
+    game.save
+    redirect_to game
+  end
+
   private
 
   def game_subset
@@ -80,7 +89,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:title, :cpu, :gpu, :ram, :size,
                                  :approval_date, :status_id, :stats,
                                  :description, :picture, :attachment,
-                                 :link, tag_ids: [])
+                                 :link, :aasm_state, tag_ids: [])
   end
 
   # Used to fulfill client requests for 5 new games
@@ -90,11 +99,20 @@ class GamesController < ApplicationController
 
   def desired_order
     if user_signed_in?
-      "aasm_state='Rejected',aasm_state='Game not uploaded,
-      it is not compatible with the system',aasm_state='Released to arcade',
-      aasm_state='Not released', aasm_state= 'Game under review'"
+      "aasm_state='rejected',aasm_state='incompatible',aasm_state='released',
+      aasm_state='unreleased', aasm_state= 'under_review'"
     else
-      "aasm_state='Not released',aasm_state='Released to arcade'"
+      "aasm_state='unreleased',aasm_state='released'"
     end
+  end
+
+  def alter_aasm(game)
+    if params[:commit] == 'Approve'
+      game.approve
+    elsif params[:commit] == 'Reject'
+      game.reject
+    end
+    game.save
+    redirect_to @game, notice: 'Game state was successfully updated.'
   end
 end
