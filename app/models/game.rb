@@ -43,7 +43,7 @@ class Game < ApplicationRecord
         }
       elsif type == 'state'
         {
-          against: { aasm_state: 'A' },
+          against: :aasm_state,
           query: query
         }
       else
