@@ -108,4 +108,14 @@ class GamesController < ApplicationController
     game.save
     redirect_to @game, notice: 'Game state was successfully updated.'
   end
+
+  def alter_aasm(game)
+    if params[:commit] == 'Approve'
+      game.approve
+    elsif params[:commit] == 'Reject'
+      game.reject
+    end
+    game.save
+    redirect_to @game, notice: 'Game state was successfully updated.'
+  end
 end
