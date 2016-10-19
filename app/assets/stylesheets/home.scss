@@ -119,36 +119,6 @@
     color: #333;
 }
 
-// Styling for FAQ page
-#boxy{
-  background: url( asset-path('faq-bg.jpg') );
-  background-size: cover;
-  background-color: #B79E56;
-  background-attachment: fixed;
-}
-
-#question{
-  background: #0073e6;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-button.accordion {
-    background-color: #0073e6;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    padding: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 button.accordion.active, button.accordion:hover {
     background-color: #ddd;
