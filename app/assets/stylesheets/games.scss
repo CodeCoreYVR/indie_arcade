@@ -322,32 +322,6 @@ div.container.sentences {
   font-size: 1.2em;
 }
 
-.container.sentences input {
-  margin-top: 20px;
-  background-color: #EF7030;
-  border-color: #EF7030;
-  color: #fff;
-  border-radius: 4px;
-  padding: 5px 40px;
-}
-
-.container.sentences input:hover {
-  background-color: #F9804B;
-  border-color: #EF7030;
-  color: #fff;
-}
-
-a.container.sentences {
-  color: #F9804B;
-}
-
-.show-a-tag {
-  color: #EF7030;
-}
-
-.show-a-tag:hover {
-  color: #F98D5D;
-}
 
 
 label.control-label.radio_buttons.required {
@@ -358,47 +332,9 @@ label.control-label.radio_buttons.required {
   margin-bottom: 15px;
 }
 
-.upload label.control-label.file.optional {
-  margin-top: 20px;
-  color: #333;
-  text-align: left;
-  margin-bottom: 15px;
-}
 
-.upload label.control-label.string.optional {
-  margin-top: 30px;
-  color: #333;
-  text-align: left;
-  margin-bottom: 15px;
-}
-
-.upload label.control-label.string.required {
-  margin-top: 30px;
-  color: #333;
-  text-align: left;
-  margin-bottom: 15px;
-}
-
-.upload label.control-label.text.required {
-  margin-top: 30px;
-  color: #333;
-  text-align: left;
-  margin-bottom: 15px;
-}
-
-.label-for-tags {
-  margin-top: 20px;
-  color: #fff;
-  display: block;
-  font-size: 1.3em;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-
-select#game_tag_ids.chosen-select {
-  width: 500px;
-  color: #333;
+label.control-label{
+  color: white;
 }
 
 .radio label {
@@ -446,31 +382,14 @@ p.control-group {
   margin: 3px;
 }
 
-.upload-form-control, .control-label {
-  color: #333;
-}
-
-.form-inputs input, .form-inputs textarea, .form-inputs select{
-}
-
 p.control-group{
   text-align: center;
   color: #fff;
   font-size: 1.3em;
 }
 
-.upload h1 {
-  font-size: 3em;
-  font-family: 'Prompt', sans-serif;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-input#game_picture.file.optional {
-  color: #333;
+option {
+  color: black;
 }
 
 // version 2 team 7

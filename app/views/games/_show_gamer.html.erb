@@ -1,4 +1,4 @@
-<h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
+<h2><%= @game.title %></h2>
 <div>
   <p>Made by: <%= link_to @game.user.company, user_path(User.find_by(company: @game.user.company)), class:"show-a-tag" %></p>
   <p>Date: <%= @game.created_at %></p>
@@ -12,5 +12,5 @@
   <p>Overall Rating: <%= @game.reviews.count %></p>
 </div>
 <div>
-  <%= button_to "Buy", @game.link, class:"button" %>
+  <%= button_to "Buy", @game.link, class:"btn btn-primary" %>
 </div>

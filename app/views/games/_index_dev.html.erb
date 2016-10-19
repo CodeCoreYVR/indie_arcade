@@ -1,22 +1,25 @@
 <h1 class="games-index-h1"><%= current_user.company %></h1>
 <% if @games.present? %>
-<% @games.each do |g|  %>
+<% @games.each do |game|  %>
 <div class="wrapper">
-    <div class="one"><%= display_picture g %></div>
+    <div class="one"><%= display_picture game %></div>
     <div class="two">
-        <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
-        <% g.tags.each do |t| %>
-        <span class="tag-boxes text-center">
-            <%= t.name %>
-        </span>
+        <h3><%= link_to game.title, game_path(game), class: "game-title" %></h3>
+        <% game.tags.each do |t| %>
+
+          <span class="tag-boxes text-center">
+              <%= t.name %>
+          </span>
+
         <% end %>
-            <p class="game-aasm_state" style="color: #45A056; font-weight: bold; margin-top: 15px;"><%= g.aasm_state %></p>
-        <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
-            <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
-            <%= link_to "Controller Keys", new_game_key_path(g), :class=>"btn btn-primary" %>
-            <%= link_to "Remove", game_path(g),
+        <p class="clearfix"></p>
+            <p class="game-aasm_state"><%= game.aasm_state %></p>
+        <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"><%=  link_to "Feedback", game_path(game), :class=>"btn btn-default" %>
+            <%= link_to "Update", edit_game_path(game), :class=>"btn btn-default" %>
+            <%= link_to "Controller Keys", new_game_key_path(game), :class=>"btn btn-default" %>
+            <%= link_to "Remove", game_path(game),
                                  method: :delete,
-                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
+                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-default" %></p>
         <br>
         <br>
     </div>

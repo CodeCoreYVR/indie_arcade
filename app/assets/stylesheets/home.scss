@@ -11,13 +11,6 @@
   font-weight: bold;
 }
 
-#contactbody{
-  background-image: url("contact-bg.jpg");
-  background-size: cover;
-  font-size: 18px;
-  color: white;
-}
-
 .smallerfont{
   font-size: 13px;
 }
@@ -32,11 +25,6 @@
     float:none;
     text-align:left;
     margin-right:-4px;
-}
-
-#container-medium {
-  margin: auto;
-  width: 850px;
 }
 
 #leavemess{
@@ -85,68 +73,38 @@
   font-family: Audiowide;
 }
 
-.rod-photo {
+.about-team-pic {
   width: 200px;
   height: 200px;
   margin: auto;
 }
 
-#rod1 {
-  background-image: url('rod1-cropped');
+#pic1 {
+  background-image: url('aboutteam1.jpg');
   background-size: cover;
   border-radius: 100px;
 }
 
-#rod2 {
-  background-image: url('rod2-cropped');
+#pic2 {
+  background-image: url('aboutteam2.jpg');
   background-size: cover;
   border-radius: 100px;
 }
 
-#rod3 {
-  background-image: url('rod3-cropped');
+#pic3 {
+  background-image: url('aboutteam3.jpeg');
   background-size: cover;
   border-radius: 100px;
 }
 
-#rod4 {
-  background-image: url('rod4-cropped');
+#pic4 {
+  background-image: url('aboutteam4.jpg');
   background-size: cover;
   border-radius: 100px;
 }
 
 .fa-stack a {
     color: #333;
-}
-
-// Styling for FAQ page
-#boxy{
-  background: url( asset-path('faq-bg.jpg') );
-  background-size: cover;
-  background-color: #B79E56;
-  background-attachment: fixed;
-}
-
-#question{
-  background: #0073e6;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-button.accordion {
-    background-color: #0073e6;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    padding: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */

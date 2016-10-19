@@ -1,9 +1,9 @@
-<body id="contactbody">
-  <div class="container">
-    <div id="contactheader">Contact</div>
+<div class="container">
+  <div id="contactheader">Contact</div>
 
-    <div class="row row-centered">
-      <div class="col-xs-3 col-centered">
+  <div class="row row-centered">
+    <div class="col-centered col-xs-12 col-sm-3 contact-email">
+      <div class="contact-email">
         <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
         Email
         <br>
@@ -14,47 +14,56 @@
           corporate@indiearcade.com
         </div>
       </div>
+    </div>
 
-      <div class="col-xs-3 col-centered">
+    <div class="col-centered col-xs-12 col-sm-3">
+      <div class="contact-details">
         <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
         Phone Support
         <br>
         <br>
         <div class="smallerfont">778-XXX-XXXX</div>
       </div>
+    </div>
 
-      <div class="col-xs-3 col-centered">
+    <div class="col-centered col-xs-12 col-sm-3">
+      <div class="contact-details">
         <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
         Hours of Operation
         <br>
         <br>
-          <div class="smallerfont">
+        <div class="smallerfont">
           Monday-Friday: 8:30 AM to 9:00 PM (5:30 PM Vancouver)
           <br>
           Closed: Saturday, Sunday and National Holidays
-          </div>
+        </div>
       </div>
     </div>
+  </div>
 
   <hr id= "hrcontact">
   <br>
-    <div id="leavemess">Leave a message</div>
-    <br>
-    <div id="marginend">
-      <div id="container-medium">
-        <div class="form-control1", class="form-group1">
-          <%= simple_form_for @message, url: message_home_path do |f| %>
-            <%= f.full_error :email %>
-            <%= f.full_error :content %>
-            <%= f.input :email, placeholder:"Email", label: false, :error => false %>
-            <%= f.input :content, as: :text, input_html: {rows: 10, cols: 10}, placeholder:"Message", label: false, :error => false %>
-        </div>
+  <div id="leavemess">Leave a message</div>
+  <br>
 
-        <div>
-          <%= f.button :submit%>
-        </div>
-        <% end %>
-      </div>
-  </div>
+  <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8">
+    <%= simple_form_for @message, url: message_home_path do |f| %>
+      <%= f.full_error :email %>
+      <%= f.full_error :content %>
+      <%= f.input :email,
+        placeholder: "Email",
+        label: false,
+        error: false %>
+      <%= f.input :content,
+        as: :text,
+        input_html: {rows: 10, cols: 10},
+        placeholder: "Message",
+        label: false,
+        error: false %>
+    </div>
+    <div class="col-sm-offset-3 col-sm-6">
+      <%= f.button :submit, class:'btn btn-primary btn-block'%>
+    </div>
+  <% end %>
+
 </div>
-</body>
