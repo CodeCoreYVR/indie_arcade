@@ -1,4 +1,9 @@
-<h1 class="games-index-h1">Games Requiring Review</h1>
+<h1 class="games-index-h1">Games List</h1>
+<%= form_tag(games_path, method: 'get', id: 'aasm_search') do %>
+ <%= collection_select :search_state,nil, @states, :to_s,:to_s, include_blank: true, selected: @state %>
+ <%= submit_tag "Submit", id: "search-for-status" %>
+<% end %>
+
 <% if @games.present? %>
   <% @games.each do |g|  %>
     <div class="wrapper">

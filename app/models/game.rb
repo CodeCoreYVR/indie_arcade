@@ -36,6 +36,9 @@ class Game < ApplicationRecord
           },
           query: query
         }
+      elsif type == 'state'
+        { against: { aasm_state: 'A' },
+          query: query }
       else
         {
           associated_against: { tags: :id },
@@ -72,7 +75,7 @@ class Game < ApplicationRecord
     if admin == true
       all
     elsif dev == true
-      where user_id: dev_id
+      where('user_id=? OR aasm_state=? or aasm_state=?', dev_id, 'released', 'unreleased')
     else
       where(aasm_state: %w(released unreleased))
     end
@@ -82,10 +85,6 @@ class Game < ApplicationRecord
 
   def self.search(title)
     Game.where('title ILIKE ?', "%#{title}%")
-  end
-
-  def self.approved
-    Game.where('status_id = ? OR status_id = ?', '1', '2')
   end
 
   # Usage example: @game.average_score_for :fun
