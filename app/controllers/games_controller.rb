@@ -60,7 +60,7 @@ class GamesController < ApplicationController
   end
 
   def toggle_state(game)
-    params[:commit] == 'Approve' ? game.approve : game.reject
+    params[:commit] == Game::STATE_APPROVE ? game.approve : game.reject
     game.save
     redirect_to game
   end
@@ -104,9 +104,9 @@ class GamesController < ApplicationController
   end
 
   def alter_aasm(game)
-    if params[:commit] == 'Approve'
+    if params[:commit] == Game::STATE_APPROVE
       game.approve
-    elsif params[:commit] == 'Reject'
+    elsif params[:commit] == Game::STATE_REJECT
       game.reject
     end
     game.save

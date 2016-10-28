@@ -1,5 +1,7 @@
 class Game < ApplicationRecord
   include AASM
+  STATE_APPROVE = 'approve'.freeze
+  STATE_REJECT = 'reject'.freeze
 
   aasm whine_transitions: false do
     state :under_review, initial: true
@@ -93,5 +95,9 @@ class Game < ApplicationRecord
   # Usage example: @game.average_score_for :fun
   def average_score_for(attribute)
     reviews.average(attribute).round(2) * 20
+  end
+
+  def reviews_count
+    reviews.count
   end
 end
