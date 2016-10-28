@@ -5,9 +5,11 @@ class GamesController < ApplicationController
   GAMES_PER_PAGE = 6
 
   def index
+    @states = Game.aasm.states.map(&:name)
+    @state = params[:search_state]
     @tags = Tag.all
-    @games = search(game_subset).order(desired_order)
-    @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
+    @games = search(game_subset)
+    @games = @games.page(params[:page]).per(GAMES_PER_PAGE).order(:title)
   end
 
   def show
@@ -76,8 +78,10 @@ class GamesController < ApplicationController
       subset.search_by('tags', params.require(:tag)[:tag_ids])
     elsif params[:search_main]
       subset.search_by('main', params[:search_main])
+    elsif params[:search_state]
+      subset.search_by('state', params[:search_state])
     else
-      subset.order(desired_order)
+      subset
     end
   end
 
