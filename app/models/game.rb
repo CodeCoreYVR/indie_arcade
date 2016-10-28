@@ -81,7 +81,8 @@ class Game < ApplicationRecord
     if admin == true
       all
     elsif dev == true
-      where('user_id=? OR aasm_state=? or aasm_state=?', dev_id, 'released', 'unreleased')
+      where('user_id=? OR aasm_state=? or aasm_state=?',
+            dev_id, 'released', 'unreleased')
     else
       where(aasm_state: %w(released unreleased))
     end
