@@ -9,7 +9,7 @@ class GamesController < ApplicationController
     @state = params[:search_state]
     @tags = Tag.all
     @games = search(game_subset)
-    @games = @games.page(params[:page]).per(GAMES_PER_PAGE).order(:title)
+    @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
 
   def show
