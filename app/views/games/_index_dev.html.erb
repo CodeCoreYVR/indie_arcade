@@ -5,6 +5,11 @@
     <div class="one"><%= display_picture g %></div>
     <div class="two">
         <h3 style="font-weight: bold; color: #EF7030;"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
+        <% if g.user != current_user %>
+          <p class ="gamer-details-author">made by:
+            <%= link_to g.user.company, user_path(g.user) %></p>
+            <hr style="border-color: #333;">
+          <% end %>
         <% g.tags.each do |t| %>
         <span class="tag-boxes text-center">
             <%= t.name %>
