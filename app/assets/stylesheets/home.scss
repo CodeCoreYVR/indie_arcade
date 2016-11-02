@@ -34,49 +34,36 @@
   margin-bottom: 25px;
 }
 // Styling for about page
-#about-header-image {
-  height: 400px;
-  width: 100%;
-  background-image: image-url('about-header.jpg');
-  background-repeat:no-repeat;
-  background-size: 100%;
-}
+.about {
+  &-blurb > p {
+    font-size: 1.2em;
+  }
 
-#about-text-wrapper {
-  width: 100%;
-  height: 300px;
-  display: table;
-}
+  &-team-profiles {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-around;
 
-#about-us {
-  display: table-cell;
-  vertical-align: middle;
-}
+    &> article {
+      flex-basis: 25%;
+      padding: 1rem;
 
-#about-text {
-  width: 80%;
-  margin: auto;
-  line-height: 40px;
-  text-align: center;
-}
+      display: flex;
+      flex-flow: column;
+      align-items: center;
 
-#team-background {
-  padding-bottom: 70px;
-  width: 100%;
-  background-image: image-url('noise_pattern.png');
-  text-align: center;
-}
+      h3, h4 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 
-#team-text {
-  color: #003C62;
-  padding: 50px 0;
-  font-family: Audiowide;
-}
-
-.about-team-pic {
-  width: 200px;
-  height: 200px;
-  margin: auto;
+  &-team-pic {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+  }
 }
 
 #pic1 {
