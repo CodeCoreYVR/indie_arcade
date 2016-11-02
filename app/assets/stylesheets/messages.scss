@@ -27,3 +27,16 @@
 .help-block {
   color: red;
 }
+
+@media screen and (max-width: 768px) {
+  .contact-email{
+    text-align: center;
+  }
+  .contact-details {
+    padding-top: 20px;
+    text-align: center;
+  }
+  #contact-header{
+    margin-bottom: 5px;
+  }
+}
