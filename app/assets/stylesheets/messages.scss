@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #allmess {
-  background-image: url("gungeonfirst.jpg");
+  background-image: image-url("gungeonfirst.jpg");
   background-size: cover;
   font-size: 18px;
   height: 1000px;
@@ -26,4 +26,17 @@
 
 .help-block {
   color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-email{
+    text-align: center;
+  }
+  .contact-details {
+    padding-top: 20px;
+    text-align: center;
+  }
+  #contact-header{
+    margin-bottom: 5px;
+  }
 }
