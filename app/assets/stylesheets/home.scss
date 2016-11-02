@@ -37,7 +37,7 @@
 #about-header-image {
   height: 400px;
   width: 100%;
-  background-image: url('about-header.jpg');
+  background-image: image-url('about-header.jpg');
   background-repeat:no-repeat;
   background-size: 100%;
 }
@@ -63,7 +63,7 @@
 #team-background {
   padding-bottom: 70px;
   width: 100%;
-  background-image: url('noise_pattern.png');
+  background-image: image-url('noise_pattern.png');
   text-align: center;
 }
 
@@ -80,25 +80,25 @@
 }
 
 #pic1 {
-  background-image: url('aboutteam1.jpg');
+  background-image: image-url('aboutteam1.jpg');
   background-size: cover;
   border-radius: 100px;
 }
 
 #pic2 {
-  background-image: url('aboutteam2.jpg');
+  background-image: image-url('aboutteam2.jpg');
   background-size: cover;
   border-radius: 100px;
 }
 
 #pic3 {
-  background-image: url('aboutteam3.jpeg');
+  background-image: image-url('aboutteam3.jpeg');
   background-size: cover;
   border-radius: 100px;
 }
 
 #pic4 {
-  background-image: url('aboutteam4.jpg');
+  background-image: image-url('aboutteam4.jpg');
   background-size: cover;
   border-radius: 100px;
 }

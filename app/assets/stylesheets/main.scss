@@ -88,7 +88,7 @@ a {
 
 .jumbotron{
   background: none;
-  background:  url("gradiente.png") top center no-repeat ;
+  background:  image-url("gradiente.png") top center no-repeat ;
   background-size: 100% auto;
 }
 
@@ -197,7 +197,7 @@ h1{
 .game-grid{
   padding: 30px 0 10px 0 ;
   margin-top: 10px;
-  background:  url("gradiente.png") top center no-repeat ;
+  background:  image-url("gradiente.png") top center no-repeat ;
   background-size: 100% auto;
 }
 
@@ -260,7 +260,7 @@ h1{
 }
 
 body{
-  background: #23649d url("bg.jpg") top no-repeat;
+  background: #23649d image-url("bg.jpg") top no-repeat;
   background-size: 100% auto;
 }
 

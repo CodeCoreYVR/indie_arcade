@@ -65,7 +65,7 @@ body {
     height: 300px;
     width: 100%;
     overflow: hidden;
-    background-image: url("../public/2.jpg");
+    background-image: image-url("2.jpg");
     background-size: cover;
     text-align: center;
     line-height: 23px;
@@ -91,7 +91,7 @@ body {
   height: 1000px;
   width: 100%;
   overflow: hidden;
-  background-image: url("../public/terraria.jpg");
+  background-image: image-url("terraria.jpg");
   background-size: cover;
   text-align: center;
   line-height: 23px;
