@@ -466,7 +466,6 @@ DEPENDENCIES
   capybara
   carrierwave (>= 1.0.0.beta, < 2.0)
   chosen-rails
-  coffee-rails (~> 4.2)
   compass-rails
   cowsay
   delayed_job_active_record
@@ -508,4 +507,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.1
+   1.13.5
