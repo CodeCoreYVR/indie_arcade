@@ -5,18 +5,23 @@ class GamesController < ApplicationController
   GAMES_PER_PAGE = 6
 
   def index
+    @states = Game.aasm.states.map(&:name)
+    @state = params[:search_state]
     @tags = Tag.all
-    @games = search(game_subset).order(desired_order)
+    @games = search(game_subset)
     @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
 
   def show
+    find_game
   end
 
   def update
     game = Game.find params[:id]
     if cannot? :manage, game
       redirect_to root_path
+    elsif params[:commit]
+      toggle_state(game)
     elsif game.update(game_params)
       redirect_to @game, notice: 'Game status was successfully updated.'
     else
@@ -54,6 +59,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def toggle_state(game)
+    params[:commit] == Game::STATE_APPROVE ? game.approve : game.reject
+    game.save
+    redirect_to game
+  end
+
   private
 
   def game_subset
@@ -67,8 +78,10 @@ class GamesController < ApplicationController
       subset.search_by('tags', params.require(:tag)[:tag_ids])
     elsif params[:search_main]
       subset.search_by('main', params[:search_main])
+    elsif params[:search_state]
+      subset.search_by('state', params[:search_state])
     else
-      subset.order(desired_order)
+      subset
     end
   end
 
@@ -77,10 +90,12 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:title, :cpu, :gpu, :ram, :size,
-                                 :approval_date, :status_id, :stats,
-                                 :description, :picture, :attachment,
-                                 :link, tag_ids: [])
+    params.require(:game).permit(:title, :cpu, :gpu, :ram,
+                                 :size, :approval_date,
+                                 :status_id, :stats,
+                                 :description, :picture,
+                                 :attachment, :link,
+                                 { tag_ids: [] }, :aasm_state)
   end
 
   # Used to fulfill client requests for 5 new games
@@ -88,13 +103,13 @@ class GamesController < ApplicationController
     games.limit(5).order('RANDOM()')
   end
 
-  def desired_order
-    if user_signed_in?
-      "aasm_state='Rejected',aasm_state='Game not uploaded,
-      it is not compatible with the system',aasm_state='Released to arcade',
-      aasm_state='Not released', aasm_state= 'Game under review'"
-    else
-      "aasm_state='Not released',aasm_state='Released to arcade'"
+  def alter_aasm(game)
+    if params[:commit] == Game::STATE_APPROVE
+      game.approve
+    elsif params[:commit] == Game::STATE_REJECT
+      game.reject
     end
+    game.save
+    redirect_to @game, notice: 'Game state was successfully updated.'
   end
 end
