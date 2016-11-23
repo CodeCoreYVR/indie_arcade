@@ -20,6 +20,50 @@
    </div>
   </div>
   <div class="container sentences">
+    <!--  -->
+    <h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
+
+    <p class="char1">Made by: <%= @game.user_company %></p>
+    <p>Date: <%= @game.formatted_created_at %></p>
+    <p>Type: <%= @game.type_display %></p>
+    <p>Last in Arcade: <%= @game.last_in_arcade %></p>
+    <p>Played: <%= @game.reviews_count %> times</p>
+    <p>Overall Rating: <%= @game.reviews_count %></p>
+
+    <% if ( can? :manage, :all ) ||
+          ( can? :manage, @game ) %>
+
+       <%= @game.download_button %>
+       <div class="radiolist">
+         <%= simple_form_for(@game) do |f| %>
+         <%= f.error_notification %>
+           <div>
+             <% if @game.may_approve?  %>
+             <%= f.button :submit, Game::STATE_APPROVE %>
+             <% end %>
+             <% if @game.may_reject? %>
+             <%= f.button :submit, Game::STATE_REJECT %>
+             <% end %>
+           </div>
+         <% end %>
+       </div>
+    <% end %>
+
+    <% if (can? :manage, @game ) %>
+         <div>
+           <p>Type:
+           <% @game.taggings.map do |tagging| %>
+             <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
+           <% end %>
+           </p>
+        </div>
+        <div>
+          <%= button_to "Buy", @game.link, class:"button" %>
+        </div>
+    <% end %>
+
+
+    <!--  -->
    <% if user_is_admin? %>
      <%= render "show_admin" %>
    <% elsif user_is_dev? %>

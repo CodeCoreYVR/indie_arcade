@@ -1,7 +1,7 @@
 <div class="container">
-  <h1 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;">Game Title: <%= @game.title %></h1>
-  <h3>General Ratings: <%= @game.reviews_count %> feedbacks</h3>
-  <%= link_to 'download pdf', game_review_path(@game.id), class: "orange"%> | <%= link_to 'download game', @game.attachment_url, class: "orange"%>
+  <%= button_to "Download Pdf", game_review_path(@game.id), class:"orange" %>
+  <%= button_to "Download Game", @game.attachment_url, class:"orange" %>
+
   <div style="text-align: center"><h3>Overview</h3></div>
   <h3><%= pluralize @game.reviews_count, "Plays" %></h3>
   <% if @game.reviews_count > 0 %>
@@ -30,5 +30,8 @@
     <h4>No Review Data</h4>
   <% end %>
   <a class="orange" href="#">Download crash logs</a>
-  <div class="back-btn-update"><%= link_to '<<Back', games_path %></div>
+  <div class="back-btn-update"><%= button_to "Back", games_path, class:"orange" %></div>
+
+
+
 </div>
