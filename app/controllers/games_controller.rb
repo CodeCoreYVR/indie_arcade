@@ -93,7 +93,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:title, :cpu, :gpu, :ram,
                                  :size, :approval_date,
                                  :status_id, :stats,
-                                 :description, :picture,
+                                 :description, { pictures: [] },
                                  :attachment, :link,
                                  { tag_ids: [] }, :aasm_state)
   end
