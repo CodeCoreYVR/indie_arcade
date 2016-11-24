@@ -3,25 +3,28 @@
     <% @games.each do |g|  %>
     <div class="col-md-4">
 
-        <div class="panel-result padding-zero">
+        <div class="panel-result col-md-12 padding-zero">
           <div class="">
-            <div class="img">
+            <div class="img panel-img">
               <%= display_picture g %>
             </div>
+            <div class= "overlay-btn">
+            <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
+            <%= link_to (fa_icon "gamepad"), new_game_key_path(g), :class=>"btn btn-primary" %>
+            <%= link_to (fa_icon "trash"), game_path(g),
+                                 method: :delete,
+                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %>
+            </div>
           </div>
-          <div class="">
+          <div class="col-md-12">
               <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
               <div>
                   <p class="gamer-details-author"> <span class="madeby"> made by:</span>
                       <%= link_to g.user.company, user_path(g.user) %></p>
                   <hr style="border-color: #333;">
-                  <p class="pull-left" style="margin-right:20px; margin-bottom:20px;">
-                    <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
-                    <%= link_to (fa_icon "gamepad"), new_game_key_path(g), :class=>"btn btn-primary" %>
-                    <%= link_to (fa_icon "trash"), game_path(g),
-                                         method: :delete,
-                                         data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
-                  <div class="tag-wrapper text-center padding-zero">
+                  <!-- <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"> -->
+                  <!-- </p> -->
+                  <div class="tag-wrapper text-center">
                     <% g.tags.each do |t| %>
                     <p class="tag-boxes">
                         <%= t.name %>

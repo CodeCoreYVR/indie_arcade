@@ -424,11 +424,6 @@ body{
     }
   }
 
-.panel-img{
-  width: 300px;
-  height: 300px;
-}
-
   .status{
     position: absolute;
     bottom: 0px;
@@ -453,6 +448,13 @@ body{
   	opacity: 1;
   }
 }
+ .overlay-btn{
+   float:left;
+   position: relative;
+ }
+ .panel-img{
+   position: relative;
+ }
 
 .panel-result.is-visible{
     filter: alpha(opacity=100);
