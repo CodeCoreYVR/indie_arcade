@@ -29,9 +29,11 @@
     <p>Last in Arcade: <%= @game.last_in_arcade %></p>
     <p>Played: <%= @game.reviews_count %> times</p>
     <p>Overall Rating: <%= @game.reviews_count %></p>
-    <% if ( can? :manage, :all ) ||
-          ( can? :manage, @game ) %>
 
+    <% byebug %>
+    <%# if can?(:manage, @game) %>
+    <% if user_is_admin? ||
+        ( user_is_dev? && @game.user_id == current_user.id) %>
        <%= @game.download_button %>
          <div class="radiolist">
            <%= simple_form_for(@game) do |f| %>
@@ -48,7 +50,8 @@
        </div>
     <% end %>
 
-    <% if (can? :manage, @game ) %>
+    <%# if (can? :manage, @game ) %>
+    <% if user_is_dev? && ( @game.user_id == current_user[:id]) %>
          <div>
            <p>Type:
            <% @game.taggings.map do |tagging| %>

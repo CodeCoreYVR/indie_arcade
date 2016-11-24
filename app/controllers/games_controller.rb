@@ -13,10 +13,6 @@ class GamesController < ApplicationController
   end
 
   def show
-    byebug
-    if can? :manage, @game
-      p ">>>>>> HALLLOOOOOO"
-    end
   end
 
   def update
