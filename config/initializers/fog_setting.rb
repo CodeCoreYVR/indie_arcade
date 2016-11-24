@@ -1,10 +1,9 @@
  CarrierWave.configure do |config|
-   require 'fog/aws'
     # if Rails.env.development?
     #   config.storage = :file
     #   config.enable_processing = false
     # else
-    config.storage = :fog
+    # config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
        provider:              'AWS',
@@ -12,6 +11,7 @@
        aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] || '',
        region:                'us-west-2'
      }
+     # Change folder name to s3 bucket name in production env
      config.fog_directory  = 'awesomesanswer22e'
      config.fog_public     = false                                        # optional, defaults to true
      config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
