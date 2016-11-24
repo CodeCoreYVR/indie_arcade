@@ -479,6 +479,7 @@ DEPENDENCIES
   factory_girl_rails
   faker!
   fog
+  fog-aws
   font-awesome-rails
   font-awesome-sass
   friendly_id
