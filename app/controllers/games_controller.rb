@@ -13,7 +13,10 @@ class GamesController < ApplicationController
   end
 
   def show
-    find_game
+    byebug
+    if can? :manage, @game
+      p ">>>>>> HALLLOOOOOO"
+    end
   end
 
   def update

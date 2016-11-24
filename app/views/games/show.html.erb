@@ -29,22 +29,21 @@
     <p>Last in Arcade: <%= @game.last_in_arcade %></p>
     <p>Played: <%= @game.reviews_count %> times</p>
     <p>Overall Rating: <%= @game.reviews_count %></p>
-
     <% if ( can? :manage, :all ) ||
           ( can? :manage, @game ) %>
 
        <%= @game.download_button %>
-       <div class="radiolist">
-         <%= simple_form_for(@game) do |f| %>
-         <%= f.error_notification %>
-           <div>
-             <% if @game.may_approve?  %>
-             <%= f.button :submit, Game::STATE_APPROVE %>
-             <% end %>
-             <% if @game.may_reject? %>
-             <%= f.button :submit, Game::STATE_REJECT %>
-             <% end %>
-           </div>
+         <div class="radiolist">
+           <%= simple_form_for(@game) do |f| %>
+           <%= f.error_notification %>
+             <div>
+               <% if @game.may_approve?  %>
+                 <%= f.button :submit, Game::STATE_APPROVE %>
+               <% end %>
+               <% if @game.may_reject? %>
+                 <%= f.button :submit, Game::STATE_REJECT %>
+               <% end %>
+            </div>
          <% end %>
        </div>
     <% end %>
@@ -53,23 +52,23 @@
          <div>
            <p>Type:
            <% @game.taggings.map do |tagging| %>
-             <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
+              <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
            <% end %>
            </p>
         </div>
-        <div>
-          <%= button_to "Buy", @game.link, class:"button" %>
+         <div>
+           <%= button_to "Buy", @game.link, class:"button" %>
+        </div>
+
+         <div class="container">
+          <%= button_to "Download Pdf", game_review_path(@game.id), class:"orange" %>
+          <%= button_to "Download Game", @game.attachment_url, class:"orange" %>
+
+          <a class="orange" href="#">Download crash logs</a>
+          <div class="back-btn-update"><%= button_to "Back", games_path, class:"orange" %></div>
+
         </div>
     <% end %>
 
-
-    <!--  -->
-   <% if user_is_admin? %>
-     <%= render "show_admin" %>
-   <% elsif user_is_dev? %>
-     <%= render "show_dev" %>
-   <% else %>
-     <%= render "show_gamer" %>
-   <% end %>
   </div>
 </div>
