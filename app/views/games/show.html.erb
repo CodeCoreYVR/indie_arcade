@@ -30,7 +30,6 @@
     <p>Played: <%= @game.reviews_count %> times</p>
     <p>Overall Rating: <%= @game.reviews_count %></p>
 
-    <% byebug %>
     <%# if can?(:manage, @game) %>
     <% if user_is_admin? ||
         ( user_is_dev? && @game.user_id == current_user.id) %>
@@ -66,12 +65,13 @@
          <div class="container">
           <%= button_to "Download Pdf", game_review_path(@game.id), class:"orange" %>
           <%= button_to "Download Game", @game.attachment_url, class:"orange" %>
-
-          <a class="orange" href="#">Download crash logs</a>
-          <div class="back-btn-update"><%= button_to "Back", games_path, class:"orange" %></div>
-
         </div>
     <% end %>
+
+    <div class="container">
+      <a class="orange" href="#">Download crash logs</a>
+    <div class="back-btn-update"><%= button_to "Back", games_path, class:"orange" %></div>
+
 
   </div>
 </div>
