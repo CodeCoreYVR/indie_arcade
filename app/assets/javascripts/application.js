@@ -31,10 +31,6 @@ $(document).ready(function() {
     }
   });
 
-  $('.game-search').hover(function() {
-    $('#search-wrapper').toggleClass('moved').addClass('fade-in');
-  })
-
   $('#search-bar').click(function(event){
     event.stopPropagation();
   })
