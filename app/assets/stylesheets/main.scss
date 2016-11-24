@@ -104,7 +104,7 @@ a {
    transition: all 200ms cubic-bezier(0.25, 0.39, 0.39, 2.01);
 
    &:hover{
-     transform: scale(1.05);
+
      box-shadow: 0px 25px 15px -15px rgba(0,0,0,0.3)
 
    }
@@ -282,8 +282,12 @@ body{
   }
 }
 
+.nav-btn{
+  margin-right: 10px;
+}
+
 .game-search{
-  margin: 0 12px;
+  margin: 0px 12px 0px 0px;
 }
 
 .pink{
@@ -318,17 +322,23 @@ body{
     float: right;
     }
   #search-wrapper{
+    display: inline-block;
+    width: 100%;
     float: left;
     margin-top: 11px;
     margin-right: 13px;
     margin-bottom: 0;
-    display: none;
     transition: all 1s;
     margin-bottom: 0;
     &.moved {
-      display: block;
+      display: inline-block;
     }
   }
+}
+
+.nav-search{
+  display: inline-block;
+  width: calc(100% - 25px);
 }
 
 // END NAVBAR STYLING
