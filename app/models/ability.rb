@@ -6,7 +6,6 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
 
-      byebug
       if user.admin?
         can :manage, :all
       else
@@ -14,7 +13,6 @@ class Ability
       end
 
       can :manage, Game do |game|
-        byebug
         game.user == user
       end
     #
