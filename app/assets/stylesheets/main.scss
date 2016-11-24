@@ -399,9 +399,8 @@ body{
 }
 
 // END FOOTER
-.panel-result{
+.panel-result {
   background: #92c9e1;
-  border: 1px solid white;
   border-bottom: solid 4px $pink;
   min-height: 480px;
   margin-bottom: 20px;
@@ -413,14 +412,22 @@ body{
   opacity: 0;
   @include box-shadow(-3px, 3px, 21px, rgba(#242424, 0.25));
 
-  .img{
-    border: solid 2px white;
-    margin: 19px 5px;
+  &.padding-zero {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .img {
     @include box-shadow(-3px, 3px, 21px, rgba(#242424, 0.65));
-    img{
+    img {
       width: 100%;
     }
   }
+
+.panel-img{
+  width: 300px;
+  height: 300px;
+}
 
   .status{
     position: absolute;

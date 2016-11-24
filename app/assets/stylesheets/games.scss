@@ -371,6 +371,7 @@ p.control-group {
   padding: 10px 10px;
   background: rgba(187, 213, 224, 0.65);
   overflow: hidden;
+  clear:both;
 }
 
 .tag-boxes {
@@ -442,6 +443,12 @@ option {
 .game-title {
   align-self: flex-end;
   padding-bottom: 0.2rem;
+}
+
+.game-title-header{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .grid-spacing{

@@ -1,0 +1,44 @@
+<% if @games.present? %>
+  <div class="row">
+    <% @games.each do |g|  %>
+    <div class="col-md-4">
+
+        <div class="panel-result padding-zero">
+          <div class="">
+            <div class="img">
+              <%= display_picture g %>
+            </div>
+          </div>
+          <div class="">
+              <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
+              <div>
+                  <p class="gamer-details-author"> <span class="madeby"> made by:</span>
+                      <%= link_to g.user.company, user_path(g.user) %></p>
+                  <hr style="border-color: #333;">
+                  <p class="pull-left" style="margin-right:20px; margin-bottom:20px;">
+                    <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
+                    <%= link_to (fa_icon "gamepad"), new_game_key_path(g), :class=>"btn btn-primary" %>
+                    <%= link_to (fa_icon "trash"), game_path(g),
+                                         method: :delete,
+                                         data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
+                  <div class="tag-wrapper text-center padding-zero">
+                    <% g.tags.each do |t| %>
+                    <p class="tag-boxes">
+                        <%= t.name %>
+                    </p>
+                    <% end %>
+                  </div>
+                  <% if user_signed_in? && ( current_user.admin || g.user == current_user )%>
+                    <p class="game-aasm_state" style="color: #45A056; font-weight: bold; margin-top: 15px;">
+                      <%= g.aasm_state %></p>
+                  <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h1>There are no matches for your search</h1>
+<% end %>
+<%= paginate @games %>

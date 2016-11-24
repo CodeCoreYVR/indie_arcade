@@ -6,7 +6,7 @@
 <% if @games.present? %>
   <% @games.each do |g|  %>
     <div class="wrapper">
-      <div class="one"><%= display_picture g %></div>
+      <div class="one"><%= background_path(g) %></div>
       <div class="two">
         <h2><%= link_to g.title, game_path(g), class: "game-title" %></h2>
         <div>
