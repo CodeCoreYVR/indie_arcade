@@ -1,4 +1,4 @@
-    <div id="index-bg">
+<div id="index-bg">
         <div style="width: 90%; margin: auto">
             <div class="row">
                 <div class="col-sm-4">
@@ -12,27 +12,22 @@
                                   <strong>Company:</strong>
                                   <%= @user.company %>
                               </h4>
-
                               <h4>
                                   <strong>Email:</strong>
                                   <%= @user.email %>
                               </h4>
-
                               <h4>
                                   <strong>Employees:</strong>
                                   <%= @user.employees %>
                               </h4>
-
                               <h4>
                                   <strong>Genres:</strong>
                                   <%= @user.genres %>
                               </h4>
-
                               <h4>
                                   <strong>Website:</strong>
                                   <%= @user.website %>
                               </h4>
-
                               <h4>
                                   <strong>Twitter:</strong>1
                                   <%= @user.twitter %>
@@ -42,12 +37,20 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
+                  <% if !@games.present? %>
+                  <div class="wrapper">
+                      <div class="one"><%= display_picture (nil) %>
+                      </div>
+                      <div class='two'>
+                        <h3 class='game-title'> No Games, Please Upload a Game </h3>
+                        <%= link_to 'New Game', new_game_path, class: "btn btn-default btn-lg pop btn" %>
+                      <% end %>
+                    </div>
                   <% if @games.present? %>
-                  <h1 class="games-index-h1">Games by: <%= @games.first.user.company %></h1>
+                  <h1 class="games-index-h1"></h1>
                   <% @games.each do |g|  %>
                   <div class="wrapper">
                       <div class="one"><%= display_picture g %>
-
                       </div>
                       <div class="two">
                           <h3><%= link_to g.title, game_path(g), class: "game-title" %></h3>
@@ -55,6 +58,14 @@
                               <p class="gamer-details-author">made by:
                                   <%= link_to g.user.company, user_path(g.user) %></p>
                               <hr style="border-color: #333;">
+                              <% if g.user == current_user %>
+                                  <%= link_to "Feedback", game_path(g), :class=>"btn btn-primary" %>
+                                  <%= link_to "Update", edit_game_path(g), :class=>"btn btn-primary" %>
+                                  <%= link_to "Controller Keys", new_game_key_path(g), :class=>"btn btn-primary" %>
+                                  <%= link_to "Remove", game_path(g),
+                                  method: :delete,
+                                  data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %></p>
+                              <% end %>
                               <% g.tags.each do |t| %>
                               <p class="tag-boxes">
                                   <%= t.name %>
