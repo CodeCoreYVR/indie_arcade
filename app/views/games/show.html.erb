@@ -15,7 +15,7 @@
      </ol>
      <div class="carousel-inner" role="listbox">
        <% @game.pictures.each_with_index do |picture, index| %>
-        <% url = picture.url %>
+        <% url = picture.carousel.url %>
         <% if  index == 0 %>
          <div class="item active">
            <%= image_tag url, class: "carousel-image" %>

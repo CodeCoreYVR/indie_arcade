@@ -3,7 +3,7 @@ module ApplicationHelper
     if game.pictures.length.zero?
       image_tag('fallback/default.png')
     else
-      image_tag(game.pictures[0].url)
+      image_tag(game.pictures[0].large.url)
     end
   end
 end
