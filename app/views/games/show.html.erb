@@ -50,7 +50,8 @@
     <% end %>
 
     <%# if (can? :manage, @game ) %>
-    <% if user_is_dev? && ( @game.user_id == current_user[:id]) %>
+    <% if (user_is_dev? && @game.user_id == current_user.id ) ||
+          user_is_admin? %>
          <div>
            <p>Type:
            <% @game.taggings.map do |tagging| %>
@@ -58,19 +59,23 @@
            <% end %>
            </p>
         </div>
-         <div>
-           <%= button_to "Buy", @game.link, class:"button" %>
-        </div>
 
          <div class="container">
           <%= button_to "Download Pdf", game_review_path(@game.id), class:"orange" %>
           <%= button_to "Download Game", @game.attachment_url, class:"orange" %>
+          <%= button_to "Download Crash", href="#", class:"orange" %>
+        </div>
+    <% end %>
+
+    <% if user_is_gamer? %>
+         <div>
+           <%= button_to "Buy", @game.link, class:"orange" %>
         </div>
     <% end %>
 
     <div class="container">
-      <a class="orange" href="#">Download crash logs</a>
     <div class="back-btn-update"><%= button_to "Back", games_path, class:"orange" %></div>
+   </div>
 
 
   </div>
