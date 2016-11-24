@@ -10,15 +10,7 @@
 
     <body>
         <div class="line"> </div>
-          <% if user_is_gamer? %>
             <%= render 'layouts/nav_gamer' %>
-          <% end %>
-          <% if user_is_dev? %>
-            <%= render 'layouts/nav_dev' %>
-          <% end %>
-          <% if user_is_admin? %>
-            <%= render 'layouts/nav_admin' %>
-          <% end %>
           <main class="container">
             <%= yield %>
           </main>
