@@ -16,25 +16,22 @@
                                  data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %>
             </div>
           </div>
-          <div class="col-md-12">
-              <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
+           <!-- class="tag-wrapper text-center" -->
+          <div>
+            <p class="tag-boxes">
+            <% g.tags.each do |t| %>
+                <%= t.name %>
+            <% end %>
+            </p>
+          </div>
+          <div class="col-md-12" id="padding-zero">
+              <h5 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
               <div>
-                  <p class="gamer-details-author"> <span class="madeby"> made by:</span>
-                      <%= link_to g.user.company, user_path(g.user) %></p>
-                  <hr style="border-color: #333;">
+                  <p class="gamer-details-author"> <span class="madeby"> made by:</span><br>
+                  <%= link_to g.user.company, user_path(g.user) %></p>
+                  <!-- <hr style="border-color: #333;"> -->
                   <!-- <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"> -->
                   <!-- </p> -->
-                  <div class="tag-wrapper text-center">
-                    <% g.tags.each do |t| %>
-                    <p class="tag-boxes">
-                        <%= t.name %>
-                    </p>
-                    <% end %>
-                  </div>
-                  <% if user_signed_in? && ( current_user.admin || g.user == current_user )%>
-                    <p class="game-aasm_state" style="color: #45A056; font-weight: bold; margin-top: 15px;">
-                      <%= g.aasm_state %></p>
-                  <% end %>
               </div>
           </div>
         </div>
