@@ -19,10 +19,10 @@ class GamesController < ApplicationController
     game = Game.find params[:id]
     if cannot? :manage, game
       redirect_to root_path
-    elsif params[:commit]
-      toggle_state(game)
     elsif game.update(game_params)
       redirect_to @game, notice: 'Game status was successfully updated.'
+    elsif params[:commit]
+      toggle_state(game)
     else
       render :edit
     end
