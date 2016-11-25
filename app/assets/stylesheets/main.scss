@@ -341,6 +341,14 @@ body{
   width: calc(100% - 25px);
 }
 
+#welcome-msg{
+  display:block;
+  padding: 15px;
+  color: white;
+  position: relative;
+  line-height: 20px;
+}
+
 // END NAVBAR STYLING
 
 // FOOTER
