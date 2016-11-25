@@ -5,6 +5,18 @@ class GameDecorator < Draper::Decorator
     object.reviews.count
   end
 
+  def difficulty_avg
+    object.reviews.average(:difficulty).round(1)
+  end
+
+  def fun_avg
+    object.reviews.average(:fun).round(1)
+  end
+
+  def playability_avg
+    object.reviews.average(:playability).round(1)
+  end
+
   def title
     object.title.titleize
   end

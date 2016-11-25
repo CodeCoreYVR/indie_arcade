@@ -4,7 +4,10 @@
 <p>Type: <%= @game.type_display %></p>
 <p>Last in Arcade: <%= @game.last_in_arcade %></p>
 <p>Played: <%= @game.reviews_count %> times</p>
-<p>Overall Rating: <%= @game.reviews_count %></p>
+<p>Fun Rating: <%= @game.fun_avg %></p>                                   
+<p>Difficulty Rating: <%= @game.difficulty_avg %></p>
+<p>Playability Rating: <%= @game.playability_avg %></p>
+
 <p>
   Send email to developer about the game:
 </p>
