@@ -22,24 +22,60 @@
   text-align: left;
 }
 
-.madeby{
-  background: #919da2;
-  color: #dcd7c4;
-  font-size: 10px;
-  padding: 2px 0px 2px 4px;
-  position: relative;
-  margin-right: 8px;
+.game-details-madeby{
+  position: absolute;
+  left: 0;
+  span{
+    background: #919da2;
+    color: #dcd7c4;
+    font-size: 1em;
+    padding: 0.2em 0em 0.2em 0.4em;
+    position: relative;
+    margin-right: 0.8em;
 
-  &:after{
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    right: -9px;
-    top: 0px;
-    border-style: solid;
-    border-width: 8px 0 8px 9px;
-    border-color: transparent transparent transparent #919da2;
+    &:after{
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      right: -0.95em;
+      top: 0em;
+      border-style: solid;
+      border-width: 0.8em 0 0.8em 0.95em;
+      border-color: transparent transparent transparent #919da2;
+    }
+  }
+}
+
+.game-details{
+  position: relative;
+  width: 100%;
+
+}
+
+.game-details-state{
+  position: absolute;
+  right: 0;
+  span{
+    background: #919da2;
+    text-align: right;
+    color: #dcd7c4;
+    font-size: 1em;
+    padding: 0.2em 0.4em 0.2em 0em;
+    position: relative;
+    margin-left: 0.8em;
+
+    &:after{
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: -0.95em;
+      top: 0px;
+      border-style: solid;
+      border-width: 0.8em 0.95em 0.8em 0em;
+      border-color: transparent #919da2 transparent transparent;
+    }
   }
 }
 
@@ -253,13 +289,13 @@ form#tags label {
     font-weight: normal;
 }
 
-.game-details {
-  text-align: center;
-  display: inline;
-  margin-left: 20px;
-  position: absolute;
-  top: 0;
-}
+// .game-details {
+//   text-align: center;
+//   display: inline;
+//   margin-left: 20px;
+//   position: absolute;
+//   top: 0;
+// }
 
 .wrapper {
   overflow:hidden;
@@ -380,7 +416,7 @@ p.control-group {
 // Styling game upload/edit form
 
 .tag-boxes {
-  max-height: 3.4em;
+  height: 3.4em;
   width: 100%;
   float: left;
   padding: 3px 7px;
@@ -455,7 +491,8 @@ option {
 
 .game-title-header {
   height:3.8em;
-  margin: .5em .5em 0 .5em;
+  overflow: hidden;
+  margin: .5em .5em 0.5em .5em;
   padding: 0;
   a{
     padding: 0;
@@ -568,19 +605,58 @@ option {
     opacity: 1;
     animation: Items 200ms ease-in
 }
+@media screen and (max-width: 991px){
+  .game-title-header{
+    height:auto;
+    overflow:visible;
+    font-size: 1.6em;
+  }
+  .tag-boxes{
+    font-size: 1em;
+    height: auto;
+  }
+  .game-details{
+    a{
+          font-size: 1.2em;
+    }
+  }
+  .game-details-state{
+    span{
+      font-size: 1.2em;
+      &:after{
+        left: -0.9em;
+        border-width: 0.8em 0.9em 0.8em 0em;
+      }
+    }
+  }
+  .game-details-madeby{
+    span{
+      font-size: 1.2em;
+      &:after{
+        right: -0.9em;
+        border-width: 0.8em 0 0.8em .9em;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 750px) {
   .game-title-header{
-
+    height:auto;
+    overflow:visible;
   }
 
   .footer a{
     float: none;
   }
+  .tag-boxes{
+    height: auto;
+  }
 }
 @media screen and (max-width: 400px) {
   .game-title-header {
     height:auto;
+    overflow:visible;
     margin: .5rem .5rem 0 .5rem;
     padding: 0;
     a{
@@ -588,8 +664,8 @@ option {
     }
   }
 
-  .tag-boxes {
-    max-height:none;
+  .tag-boxes{
+    height: auto;
   }
   .panel-result {
     height: auto;

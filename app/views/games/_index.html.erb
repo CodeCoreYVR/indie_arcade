@@ -25,13 +25,18 @@
             </p>
           </div>
           <div class="col-md-12" id="padding-zero">
-              <h5 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
-              <div>
-                  <p class="gamer-details-author"> <span class="madeby"> made by:</span><br>
-                  <%= link_to g.user.company, user_path(g.user) %></p>
-                  <!-- <hr style="border-color: #333;"> -->
-                  <!-- <p class="pull-left" style="margin-right:20px; margin-bottom:20px;"> -->
-                  <!-- </p> -->
+              <!-- <h5 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3> -->
+              <h5 class="game-title-header"><%= link_to "adsjhflashfalshfd oasdfb oacsndlds nhfuiaslfuyasifd ftahkgshogifdsytaffi.jfhlieuadsfnvka. suk.dhjba.iekf j,bai uwkj,a.fk", game_path(g), class: "game-title" %></h3>
+              <div class='game-details'>
+                    <div class='game-details-madeby'>
+                      <span> made by:</span>
+                    </div>
+                    <div class='game-details-state'>
+                      <span><%= " "+ g.aasm_state%></span>
+                    </div>
+                    <br>
+                    <p class="gamer-details-author">
+                    <%= link_to g.user.company, user_path(g.user) %></p>
               </div>
           </div>
         </div>
