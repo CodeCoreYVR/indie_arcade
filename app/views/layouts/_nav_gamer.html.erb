@@ -13,41 +13,52 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left">
+              <% if user_signed_in? %>
               <li>
-                <%= link_to "Games", games_path %>
+                <a>Welcome, <%= current_user.company %></a>
               </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>My Profile</a>
+                  <ul class="dropdown-menu">
+                    <% if user_is_dev? %>
+                      <li><%= link_to "Game Overview", games_path %></li>
+                      <li><%= link_to "Upload", new_game_path %></li>
+                    <% end %>
+                    <% if user_is_admin? %>
+                      <li><%= link_to "Review Games", games_path %></li>
+                      <li><%= link_to "Messages", messages_path %></li>
+                    <% end %>
+                    <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+                  </ul>
+                </li>
+              <% else %>
+
+                <li><%= link_to 'Login', '#', class: "btn btn-primary small nav-btn", data: { popup_open: "popup-1" }  %></li>
+                <div class="popup-1" data-popup="popup-1" id="popup">
+                  <div class="popup-inner">
+                    <%= render 'sessions/form' %>
+                    <p>
+                      <a data-popup-close="popup-1" href="#"></a>
+                    </p>
+                    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+                  </div>
+                </div>
+                <li><%= link_to "Register", new_user_path, class: "btn btn-primary small nav-btn pop" %></li>
+
+              <% end %>
               </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="game-search">
-                <span class="glyphicon glyphicon-search text-right fade-in" id="search"></span>
-                <%= render 'layouts/form_search' %>
-              </li>
-                <% if user_signed_in? %>
-                <li>
-                  <a>Welcome, <%= current_user.company %></a>
-                </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span>My Profile</a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Some Stuff", home_index_path %></li>
-                      <li><%= link_to "Sign Out", sessions_path, method: :delete %></li>
-                    </ul>
-                  </li>
-                <% else %>
 
-                  <li><%= link_to 'Login', '#', class: "", data: { popup_open: "popup-1" }  %></li>
-                  <div class="popup-1" data-popup="popup-1" id="popup">
-                    <div class="popup-inner">
-                      <%= render 'sessions/form' %>
-                      <p>
-                        <a data-popup-close="popup-1" href="#"></a>
-                      </p>
-                      <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
-                    </div>
-                  </div>
-                  <li><%= link_to "Register", new_user_path, class: "btn btn-primary small" %></li>
-                <% end %>
+              <li>
+                <%= link_to "Games", games_path, class: "btn btn-primary small nav-btn" %>
+              </li>
+
+                <li class="game-search text-right">
+                    <div class="nav-search"> <%= render 'layouts/form_search' %> </div>
+                    <span style="padding-left: 10px;" class="glyphicon glyphicon-search fade-in" id="search"></span>
+                </li>
+
             </ul>
         </div>
     </div>
