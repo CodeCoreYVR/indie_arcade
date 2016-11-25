@@ -8,13 +8,15 @@
             <div class="img panel-img">
               <%= display_picture g %>
             </div>
-            <div class= "overlay-btn">
-            <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
-            <%= link_to (fa_icon "gamepad"), new_game_key_path(g), :class=>"btn btn-primary" %>
-            <%= link_to (fa_icon "trash"), game_path(g),
-                                 method: :delete,
-                                 data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %>
-            </div>
+            <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
+              <div class= "overlay-btn">
+              <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
+              <%= link_to (fa_icon "gamepad"), new_game_key_path(g), :class=>"btn btn-primary" %>
+              <%= link_to (fa_icon "trash"), game_path(g),
+                                   method: :delete,
+                                   data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %>
+              </div>
+            <% end %>
           </div>
            <!-- class="tag-wrapper text-center" -->
           <div>
@@ -25,15 +27,16 @@
             </p>
           </div>
           <div class="col-md-12" id="padding-zero">
-              <!-- <h5 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3> -->
-              <h5 class="game-title-header"><%= link_to "adsjhflashfalshfd oasdfb oacsndlds nhfuiaslfuyasifd ftahkgshogifdsytaffi.jfhlieuadsfnvka. suk.dhjba.iekf j,bai uwkj,a.fk", game_path(g), class: "game-title" %></h3>
+              <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
               <div class='game-details'>
                     <div class='game-details-madeby'>
                       <span> made by:</span>
                     </div>
-                    <div class='game-details-state'>
-                      <span><%= " "+ g.aasm_state%></span>
-                    </div>
+                    <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
+                      <div class='game-details-state'>
+                        <span><%= " "+ g.aasm_state%></span>
+                      </div>
+                    <% end %>
                     <br>
                     <p class="gamer-details-author">
                     <%= link_to g.user.company, user_path(g.user) %></p>

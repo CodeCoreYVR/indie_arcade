@@ -230,7 +230,7 @@ input#search_user {
   white-space: nowrap;
   overflow: hidden;
   color: #333;
-  font-size: 12px;
+  font-size: 1.2em;
   text-decoration: none;
   margin-left: 2rem;
 }
@@ -491,6 +491,7 @@ option {
 
 .game-title-header {
   height:3.8em;
+  font-size:1.2em;
   overflow: hidden;
   margin: .5em .5em 0.5em .5em;
   padding: 0;
@@ -644,6 +645,7 @@ option {
   .game-title-header{
     height:auto;
     overflow:visible;
+    font-size: 1.6em;
   }
 
   .footer a{
@@ -657,7 +659,8 @@ option {
   .game-title-header {
     height:auto;
     overflow:visible;
-    margin: .5rem .5rem 0 .5rem;
+    font-size: 1.2em;
+    margin: .5rem .5rem 0.5rem .5rem;
     padding: 0;
     a{
       padding: 0;
@@ -676,6 +679,7 @@ option {
     overflow: auto;
   }
   .gamer-details-author a {
+    font-size: 1em;
     display: inline-block;
     white-space: normal;
     overflow: auto;
@@ -685,5 +689,14 @@ option {
     font-size: 1.2rem;
     line-height: 1.7rem;
   }
-
+  .game-details-state{
+    span{
+      font-size: 1em;
+    }
+  }
+  .game-details-madeby{
+    span{
+      font-size: 1em;
+    }
+  }
 }
