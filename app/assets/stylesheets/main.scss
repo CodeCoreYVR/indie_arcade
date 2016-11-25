@@ -449,8 +449,9 @@ body{
   }
 }
  .overlay-btn{
-   float:left;
-   position: relative;
+   position: absolute;
+   top:0;
+   width: 100%;
  }
  .panel-img{
    position: relative;
