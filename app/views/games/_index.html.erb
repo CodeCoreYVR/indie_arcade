@@ -1,4 +1,5 @@
 <% if @games.present? %>
+
   <div class="row">
     <% @games.each do |g|  %>
     <div class="col-md-4">
@@ -8,6 +9,7 @@
             <div class="img panel-img">
               <%= display_picture g %>
             </div>
+
             <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
               <div class= "overlay-btn">
               <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
@@ -17,13 +19,15 @@
                                    data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %>
               </div>
             <% end %>
+
           </div>
-           <!-- class="tag-wrapper text-center" -->
           <div>
             <p class="tag-boxes">
+
             <% g.tags.each do |t| %>
                 <%= t.name %>
             <% end %>
+
             </p>
           </div>
           <div class="col-md-12" id="padding-zero">
@@ -32,11 +36,13 @@
                     <div class='game-details-madeby'>
                       <span> made by:</span>
                     </div>
+
                     <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
                       <div class='game-details-state'>
                         <span><%= " "+ g.aasm_state%></span>
                       </div>
                     <% end %>
+
                     <br>
                     <p class="gamer-details-author">
                     <%= link_to g.user.company, user_path(g.user) %></p>
@@ -46,7 +52,9 @@
       </div>
     <% end %>
   </div>
+
 <% else %>
   <h1>There are no matches for your search</h1>
 <% end %>
+
 <%= paginate @games %>
