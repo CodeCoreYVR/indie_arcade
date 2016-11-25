@@ -10,7 +10,8 @@
   <div class="form-inputs input-for-game">
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.file_field :pictures, multiple:true %>
+    <div class="label-for-pictures">Upload Pictures/ Screenshots</div>
+    <%= f.file_field :pictures, label: "test", multiple:true %>
     <%= f.input :attachment %>
 
     <div class="label-for-tags">Tags</div>
