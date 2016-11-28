@@ -34,7 +34,7 @@
               <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
               <div class='game-details'>
                     <div class='game-details-madeby'>
-                      <span> made by:</span>
+                      <span> Made by</span>
                     </div>
 
                     <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
