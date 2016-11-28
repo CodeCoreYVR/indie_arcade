@@ -21,14 +21,10 @@
             <% end %>
 
           </div>
-          <div>
-            <p class="tag-boxes">
-
+          <div class="tag-boxes">
             <% g.tags.each do |t| %>
-                <%= t.name %>
+              <span><%= t.name %></span>
             <% end %>
-
-            </p>
           </div>
           <div class="col-md-12" id="padding-zero">
               <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
@@ -38,12 +34,12 @@
                     </div>
                     <p class="gamer-details-author">
                     <%= link_to g.user.company, user_path(g.user) %></p>
-                    <!-- <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
-                      <div class='game-details-state'>
-                        <span><%= " "+ g.aasm_state%></span>
-                      </div>
-                    <% end %> -->
               </div>
+              <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
+                <div class='game-details-state'>
+                  <span><%=g.aasm_state%></span>
+                </div>
+              <% end %>
           </div>
         </div>
       </div>

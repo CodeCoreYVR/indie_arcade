@@ -56,24 +56,12 @@
   position: absolute;
   right: 0;
   span{
-    background: #919da2;
-    text-align: right;
-    color: #dcd7c4;
+    background: #003c61;
+    color: #c9ceda;
     font-size: 1rem;
-    padding: 0.2rem 0.4rem 0.2rem 0rem;
-    position: relative;
-    margin-left: 0.8rem;
-
-    &:after{
-      content: "";
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 0px;
-      border-style: solid;
-      border-width: 0.8rem 0.95rem 0.8rem 0rem;
-      border-color: transparent #919da2 transparent transparent;
-    }
+    border-radius: .2rem;
+    padding: .3rem;
+    font-weight: bold;
   }
 }
 
@@ -395,15 +383,25 @@ p.control-group {
 // Styling game upload/edit form
 
 .tag-boxes {
-  height: 3.4rem;
+  height: 4.5rem;
+  line-height: 2.2rem;
   width: 100%;
   float: left;
-  padding: 0.5rem 0.7rem;
-  background: #003c61;
+  padding: 0.2rem 0.5rem;
+  background: #92c9e1;
   font-size: 1rem;
-  margin: 0 0 .5rem 0;
+  margin: 0;
   color: #c9ceda;
   overflow: hidden;
+  span{
+    white-space: nowrap;
+    background: #003c61;
+    color: #c9ceda;
+    font-size: 1rem;
+    border-radius: .4rem;
+    padding: .4rem .6rem;
+    font-weight: bold;
+  }
 }
 
 option {
