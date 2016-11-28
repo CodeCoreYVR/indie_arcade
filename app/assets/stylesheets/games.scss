@@ -28,20 +28,19 @@
   span{
     background: #919da2;
     color: #dcd7c4;
-    font-size: 1em;
-    padding: 0.2em 0em 0.2em 0.4em;
+    font-size: 1rem;
+    padding: 0.2rem 0rem 0.2rem 0.5rem;
     position: relative;
-    margin-right: 0.8em;
+    margin-right: 0.8rem;
 
     &:after{
       content: "";
       width: 0;
       height: 0;
       position: absolute;
-      right: -0.95em;
-      top: 0em;
+      top: 0rem;
       border-style: solid;
-      border-width: 0.8em 0 0.8em 0.95em;
+      border-width: 0.8rem 0rem 0.8rem 0.95rem;
       border-color: transparent transparent transparent #919da2;
     }
   }
@@ -60,20 +59,19 @@
     background: #919da2;
     text-align: right;
     color: #dcd7c4;
-    font-size: 1em;
-    padding: 0.2em 0.4em 0.2em 0em;
+    font-size: 1rem;
+    padding: 0.2rem 0.4rem 0.2rem 0rem;
     position: relative;
-    margin-left: 0.8em;
+    margin-left: 0.8rem;
 
     &:after{
       content: "";
       width: 0;
       height: 0;
       position: absolute;
-      left: -0.95em;
       top: 0px;
       border-style: solid;
-      border-width: 0.8em 0.95em 0.8em 0em;
+      border-width: 0.8rem 0.95rem 0.8rem 0rem;
       border-color: transparent #919da2 transparent transparent;
     }
   }
@@ -230,7 +228,7 @@ input#search_user {
   white-space: nowrap;
   overflow: hidden;
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   text-decoration: none;
   margin-left: 2rem;
 }
@@ -247,7 +245,7 @@ input#search_user {
 
 .pagination {
   margin-bottom: 40px;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: normal;
 }
 
@@ -269,23 +267,17 @@ input#search_user {
 .radio label, .checkbox label {
     text-align: left;
     color: #fff;
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
 #submit-show {
   padding-bottom: 50px;
 }
 
-p.control-group {
-  text-align: center;
-  color: white;
-  margin-top: 15px;
-}
-
 form#tags label {
     text-align: left;
     color: #333;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: normal;
 }
 
@@ -329,7 +321,6 @@ form#tags label {
 
 .game-title {
   font-weight: bold;
-  font-size: 1.2em;
   color: #003C62;
   text-align: left;
   text-transform: capitalize;
@@ -359,7 +350,7 @@ form#tags label {
 div.container.sentences {
   margin-bottom: 30px;
   margin-top: 10px;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 
@@ -401,28 +392,22 @@ div.btn {
 
 p.control-group {
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   text-align: left;
 }
 
 // Styling game upload/edit form
 
 .tag-boxes {
-  height: 3.4em;
+  height: 3.4rem;
   width: 100%;
   float: left;
-  padding: 3px 7px;
+  padding: 0.5rem 0.7rem;
   background: #003c61;
-  font-size: 10px;
-  margin: 0 0 .5em 0;
+  font-size: 1rem;
+  margin: 0 0 .5rem 0;
   color: #c9ceda;
   overflow: hidden;
-}
-
-p.control-group{
-  text-align: center;
-  color: #fff;
-  font-size: 1.3em;
 }
 
 option {
@@ -482,10 +467,10 @@ option {
 }
 
 .game-title-header {
-  height:3.8em;
-  font-size:1.2em;
+  height:3.2rem;
+  font-size:1.5rem;
   overflow: hidden;
-  margin: .5em .5em 0.5em .5em;
+  margin: .5rem .5rem 0.5rem .5rem;
   padding: 0;
   a{
     padding: 0;
@@ -601,32 +586,22 @@ option {
   .game-title-header{
     height:auto;
     overflow:visible;
-    font-size: 1.6em;
+    font-size: 30px;
   }
   .tag-boxes{
-    font-size: 1em;
+    font-size: 1rem;
     height: auto;
   }
   .game-details{
     a{
-          font-size: 1.2em;
-    }
-  }
-  .game-details-state{
-    span{
-      font-size: 1.2em;
-      &:after{
-        left: -0.9em;
-        border-width: 0.8em 0.9em 0.8em 0em;
-      }
+          font-size: 1.2rem;
     }
   }
   .game-details-madeby{
     span{
-      font-size: 1.2em;
+      font-size: 1.2rem;
       &:after{
-        right: -0.9em;
-        border-width: 0.8em 0 0.8em .9em;
+        border-width: 0.9rem 0 0.9rem .9rem;
       }
     }
   }
