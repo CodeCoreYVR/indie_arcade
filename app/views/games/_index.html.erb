@@ -36,16 +36,13 @@
                     <div class='game-details-madeby'>
                       <span> Made by</span>
                     </div>
-
-                    <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
+                    <p class="gamer-details-author">
+                    <%= link_to g.user.company, user_path(g.user) %></p>
+                    <!-- <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
                       <div class='game-details-state'>
                         <span><%= " "+ g.aasm_state%></span>
                       </div>
-                    <% end %>
-
-                    <br>
-                    <p class="gamer-details-author">
-                    <%= link_to g.user.company, user_path(g.user) %></p>
+                    <% end %> -->
               </div>
           </div>
         </div>
