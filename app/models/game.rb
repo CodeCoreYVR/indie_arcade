@@ -102,6 +102,6 @@ class Game < ApplicationRecord
   end
 
   def state
-    aasm_state.gsub("_", " ").titleize
+    aasm_state.tr('_', ' ').titleize
   end
 end
