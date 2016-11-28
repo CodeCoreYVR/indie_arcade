@@ -37,7 +37,7 @@
                     <%= link_to g.user.company, user_path(g.user) %></p>
                     <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
                       <div class='game-details-marker'>
-                        <span class="state"><%=g.aasm_state%></span>
+                        <span class="state"><%=g.state%></span>
                       </div>
                     <% end %>
               </div>

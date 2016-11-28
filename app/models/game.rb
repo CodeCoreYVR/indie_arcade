@@ -100,4 +100,8 @@ class Game < ApplicationRecord
   def reviews_count
     reviews.count
   end
+
+  def state
+    aasm_state.gsub("_", " ").titleize
+  end
 end
