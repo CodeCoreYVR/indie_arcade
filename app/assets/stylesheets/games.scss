@@ -5,6 +5,10 @@
 @import "variables";
 @import "mixins";
 
+$navy-blue: #003c61;
+$grey: #919da2;
+$offWhite: #c9ceda;
+
 #index-bg {
   width: 100%;
   min-height: 500px;
@@ -25,7 +29,7 @@
 .game-details-marker{
   position: absolute;
   span{
-    background: #919da2;
+    background: $grey;
     color: #dcd7c4;
     font-size: 1rem;
     padding: 0.2rem 0rem 0.2rem 0.5rem;
@@ -40,7 +44,7 @@
       top: 0rem;
       border-style: solid;
       border-width: 0.7rem .7rem 0.8rem 0.7rem;
-      border-color: transparent transparent transparent #919da2;
+      border-color: transparent transparent transparent $grey;
     }
   }
   .state{
@@ -56,8 +60,8 @@
 
 .game-details-state{
   span{
-    background: #003c61;
-    color: #c9ceda;
+    background: $navy-blue;
+    color: $offWhite;
     font-size: 1rem;
     border-radius: .2rem;
     padding: .3rem;
@@ -70,14 +74,13 @@
   margin-bottom: 20px;
   padding: 20px;
   padding-bottom: 20px;
-  color:#9ca3b5;
 
   form{
     margin-bottom: 20px;
   }
 
   form#tags label{
-    color:#9ca3b5;
+    color: $grey;
     border-bottom: solid 1px rgba(125, 125, 125, 0.31);
     padding: 5px 0;
     margin: 0;
@@ -196,7 +199,7 @@ input#search_user {
 }
 
 .gamer-details a {
-  color: #003C62;
+  color: $navy-blue;
   text-decoration: none;
 }
 
@@ -205,7 +208,6 @@ input#search_user {
 }
 
 .gamer-details-author{
-  color: #428bca;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -238,7 +240,7 @@ input#search_user {
     padding: 0 14px;
     line-height: 38px;
     text-decoration: none;
-    background-color: #003C62;
+    background-color: $navy-blue;
     color: #fff;
 }
 
@@ -305,7 +307,7 @@ form#tags label {
 
 .game-title {
   font-weight: bold;
-  color: #003C62;
+  color: $navy-blue;
   text-align: left;
   text-transform: capitalize;
 }
@@ -385,18 +387,13 @@ p.control-group {
 .tag-boxes {
   height: 4.5rem;
   line-height: 2.2rem;
-  width: 100%;
-  float: left;
   padding: 0.2rem 0.5rem;
-  background: #92c9e1;
   font-size: 1rem;
-  margin: 0;
-  color: #c9ceda;
   overflow: hidden;
   span{
     white-space: nowrap;
-    background: #003c61;
-    color: #c9ceda;
+    background: $navy-blue;
+    color: $offWhite;
     font-size: 1rem;
     border-radius: 0.4rem;
     padding: 0.4rem 0.6rem;
@@ -518,7 +515,6 @@ option {
   position: relative;
   filter: alpha(opacity=50);
 	opacity: 0.5;
-  color: #333;
   filter: alpha(opacity=0);
   opacity: 0;
   @include box-shadow(-3px, 3px, 21px, rgba(#242424, 0.25));
