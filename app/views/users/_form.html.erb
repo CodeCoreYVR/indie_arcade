@@ -1,15 +1,15 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
-
+  
   <div class="form-inputs register-form-control">
-    <%= f.input :company, placeholder:"Company name", label: false%>
-    <%= f.input :email, placeholder:"Email", label: false %>
-    <%= f.input :password, placeholder:"Password", label: false %>
-    <%= f.input :password_confirmation, placeholder:"Confirm password", label: false %>
-    <%= f.input :employees, placeholder:"Number of employees", label: false %>
-    <%= f.input :genres, placeholder:"Genres", label: false %>
-    <%= f.input :website, placeholder:"Website", label: false %>
-    <%= f.input :twitter, placeholder:"Twitter", label: false %>
+    <%= f.input :company, label: 'Company Name' %>
+    <%= f.input :email, label: 'Email Address' %>
+    <%= f.input :password, label: 'Password' %>
+    <%= f.input :password_confirmation, label: 'Confirm Password' %>
+    <%= f.input :employees, label: 'Number of Employees' %>
+    <%= f.input :genres, label: 'Genre' %>
+    <%= f.input :website, label: 'Website' %>
+    <%= f.input :twitter, label: 'Twitter' %>
   </div>
 
 <div class="control-group">
