@@ -1,23 +1,38 @@
 <div class ="game-show">
-   <div>
-   <div id="home-slideshow" class="carousel slide" data-ride="carousel">
-     <ol class="carousel-indicators">
-       <li data-target="#home-slideshow" data-slide-to="0" class="active"></li>
-       <li data-target="#home-slideshow" data-slide-to="1"></li>
-       <li data-target="#home-slideshow" data-slide-to="2"></li>
-     </ol>
-     <div class="carousel-inner" role="listbox">
-       <div class="item active">
-         <%= image_tag "http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/04/HLD-Header.jpg", class: "carousel-image" %>
-       </div>
-       <div class="item">
-         <%= image_tag "http://blogs-images.forbes.com/erikkain/files/2016/01/February-Indie-Games-1200x676.jpg", class: "carousel-image" %>
-       </div>
-       <div class="item">
-         <%= image_tag "http://cdn.wccftech.com/wp-content/uploads/2016/01/Deaths-Gambit.jpg", class: "carousel-image" %>
-       </div>
-     </div>
-   </div>
+  <div>
+    <div id="home-slideshow" class="carousel slide" data-ride="carousel">
+      <% if @game.pictures.length.zero? %>
+        <div class="carousel-inner" role="listbox">
+          <%= image_tag "fallback/default.png", class: "carousel-image" %>
+        </div>
+      <% else %>
+        <ol class="carousel-indicators">
+          <% @game.pictures.each_with_index do |pic, i| %>
+            <li data-target="#home-slideshow" data-slide-to= <%= "#{i}" %>
+              <% if i == 0 %>
+                class="active">
+              <% else %>
+                class="">
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <% @game.pictures.each_with_index do |picture, index| %>
+            <% url = picture.url %>
+            <% if index == 0 %>
+              <div class="item active">
+                <%= image_tag url, class: "carousel-image" %>
+              </div>
+            <% else  %>
+              <div class="item">
+                <%= image_tag url, class: "carousel-image" %>
+              </div>
+            <% end %>
+          <% end %> 
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="container sentences">
     <!--  -->

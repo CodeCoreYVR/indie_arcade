@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: 237328dbcbd5a18f5c737fb1c7e9197e8c118c31
+  specs:
+    carrierwave (1.0.0.rc)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
+GIT
   remote: git://github.com/stympy/faker.git
   revision: 2c0e655b3b8800188a72e3168d66202ae04aa0c6
   specs:
@@ -74,10 +83,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (1.0.0.beta)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
     choice (0.2.0)
     chosen-rails (1.5.2)
       coffee-rails (>= 3.2)
@@ -464,7 +469,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10)
   capybara
-  carrierwave (>= 1.0.0.beta, < 2.0)
+  carrierwave!
   chosen-rails
   compass-rails
   cowsay
@@ -474,6 +479,7 @@ DEPENDENCIES
   factory_girl_rails
   faker!
   fog
+  fog-aws
   font-awesome-rails
   font-awesome-sass
   friendly_id

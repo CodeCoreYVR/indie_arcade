@@ -1,9 +1,9 @@
 module ApplicationHelper
   def display_picture(game)
-    if game.picture.nil?
-      image_tag('app/assets/images/fallback/default.png')
+    if game.pictures.length.zero?
+      image_tag('fallback/default.png')
     else
-      image_tag(game.picture.url)
+      image_tag(game.pictures[0].url)
     end
   end
 end
