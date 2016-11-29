@@ -1,7 +1,7 @@
 <div id="index-bg">
   <div class="container">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-xs-12 col-sm-3">
         <div class="container-index-games">
           <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
             <h4 id="narrow-by-tags">Narrow by tags</h4>
@@ -23,7 +23,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-sm-9">
+      <div class="col-xs-12 col-sm-9">
           <%= render 'index' %>
       </div>
     </div>
