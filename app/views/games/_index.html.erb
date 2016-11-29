@@ -13,10 +13,10 @@
             <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
               <div class= "overlay-btn">
               <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
-              <%= link_to (fa_icon "gamepad"), new_game_key_path(g), :class=>"btn btn-primary" %>
+              <%= link_to (fa_icon "gamepad"), new_game_key_path(g), class: "btn btn-primary" %>
               <%= link_to (fa_icon "trash"), game_path(g),
                                    method: :delete,
-                                   data: {confirm: 'Are you sure?'}, :class=>"btn btn-primary" %>
+                                   data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %>
               </div>
             <% end %>
 
