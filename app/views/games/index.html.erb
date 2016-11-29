@@ -12,14 +12,15 @@
               <% end %>
             <% end %>
             </br>
-            <%= submit_tag :search, class: "btn btn-primary form-control"%>
-          <% end %>
-          <% if user_is_admin? || user_is_gamer? %>
-            <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
-              <h4> Search by studio </h4>
-              <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
-              <%= submit_tag "Submit", id: "search-for-studio" %>
+            <h4 class="search-type"> Search by studio </h4>
+            <%= text_field_tag :search_user, nil, placeholder: "developer...", class: 'form-control' %>
+            <br>
+            <% if user_is_admin? %>
+            <h4 class="search-type">Search by state</h4>
+              <%= collection_select :search_state, nil, @states, :to_s, :to_s, {include_blank: 'All States'}, {selected: @state, class: 'form-control'} %>
+              <br>
             <% end %>
+            <%= submit_tag :search, class: "btn btn-primary form-control"%>
           <% end %>
         </div>
       </div>
