@@ -12,7 +12,7 @@
         <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
         <% end %>
       </p>
-      <div class="container-fluid" style="background-color: steelblue">
+      <div class="container-fluid" style="background-color: steelblue; padding-top: 5px">
     <%# if can?(:manage, @game) %>
     <% if user_is_admin? ||
       ( user_is_dev? && @game.user_id == current_user.id) %>
