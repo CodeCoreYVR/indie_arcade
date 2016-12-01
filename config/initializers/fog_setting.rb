@@ -2,7 +2,7 @@
     if Rails.env.development?
         config.storage = :file
     else
-      config.storage = :fog
+      # config.storage = :fog
       config.fog_provider = 'fog/aws'
       config.fog_credentials = {
          provider:              'AWS',
