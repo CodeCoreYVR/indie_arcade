@@ -25,7 +25,7 @@ describe 'the login process', type: :feature do
       click_button 'Login'
     end
     expect(page).to have_content 'My Profile'
-    expect(page).to have_content "Welcome,#{user.company}"
+    expect(page).to have_content user.company
   end
 
   it 'logs in unsuccessfully' do
@@ -59,7 +59,7 @@ describe 'the signup process', type: :feature do
     end
     click_button 'Signup'
     expect(page).to have_content 'My Profile'
-    expect(page).to have_content "Welcome,#{user.company}"
+    expect(page).to have_content user.company
   end
 
   it 'signs up unsuccessfully' do

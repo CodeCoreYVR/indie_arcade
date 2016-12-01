@@ -1,7 +1,7 @@
 <div id="index-bg">
   <div class="container">
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-xs-12 col-sm-3">
         <div class="container-index-games">
           <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
             <h4 id="narrow-by-tags">Narrow by tags</h4>
@@ -17,20 +17,14 @@
           <% if user_is_admin? || user_is_gamer? %>
             <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
               <h4> Search by studio </h4>
-              <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
-              <%= submit_tag "Submit", id: "search-for-studio" %>
+              <%= text_field_tag :search_user, nil, placeholder: "developer...", id: 'studio-search' %>
+              <%= submit_tag "Submit", id: "search-for-studio", class: "btn btn-primary form-control" %>
             <% end %>
           <% end %>
         </div>
       </div>
-      <div class="col-sm-9">
-        <% if user_is_admin? %>
-          <%= render 'index_admin' %>
-        <% elsif user_is_dev? %>
-          <%= render 'index_dev' %>
-        <% else %>
-          <%= render 'index_gamer' %>
-        <% end %>
+      <div class="col-xs-12 col-sm-9">
+          <%= render 'index' %>
       </div>
     </div>
   </div>

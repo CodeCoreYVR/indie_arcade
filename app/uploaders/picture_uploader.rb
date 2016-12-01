@@ -3,7 +3,6 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    # 'public/upload/game_pictures'
   end
 
   def default_url
