@@ -5,8 +5,7 @@ class GamesController < ApplicationController
   GAMES_PER_PAGE = 6
 
   def index
-    @states = Game.aasm.states.map(&:name)
-    @state = params[:search_state]
+    @states = Game.states
     @tags = Tag.all
     @games = search(game_subset)
     @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
@@ -71,17 +70,14 @@ class GamesController < ApplicationController
   end
 
   def search(subset)
-    if params[:search_user]
-      subset.search_by('user', params[:search_user])
-    elsif params[:tag]
-      subset.search_by('tags', params.require(:tag)[:tag_ids])
-    elsif params[:search_main]
-      subset.search_by('main', params[:search_main])
-    elsif params[:search_state]
-      subset.search_by('state', params[:search_state])
-    else
-      subset
+    results = subset
+    results = results.search_by('user', params[:search_user])           if params[:search_user].present?
+    results = results.search_by('tags', params.require(:tag)[:tag_ids]) if params[:tag].present?
+    results = results.search_by('main', params[:search_main])           if params[:search_main].present?
+    if params[:search_state] && !params[:search_state].first.empty?
+      results = results.search_by('state', params[:search_state])
     end
+    results
   end
 
   def find_game

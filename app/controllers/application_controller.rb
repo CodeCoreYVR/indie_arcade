@@ -37,4 +37,5 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to root_path, alert: 'Access denied' unless can? :manage, @question
   end
+
 end
