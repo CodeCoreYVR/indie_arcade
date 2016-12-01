@@ -1,0 +1,55 @@
+<% if @games.present? %>
+
+  <div class="row">
+    <% @games.each do |g|  %>
+    <div class="col-md-4">
+
+        <div class="panel-result col-md-12 padding-zero">
+          <div class="">
+            <div class="img panel-img">
+              <%= display_picture g %>
+            </div>
+
+            <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
+              <div class= "overlay-btn">
+              <%= link_to (fa_icon "edit"), edit_game_path(g), :class=>"btn btn-primary" %>
+              <%= link_to (fa_icon "gamepad"), new_game_key_path(g), class: "btn btn-primary" %>
+              <%= link_to (fa_icon "trash"), game_path(g),
+                                   method: :delete,
+                                   data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %>
+              </div>
+            <% end %>
+
+          </div>
+          <div class="tag-boxes">
+            <% g.tags.each do |t| %>
+              <span><%= t.name %></span>
+            <% end %>
+          </div>
+          <div class="col-md-12" id="padding-zero">
+              <h3 class="game-title-header"><%= link_to g.title, game_path(g), class: "game-title" %></h3>
+
+              <div class='game-details'>
+                    <div class='game-details-marker'>
+                      <span> Made by</span>
+                    </div>
+                    <p class="gamer-details-author">
+                    <%= link_to g.user.company, user_path(g.user) %></p>
+                    <% if (user_is_admin? || user_signed_in? && g.user==current_user) %>
+                      <div class='game-details-marker'>
+                        <span class="state"><%=g.state%></span>
+                      </div>
+                    <% end %>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<% else %>
+  <h1>There are no matches for your search</h1>
+<% end %>
+
+<%= paginate @games %>

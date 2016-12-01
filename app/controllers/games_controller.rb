@@ -13,17 +13,16 @@ class GamesController < ApplicationController
   end
 
   def show
-    find_game
   end
 
   def update
     game = Game.find params[:id]
     if cannot? :manage, game
       redirect_to root_path
-    elsif params[:commit]
-      toggle_state(game)
     elsif game.update(game_params)
       redirect_to @game, notice: 'Game status was successfully updated.'
+    elsif params[:commit]
+      toggle_state(game)
     else
       render :edit
     end
@@ -93,7 +92,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:title, :cpu, :gpu, :ram,
                                  :size, :approval_date,
                                  :status_id, :stats,
-                                 :description, :picture,
+                                 :description, { pictures: [] },
                                  :attachment, :link,
                                  { tag_ids: [] }, :aasm_state)
   end

@@ -76,7 +76,7 @@ class Game < ApplicationRecord
   validates :aasm_state, presence: true
   validates :description, presence: true
 
-  mount_uploader :picture, PictureUploader
+  mount_uploaders :pictures, PictureUploader
   mount_uploader :attachment, AttachmentUploader
 
   scope(:user_data_subset, lambda do |admin, dev, dev_id|
@@ -99,5 +99,9 @@ class Game < ApplicationRecord
 
   def reviews_count
     reviews.count
+  end
+
+  def state
+    aasm_state.tr('_', ' ').titleize
   end
 end
