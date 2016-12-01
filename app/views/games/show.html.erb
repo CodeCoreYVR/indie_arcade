@@ -1,4 +1,52 @@
 <div class ="game-show">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
+    <p><%= @game.description %></p>
+    <!-- game management begins -->
+    <% if (user_is_dev? && @game.user_id == current_user.id ) ||
+      user_is_admin? %>
+      <p>Type:
+        <% @game.taggings.map do |tagging| %>
+        <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
+        <% end %>
+      </p>
+      <div class="container-fluid" style="background-color: steelblue">
+    <%# if can?(:manage, @game) %>
+    <% if user_is_admin? ||
+      ( user_is_dev? && @game.user_id == current_user.id) %>
+      <div class="radiolist">
+        <%= simple_form_for(@game) do |f| %>
+        <%= f.error_notification %>
+        <p>
+          <%= link_to "Download Game", @game.download_button, class: "btn btn-default" %>
+          <% if @game.may_approve?  %>
+          <%= f.button :submit, Game::STATE_APPROVE, value: "Approve Game" %>
+          <% end %>
+          <% if @game.may_reject? %>
+          <%= f.button :submit, Game::STATE_REJECT, value: "Reject Game" %>
+          <% end %>
+        </p>
+        <% end %>
+      </div>
+      <% end %>
+
+      <%# if (can? :manage, @game ) %>
+
+        <div>
+          <p>
+          <%= link_to "Download Pdf", game_review_path(@game.id), class:"btn btn-default" %>
+          <%= link_to "Download Game", @game.attachment_url, class:"btn btn-default" %>
+          <%= link_to "Download Crash", href="#", class:"btn btn-default" %>
+        </p>
+        </div>
+        <% end %>
+      </div>
+<!-- end of game management -->
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <!-- image carousel begins -->
   <div>
     <div id="home-slideshow" class="carousel slide" data-ride="carousel">
       <% if @game.pictures.length.zero? %>
@@ -29,14 +77,14 @@
                 <%= image_tag url, class: "carousel-image" %>
               </div>
             <% end %>
-          <% end %> 
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="container sentences">
-    <!--  -->
-    <h2 style="font-weight:bold; margin-bottom: 20px; color: #EF7030;"><%= @game.title %></h2>
+  <!-- end of image carousel -->
+  <div>
+    <!-- game stats begin -->
 
     <p class="char1">Made by: <%= @game.user_company %></p>
     <p>Date: <%= @game.formatted_created_at %></p>
@@ -44,44 +92,7 @@
     <p>Last in Arcade: <%= @game.last_in_arcade %></p>
     <p>Played: <%= @game.reviews_count %> times</p>
     <p>Overall Rating: <%= @game.reviews_count %></p>
-
-    <%# if can?(:manage, @game) %>
-    <% if user_is_admin? ||
-        ( user_is_dev? && @game.user_id == current_user.id) %>
-       <%= @game.download_button %>
-         <div class="radiolist">
-           <%= simple_form_for(@game) do |f| %>
-           <%= f.error_notification %>
-             <div>
-               <% if @game.may_approve?  %>
-                 <%= f.button :submit, Game::STATE_APPROVE %>
-               <% end %>
-               <% if @game.may_reject? %>
-                 <%= f.button :submit, Game::STATE_REJECT %>
-               <% end %>
-            </div>
-         <% end %>
-       </div>
-    <% end %>
-
-    <%# if (can? :manage, @game ) %>
-    <% if (user_is_dev? && @game.user_id == current_user.id ) ||
-          user_is_admin? %>
-         <div>
-           <p>Type:
-           <% @game.taggings.map do |tagging| %>
-              <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
-           <% end %>
-           </p>
-        </div>
-
-         <div class="container">
-          <%= button_to "Download Pdf", game_review_path(@game.id), class:"orange" %>
-          <%= button_to "Download Game", @game.attachment_url, class:"orange" %>
-          <%= button_to "Download Crash", href="#", class:"orange" %>
-        </div>
-    <% end %>
-
+<!-- end of game stats -->
     <% if user_is_gamer? %>
          <div>
            <%= button_to "Buy", @game.link, class:"orange" %>
@@ -91,7 +102,8 @@
     <div class="container">
     <!-- <div class="back-btn-update"><%= button_to "Back", games_path, class:"orange" %></div> -->
    </div>
-
+</div>
 
   </div>
+</div>
 </div>
