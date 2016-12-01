@@ -17,8 +17,8 @@
           <% if user_is_admin? || user_is_gamer? %>
             <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
               <h4> Search by studio </h4>
-              <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
-              <%= submit_tag "Submit", id: "search-for-studio" %>
+              <%= text_field_tag :search_user, nil, placeholder: "developer...", id: 'studio-search' %>
+              <%= submit_tag "Submit", id: "search-for-studio", class: "btn btn-primary form-control" %>
             <% end %>
           <% end %>
         </div>
