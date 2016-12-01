@@ -336,17 +336,18 @@ body{
   }
 }
 
-.nav-search{
+.nav-search {
   display: inline-block;
   width: calc(100% - 25px);
 }
 
-#welcome-msg{
-  display:block;
+#welcome-msg {
+  display: block;
+  width: 150px;
   padding: 15px;
   color: white;
-  position: relative;
   line-height: 20px;
+  text-overflow: ellipsis;
 }
 
 // END NAVBAR STYLING
