@@ -101,7 +101,22 @@ class Game < ApplicationRecord
     reviews.count
   end
 
+  # Create a readable string of the state for
+  # a Game object
   def state
-    aasm_state.tr('_', ' ').titleize
+    self.class.readable_state(aasm_state)
+  end
+
+  # Create a hash with state symbols and readable strings
+  # to use for the dropdown search menu on games/index.html.erb
+  def self.states
+    aasm.states.each_with_object({}) do |state, hash|
+      hash[state.name] = readable_state(state.to_s)
+    end
+  end
+
+  private_class_method
+  def self.readable_state(state)
+    state.tr('_', ' ').titleize
   end
 end
