@@ -159,18 +159,19 @@ input.search-tags-btn:hover {
   color: #fff;
 }
 
-input#search_user {
-
-  border-radius: 4px;
-  width: 160px;
-  border: 0;
-  padding-left: 5px;
+.search-type {
+  margin-bottom: 0;
 }
 
 #search-form div label {
   color: #333;
   text-align: left;
   margin-left: 20px;
+}
+
+#studio-search {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 #search-for-studio {

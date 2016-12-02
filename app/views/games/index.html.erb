@@ -3,23 +3,25 @@
     <div class="row">
       <div class="col-xs-12 col-sm-3">
         <div class="container-index-games">
-          <%= form_tag(games_path, :method => 'get', id: 'tags') do %>
+          <%= form_tag(games_path, method: :get, id: 'tags') do %>
             <h4 id="narrow-by-tags">Narrow by tags</h4>
-            <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false) do |t| %>
+            <% tagged = params[:tag].present? ? params[:tag][:tag_ids] : nil%>
+            <%= collection_check_boxes(:tag, :tag_ids, @tags, :id, :name, include_hidden: false, checked: tagged) do |t| %>
               <%= t.label class: "checkbox checkbox-primary" do %>
                 <%= t.check_box %>
                 <span style="margin-left: 35px;"><%= t.text %></span>
               <% end %>
             <% end %>
             </br>
-            <%= submit_tag :search, class: "btn btn-primary form-control"%>
-          <% end %>
-          <% if user_is_admin? || user_is_gamer? %>
-            <%= form_tag(games_path, :method => 'get', id: 'search-form') do %>
-              <h4> Search by studio </h4>
-              <%= text_field_tag :search_user, nil, placeholder: "developer..." %>
-              <%= submit_tag "Submit", id: "search-for-studio" %>
+            <h4 class="search-type"> Search by studio </h4>
+            <%= text_field_tag :search_user, params[:search_user], placeholder: "developer...", class: 'form-control' %>
+            <br>
+            <% if user_is_admin? %>
+            <h4 class="search-type">Search by status</h4>
+              <%= collection_select :search_state, nil, @states, :first, :last, {include_blank: 'All Games', selected: params[:search_state]}, {class: 'form-control'} %>
+              <br>
             <% end %>
+            <%= submit_tag :search, class: "btn btn-primary form-control"%>
           <% end %>
         </div>
       </div>
