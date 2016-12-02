@@ -106,7 +106,7 @@ class Game < ApplicationRecord
   end
 
   def self.states
-    states = aasm.states.each_with_object({}) do |state, hash|
+    aasm.states.each_with_object({}) do |state, hash|
       hash[state.name] = readable_state(state.to_s)
     end
   end

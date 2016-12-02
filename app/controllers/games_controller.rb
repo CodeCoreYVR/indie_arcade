@@ -71,9 +71,12 @@ class GamesController < ApplicationController
 
   def search(subset)
     results = subset
-    results = results.search_by('user', params[:search_user])           if params[:search_user].present?
-    results = results.search_by('tags', params.require(:tag)[:tag_ids]) if params[:tag].present?
-    results = results.search_by('main', params[:search_main])           if params[:search_main].present?
+    if params[:search_user].present?
+      results = results.search_by('user', params[:search_user])
+    end
+    if params[:tag].present?
+      results = results.search_by('tags', params.require(:tag)[:tag_ids])
+    end
     if params[:search_state] && !params[:search_state].first.empty?
       results = results.search_by('state', params[:search_state])
     end
