@@ -8,7 +8,12 @@ class GamesController < ApplicationController
     @states = Game.aasm.states.map(&:name)
     @state = params[:search_state]
     @tags = Tag.all
-    @games = search(game_subset)
+    if params[:user_id]
+      user = User.find params[:user_id]
+      @games = user.games
+    else
+      @games = search(game_subset)
+    end
     @games = @games.page(params[:page]).per(GAMES_PER_PAGE)
   end
 
