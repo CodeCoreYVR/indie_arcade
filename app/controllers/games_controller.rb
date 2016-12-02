@@ -69,8 +69,8 @@ class GamesController < ApplicationController
     Game.user_data_subset(user_is_admin?, user_is_dev?, current_user&.id)
   end
 
-  def search(subset)
-    results = subset
+  def search(games_to_search)
+    results = games_to_search
     if params[:search_user].present?
       results = results.search_by('user', params[:search_user])
     end
