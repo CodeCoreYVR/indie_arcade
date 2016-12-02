@@ -1,8 +1,5 @@
 module ApplicationHelper
 
-  def user_signed_in?
-    session[:user_id].present?
-  end
 
   def display_picture(game)
     if game&.pictures[0].nil?

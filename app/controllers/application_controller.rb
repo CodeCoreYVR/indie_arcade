@@ -52,8 +52,4 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: 'Access denied' unless can? :manage, @question
   end 
 
-  def reset_session
-      @_request.reset_session
-  end
-
 end
