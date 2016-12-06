@@ -12,7 +12,7 @@
         <%= Tag.find(tagging.tag_id).name %> &nbsp;|&nbsp;
         <% end %>
       </p>
-      <div class="container-fluid" style="background-color: steelblue; padding-top: 5px">
+      <div class="container-fluid" style="background-color: steelblue">
     <%# if can?(:manage, @game) %>
     <% if user_is_admin? ||
       ( user_is_dev? && @game.user_id == current_user.id) %>
@@ -31,7 +31,6 @@
         <% end %>
       </div>
       <% end %>
-
       <%# if (can? :manage, @game ) %>
 
         <div>
@@ -41,47 +40,44 @@
           <%= link_to "Download Crash", href="#", class:"btn btn-default" %>
         </p>
         </div>
+      </div>
         <% end %>
       </div>
 <!-- end of game management -->
-  </div>
   <div class="col-md-6 col-sm-6">
     <!-- image carousel begins -->
-  <div>
-    <div id="home-slideshow" class="carousel slide" data-ride="carousel">
-      <% if @game.pictures.length.zero? %>
-        <div class="carousel-inner" role="listbox">
-          <%= image_tag "fallback/default.png", class: "carousel-image" %>
+<div>
+  <div id="home-slideshow" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+
+      <% @game.pictures.each_with_index do |pic, i| %>
+      <li data-target="#home-slideshow" data-slide-to= <%= "#{i}" %>
+        <% if i == 0 %>
+         class="active">
+        <% else %>
+                       >
+        <% end %>
+      </li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <% @game.pictures.each_with_index do |picture, index| %>
+       <% url = picture.carousel.url %>
+       <% if  index == 0 %>
+        <div class="item active">
+          <%= image_tag url, class: "carousel-image" %>
         </div>
-      <% else %>
-        <ol class="carousel-indicators">
-          <% @game.pictures.each_with_index do |pic, i| %>
-            <li data-target="#home-slideshow" data-slide-to= <%= "#{i}" %>
-              <% if i == 0 %>
-                class="active">
-              <% else %>
-                class="">
-              <% end %>
-            </li>
-          <% end %>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <% @game.pictures.each_with_index do |picture, index| %>
-            <% url = picture.url %>
-            <% if index == 0 %>
-              <div class="item active">
-                <%= image_tag url, class: "carousel-image" %>
-              </div>
-            <% else  %>
-              <div class="item">
-                <%= image_tag url, class: "carousel-image" %>
-              </div>
-            <% end %>
-          <% end %>
+       <% else  %>
+        <div class="item">
+          <%= image_tag url, class: "carousel-image" %>
         </div>
+       <% end %>
       <% end %>
     </div>
   </div>
+
+ </div>
+
   <!-- end of image carousel -->
   <div>
     <!-- game stats begin -->
@@ -95,7 +91,7 @@
 <!-- end of game stats -->
     <% if user_is_gamer? %>
          <div>
-           <%= button_to "Buy", @game.link, class:"orange" %>
+           <%= button_to "Buy", @game.link, class:"btn btn-default" %>
         </div>
     <% end %>
 
