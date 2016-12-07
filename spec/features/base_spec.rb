@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'visiting the homepage', type: :feature do
   it 'loads the homepage' do
     visit '/'
-    expect(page).to have_content 'Got game?'
+    expect(page).to have_content 'Create Account'
     expect(page).to have_content 'Find an arcade near you'
   end
 end
@@ -34,8 +34,8 @@ describe 'the login process', type: :feature do
       fill_in 'email', with: user.email
       click_button 'Login'
     end
-    expect(page).to have_content 'Got game?'
-    expect(page).to have_content 'Find an arcade near you'
+    expect(page).to have_content 'Create Account'
+    expect(page).to have_content 'Remember me'
   end
 end
 
