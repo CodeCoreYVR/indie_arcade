@@ -1,27 +1,23 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
- 
+
   def authenticate_user
-    redirect_to new_session_path, alert: 'please sign in' unless user_signed_in?
+    redirect_to(
+      new_session_path,
+      alert: 'Please Sign In!'
+    ) unless user_signed_in?
   end
 
   def user_signed_in?
-    session[:user_id].present? && user_valid?
-  end
-
-  def user_valid?
-   if User.find_by(id: session[:user_id]).present?
-    true
-   else
-    reset_session
-    false
-   end
+    current_user.present?
   end
 
   helper_method :user_signed_in?
 
-  def current_user   
-    @current_user ||= User.find session[:user_id] if user_signed_in?
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+    clear_session_user if @current_user.nil? && session[:user_id].present?
+    @current_user
   end
   helper_method :current_user
 
@@ -50,6 +46,11 @@ class ApplicationController < ActionController::Base
 
   def authorize
     redirect_to root_path, alert: 'Access denied' unless can? :manage, @question
-  end 
+  end
 
+  private
+
+  def clear_session_user
+    session[:user_id] = nil
+  end
 end

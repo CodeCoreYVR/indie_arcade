@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
+  # test added to prevent regression
+  context 'with invalid user_id in session' do
+    render_views
+
+    it 'clears user_id from session' do
+      session[:user_id] = 8
+      get :index
+      expect(session[:user_id]).to be_nil
+    end
+  end
+
   describe '#index' do
     it 'renders the home page' do
       get :index
