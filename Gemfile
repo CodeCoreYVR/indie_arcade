@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
+
 gem 'aasm'
 gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
@@ -33,13 +35,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'sinatra', '2.0.0.beta2'
 gem 'uglifier', '>= 1.3.0'
+gem 'faker', github: 'stympy/faker'
 
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'faker', github: 'stympy/faker'
   gem 'hirb'
   gem 'pry'
   gem 'pry-rails'
