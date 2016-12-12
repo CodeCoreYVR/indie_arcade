@@ -10,7 +10,7 @@ CarrierWave.configure do |config|
      region:                'us-west-2'
    }
    # Change folder name to s3 bucket name in production env
-   config.fog_directory  = 'awesomesanswer22e'
+   config.fog_directory  = ENV['AWS_BUCKET'] || ''
    config.fog_public     = false                                        # optional, defaults to true
    config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
  end
