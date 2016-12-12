@@ -104,7 +104,7 @@ a {
    transition: all 200ms cubic-bezier(0.25, 0.39, 0.39, 2.01);
 
    &:hover{
-     transform: scale(1.05);
+
      box-shadow: 0px 25px 15px -15px rgba(0,0,0,0.3)
 
    }
@@ -282,8 +282,12 @@ body{
   }
 }
 
+.nav-btn{
+  margin-right: 10px;
+}
+
 .game-search{
-  margin: 0 12px;
+  margin: 0 12px 0 0;
 }
 
 .pink{
@@ -318,17 +322,32 @@ body{
     float: right;
     }
   #search-wrapper{
+    display: inline-block;
+    width: 100%;
     float: left;
     margin-top: 11px;
     margin-right: 13px;
     margin-bottom: 0;
-    display: none;
     transition: all 1s;
     margin-bottom: 0;
     &.moved {
-      display: block;
+      display: inline-block;
     }
   }
+}
+
+.nav-search {
+  display: inline-block;
+  width: calc(100% - 25px);
+}
+
+#welcome-msg {
+  display: block;
+  width: 150px;
+  padding: 15px;
+  color: white;
+  line-height: 20px;
+  text-overflow: ellipsis;
 }
 
 // END NAVBAR STYLING
@@ -399,56 +418,3 @@ body{
 }
 
 // END FOOTER
-.panel-result{
-  background: #92c9e1;
-  border: 1px solid white;
-  border-bottom: solid 4px $pink;
-  min-height: 480px;
-  margin-bottom: 20px;
-  position: relative;
-  filter: alpha(opacity=50);
-	opacity: 0.5;
-  color: #333;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  @include box-shadow(-3px, 3px, 21px, rgba(#242424, 0.25));
-
-  .img{
-    border: solid 2px white;
-    margin: 19px 5px;
-    @include box-shadow(-3px, 3px, 21px, rgba(#242424, 0.65));
-    img{
-      width: 100%;
-    }
-  }
-
-  .status{
-    position: absolute;
-    bottom: 0px;
-    width: 91%;
-  }
-}
-
-@keyframes Items{
-  0%{
-    filter: alpha(opacity=0);
-  	opacity: 0;
-    transform: scale(0.3) rotateY(90deg);
-  }
-
-  70%{
-    transform: scale(0.9) rotateY(90deg);
-      height: 0%;
-  }
-
-  100%{
-    filter: alpha(opacity=100);
-  	opacity: 1;
-  }
-}
-
-.panel-result.is-visible{
-    filter: alpha(opacity=100);
-    opacity: 1;
-    animation: Items 200ms ease-in
-}

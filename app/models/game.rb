@@ -76,7 +76,7 @@ class Game < ApplicationRecord
   validates :aasm_state, presence: true
   validates :description, presence: true
 
-  mount_uploader :picture, PictureUploader
+  mount_uploaders :pictures, PictureUploader
   mount_uploader :attachment, AttachmentUploader
 
   scope(:user_data_subset, lambda do |admin, dev, dev_id|
@@ -99,5 +99,24 @@ class Game < ApplicationRecord
 
   def reviews_count
     reviews.count
+  end
+
+  # Create a readable string of the state for
+  # a Game object
+  def state
+    self.class.readable_state(aasm_state)
+  end
+
+  # Create a hash with state symbols and readable strings
+  # to use for the dropdown search menu on games/index.html.erb
+  def self.states
+    aasm.states.each_with_object({}) do |state, hash|
+      hash[state.name] = readable_state(state.to_s)
+    end
+  end
+
+  private_class_method
+  def self.readable_state(state)
+    state.tr('_', ' ').titleize
   end
 end
