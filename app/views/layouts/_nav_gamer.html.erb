@@ -49,7 +49,11 @@
               <% end %>
               </ul>
             <ul class="nav navbar-nav navbar-right">
-
+              <% if user_signed_in? %>
+              <li>
+                <%= link_to "My Games", user_games_path(current_user), class: "btn btn-primary small nav-btn" %>
+              </li>
+              <% end %>
               <li>
                 <%= link_to "Games", games_path, class: "btn btn-primary small nav-btn" %>
               </li>
